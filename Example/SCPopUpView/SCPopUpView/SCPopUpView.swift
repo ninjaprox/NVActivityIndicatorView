@@ -1,6 +1,5 @@
 //
 //  SCPopUpView.swift
-//  SCPopUpView Example
 //
 //  Created by Viktor Radchenko on 6/5/14.
 //  Copyright (c) 2014 Viktor Radchenko. All rights reserved.
