@@ -3,6 +3,9 @@ SCPopUpView
 
 Animated Popup View. Swift
 
+![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/errorScreenshot.png)
+![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)
+
 ##Easy to use !
 ```swift
 SCPopUpView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCPopUpViewStyle.SCPopUpViewSuccess)
