@@ -12,6 +12,8 @@
 		CE641BB81941A22900B9C937 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE641BB61941A22900B9C937 /* Main.storyboard */; };
 		CE641BBA1941A22900B9C937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE641BB91941A22900B9C937 /* Images.xcassets */; };
 		CE641BC61941A22900B9C937 /* SCPopUpViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE641BC51941A22900B9C937 /* SCPopUpViewTests.swift */; };
+		CE641BD61941A30B00B9C937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE641BD41941A30B00B9C937 /* Assets.xcassets */; };
+		CE641BD71941A30B00B9C937 /* SCPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE641BD51941A30B00B9C937 /* SCPopUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		CE641BBF1941A22900B9C937 /* SCPopUpViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCPopUpViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE641BC41941A22900B9C937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE641BC51941A22900B9C937 /* SCPopUpViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCPopUpViewTests.swift; sourceTree = "<group>"; };
+		CE641BD41941A30B00B9C937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SCPopUpView/Assets.xcassets; sourceTree = "<group>"; };
+		CE641BD51941A30B00B9C937 /* SCPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCPopUpView.swift; path = SCPopUpView/SCPopUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		CE641BAF1941A22900B9C937 /* SCPopUpView */ = {
 			isa = PBXGroup;
 			children = (
+				CE641BD11941A25700B9C937 /* SCPopUpView */,
 				CE641BB21941A22900B9C937 /* AppDelegate.swift */,
 				CE641BB41941A22900B9C937 /* ViewController.swift */,
 				CE641BB61941A22900B9C937 /* Main.storyboard */,
@@ -107,6 +112,15 @@
 				CE641BC41941A22900B9C937 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE641BD11941A25700B9C937 /* SCPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				CE641BD51941A30B00B9C937 /* SCPopUpView.swift */,
+				CE641BD41941A30B00B9C937 /* Assets.xcassets */,
+			);
+			name = SCPopUpView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE641BB81941A22900B9C937 /* Main.storyboard in Resources */,
+				CE641BD61941A30B00B9C937 /* Assets.xcassets in Resources */,
 				CE641BBA1941A22900B9C937 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE641BD71941A30B00B9C937 /* SCPopUpView.swift in Sources */,
 				CE641BB51941A22900B9C937 /* ViewController.swift in Sources */,
 				CE641BB31941A22900B9C937 /* AppDelegate.swift in Sources */,
 			);
@@ -326,6 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SCPopUpView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -337,6 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SCPopUpView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -397,6 +415,7 @@
 				CE641BCB1941A22900B9C937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE641BCC1941A22900B9C937 /* Build configuration list for PBXNativeTarget "SCPopUpViewTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +424,7 @@
 				CE641BCE1941A22900B9C937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
