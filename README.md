@@ -4,6 +4,7 @@ SCPopUpView
 Animated Popup View. Swift
 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/errorScreenshot.png) 
+
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)
 
 ##Easy to use !
