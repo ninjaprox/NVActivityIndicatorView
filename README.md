@@ -32,4 +32,5 @@ enum SCPopUpViewStyle: Int {
 
 Has been developted initialy for [Scroll Feed](https://itunes.apple.com/us/app/scroll-feed/id842422195?ls=1&mt=8) app
 
-[hackua](https://twitter.com/hackua)
+Design [@SherzodMx](https://twitter.com/SherzodMx) Sherzod Max
+Developement [@hackua](https://twitter.com/hackua) Viktor Radchenko
