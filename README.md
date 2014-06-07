@@ -11,14 +11,14 @@ Animated Alert View. Written in Swift
 SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
 ```
 
-##Main methods :
+###Main methods :
 
 ```swift
 //initialisation with a Title and a Subtitle message
 SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
 ```
 
-Alert View types
+####Alert View types
 
 ```swift
 enum SCLAlertViewStyle: Int {
@@ -30,7 +30,7 @@ enum SCLAlertViewStyle: Int {
 }
 ```
 
-##Incoming improvements
+###Incoming improvements
 
 - More customisation
 - More animations
