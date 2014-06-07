@@ -18,7 +18,7 @@ SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, durati
 SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
 ```
 
-### Five types
+Alert View types
 
 ```swift
 enum SCLAlertViewStyle: Int {
