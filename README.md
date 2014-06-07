@@ -1,32 +1,32 @@
-SCPopUpView
+SCLAlertView
 ===========
 
-Animated Popup View(Alert View). Written in Swift
+Animated Popup Aler View. Written in Swift
 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/errorScreenshot.png)_ 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)
 
 ##Easy to use !
 ```swift
-SCPopUpView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCPopUpViewStyle.SCPopUpViewSuccess)
+SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
 ```
 
 Main methods :
 
 ```swift
 //initialisation with a Title and a Subtitle message
-SCPopUpView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCPopUpViewStyle.SCPopUpViewSuccess)
+SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
 ```
 
 Four types of popup views (for now)
 
 ```swift
-enum SCPopUpViewStyle: Int {
-    case SCPopUpViewSuccess
-    case SCPopUpViewError
-    case SCPopUpViewNotice
-    case SCPopUpViewWarning
-    case SCPopUpViewInfo
+enum SCLAlertViewStyle: Int {
+    case Success
+    case Error
+    case Notice
+    case Warning
+    case Info
 }
 ```
 
