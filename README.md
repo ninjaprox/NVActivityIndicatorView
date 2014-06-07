@@ -18,7 +18,7 @@ Main methods :
 SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
 ```
 
-Four types of popup views (for now)
+Five types of popup views (for now)
 
 ```swift
 enum SCLAlertViewStyle: Int {
