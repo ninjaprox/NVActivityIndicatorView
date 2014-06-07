@@ -1,7 +1,7 @@
 SCLAlertView
 ===========
 
-Animated Popup Aler View. Written in Swift
+Animated Alert View. Written in Swift
 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/errorScreenshot.png)_ 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)
