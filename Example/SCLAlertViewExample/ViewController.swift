@@ -32,22 +32,22 @@ class ViewController: UIViewController {
     
     @IBAction func showSuccess(sender : AnyObject) {
         
-        SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.SCLAlertViewSuccess)
+        SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
     }
     
     @IBAction func showError(sender : AnyObject) {
-        SCLAlertView().showTitle(self, title: kErrorTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.SCLAlertViewError)
+        SCLAlertView().showTitle(self, title: kErrorTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Error)
     }
     
     @IBAction func showNotice(sender : AnyObject) {
-        SCLAlertView().showTitle(self, title: kNoticeTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.SCLAlertViewNotice)
+        SCLAlertView().showTitle(self, title: kNoticeTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Notice)
     }
     
     @IBAction func showWarning(sender : AnyObject) {
-        SCLAlertView().showTitle(self, title: kWarningTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.SCLAlertViewWarning)
+        SCLAlertView().showTitle(self, title: kWarningTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Warning)
     }
     
     @IBAction func showInfo(sender : AnyObject) {
-        SCLAlertView().showTitle(self, title: kInfoTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.SCLAlertViewInfo)
+        SCLAlertView().showTitle(self, title: kInfoTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Info)
     }
 }
