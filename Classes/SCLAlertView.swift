@@ -11,11 +11,11 @@ import UIKit
 
 // Pop Up Styles
 enum SCLAlertViewStyle: Int {
-    case SCLAlertViewSuccess
-    case SCLAlertViewError
-    case SCLAlertViewNotice
-    case SCLAlertViewWarning
-    case SCLAlertViewInfo
+    case Success
+    case Error
+    case Notice
+    case Warning
+    case Info
 }
 
 class SCLAlertView : UIView {
@@ -111,25 +111,25 @@ class SCLAlertView : UIView {
         var iconImageName: NSString = ""
         
         switch(style) {
-            case SCLAlertViewStyle.SCLAlertViewSuccess:
+            case SCLAlertViewStyle.Success:
                 viewColor = UIColorFromRGB(0x22B573);
                 iconImageName = "notification-success"
             
-            case SCLAlertViewStyle.SCLAlertViewError:
+            case SCLAlertViewStyle.Error:
                 viewColor = UIColorFromRGB(0xC1272D);
                 iconImageName = "notification-error"
             
-            case SCLAlertViewStyle.SCLAlertViewNotice:
+            case SCLAlertViewStyle.Notice:
             
                 viewColor = UIColorFromRGB(0x727375)
                 iconImageName = "notification-notice"
             
-            case SCLAlertViewStyle.SCLAlertViewWarning:
+            case SCLAlertViewStyle.Warning:
             
                 viewColor = UIColorFromRGB(0xFFD110);
                 iconImageName = "notification-warning"
             
-            case SCLAlertViewStyle.SCLAlertViewInfo:
+            case SCLAlertViewStyle.Info:
             
                 viewColor = UIColorFromRGB(0x2866BF);
                 iconImageName = "notification-info"
