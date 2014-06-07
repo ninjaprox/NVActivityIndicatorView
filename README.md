@@ -11,14 +11,14 @@ Animated Alert View. Written in Swift
 SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
 ```
 
-Main methods :
+##Main methods :
 
 ```swift
 //initialisation with a Title and a Subtitle message
 SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
 ```
 
-Five types of popup views (for now)
+### Five types of popup views (for now)
 
 ```swift
 enum SCLAlertViewStyle: Int {
@@ -29,6 +29,13 @@ enum SCLAlertViewStyle: Int {
     case Info
 }
 ```
+
+##Incoming improvements
+
+- More customisation
+- More animations
+- Blocks
+- Performances
 
 Has been developted initialy for [Scroll Feed](https://itunes.apple.com/us/app/scroll-feed/id842422195?ls=1&mt=8) app
 
