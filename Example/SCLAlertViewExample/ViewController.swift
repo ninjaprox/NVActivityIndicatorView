@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kSuccessTitle: NSString = "Congratulation"
+let kSuccessTitle: NSString = "Congratulations"
 let kErrorTitle: NSString = "Connection error"
 let kNoticeTitle: NSString = "Notice"
 let kWarningTitle: NSString = "Warning"
