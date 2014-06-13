@@ -6,20 +6,35 @@ Animated Alert View. Written in Swift
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/errorScreenshot.png)_ 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)
 
-##Easy to use !
+
+###Easy to use
 ```swift
-SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
+// Get started
+let alertview : SCLAlertViewResponder = SCLAlertView().showSuccess(self, title: "Hello World", subTitle: "This is a more descriptive text.")
+
+// Upon displaying, change/close view
+alertview.setTitle("New Title") // Rename title
+alertview.setSubTitle("New description") // Rename subtitle
+alertview.Close() // Close view
+
+// Alternative alert types
+SCLAlertView().showError(self, title: "Hello World", subTitle: "This is a more descriptive text.") // Error
+SCLAlertView().showNotice(self, title: "Hello World", subTitle: "This is a more descriptive text.") // Notice
+SCLAlertView().showWarning(self, title: "Hello World", subTitle: "This is a more descriptive text.") // Warning
+SCLAlertView().showInfo(self, title: "Hello World", subTitle: "This is a more descriptive text.") // Info
+
+// Advanced
+SCLAlertView().showTitle(
+    view: self, // Parent view controller
+    title: String, // Title of view
+    subTitle: String, // String of view
+    duration: kDefaultAnimationDuration, // Duration to show before closing automatically, default: 2.0
+    completeText: String?, // Optional button value, default: ""
+    style: SCLAlertViewStyle.Success // Styles - see below.
+)
 ```
 
-###Main methods :
-
-```swift
-//initialisation with a Title and a Subtitle message
-SCLAlertView().showTitle(self, title: kSuccessTitle, subTitle: kSubtitle, duration: kDefaultAnimationDuration, style: SCLAlertViewStyle.Success)
-```
-
-####Alert View types
-
+####Alert View Styles
 ```swift
 enum SCLAlertViewStyle: Int {
     case Success
@@ -39,13 +54,13 @@ To install add the following line to your Podfile:
     pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git'
 
 ###Incoming improvements
-
-- More customisation
+- Add to [Cocoapods](http://cocoapods.org)
 - More animations
 - Blocks
-- Performances
+- Performance tests
 
-Has been developted initialy for [Scroll Feed](https://itunes.apple.com/us/app/scroll-feed/id842422195?ls=1&mt=8) app
+Has been developed initially for the [Scroll Feed](https://itunes.apple.com/us/app/scroll-feed/id842422195?ls=1&mt=8) app
 
 - Design [@SherzodMx](https://twitter.com/SherzodMx) Sherzod Max
-- Developement [@hackua](https://twitter.com/hackua) Viktor Radchenko
+- Development [@hackua](https://twitter.com/hackua) Viktor Radchenko
+- Improvements by [@bih](http://github.com/bih) Bilawal Hameed
