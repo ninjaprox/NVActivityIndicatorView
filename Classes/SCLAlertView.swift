@@ -221,9 +221,7 @@ class SCLAlertView : UIView {
         // Animate in the alert view
         UIView.animateWithDuration(0.2, animations: {
             self.shadowView.alpha = self.kDefaultShadowOpacity
-            var frame:CGRect = self.frame;
-            frame.origin.y = self.rootViewController.view.center.y - 100;
-            self.frame = frame;
+            self.frame.origin.y = self.rootViewController.view.center.y - 100;
             self.alpha = 1;
         }, completion: { finished in
             UIView.animateWithDuration(0.2, animations: {
