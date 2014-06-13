@@ -20,8 +20,7 @@ Pod::Spec.new do |s|
   s.summary      = "Beautiful Alert View. Written in Swift"
 
   s.description  = <<-DESC
-                   Beautiful Alert View. Written in Swift
-
+                   Beautiful animated Alert View. Written in Swift
                    DESC
 
   s.homepage     = "https://github.com/vikmeup/SCLAlertView-Swift"
@@ -85,7 +84,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/*.{swift}", "Classes/Assets.xcassets"
+  s.source_files  = "Classes/", "Classes/SCLAlertView.swift", "Classes/Assets.xcassets"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -110,7 +109,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
+  s.framework  = "QuartzCore"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
