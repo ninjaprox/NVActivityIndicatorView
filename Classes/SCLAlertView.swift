@@ -20,7 +20,7 @@ enum SCLAlertViewStyle: Int {
 
 // Allow alerts to be closed/renamed in a chainable manner
 // Example: SCLAlertView().showSuccess(self, title: "Test", subTitle: "Value").Close()
-class SCLAlertViewClose {
+class SCLAlertViewResponder {
     let alertview: SCLAlertView
     
     // Initialisation and Title/Subtitle/Close functions
@@ -116,37 +116,37 @@ class SCLAlertView : UIView {
     }
     
     // showTitle(view, title, subTitle, style)
-    func showTitle(view: UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle) -> SCLAlertViewClose {
+    func showTitle(view: UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
         return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: style)
     }
     
     // showSuccess(view, title, subTitle)
-    func showSuccess(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewClose {
+    func showSuccess(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
         return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Success);
     }
     
     // showError(view, title, subTitle)
-    func showError(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewClose {
+    func showError(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
         return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Error);
     }
     
     // showNotice(view, title, subTitle)
-    func showNotice(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewClose {
+    func showNotice(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
         return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Notice);
     }
     
     // showWarning(view, title, subTitle)
-    func showWarning(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewClose {
+    func showWarning(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
         return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Warning);
     }
     
     // showInfo(view, title, subTitle)
-    func showInfo(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewClose {
+    func showInfo(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
         return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Info);
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    func showTitle(view:UIViewController, title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewClose {
+    func showTitle(view:UIViewController, title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
         self.alpha = 0;
         self.rootViewController = view
         self.rootViewController.view.addSubview(self.shadowView)
@@ -222,7 +222,7 @@ class SCLAlertView : UIView {
         })
         
         // Chainable objects
-        return SCLAlertViewClose(alertview: self)
+        return SCLAlertViewResponder(alertview: self)
     }
     
     // When click 'Done' button, hide view.
