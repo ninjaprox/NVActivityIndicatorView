@@ -34,6 +34,8 @@ class SCLAlertViewClose {
 class SCLAlertView : UIView {
     let kDefaultShadowOpacity: CGFloat = 0.7;
     let kCircleHeight: CGFloat = 56.0;
+    let kCircleTopPosition: CGFloat = -12; // Should not be defined here. Make it dynamic
+    let kCircleBackgroundTopPosition: CGFloat = -15; // Should not be defined here. Make it dynamic
     let kCircleHeightBackground: CGFloat = 62.0;
     let kCircleIconHeight: CGFloat = 20.0;
     let kWindowWidth: CGFloat = 240.0;
@@ -48,6 +50,7 @@ class SCLAlertView : UIView {
     var shadowView: UIView
     var contentView: UIView
     var circleView: UIView
+    var circleViewBackground: UIView
     var circleIconImageView: UIImageView
     var doneButton: UIButton
     var rootViewController: UIViewController
@@ -62,8 +65,14 @@ class SCLAlertView : UIView {
         self.contentView.layer.borderWidth = 0.5;
         
         // Circle View
-        self.circleView = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeight / 2, 2, kCircleHeight, kCircleHeight))
+        self.circleView = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeight / 2, kCircleTopPosition, kCircleHeight, kCircleHeight))
         self.circleView.layer.cornerRadius =  self.circleView.frame.size.height / 2;
+        
+        // Circle View Background
+        
+        self.circleViewBackground = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeightBackground / 2, kCircleBackgroundTopPosition, kCircleHeightBackground, kCircleHeightBackground))
+        self.circleViewBackground.layer.cornerRadius =  self.circleViewBackground.frame.size.height / 2;
+        self.circleViewBackground.backgroundColor = UIColor.whiteColor()
         
         // Circle View Image
         self.circleIconImageView = UIImageView(frame: CGRectMake(kCircleHeight / 2 - kCircleIconHeight / 2, kCircleHeight / 2 - kCircleIconHeight / 2, kCircleIconHeight, kCircleIconHeight))
@@ -103,6 +112,7 @@ class SCLAlertView : UIView {
         
         // Show notice on screen
         self.addSubview(self.contentView)
+        self.addSubview(self.circleViewBackground)
         self.addSubview(self.circleView)
         
         // Colours
@@ -205,7 +215,7 @@ class SCLAlertView : UIView {
         // Adding duration
         if (duration != nil && duration > 0) {
             durationTimer?.invalidate()
-            durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: Selector("hideView"), userInfo: nil, repeats: false)
+            durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration!, target: self, selector: Selector("hideView"), userInfo: nil, repeats: false)
         }
         
         // Animate in the alert view
