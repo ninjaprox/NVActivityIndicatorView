@@ -51,7 +51,7 @@ SCLAlertView is not yet available through [CocoaPods](http://cocoapods.org).
 
 To install add the following line to your Podfile:
 
-    pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git'
+    pod 'SCLAlertView'
 
 ###Incoming improvements
 - Add to [Cocoapods](http://cocoapods.org)
