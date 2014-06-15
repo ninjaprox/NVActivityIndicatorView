@@ -48,14 +48,13 @@ enum SCLAlertViewStyle: Int {
 
 ### Installation
 
-SCLAlertView is not yet available through [CocoaPods](http://cocoapods.org).
+SCLAlertView is available through [CocoaPods](http://cocoapods.org).
 
 To install add the following line to your Podfile:
 
     pod 'SCLAlertView'
 
 ###Incoming improvements
-- Add to [Cocoapods](http://cocoapods.org)
 - More animations
 - Blocks
 - Performance tests
