@@ -54,6 +54,9 @@ To install add the following line to your Podfile:
 
     pod 'SCLAlertView'
 
+### Collaboration
+I tried to build an easy to use API, while beeing flexible enough for multiple variations, but I'm sure there are ways of improving and adding more features, so feel free to collaborate with ideas, issues and/or pull requests.
+
 ###Incoming improvements
 - More animations
 - Blocks
