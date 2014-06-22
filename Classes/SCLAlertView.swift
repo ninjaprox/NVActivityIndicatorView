@@ -54,35 +54,35 @@ class SCLAlertView: UIView {
     
     init () {
         // Content View
-        self.contentView = UIView(frame: CGRectMake(0, kCircleHeight / 4, kWindowWidth, kWindowHeight))
+        self.contentView = UIView(frame: CGRect(x: 0, y: kCircleHeight / 4, width: kWindowWidth, height: kWindowHeight))
         self.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
         self.contentView.layer.cornerRadius = 5
         self.contentView.layer.masksToBounds = true
         self.contentView.layer.borderWidth = 0.5
         
         // Circle View
-        self.circleView = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeight / 2, kCircleTopPosition, kCircleHeight, kCircleHeight))
+        self.circleView = UIView(frame: CGRect(x: kWindowWidth / 2 - kCircleHeight / 2, y: kCircleTopPosition, width: kCircleHeight, height: kCircleHeight))
         self.circleView.layer.cornerRadius = self.circleView.frame.size.height / 2
         
         // Circle View Background
         
-        self.circleViewBackground = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeightBackground / 2, kCircleBackgroundTopPosition, kCircleHeightBackground, kCircleHeightBackground))
+        self.circleViewBackground = UIView(frame: CGRect(x: kWindowWidth / 2 - kCircleHeightBackground / 2, y: kCircleBackgroundTopPosition, width: kCircleHeightBackground, height: kCircleHeightBackground))
         self.circleViewBackground.layer.cornerRadius = self.circleViewBackground.frame.size.height / 2
         self.circleViewBackground.backgroundColor = UIColor.whiteColor()
         
         // Circle View Image
-        self.circleIconImageView = UIImageView(frame: CGRectMake(kCircleHeight / 2 - kCircleIconHeight / 2, kCircleHeight / 2 - kCircleIconHeight / 2, kCircleIconHeight, kCircleIconHeight))
+        self.circleIconImageView = UIImageView(frame: CGRect(x: kCircleHeight / 2 - kCircleIconHeight / 2, y: kCircleHeight / 2 - kCircleIconHeight / 2, width: kCircleIconHeight, height: kCircleIconHeight))
         self.circleView.addSubview(self.circleIconImageView)
         
         // Title
-        self.labelView = UILabel(frame: CGRectMake(12, kCircleHeight / 2 + 22, kWindowWidth - 24, 40))
+        self.labelView = UILabel(frame: CGRect(x: 12, y: kCircleHeight / 2 + 22, width: kWindowWidth - 24, height: 40))
         self.labelView.numberOfLines = 1
         self.labelView.textAlignment = NSTextAlignment.Center
         self.labelView.font = UIFont(name: kDefaultFont, size: 20)
         self.contentView.addSubview(self.labelView)
         
         // Subtitle
-        self.labelViewDescription = UILabel(frame: CGRectMake(12, 84, kWindowWidth - 24, 80))
+        self.labelViewDescription = UILabel(frame: CGRect(x: 12, y: 84, width: kWindowWidth - 24, height: 80))
         self.labelViewDescription.numberOfLines = 3
         self.labelViewDescription.textAlignment = NSTextAlignment.Center
         self.labelViewDescription.font = UIFont(name: kDefaultFont, size: 14)
@@ -93,7 +93,7 @@ class SCLAlertView: UIView {
         self.shadowView.backgroundColor = UIColor.blackColor()
         
         // Done Button
-        self.doneButton = UIButton(frame: CGRectMake(12, kWindowHeight - 52, kWindowWidth - 24, 40))
+        self.doneButton = UIButton(frame: CGRect(x: 12, y: kWindowHeight - 52, width: kWindowWidth - 24, height: 40))
         self.doneButton.layer.cornerRadius = 3
         self.doneButton.layer.masksToBounds = true
         self.doneButton.setTitle("Done", forState: UIControlState.Normal)
@@ -104,7 +104,7 @@ class SCLAlertView: UIView {
         self.rootViewController = UIViewController()
         
         // Superclass initiation
-        super.init(frame: CGRectMake(((320 - kWindowWidth) / 2), 0 - kWindowHeight, kWindowWidth, kWindowHeight))
+        super.init(frame: CGRect(x: (320 - kWindowWidth) / 2, y: 0 - kWindowHeight, width: kWindowWidth, height: kWindowHeight))
         
         // Show notice on screen
         self.addSubview(self.contentView)
