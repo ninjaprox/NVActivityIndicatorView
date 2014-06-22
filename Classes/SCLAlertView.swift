@@ -10,12 +10,8 @@ import Foundation
 import UIKit
 
 // Pop Up Styles
-enum SCLAlertViewStyle: Int {
-    case Success
-    case Error
-    case Notice
-    case Warning
-    case Info
+enum SCLAlertViewStyle {
+    case Success, Error, Notice, Warning, Info
 }
 
 // Allow alerts to be closed/renamed in a chainable manner
