@@ -169,23 +169,23 @@ class SCLAlertView : UIView {
         
         // Icon style
         switch(style) {
-            case SCLAlertViewStyle.Success:
+            case .Success:
                 viewColor = UIColorFromRGB(0x22B573)
                 iconImageName = "notification-success"
             
-            case SCLAlertViewStyle.Error:
+            case .Error:
                 viewColor = UIColorFromRGB(0xC1272D)
                 iconImageName = "notification-error"
             
-            case SCLAlertViewStyle.Notice:
+            case .Notice:
                 viewColor = UIColorFromRGB(0x727375)
                 iconImageName = "notification-notice"
             
-            case SCLAlertViewStyle.Warning:
+            case .Warning:
                 viewColor = UIColorFromRGB(0xFFD110)
                 iconImageName = "notification-warning"
             
-            case SCLAlertViewStyle.Info:
+            case .Info:
                 viewColor = UIColorFromRGB(0x2866BF)
                 iconImageName = "notification-info"
             
