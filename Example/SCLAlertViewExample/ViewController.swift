@@ -30,24 +30,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func showSuccess(sender : AnyObject) {
+    @IBAction func showSuccess(sender: AnyObject) {
         SCLAlertView().showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle)
         // SCLAlertView().showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle).close()
     }
     
-    @IBAction func showError(sender : AnyObject) {
+    @IBAction func showError(sender: AnyObject) {
         SCLAlertView().showError(self, title: kSuccessTitle, subTitle: kSubtitle)
     }
     
-    @IBAction func showNotice(sender : AnyObject) {
+    @IBAction func showNotice(sender: AnyObject) {
         SCLAlertView().showNotice(self, title: kSuccessTitle, subTitle: kSubtitle)
     }
     
-    @IBAction func showWarning(sender : AnyObject) {
+    @IBAction func showWarning(sender: AnyObject) {
         SCLAlertView().showWarning(self, title: kSuccessTitle, subTitle: kSubtitle)
     }
     
-    @IBAction func showInfo(sender : AnyObject) {
+    @IBAction func showInfo(sender: AnyObject) {
         SCLAlertView().showInfo(self, title: kSuccessTitle, subTitle: kSubtitle)
     }
 }

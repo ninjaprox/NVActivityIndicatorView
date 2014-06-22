@@ -96,7 +96,7 @@ class SCLAlertView: UIView {
         self.doneButton = UIButton(frame: CGRect(x: 12, y: kWindowHeight - 52, width: kWindowWidth - 24, height: 40))
         self.doneButton.layer.cornerRadius = 3
         self.doneButton.layer.masksToBounds = true
-        self.doneButton.setTitle("Done", forState: UIControlState.Normal)
+        self.doneButton.setTitle("Done", forState: .Normal)
         self.doneButton.titleLabel.font = UIFont(name: kDefaultFont, size: 14)
         self.contentView.addSubview(self.doneButton)
         
@@ -118,7 +118,7 @@ class SCLAlertView: UIView {
         self.contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
         
         // On complete.
-        self.doneButton.addTarget(self, action: Selector("doneButtonAction"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.doneButton.addTarget(self, action: Selector("doneButtonAction"), forControlEvents: .TouchUpInside)
     }
     
     // showTitle(view, title, subTitle, style)
@@ -128,27 +128,27 @@ class SCLAlertView: UIView {
     
     // showSuccess(view, title, subTitle)
     func showSuccess(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Success)
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Success)
     }
     
     // showError(view, title, subTitle)
     func showError(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Error)
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Error)
     }
     
     // showNotice(view, title, subTitle)
     func showNotice(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Notice)
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Notice)
     }
     
     // showWarning(view, title, subTitle)
     func showWarning(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Warning)
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Warning)
     }
     
     // showInfo(view, title, subTitle)
     func showInfo(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Info)
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Info)
     }
     
     // showTitle(view, title, subTitle, duration, style)
@@ -159,16 +159,16 @@ class SCLAlertView: UIView {
         self.rootViewController.view.addSubview(self)
         
         // Complete text
-        if(completeText != nil) {
-            self.doneButton.setTitle(completeText, forState: UIControlState.Normal)
+        if completeText {
+            self.doneButton.setTitle(completeText!, forState: .Normal)
         }
         
         // Alert colour/icon
-        var viewColor: UIColor = UIColor()
+        var viewColor = UIColor()
         var iconImageName: NSString = ""
         
         // Icon style
-        switch(style) {
+        switch style {
         case .Success:
             viewColor = UIColorFromRGB(0x22B573)
             iconImageName = "notification-success"
