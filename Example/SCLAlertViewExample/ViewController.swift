@@ -8,12 +8,12 @@
 
 import UIKit
 
-let kSuccessTitle: NSString = "Congratulations"
-let kErrorTitle: NSString = "Connection error"
-let kNoticeTitle: NSString = "Notice"
-let kWarningTitle: NSString = "Warning"
-let kInfoTitle: NSString = "Info"
-let kSubtitle: NSString = "You've just displayed this awesome Pop Up View"
+let kSuccessTitle = "Congratulations"
+let kErrorTitle = "Connection error"
+let kNoticeTitle = "Notice"
+let kWarningTitle = "Warning"
+let kInfoTitle = "Info"
+let kSubtitle = "You've just displayed this awesome Pop Up View"
 
 let kDefaultAnimationDuration = 2.0
 
@@ -36,18 +36,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showError(sender: AnyObject) {
-        SCLAlertView().showError(self, title: kSuccessTitle, subTitle: kSubtitle)
+        SCLAlertView().showError(self, title: kErrorTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showNotice(sender: AnyObject) {
-        SCLAlertView().showNotice(self, title: kSuccessTitle, subTitle: kSubtitle)
+        SCLAlertView().showNotice(self, title: kNoticeTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showWarning(sender: AnyObject) {
-        SCLAlertView().showWarning(self, title: kSuccessTitle, subTitle: kSubtitle)
+        SCLAlertView().showWarning(self, title: kWarningTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showInfo(sender: AnyObject) {
-        SCLAlertView().showInfo(self, title: kSuccessTitle, subTitle: kSubtitle)
+        SCLAlertView().showInfo(self, title: kInfoTitle, subTitle: kSubtitle)
     }
 }
