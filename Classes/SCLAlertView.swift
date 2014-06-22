@@ -19,7 +19,7 @@ enum SCLAlertViewStyle: Int {
 }
 
 // Allow alerts to be closed/renamed in a chainable manner
-// Example: SCLAlertView().showSuccess(self, title: "Test", subTitle: "Value").Close()
+// Example: SCLAlertView().showSuccess(self, title: "Test", subTitle: "Value").close()
 class SCLAlertViewResponder {
     let alertview: SCLAlertView
     
@@ -27,7 +27,7 @@ class SCLAlertViewResponder {
     init(alertview: SCLAlertView) { self.alertview = alertview }
     func setTitle(title: String) { self.alertview.labelView.text = title }
     func setSubTitle(subTitle: String) { self.alertview.labelViewDescription.text = subTitle }
-    func Close() { self.alertview.doneButtonAction() }
+    func close() { self.alertview.doneButtonAction() }
 }
 
 // The Main Class

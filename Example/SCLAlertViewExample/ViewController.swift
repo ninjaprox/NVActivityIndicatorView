@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     
     @IBAction func showSuccess(sender : AnyObject) {
         SCLAlertView().showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle)
-        // SCLAlertView().showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle).Close()
+        // SCLAlertView().showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle).close()
     }
     
     @IBAction func showError(sender : AnyObject) {
