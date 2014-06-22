@@ -165,7 +165,7 @@ class SCLAlertView: UIView {
         
         // Alert colour/icon
         var viewColor = UIColor()
-        var iconImageName: NSString = ""
+        var iconImageName: String
         
         // Icon style
         switch style {
