@@ -25,21 +25,21 @@ class SCLAlertViewResponder {
     
     // Initialisation and Title/Subtitle/Close functions
     init(alertview: SCLAlertView) { self.alertview = alertview }
-    func setTitle(title: String) { self.alertview.labelView.text = title; }
-    func setSubTitle(subTitle: String) { self.alertview.labelViewDescription.text = subTitle; }
+    func setTitle(title: String) { self.alertview.labelView.text = title }
+    func setSubTitle(subTitle: String) { self.alertview.labelViewDescription.text = subTitle }
     func Close() { self.alertview.doneButtonAction() }
 }
 
 // The Main Class
 class SCLAlertView : UIView {
-    let kDefaultShadowOpacity: CGFloat = 0.7;
-    let kCircleHeight: CGFloat = 56.0;
-    let kCircleTopPosition: CGFloat = -12; // Should not be defined here. Make it dynamic
-    let kCircleBackgroundTopPosition: CGFloat = -15; // Should not be defined here. Make it dynamic
-    let kCircleHeightBackground: CGFloat = 62.0;
-    let kCircleIconHeight: CGFloat = 20.0;
-    let kWindowWidth: CGFloat = 240.0;
-    let kWindowHeight: CGFloat = 228.0;
+    let kDefaultShadowOpacity: CGFloat = 0.7
+    let kCircleHeight: CGFloat = 56.0
+    let kCircleTopPosition: CGFloat = -12 // Should not be defined here. Make it dynamic
+    let kCircleBackgroundTopPosition: CGFloat = -15 // Should not be defined here. Make it dynamic
+    let kCircleHeightBackground: CGFloat = 62.0
+    let kCircleIconHeight: CGFloat = 20.0
+    let kWindowWidth: CGFloat = 240.0
+    let kWindowHeight: CGFloat = 228.0
     
     // Font
     let kDefaultFont: NSString = "HelveticaNeue"
@@ -59,19 +59,19 @@ class SCLAlertView : UIView {
     init () {
         // Content View
         self.contentView = UIView(frame: CGRectMake(0, kCircleHeight / 4, kWindowWidth, kWindowHeight))
-        self.contentView.backgroundColor = UIColor(white: 1, alpha: 1);
-        self.contentView.layer.cornerRadius = 5;
-        self.contentView.layer.masksToBounds = true;
-        self.contentView.layer.borderWidth = 0.5;
+        self.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
+        self.contentView.layer.cornerRadius = 5
+        self.contentView.layer.masksToBounds = true
+        self.contentView.layer.borderWidth = 0.5
         
         // Circle View
         self.circleView = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeight / 2, kCircleTopPosition, kCircleHeight, kCircleHeight))
-        self.circleView.layer.cornerRadius =  self.circleView.frame.size.height / 2;
+        self.circleView.layer.cornerRadius =  self.circleView.frame.size.height / 2
         
         // Circle View Background
         
         self.circleViewBackground = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeightBackground / 2, kCircleBackgroundTopPosition, kCircleHeightBackground, kCircleHeightBackground))
-        self.circleViewBackground.layer.cornerRadius =  self.circleViewBackground.frame.size.height / 2;
+        self.circleViewBackground.layer.cornerRadius =  self.circleViewBackground.frame.size.height / 2
         self.circleViewBackground.backgroundColor = UIColor.whiteColor()
         
         // Circle View Image
@@ -132,32 +132,32 @@ class SCLAlertView : UIView {
     
     // showSuccess(view, title, subTitle)
     func showSuccess(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Success);
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Success)
     }
     
     // showError(view, title, subTitle)
     func showError(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Error);
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Error)
     }
     
     // showNotice(view, title, subTitle)
     func showNotice(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Notice);
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Notice)
     }
     
     // showWarning(view, title, subTitle)
     func showWarning(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Warning);
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Warning)
     }
     
     // showInfo(view, title, subTitle)
     func showInfo(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Info);
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: SCLAlertViewStyle.Info)
     }
     
     // showTitle(view, title, subTitle, duration, style)
     func showTitle(view:UIViewController, title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
-        self.alpha = 0;
+        self.alpha = 0
         self.rootViewController = view
         self.rootViewController.view.addSubview(self.shadowView)
         self.rootViewController.view.addSubview(self)
@@ -174,11 +174,11 @@ class SCLAlertView : UIView {
         // Icon style
         switch(style) {
             case SCLAlertViewStyle.Success:
-                viewColor = UIColorFromRGB(0x22B573);
+                viewColor = UIColorFromRGB(0x22B573)
                 iconImageName = "notification-success"
             
             case SCLAlertViewStyle.Error:
-                viewColor = UIColorFromRGB(0xC1272D);
+                viewColor = UIColorFromRGB(0xC1272D)
                 iconImageName = "notification-error"
             
             case SCLAlertViewStyle.Notice:
@@ -186,11 +186,11 @@ class SCLAlertView : UIView {
                 iconImageName = "notification-notice"
             
             case SCLAlertViewStyle.Warning:
-                viewColor = UIColorFromRGB(0xFFD110);
+                viewColor = UIColorFromRGB(0xFFD110)
                 iconImageName = "notification-warning"
             
             case SCLAlertViewStyle.Info:
-                viewColor = UIColorFromRGB(0x2866BF);
+                viewColor = UIColorFromRGB(0x2866BF)
                 iconImageName = "notification-info"
             
             default:
@@ -199,17 +199,17 @@ class SCLAlertView : UIView {
         
         // Title
         if ((title as NSString).length > 0 ) {
-            self.labelView.text = title;
+            self.labelView.text = title
         }
         
         // Subtitle
         if ((subTitle as NSString).length > 0) {
-            self.labelViewDescription.text = subTitle;
+            self.labelViewDescription.text = subTitle
         }
         
         // Alert view colour and images
-        self.doneButton.backgroundColor = viewColor;
-        self.circleView.backgroundColor = viewColor;
+        self.doneButton.backgroundColor = viewColor
+        self.circleView.backgroundColor = viewColor
         self.circleIconImageView.image = UIImage(named: iconImageName)
         
         // Adding duration
@@ -221,11 +221,11 @@ class SCLAlertView : UIView {
         // Animate in the alert view
         UIView.animateWithDuration(0.2, animations: {
             self.shadowView.alpha = self.kDefaultShadowOpacity
-            self.frame.origin.y = self.rootViewController.view.center.y - 100;
-            self.alpha = 1;
+            self.frame.origin.y = self.rootViewController.view.center.y - 100
+            self.alpha = 1
         }, completion: { finished in
             UIView.animateWithDuration(0.2, animations: {
-                self.center = self.rootViewController.view.center;
+                self.center = self.rootViewController.view.center
             }, completion: { finished in })
         })
         
@@ -234,13 +234,13 @@ class SCLAlertView : UIView {
     }
     
     // When click 'Done' button, hide view.
-    func doneButtonAction() { hideView(); }
+    func doneButtonAction() { hideView() }
     
     // Close SCLAlertView
     func hideView() {
         UIView.animateWithDuration(0.2, animations: {
-            self.shadowView.alpha = 0;
-            self.alpha = 0;
+            self.shadowView.alpha = 0
+            self.alpha = 0
         }, completion: { finished in
             self.shadowView.removeFromSuperview()
             self.removeFromSuperview()
