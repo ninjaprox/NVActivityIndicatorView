@@ -189,8 +189,6 @@ class SCLAlertView: UIView {
             viewColor = UIColorFromRGB(0x2866BF)
             iconImageName = "notification-info"
             
-        default:
-            println("default")
         }
         
         // Title
