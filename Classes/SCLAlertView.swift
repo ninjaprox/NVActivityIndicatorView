@@ -66,12 +66,12 @@ class SCLAlertView : UIView {
         
         // Circle View
         self.circleView = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeight / 2, kCircleTopPosition, kCircleHeight, kCircleHeight))
-        self.circleView.layer.cornerRadius =  self.circleView.frame.size.height / 2
+        self.circleView.layer.cornerRadius = self.circleView.frame.size.height / 2
         
         // Circle View Background
         
         self.circleViewBackground = UIView(frame: CGRectMake(kWindowWidth / 2 - kCircleHeightBackground / 2, kCircleBackgroundTopPosition, kCircleHeightBackground, kCircleHeightBackground))
-        self.circleViewBackground.layer.cornerRadius =  self.circleViewBackground.frame.size.height / 2
+        self.circleViewBackground.layer.cornerRadius = self.circleViewBackground.frame.size.height / 2
         self.circleViewBackground.backgroundColor = UIColor.whiteColor()
         
         // Circle View Image
@@ -198,7 +198,7 @@ class SCLAlertView : UIView {
         }
         
         // Title
-        if ((title as NSString).length > 0 ) {
+        if ((title as NSString).length > 0) {
             self.labelView.text = title
         }
         
