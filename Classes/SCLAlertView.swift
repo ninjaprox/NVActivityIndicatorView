@@ -209,7 +209,7 @@ class SCLAlertView: UIView {
         self.circleIconImageView.image = UIImage(named: iconImageName)
         
         // Adding duration
-        if (duration != nil && duration > 0) {
+        if duration > 0 {
             durationTimer?.invalidate()
             durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration!, target: self, selector: Selector("hideView"), userInfo: nil, repeats: false)
         }
