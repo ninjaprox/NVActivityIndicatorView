@@ -220,7 +220,7 @@ class SCLAlertView: UIView {
         }, completion: { finished in
             UIView.animateWithDuration(0.2, animations: {
                 self.center = self.rootViewController.view.center
-            }, completion: { finished in })
+            })
         })
         
         // Chainable objects
