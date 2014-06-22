@@ -27,11 +27,11 @@ class SCLAlertViewResponder {
 }
 
 // The Main Class
-class SCLAlertView : UIView {
+class SCLAlertView: UIView {
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleHeight: CGFloat = 56.0
-    let kCircleTopPosition: CGFloat = -12 // Should not be defined here. Make it dynamic
-    let kCircleBackgroundTopPosition: CGFloat = -15 // Should not be defined here. Make it dynamic
+    let kCircleTopPosition: CGFloat = -12.0 // Should not be defined here. Make it dynamic
+    let kCircleBackgroundTopPosition: CGFloat = -15.0 // Should not be defined here. Make it dynamic
     let kCircleHeightBackground: CGFloat = 62.0
     let kCircleIconHeight: CGFloat = 20.0
     let kWindowWidth: CGFloat = 240.0
