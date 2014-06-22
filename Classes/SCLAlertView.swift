@@ -65,7 +65,6 @@ class SCLAlertView: UIView {
         self.circleView.layer.cornerRadius = self.circleView.frame.size.height / 2
         
         // Circle View Background
-        
         self.circleViewBackground = UIView(frame: CGRect(x: kWindowWidth / 2 - kCircleHeightBackground / 2, y: kCircleBackgroundTopPosition, width: kCircleHeightBackground, height: kCircleHeightBackground))
         self.circleViewBackground.layer.cornerRadius = self.circleViewBackground.frame.size.height / 2
         self.circleViewBackground.backgroundColor = UIColor.whiteColor()
