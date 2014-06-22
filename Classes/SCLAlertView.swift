@@ -194,12 +194,12 @@ class SCLAlertView: UIView {
         }
         
         // Title
-        if ((title as NSString).length > 0) {
+        if !title.isEmpty {
             self.labelView.text = title
         }
         
         // Subtitle
-        if ((subTitle as NSString).length > 0) {
+        if !subTitle.isEmpty {
             self.labelViewDescription.text = subTitle
         }
         
