@@ -38,7 +38,7 @@ class SCLAlertView: UIView {
     let kWindowHeight: CGFloat = 228.0
     
     // Font
-    let kDefaultFont: NSString = "HelveticaNeue"
+    let kDefaultFont = "HelveticaNeue"
     
     // Members declaration
     var labelView: UILabel
