@@ -77,14 +77,14 @@ class SCLAlertView: UIView {
         // Title
         self.labelView = UILabel(frame: CGRect(x: 12, y: kCircleHeight / 2 + 22, width: kWindowWidth - 24, height: 40))
         self.labelView.numberOfLines = 1
-        self.labelView.textAlignment = NSTextAlignment.Center
+        self.labelView.textAlignment = .Center
         self.labelView.font = UIFont(name: kDefaultFont, size: 20)
         self.contentView.addSubview(self.labelView)
         
         // Subtitle
         self.labelViewDescription = UILabel(frame: CGRect(x: 12, y: 84, width: kWindowWidth - 24, height: 80))
         self.labelViewDescription.numberOfLines = 3
-        self.labelViewDescription.textAlignment = NSTextAlignment.Center
+        self.labelViewDescription.textAlignment = .Center
         self.labelViewDescription.font = UIFont(name: kDefaultFont, size: 14)
         self.contentView.addSubview(self.labelViewDescription)
         
