@@ -66,4 +66,4 @@ Has been developed initially for the [Scroll Feed](https://itunes.apple.com/us/a
 
 - Design [@SherzodMx](https://twitter.com/SherzodMx) Sherzod Max
 - Development [@hackua](https://twitter.com/hackua) Viktor Radchenko
-- Improvements by [@bih](http://github.com/bih) Bilawal Hameed
+- Improvements by [@bih](http://github.com/bih) Bilawal Hameed, [@rizjoj](http://github.com/rizjoj) Riz Joj 
