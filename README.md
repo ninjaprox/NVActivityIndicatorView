@@ -16,33 +16,29 @@ let alertview : SCLAlertViewResponder = SCLAlertView().showSuccess(self, title: 
 // Upon displaying, change/close view
 alertview.setTitle("New Title") // Rename title
 alertview.setSubTitle("New description") // Rename subtitle
-alertview.Close() // Close view
+alertview.close() // Close view
 
 // Alternative alert types
-SCLAlertView().showError(self, title: "Hello World", subTitle: "This is a more descriptive text.") // Error
-SCLAlertView().showNotice(self, title: "Hello World", subTitle: "This is a more descriptive text.") // Notice
-SCLAlertView().showWarning(self, title: "Hello World", subTitle: "This is a more descriptive text.") // Warning
-SCLAlertView().showInfo(self, title: "Hello World", subTitle: "This is a more descriptive text.") // Info
+SCLAlertView().showError(self, title: "Hello Error", subTitle: "This is a more descriptive error text.") // Error
+SCLAlertView().showNotice(self, title: "Hello Notice", subTitle: "This is a more descriptive notice text.") // Notice
+SCLAlertView().showWarning(self, title: "Hello Warning", subTitle: "This is a more descriptive warning text.") // Warning
+SCLAlertView().showInfo(self, title: "Hello Info", subTitle: "This is a more descriptive info text.") // Info
 
 // Advanced
 SCLAlertView().showTitle(
     view: self, // Parent view controller
-    title: String, // Title of view
-    subTitle: String, // String of view
+    title: "Congratulations", // Title of view
+    subTitle: "Operation successfully completed.", // String of view
     duration: kDefaultAnimationDuration, // Duration to show before closing automatically, default: 2.0
-    completeText: String?, // Optional button value, default: ""
-    style: SCLAlertViewStyle.Success // Styles - see below.
+    completeText: "Done", // Optional button value, default: ""
+    style: .Success // Styles - see below.
 )
 ```
 
 ####Alert View Styles
 ```swift
 enum SCLAlertViewStyle: Int {
-    case Success
-    case Error
-    case Notice
-    case Warning
-    case Info
+    case Success, Error, Notice, Warning, Info
 }
 ```
 
