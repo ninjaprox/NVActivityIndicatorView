@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCLAlertView"
-  s.version      = "0.1.2"
+  s.version      = "0.2"
   s.summary      = "Beautiful Alert View. Written in Swift"
 
   s.description  = <<-DESC
@@ -60,7 +60,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "7.0"
+  #s.platform     = :ios, "7.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -109,7 +109,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  s.framework  = "QuartzCore"
+  #s.framework  = "QuartzCore"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
