@@ -11,7 +11,6 @@
 		CEABB2501942AD9700FCB13C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEABB24F1942AD9700FCB13C /* Images.xcassets */; };
 		CEABB25C1942AD9700FCB13C /* SCLAlertViewExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB25B1942AD9700FCB13C /* SCLAlertViewExampleTests.swift */; };
 		CEABB2671942AEA500FCB13C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB2661942AEA500FCB13C /* ViewController.swift */; };
-		CEABB26A1942AFB700FCB13C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEABB2681942AFB700FCB13C /* Assets.xcassets */; };
 		CEABB26B1942AFB700FCB13C /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB2691942AFB700FCB13C /* SCLAlertView.swift */; };
 		CEB569971942AE47009959CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB569961942AE47009959CC /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		CEABB25A1942AD9700FCB13C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEABB25B1942AD9700FCB13C /* SCLAlertViewExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertViewExampleTests.swift; sourceTree = "<group>"; };
 		CEABB2661942AEA500FCB13C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEABB2681942AFB700FCB13C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Classes/Assets.xcassets; sourceTree = "<group>"; };
 		CEABB2691942AFB700FCB13C /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCLAlertView.swift; path = ../../Classes/SCLAlertView.swift; sourceTree = "<group>"; };
 		CEB569961942AE47009959CC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,7 +115,6 @@
 		CEABB2651942ADCD00FCB13C /* SCLAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				CEABB2681942AFB700FCB13C /* Assets.xcassets */,
 				CEABB2691942AFB700FCB13C /* SCLAlertView.swift */,
 			);
 			name = SCLAlertView;
@@ -204,7 +201,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB569971942AE47009959CC /* Main.storyboard in Resources */,
-				CEABB26A1942AFB700FCB13C /* Assets.xcassets in Resources */,
 				CEABB2501942AD9700FCB13C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
