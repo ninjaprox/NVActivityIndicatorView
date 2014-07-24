@@ -262,15 +262,15 @@ class SCLAlertViewStyleKit : NSObject {
     
     struct Cache {
         static var imageOfCheckmark: UIImage?
-        static var checkmarkTargets: AnyObject[]?
+        static var checkmarkTargets: [AnyObject]?
         static var imageOfCross: UIImage?
-        static var crossTargets: AnyObject[]?
+        static var crossTargets: [AnyObject]?
         static var imageOfNotice: UIImage?
-        static var noticeTargets: AnyObject[]?
+        static var noticeTargets: [AnyObject]?
         static var imageOfWarning: UIImage?
-        static var warningTargets: AnyObject[]?
+        static var warningTargets: [AnyObject]?
         static var imageOfInfo: UIImage?
-        static var infoTargets: AnyObject[]?
+        static var infoTargets: [AnyObject]?
     }
     
     //// Initialization
