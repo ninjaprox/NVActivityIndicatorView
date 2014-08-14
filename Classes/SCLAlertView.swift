@@ -52,7 +52,11 @@ class SCLAlertView: UIView {
     var rootViewController: UIViewController
     var durationTimer: NSTimer!
     
-    init () {
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not supported")
+    }
+    
+    required override init () {
         // Content View
         self.contentView = UIView(frame: CGRect(x: 0, y: kCircleHeight / 4, width: kWindowWidth, height: kWindowHeight))
         self.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
@@ -158,7 +162,7 @@ class SCLAlertView: UIView {
         self.rootViewController.view.addSubview(self)
         
         // Complete text
-        if completeText {
+        if completeText != nil {
             self.doneButton.setTitle(completeText!, forState: .Normal)
         }
         
