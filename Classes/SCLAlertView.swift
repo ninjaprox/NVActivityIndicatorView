@@ -42,6 +42,7 @@ class SCLAlertView: UIView {
     
     // Members declaration
     var labelView: UILabel
+    var hideOnButtonClick: Bool
     var labelViewDescription: UILabel
     var shadowView: UIView
     var contentView: UIView
@@ -83,6 +84,9 @@ class SCLAlertView: UIView {
         self.labelView.textAlignment = .Center
         self.labelView.font = UIFont(name: kDefaultFont, size: 20)
         self.contentView.addSubview(self.labelView)
+        
+        // hideOnButtonClick
+        self.hideOnButtonClick = true
         
         // Subtitle
         self.labelViewDescription = UILabel(frame: CGRect(x: 12, y: 84, width: kWindowWidth - 24, height: 80))
@@ -231,7 +235,7 @@ class SCLAlertView: UIView {
     }
     
     // When click 'Done' button, hide view.
-    func doneButtonAction() { hideView() }
+    func doneButtonAction() { if hideOnButtonClick { hideView() } }
     
     // Close SCLAlertView
     func hideView() {
