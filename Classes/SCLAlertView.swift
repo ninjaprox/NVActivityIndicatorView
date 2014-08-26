@@ -129,37 +129,37 @@ class SCLAlertView: UIView {
     }
     
     // showTitle(view, title, subTitle, style)
-    func showTitle(view: UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle, hideOnButtonClick: Bool = true) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: style, hideOnButtonClick: hideOnButtonClick)
+    func showTitle(view: UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: style)
     }
     
     // showSuccess(view, title, subTitle)
-    func showSuccess(view: UIViewController, title: String, subTitle: String, hideOnButtonClick: Bool = true) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Success, hideOnButtonClick: hideOnButtonClick)
+    func showSuccess(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Success)
     }
     
     // showError(view, title, subTitle)
-    func showError(view: UIViewController, title: String, subTitle: String, hideOnButtonClick: Bool = true) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Error, hideOnButtonClick: hideOnButtonClick)
+    func showError(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Error)
     }
     
     // showNotice(view, title, subTitle)
-    func showNotice(view: UIViewController, title: String, subTitle: String, hideOnButtonClick: Bool = true) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Notice, hideOnButtonClick: hideOnButtonClick)
+    func showNotice(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Notice)
     }
     
     // showWarning(view, title, subTitle)
-    func showWarning(view: UIViewController, title: String, subTitle: String, hideOnButtonClick: Bool = true) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Warning, hideOnButtonClick: hideOnButtonClick)
+    func showWarning(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Warning)
     }
     
     // showInfo(view, title, subTitle)
-    func showInfo(view: UIViewController, title: String, subTitle: String, hideOnButtonClick: Bool = true) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Info, hideOnButtonClick: hideOnButtonClick)
+    func showInfo(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Info)
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    func showTitle(view:UIViewController, title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, hideOnButtonClick: Bool = true) -> SCLAlertViewResponder {
+    func showTitle(view:UIViewController, title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
         self.alpha = 0
         self.rootViewController = view
         self.rootViewController.view.addSubview(self.shadowView)
@@ -202,8 +202,6 @@ class SCLAlertView: UIView {
         if !title.isEmpty {
             self.labelView.text = title
         }
-        
-        self.hideOnButtonClick = hideOnButtonClick
         
         // Subtitle
         if !subTitle.isEmpty {
