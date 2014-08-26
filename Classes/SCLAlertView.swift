@@ -52,7 +52,7 @@ class SCLAlertView: UIView {
     var rootViewController: UIViewController
     var durationTimer: NSTimer!
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -220,10 +220,10 @@ class SCLAlertView: UIView {
             self.shadowView.alpha = self.kDefaultShadowOpacity
             self.frame.origin.y = self.rootViewController.view.center.y - 100
             self.alpha = 1
-        }, completion: { finished in
-            UIView.animateWithDuration(0.2, animations: {
-                self.center = self.rootViewController.view.center
-            })
+            }, completion: { finished in
+                UIView.animateWithDuration(0.2, animations: {
+                    self.center = self.rootViewController.view.center
+                })
         })
         
         // Chainable objects
@@ -238,9 +238,9 @@ class SCLAlertView: UIView {
         UIView.animateWithDuration(0.2, animations: {
             self.shadowView.alpha = 0
             self.alpha = 0
-        }, completion: { finished in
-            self.shadowView.removeFromSuperview()
-            self.removeFromSuperview()
+            }, completion: { finished in
+                self.shadowView.removeFromSuperview()
+                self.removeFromSuperview()
         })
     }
     
@@ -433,7 +433,7 @@ class SCLAlertViewStyleKit : NSObject {
     //// Generated Images
     
     class var imageOfCheckmark: UIImage {
-    if (Cache.imageOfCheckmark) {
+    if (Cache.imageOfCheckmark != nil) {
         return Cache.imageOfCheckmark!
         }
         
@@ -446,7 +446,7 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class var imageOfCross: UIImage {
-    if (Cache.imageOfCross) {
+    if (Cache.imageOfCross != nil) {
         return Cache.imageOfCross!
         }
         
@@ -459,7 +459,7 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class var imageOfNotice: UIImage {
-    if (Cache.imageOfNotice) {
+    if (Cache.imageOfNotice != nil) {
         return Cache.imageOfNotice!
         }
         
@@ -472,7 +472,7 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class var imageOfWarning: UIImage {
-    if (Cache.imageOfWarning) {
+    if (Cache.imageOfWarning != nil) {
         return Cache.imageOfWarning!
         }
         
@@ -485,7 +485,7 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class var imageOfInfo: UIImage {
-    if (Cache.imageOfInfo) {
+    if (Cache.imageOfInfo != nil) {
         return Cache.imageOfInfo!
         }
         
