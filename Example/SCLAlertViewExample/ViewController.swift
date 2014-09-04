@@ -31,7 +31,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showSuccess(sender: AnyObject) {
-        SCLAlertView().showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle)
+		let alert = SCLAlertView()
+		alert.addButton("First Button", target:alert, selector:Selector("hideView"))
+		alert.addButton("Second Button", target:alert, selector:Selector("hideView"))
+        alert.showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle)
         // SCLAlertView().showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle).close()
     }
     

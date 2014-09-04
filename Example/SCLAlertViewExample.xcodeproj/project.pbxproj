@@ -78,11 +78,11 @@
 			isa = PBXGroup;
 			children = (
 				CEABB2651942ADCD00FCB13C /* SCLAlertView */,
-				CEABB2461942AD9700FCB13C /* AppDelegate.swift */,
+				CEABB2441942AD9700FCB13C /* Supporting Files */,
 				CEABB24F1942AD9700FCB13C /* Images.xcassets */,
 				CEB569961942AE47009959CC /* Main.storyboard */,
+				CEABB2461942AD9700FCB13C /* AppDelegate.swift */,
 				CEABB2661942AEA500FCB13C /* ViewController.swift */,
-				CEABB2441942AD9700FCB13C /* Supporting Files */,
 			);
 			path = SCLAlertViewExample;
 			sourceTree = "<group>";
