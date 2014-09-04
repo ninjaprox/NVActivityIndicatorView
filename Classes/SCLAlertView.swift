@@ -20,22 +20,33 @@ class SCLAlertViewResponder {
     let alertview: SCLAlertView
     
     // Initialisation and Title/Subtitle/Close functions
-    init(alertview: SCLAlertView) { self.alertview = alertview }
-    func setTitle(title: String) { self.alertview.labelView.text = title }
-    func setSubTitle(subTitle: String) { self.alertview.labelViewDescription.text = subTitle }
-    func close() { self.alertview.doneButtonAction() }
+    init(alertview: SCLAlertView) {
+		self.alertview = alertview
+	}
+	
+    func setTitle(title: String) {
+		self.alertview.labelView.text = title
+	}
+	
+    func setSubTitle(subTitle: String) {
+		self.alertview.labelViewDescription.text = subTitle
+	}
+	
+    func close() {
+		self.alertview.hideView()
+	}
 }
 
 // The Main Class
 class SCLAlertView: UIView {
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleHeight: CGFloat = 56.0
-    let kCircleTopPosition: CGFloat = -12.0 // Should not be defined here. Make it dynamic
-    let kCircleBackgroundTopPosition: CGFloat = -15.0 // Should not be defined here. Make it dynamic
+    let kCircleTopPosition: CGFloat = -62.0 // Should not be defined here. Make it dynamic
+    let kCircleBackgroundTopPosition: CGFloat = -65.0 // Should not be defined here. Make it dynamic
     let kCircleHeightBackground: CGFloat = 62.0
     let kCircleIconHeight: CGFloat = 20.0
     let kWindowWidth: CGFloat = 240.0
-    let kWindowHeight: CGFloat = 228.0
+    var kWindowHeight: CGFloat = 178.0
     
     // Font
     let kDefaultFont = "HelveticaNeue"
@@ -49,9 +60,9 @@ class SCLAlertView: UIView {
     var circleView: UIView
     var circleViewBackground: UIView
     var circleIconImageView: UIImageView
-    var doneButton: UIButton
     var rootViewController: UIViewController
     var durationTimer: NSTimer!
+	var buttons = [UIButton]()
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -98,21 +109,13 @@ class SCLAlertView: UIView {
         // Shadow View
         self.shadowView = UIView(frame: UIScreen.mainScreen().bounds)
         self.shadowView.backgroundColor = UIColor.blackColor()
-        
-        // Done Button
-        self.doneButton = UIButton(frame: CGRect(x: 12, y: kWindowHeight - 52, width: kWindowWidth - 24, height: 40))
-        self.doneButton.layer.cornerRadius = 3
-        self.doneButton.layer.masksToBounds = true
-        self.doneButton.setTitle("Done", forState: .Normal)
-        self.doneButton.titleLabel?.font = UIFont(name: kDefaultFont, size: 14)
-        self.contentView.addSubview(self.doneButton)
-        
+		
         // Root view controller
         self.rootViewController = UIViewController()
         
         // Superclass initiation
         super.init(frame: CGRect(x: (320 - kWindowWidth) / 2, y: 0 - kWindowHeight, width: kWindowWidth, height: kWindowHeight))
-        
+		
         // Show notice on screen
         self.addSubview(self.contentView)
         self.addSubview(self.circleViewBackground)
@@ -123,39 +126,55 @@ class SCLAlertView: UIView {
         self.labelView.textColor = UIColorFromRGB(0x4D4D4D)
         self.labelViewDescription.textColor = UIColorFromRGB(0x4D4D4D)
         self.contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
-        
-        // On complete.
-        self.doneButton.addTarget(self, action: Selector("doneButtonAction"), forControlEvents: .TouchUpInside)
     }
-    
+	
+	func addButton(title:String, target:AnyObject, selector:Selector)->UIButton {
+		// Update dialog frame
+		kWindowHeight += 50.0
+		var r = contentView.frame
+		r.origin.y -= 25.0
+		r.size.height = kWindowHeight
+		contentView.frame = r
+		// Add button
+		let btn = UIButton(frame: CGRect(x: 12, y: kWindowHeight - 50, width: kWindowWidth - 24, height: 40))
+		btn.layer.cornerRadius = 3
+		btn.layer.masksToBounds = true
+		btn.setTitle(title, forState: .Normal)
+		btn.titleLabel?.font = UIFont(name: kDefaultFont, size: 14)
+		btn.addTarget(target, action:selector, forControlEvents:UIControlEvents.TouchUpInside)
+		self.contentView.addSubview(btn)
+		buttons.append(btn)
+		return btn
+	}
+	
     // showTitle(view, title, subTitle, style)
     func showTitle(view: UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
         return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: style)
     }
     
     // showSuccess(view, title, subTitle)
-    func showSuccess(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Success)
+	func showSuccess(view: UIViewController, title: String, subTitle: String, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText: nil, style: .Success)
     }
     
     // showError(view, title, subTitle)
-    func showError(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Error)
+    func showError(view: UIViewController, title: String, subTitle: String, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText: nil, style: .Error)
     }
     
     // showNotice(view, title, subTitle)
-    func showNotice(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Notice)
+    func showNotice(view: UIViewController, title: String, subTitle: String, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText: nil, style: .Notice)
     }
     
     // showWarning(view, title, subTitle)
-    func showWarning(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Warning)
+    func showWarning(view: UIViewController, title: String, subTitle: String, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText: nil, style: .Warning)
     }
     
     // showInfo(view, title, subTitle)
-    func showInfo(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Info)
+    func showInfo(view: UIViewController, title: String, subTitle: String, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText: nil, style: .Info)
     }
     
     // showTitle(view, title, subTitle, duration, style)
@@ -164,11 +183,6 @@ class SCLAlertView: UIView {
         self.rootViewController = view
         self.rootViewController.view.addSubview(self.shadowView)
         self.rootViewController.view.addSubview(self)
-        
-        // Complete text
-        if completeText != nil {
-            self.doneButton.setTitle(completeText!, forState: .Normal)
-        }
         
         // Alert colour/icon
         var viewColor = UIColor()
@@ -207,12 +221,22 @@ class SCLAlertView: UIView {
         if !subTitle.isEmpty {
             self.labelViewDescription.text = subTitle
         }
-        
+		
+		// Done button
+		let txt = completeText != nil ? completeText! : "Done"
+		addButton(txt, target:self, selector:Selector("hideView"))
+		
         // Alert view colour and images
-        self.doneButton.backgroundColor = viewColor
         self.circleView.backgroundColor = viewColor
         self.circleIconImageView.image  = iconImage
-        
+		for btn in buttons {
+			btn.backgroundColor = viewColor
+		}
+		
+		// Configure Done button and add to view
+		let btn = buttons.last as UIButton!
+		btn.addTarget(self, action: Selector("doneButtonAction"), forControlEvents: .TouchUpInside)
+		
         // Adding duration
         if duration > 0 {
             durationTimer?.invalidate()
@@ -233,9 +257,6 @@ class SCLAlertView: UIView {
         // Chainable objects
         return SCLAlertViewResponder(alertview: self)
     }
-    
-    // When click 'Done' button, hide view.
-    func doneButtonAction() { if hideOnButtonClick { hideView() } }
     
     // Close SCLAlertView
     func hideView() {
