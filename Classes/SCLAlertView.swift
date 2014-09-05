@@ -41,8 +41,8 @@ class SCLAlertViewResponder {
 class SCLAlertView: UIView {
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleHeight: CGFloat = 56.0
-    let kCircleTopPosition: CGFloat = -62.0 // Should not be defined here. Make it dynamic
-    let kCircleBackgroundTopPosition: CGFloat = -65.0 // Should not be defined here. Make it dynamic
+    let kCircleTopPosition: CGFloat = -12.0 // Should not be defined here. Make it dynamic
+    let kCircleBackgroundTopPosition: CGFloat = -15.0 // Should not be defined here. Make it dynamic
     let kCircleHeightBackground: CGFloat = 62.0
     let kCircleIconHeight: CGFloat = 20.0
     let kWindowWidth: CGFloat = 240.0
@@ -52,83 +52,88 @@ class SCLAlertView: UIView {
     let kDefaultFont = "HelveticaNeue"
     
     // Members declaration
-    var labelView: UILabel
-    var hideOnButtonClick: Bool
-    var labelViewDescription: UILabel
-    var shadowView: UIView
-    var contentView: UIView
-    var circleView: UIView
-    var circleViewBackground: UIView
-    var circleIconImageView: UIImageView
-    var rootViewController: UIViewController
+    var labelView = UILabel()
+    var labelViewDescription = UILabel()
+    var shadowView = UIView()
+    var contentView = UIView()
+    var circleView = UIView()
+    var circleViewBackground = UIView()
+    var circleIconImageView = UIImageView()
+    var rootViewController = UIViewController()
     var durationTimer: NSTimer!
 	var buttons = [UIButton]()
+	var actions = Dictionary<UIButton, ()->Void>()
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
-    required override init () {
-        // Content View
-        self.contentView = UIView(frame: CGRect(x: 0, y: kCircleHeight / 4, width: kWindowWidth, height: kWindowHeight))
-        self.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
-        self.contentView.layer.cornerRadius = 5
-        self.contentView.layer.masksToBounds = true
-        self.contentView.layer.borderWidth = 0.5
-        
-        // Circle View
-        self.circleView = UIView(frame: CGRect(x: kWindowWidth / 2 - kCircleHeight / 2, y: kCircleTopPosition, width: kCircleHeight, height: kCircleHeight))
-        self.circleView.layer.cornerRadius = self.circleView.frame.size.height / 2
-        
-        // Circle View Background
-        self.circleViewBackground = UIView(frame: CGRect(x: kWindowWidth / 2 - kCircleHeightBackground / 2, y: kCircleBackgroundTopPosition, width: kCircleHeightBackground, height: kCircleHeightBackground))
-        self.circleViewBackground.layer.cornerRadius = self.circleViewBackground.frame.size.height / 2
-        self.circleViewBackground.backgroundColor = UIColor.whiteColor()
-        
-        // Circle View Image
-        self.circleIconImageView = UIImageView(frame: CGRect(x: kCircleHeight / 2 - kCircleIconHeight / 2, y: kCircleHeight / 2 - kCircleIconHeight / 2, width: kCircleIconHeight, height: kCircleIconHeight))
-        self.circleView.addSubview(self.circleIconImageView)
-        
+    required override init() {
+		super.init()
+		// Add Subvies
+		addSubview(contentView)
+		addSubview(circleViewBackground)
+		addSubview(circleView)
+		circleView.addSubview(circleIconImageView)
+		contentView.addSubview(labelView)
+		contentView.addSubview(labelViewDescription)
+		// Content View
+        contentView.backgroundColor = UIColor(white: 1, alpha: 1)
+        contentView.layer.cornerRadius = 5
+        contentView.layer.masksToBounds = true
+        contentView.layer.borderWidth = 0.5
+		// Circle View Background
+		circleViewBackground.backgroundColor = UIColor.whiteColor()
         // Title
-        self.labelView = UILabel(frame: CGRect(x: 12, y: kCircleHeight / 2 + 22, width: kWindowWidth - 24, height: 40))
-        self.labelView.numberOfLines = 1
-        self.labelView.textAlignment = .Center
-        self.labelView.font = UIFont(name: kDefaultFont, size: 20)
-        self.contentView.addSubview(self.labelView)
-        
-        // hideOnButtonClick
-        self.hideOnButtonClick = true
-        
+        labelView.numberOfLines = 1
+        labelView.textAlignment = .Center
+        labelView.font = UIFont(name: kDefaultFont, size: 20)
         // Subtitle
-        self.labelViewDescription = UILabel(frame: CGRect(x: 12, y: 84, width: kWindowWidth - 24, height: 80))
-        self.labelViewDescription.numberOfLines = 3
-        self.labelViewDescription.textAlignment = .Center
-        self.labelViewDescription.font = UIFont(name: kDefaultFont, size: 14)
-        self.contentView.addSubview(self.labelViewDescription)
-        
+        labelViewDescription.numberOfLines = 3
+        labelViewDescription.textAlignment = .Center
+        labelViewDescription.font = UIFont(name: kDefaultFont, size: 14)
         // Shadow View
-        self.shadowView = UIView(frame: UIScreen.mainScreen().bounds)
-        self.shadowView.backgroundColor = UIColor.blackColor()
-		
-        // Root view controller
-        self.rootViewController = UIViewController()
-        
-        // Superclass initiation
-        super.init(frame: CGRect(x: (320 - kWindowWidth) / 2, y: 0 - kWindowHeight, width: kWindowWidth, height: kWindowHeight))
-		
-        // Show notice on screen
-        self.addSubview(self.contentView)
-        self.addSubview(self.circleViewBackground)
-        self.addSubview(self.circleView)
-        
+        shadowView = UIView(frame: UIScreen.mainScreen().bounds)
+        shadowView.backgroundColor = UIColor.blackColor()
         // Colours
-        self.contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
-        self.labelView.textColor = UIColorFromRGB(0x4D4D4D)
-        self.labelViewDescription.textColor = UIColorFromRGB(0x4D4D4D)
-        self.contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
+        contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
+        labelView.textColor = UIColorFromRGB(0x4D4D4D)
+        labelViewDescription.textColor = UIColorFromRGB(0x4D4D4D)
+        contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
     }
 	
+	override init(frame: CGRect) {
+		super.init(frame:frame)
+	}
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		// Set frames
+		frame = CGRect(x:(320-kWindowWidth)/2, y:-kWindowHeight, width: kWindowWidth, height: kWindowHeight)
+		contentView.frame = CGRect(x: 0, y: kCircleHeight / 4, width: kWindowWidth, height: kWindowHeight)
+		circleViewBackground.frame = CGRect(x: kWindowWidth / 2 - kCircleHeightBackground / 2, y: kCircleBackgroundTopPosition, width: kCircleHeightBackground, height: kCircleHeightBackground)
+		circleViewBackground.layer.cornerRadius = circleViewBackground.frame.size.height / 2
+		circleView.frame = CGRect(x: kWindowWidth / 2 - kCircleHeight / 2, y: kCircleTopPosition, width: kCircleHeight, height: kCircleHeight)
+		circleView.layer.cornerRadius = circleView.frame.size.height / 2
+		circleIconImageView.frame = CGRect(x: kCircleHeight / 2 - kCircleIconHeight / 2, y: kCircleHeight / 2 - kCircleIconHeight / 2, width: kCircleIconHeight, height: kCircleIconHeight)
+		labelView.frame = CGRect(x: 12, y: kCircleHeight / 2 + 22, width: kWindowWidth - 24, height: 40)
+		labelViewDescription.frame = CGRect(x: 12, y: 84, width: kWindowWidth - 24, height: 80)
+	}
+	
+	func addButton(title:String, action:()->Void)->UIButton {
+		let btn = addButton(title)
+		actions[btn] = action
+		btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
+		return btn
+	}
+	
 	func addButton(title:String, target:AnyObject, selector:Selector)->UIButton {
+		let btn = addButton(title)
+		btn.addTarget(target, action:selector, forControlEvents:.TouchUpInside)
+		return btn
+	}
+	
+	private func addButton(title:String)->UIButton {
 		// Update dialog frame
 		kWindowHeight += 50.0
 		var r = contentView.frame
@@ -141,10 +146,17 @@ class SCLAlertView: UIView {
 		btn.layer.masksToBounds = true
 		btn.setTitle(title, forState: .Normal)
 		btn.titleLabel?.font = UIFont(name: kDefaultFont, size: 14)
-		btn.addTarget(target, action:selector, forControlEvents:UIControlEvents.TouchUpInside)
-		self.contentView.addSubview(btn)
+		contentView.addSubview(btn)
 		buttons.append(btn)
 		return btn
+	}
+
+	func buttonTapped(sender:UIButton) {
+		if let act = actions[sender] {
+			act()
+		} else {
+			println("Could not find matching action for button")
+		}
 	}
 	
     // showTitle(view, title, subTitle, style)
@@ -232,10 +244,6 @@ class SCLAlertView: UIView {
 		for btn in buttons {
 			btn.backgroundColor = viewColor
 		}
-		
-		// Configure Done button and add to view
-		let btn = buttons.last as UIButton!
-		btn.addTarget(self, action: Selector("doneButtonAction"), forControlEvents: .TouchUpInside)
 		
         // Adding duration
         if duration > 0 {
