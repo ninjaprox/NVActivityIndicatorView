@@ -20,142 +20,182 @@ class SCLAlertViewResponder {
     let alertview: SCLAlertView
     
     // Initialisation and Title/Subtitle/Close functions
-    init(alertview: SCLAlertView) { self.alertview = alertview }
-    func setTitle(title: String) { self.alertview.labelView.text = title }
-    func setSubTitle(subTitle: String) { self.alertview.labelViewDescription.text = subTitle }
-    func close() { self.alertview.doneButtonAction() }
+    init(alertview: SCLAlertView) {
+		self.alertview = alertview
+	}
+	
+    func setTitle(title: String) {
+		self.alertview.labelTitle.text = title
+	}
+	
+    func setSubTitle(subTitle: String) {
+		self.alertview.viewText.text = subTitle
+	}
+	
+    func close() {
+		self.alertview.hideView()
+	}
 }
 
 // The Main Class
 class SCLAlertView: UIView {
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleHeight: CGFloat = 56.0
-    let kCircleTopPosition: CGFloat = -12.0 // Should not be defined here. Make it dynamic
-    let kCircleBackgroundTopPosition: CGFloat = -15.0 // Should not be defined here. Make it dynamic
+    let kCircleTopPosition: CGFloat = -12.0
+    let kCircleBackgroundTopPosition: CGFloat = -15.0
     let kCircleHeightBackground: CGFloat = 62.0
     let kCircleIconHeight: CGFloat = 20.0
     let kWindowWidth: CGFloat = 240.0
-    let kWindowHeight: CGFloat = 228.0
+    var kWindowHeight: CGFloat = 178.0
+	var kTextHeight: CGFloat = 90.0
     
     // Font
     let kDefaultFont = "HelveticaNeue"
-    
+	let kButtonFont = "HelveticaNeue-Bold"
+	
     // Members declaration
-    var labelView: UILabel
-    var hideOnButtonClick: Bool
-    var labelViewDescription: UILabel
-    var shadowView: UIView
-    var contentView: UIView
-    var circleView: UIView
-    var circleViewBackground: UIView
-    var circleIconImageView: UIImageView
-    var doneButton: UIButton
-    var rootViewController: UIViewController
+    var labelTitle = UILabel()
+    var viewText = UITextView()
+    var shadowView = UIView()
+    var contentView = UIView()
+    var circleView = UIView()
+    var circleViewBackground = UIView()
+    var circleIconImageView = UIImageView()
+    var rootViewController = UIViewController()
     var durationTimer: NSTimer!
+	var buttons = [UIButton]()
+	var actions = Dictionary<UIButton, ()->Void>()
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
-    required override init () {
-        // Content View
-        self.contentView = UIView(frame: CGRect(x: 0, y: kCircleHeight / 4, width: kWindowWidth, height: kWindowHeight))
-        self.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
-        self.contentView.layer.cornerRadius = 5
-        self.contentView.layer.masksToBounds = true
-        self.contentView.layer.borderWidth = 0.5
-        
-        // Circle View
-        self.circleView = UIView(frame: CGRect(x: kWindowWidth / 2 - kCircleHeight / 2, y: kCircleTopPosition, width: kCircleHeight, height: kCircleHeight))
-        self.circleView.layer.cornerRadius = self.circleView.frame.size.height / 2
-        
-        // Circle View Background
-        self.circleViewBackground = UIView(frame: CGRect(x: kWindowWidth / 2 - kCircleHeightBackground / 2, y: kCircleBackgroundTopPosition, width: kCircleHeightBackground, height: kCircleHeightBackground))
-        self.circleViewBackground.layer.cornerRadius = self.circleViewBackground.frame.size.height / 2
-        self.circleViewBackground.backgroundColor = UIColor.whiteColor()
-        
-        // Circle View Image
-        self.circleIconImageView = UIImageView(frame: CGRect(x: kCircleHeight / 2 - kCircleIconHeight / 2, y: kCircleHeight / 2 - kCircleIconHeight / 2, width: kCircleIconHeight, height: kCircleIconHeight))
-        self.circleView.addSubview(self.circleIconImageView)
-        
+    required override init() {
+		super.init()
+		// Add Subvies
+		addSubview(contentView)
+		addSubview(circleViewBackground)
+		addSubview(circleView)
+		circleView.addSubview(circleIconImageView)
+		contentView.addSubview(labelTitle)
+		contentView.addSubview(viewText)
+		// Content View
+        contentView.backgroundColor = UIColor(white: 1, alpha: 1)
+        contentView.layer.cornerRadius = 5
+        contentView.layer.masksToBounds = true
+        contentView.layer.borderWidth = 0.5
+		// Circle View Background
+		circleViewBackground.backgroundColor = UIColor.whiteColor()
         // Title
-        self.labelView = UILabel(frame: CGRect(x: 12, y: kCircleHeight / 2 + 22, width: kWindowWidth - 24, height: 40))
-        self.labelView.numberOfLines = 1
-        self.labelView.textAlignment = .Center
-        self.labelView.font = UIFont(name: kDefaultFont, size: 20)
-        self.contentView.addSubview(self.labelView)
-        
-        // hideOnButtonClick
-        self.hideOnButtonClick = true
-        
-        // Subtitle
-        self.labelViewDescription = UILabel(frame: CGRect(x: 12, y: 84, width: kWindowWidth - 24, height: 80))
-        self.labelViewDescription.numberOfLines = 3
-        self.labelViewDescription.textAlignment = .Center
-        self.labelViewDescription.font = UIFont(name: kDefaultFont, size: 14)
-        self.contentView.addSubview(self.labelViewDescription)
-        
+        labelTitle.numberOfLines = 1
+        labelTitle.textAlignment = .Center
+        labelTitle.font = UIFont(name: kDefaultFont, size: 20)
+        // View text
+		viewText.editable = false
+        viewText.textAlignment = .Center
+        viewText.font = UIFont(name: kDefaultFont, size: 14)
         // Shadow View
-        self.shadowView = UIView(frame: UIScreen.mainScreen().bounds)
-        self.shadowView.backgroundColor = UIColor.blackColor()
-        
-        // Done Button
-        self.doneButton = UIButton(frame: CGRect(x: 12, y: kWindowHeight - 52, width: kWindowWidth - 24, height: 40))
-        self.doneButton.layer.cornerRadius = 3
-        self.doneButton.layer.masksToBounds = true
-        self.doneButton.setTitle("Done", forState: .Normal)
-        self.doneButton.titleLabel?.font = UIFont(name: kDefaultFont, size: 14)
-        self.contentView.addSubview(self.doneButton)
-        
-        // Root view controller
-        self.rootViewController = UIViewController()
-        
-        // Superclass initiation
-        super.init(frame: CGRect(x: (320 - kWindowWidth) / 2, y: 0 - kWindowHeight, width: kWindowWidth, height: kWindowHeight))
-        
-        // Show notice on screen
-        self.addSubview(self.contentView)
-        self.addSubview(self.circleViewBackground)
-        self.addSubview(self.circleView)
-        
+        shadowView = UIView(frame: UIScreen.mainScreen().bounds)
+        shadowView.backgroundColor = UIColor.blackColor()
         // Colours
-        self.contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
-        self.labelView.textColor = UIColorFromRGB(0x4D4D4D)
-        self.labelViewDescription.textColor = UIColorFromRGB(0x4D4D4D)
-        self.contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
-        
-        // On complete.
-        self.doneButton.addTarget(self, action: Selector("doneButtonAction"), forControlEvents: .TouchUpInside)
+        contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
+        labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
+        viewText.textColor = UIColorFromRGB(0x4D4D4D)
+        contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
     }
-    
+	
+	override init(frame: CGRect) {
+		super.init(frame:frame)
+	}
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		let sz = UIScreen.mainScreen().bounds.size
+		// Set frames
+		frame = CGRect(x:(sz.width-kWindowWidth)/2, y:-kWindowHeight, width: kWindowWidth, height: kWindowHeight)
+		contentView.frame = CGRect(x: 0, y: kCircleHeight / 4, width: kWindowWidth, height: kWindowHeight)
+		circleViewBackground.frame = CGRect(x: kWindowWidth / 2 - kCircleHeightBackground / 2, y: kCircleBackgroundTopPosition, width: kCircleHeightBackground, height: kCircleHeightBackground)
+		circleViewBackground.layer.cornerRadius = circleViewBackground.frame.size.height / 2
+		circleView.frame = CGRect(x: kWindowWidth / 2 - kCircleHeight / 2, y: kCircleTopPosition, width: kCircleHeight, height: kCircleHeight)
+		circleView.layer.cornerRadius = circleView.frame.size.height / 2
+		circleIconImageView.frame = CGRect(x: kCircleHeight / 2 - kCircleIconHeight / 2, y: kCircleHeight / 2 - kCircleIconHeight / 2, width: kCircleIconHeight, height: kCircleIconHeight)
+		labelTitle.frame = CGRect(x:12, y:kCircleHeight / 2 + 12, width: kWindowWidth - 24, height:40)
+		viewText.frame = CGRect(x:12, y:74, width: kWindowWidth - 24, height:kTextHeight)
+		// Buttons
+		var y = 74.0 + kTextHeight + 14.0
+		for btn in buttons {
+			btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:40)
+			btn.layer.cornerRadius = 3
+			y += 50.0
+		}
+	}
+	
+	func addButton(title:String, action:()->Void)->UIButton {
+		let btn = addButton(title)
+		actions[btn] = action
+		btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
+		return btn
+	}
+	
+	func addButton(title:String, target:AnyObject, selector:Selector)->UIButton {
+		let btn = addButton(title)
+		btn.addTarget(target, action:selector, forControlEvents:.TouchUpInside)
+		return btn
+	}
+	
+	private func addButton(title:String)->UIButton {
+		// Update dialog frame
+		kWindowHeight += 50.0
+		var r = contentView.frame
+		r.origin.y -= 25.0
+		r.size.height = kWindowHeight
+		contentView.frame = r
+		// Add button
+		let btn = UIButton()
+		btn.layer.masksToBounds = true
+		btn.setTitle(title, forState: .Normal)
+		btn.titleLabel?.font = UIFont(name:kButtonFont, size: 14)
+		contentView.addSubview(btn)
+		buttons.append(btn)
+		return btn
+	}
+
+	func buttonTapped(sender:UIButton) {
+		if let act = actions[sender] {
+			act()
+		} else {
+			println("Could not find matching action for button")
+		}
+	}
+	
+	// showSuccess(view, title, subTitle)
+	func showSuccess(view: UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success)
+	}
+	
+	// showError(view, title, subTitle)
+	func showError(view: UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error)
+	}
+	
+	// showNotice(view, title, subTitle)
+	func showNotice(view: UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice)
+	}
+	
+	// showWarning(view, title, subTitle)
+	func showWarning(view: UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning)
+	}
+	
+	// showInfo(view, title, subTitle)
+	func showInfo(view: UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info)
+	}
+	
     // showTitle(view, title, subTitle, style)
-    func showTitle(view: UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: style)
-    }
-    
-    // showSuccess(view, title, subTitle)
-    func showSuccess(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Success)
-    }
-    
-    // showError(view, title, subTitle)
-    func showError(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Error)
-    }
-    
-    // showNotice(view, title, subTitle)
-    func showNotice(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Notice)
-    }
-    
-    // showWarning(view, title, subTitle)
-    func showWarning(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Warning)
-    }
-    
-    // showInfo(view, title, subTitle)
-    func showInfo(view: UIViewController, title: String, subTitle: String) -> SCLAlertViewResponder {
-        return showTitle(view, title: title, subTitle: subTitle, duration: 2.0, completeText: nil, style: .Info)
+	func showTitle(view: UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(view, title: title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style)
     }
     
     // showTitle(view, title, subTitle, duration, style)
@@ -164,11 +204,6 @@ class SCLAlertView: UIView {
         self.rootViewController = view
         self.rootViewController.view.addSubview(self.shadowView)
         self.rootViewController.view.addSubview(self)
-        
-        // Complete text
-        if completeText != nil {
-            self.doneButton.setTitle(completeText!, forState: .Normal)
-        }
         
         // Alert colour/icon
         var viewColor = UIColor()
@@ -200,19 +235,35 @@ class SCLAlertView: UIView {
         
         // Title
         if !title.isEmpty {
-            self.labelView.text = title
+            self.labelTitle.text = title
         }
         
         // Subtitle
         if !subTitle.isEmpty {
-            self.labelViewDescription.text = subTitle
+            viewText.text = subTitle
+			// Adjust text view size, if necessary
+			let str = subTitle as NSString
+			let attr = [NSFontAttributeName:viewText.font]
+			let sz = CGSize(width: kWindowWidth - 24, height:90)
+			let r = str.boundingRectWithSize(sz, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes:attr, context:nil)
+			let ht = ceil(r.size.height) + 10
+			if ht < kTextHeight {
+				kWindowHeight -= (kTextHeight - ht)
+				kTextHeight = ht
+			}
         }
-        
+		
+		// Done button
+		let txt = completeText != nil ? completeText! : "Done"
+		addButton(txt, target:self, selector:Selector("hideView"))
+		
         // Alert view colour and images
-        self.doneButton.backgroundColor = viewColor
         self.circleView.backgroundColor = viewColor
         self.circleIconImageView.image  = iconImage
-        
+		for btn in buttons {
+			btn.backgroundColor = viewColor
+		}
+		
         // Adding duration
         if duration > 0 {
             durationTimer?.invalidate()
@@ -222,7 +273,7 @@ class SCLAlertView: UIView {
         // Animate in the alert view
         UIView.animateWithDuration(0.2, animations: {
             self.shadowView.alpha = self.kDefaultShadowOpacity
-            self.frame.origin.y = self.rootViewController.view.center.y - 100
+            self.frame.origin.y = self.rootViewController.view.center.y - (self.frame.size.height * 0.5)
             self.alpha = 1
             }, completion: { finished in
                 UIView.animateWithDuration(0.2, animations: {
@@ -233,9 +284,6 @@ class SCLAlertView: UIView {
         // Chainable objects
         return SCLAlertViewResponder(alertview: self)
     }
-    
-    // When click 'Done' button, hide view.
-    func doneButtonAction() { if hideOnButtonClick { hideView() } }
     
     // Close SCLAlertView
     func hideView() {

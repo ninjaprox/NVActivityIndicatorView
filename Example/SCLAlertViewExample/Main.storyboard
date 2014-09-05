@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ngj-nl-OHz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A329r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ngj-nl-OHz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhe-aS-BHL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhe-aS-BHL">
                                 <rect key="frame" x="121" y="156" width="77" height="30"/>
                                 <state key="normal" title="Show Error">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,7 +26,7 @@
                                     <action selector="showError:" destination="ngj-nl-OHz" eventType="touchUpInside" id="LaV-fY-yjd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-SD-9bQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-SD-9bQ">
                                 <rect key="frame" x="116" y="211" width="88" height="30"/>
                                 <state key="normal" title="Show Notice">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,7 +35,7 @@
                                     <action selector="showNotice:" destination="ngj-nl-OHz" eventType="touchUpInside" id="72p-WQ-NeO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWR-vv-K1w">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWR-vv-K1w">
                                 <rect key="frame" x="110" y="268" width="100" height="30"/>
                                 <state key="normal" title="Show Warning">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +44,7 @@
                                     <action selector="showWarning:" destination="ngj-nl-OHz" eventType="touchUpInside" id="CW0-pU-Jcx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ism-f4-jWc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ism-f4-jWc">
                                 <rect key="frame" x="126" y="323" width="69" height="30"/>
                                 <state key="normal" title="Show Info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,7 +53,7 @@
                                     <action selector="showInfo:" destination="ngj-nl-OHz" eventType="touchUpInside" id="8gf-jf-8TH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arb-3g-Toj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arb-3g-Toj">
                                 <rect key="frame" x="109" y="103" width="102" height="30"/>
                                 <state key="normal" title="Show Success">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,6 +64,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="arb-3g-Toj" secondAttribute="centerX" id="6vH-HH-HK4"/>
+                            <constraint firstItem="arb-3g-Toj" firstAttribute="top" secondItem="G4y-kv-ZRs" secondAttribute="bottom" constant="83" id="7Lm-Sx-HKe"/>
+                            <constraint firstItem="Uhe-aS-BHL" firstAttribute="top" secondItem="arb-3g-Toj" secondAttribute="bottom" constant="23" id="Eae-gx-wZ6"/>
+                            <constraint firstItem="VWR-vv-K1w" firstAttribute="top" secondItem="dOp-SD-9bQ" secondAttribute="bottom" constant="27" id="GFG-rg-pZM"/>
+                            <constraint firstAttribute="centerX" secondItem="Uhe-aS-BHL" secondAttribute="centerX" constant="0.5" id="JiZ-Sr-LRZ"/>
+                            <constraint firstItem="VWR-vv-K1w" firstAttribute="centerX" secondItem="dOp-SD-9bQ" secondAttribute="centerX" id="R9D-mp-DSX"/>
+                            <constraint firstItem="arb-3g-Toj" firstAttribute="centerX" secondItem="G4y-kv-ZRs" secondAttribute="centerX" id="am6-Lr-rTd"/>
+                            <constraint firstItem="VWR-vv-K1w" firstAttribute="centerX" secondItem="ism-f4-jWc" secondAttribute="centerX" id="fku-3F-Xme"/>
+                            <constraint firstItem="dOp-SD-9bQ" firstAttribute="centerX" secondItem="arb-3g-Toj" secondAttribute="centerX" id="gPO-a1-Hre"/>
+                            <constraint firstItem="ism-f4-jWc" firstAttribute="top" secondItem="VWR-vv-K1w" secondAttribute="bottom" constant="25" id="m91-r8-IcB"/>
+                            <constraint firstItem="dOp-SD-9bQ" firstAttribute="top" secondItem="Uhe-aS-BHL" secondAttribute="bottom" constant="25" id="rWX-S4-YjF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EvH-7P-4FD"/>
                     <value key="contentSizeForViewInPopover" type="size" width="480" height="640"/>
@@ -71,12 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAO-sH-F2m" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453" y="168"/>
+            <point key="canvasLocation" x="809" y="173"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
