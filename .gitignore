@@ -4,3 +4,9 @@ Example/SCLAlertViewExample.xcodeproj/project.xcworkspace/xcuserdata/fahim.xcuse
 Example/SCLAlertViewExample.xcodeproj/xcuserdata/fahim.xcuserdatad/xcschemes/SCLAlertViewExample.xcscheme
 
 Example/SCLAlertViewExample.xcodeproj/xcuserdata/fahim.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.xccheckout
+
+Example/SCLAlertViewExample.xcodeproj/project.xcworkspace/xcshareddata/SCLAlertViewExample.xccheckout
+
+Example/SCLAlertViewExample.xcodeproj/xcuserdata/fahim.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
