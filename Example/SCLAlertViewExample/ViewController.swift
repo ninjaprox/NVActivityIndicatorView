@@ -55,6 +55,15 @@ class ViewController: UIViewController {
     @IBAction func showInfo(sender: AnyObject) {
         SCLAlertView().showInfo(self, title: kInfoTitle, subTitle: kSubtitle)
     }
+
+	@IBAction func showEdit(sender: AnyObject) {
+		let alert = SCLAlertView()
+		let txt = alert.addTextField(title:"Enter your name")
+		alert.addButton("Show Name") {
+			println("Text value: \(txt.text)")
+		}
+		alert.showEdit(self, title:kInfoTitle, subTitle:kSubtitle)
+	}
 	
 	func firstButton() {
 		println("First button tapped")

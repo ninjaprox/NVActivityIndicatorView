@@ -11,7 +11,7 @@ import UIKit
 
 // Pop Up Styles
 enum SCLAlertViewStyle {
-    case Success, Error, Notice, Warning, Info
+    case Success, Error, Notice, Warning, Info, Edit
 }
 
 // Allow alerts to be closed/renamed in a chainable manner
@@ -63,8 +63,9 @@ class SCLAlertView: UIView {
     var circleIconImageView = UIImageView()
     var rootViewController = UIViewController()
     var durationTimer: NSTimer!
-	var buttons = [UIButton]()
-	var actions = Dictionary<UIButton, ()->Void>()
+	private var inputs = [UITextField]()
+	private var buttons = [UIButton]()
+	private var actions = Dictionary<UIButton, ()->Void>()
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -121,13 +122,38 @@ class SCLAlertView: UIView {
 		circleIconImageView.frame = CGRect(x: kCircleHeight / 2 - kCircleIconHeight / 2, y: kCircleHeight / 2 - kCircleIconHeight / 2, width: kCircleIconHeight, height: kCircleIconHeight)
 		labelTitle.frame = CGRect(x:12, y:kCircleHeight / 2 + 12, width: kWindowWidth - 24, height:40)
 		viewText.frame = CGRect(x:12, y:74, width: kWindowWidth - 24, height:kTextHeight)
-		// Buttons
+		// Text fiels
 		var y = 74.0 + kTextHeight + 14.0
-		for btn in buttons {
-			btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:40)
-			btn.layer.cornerRadius = 3
-			y += 50.0
+		for txt in inputs {
+			txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:30)
+			txt.layer.cornerRadius = 3
+			y += 40
 		}
+		// Buttons
+		for btn in buttons {
+			btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:35)
+			btn.layer.cornerRadius = 3
+			y += 45.0
+		}
+	}
+	
+	func addTextField(title:String?=nil)->UITextField {
+		// Update view height
+		kWindowHeight += 40.0
+		// Add text field
+		let txt = UITextField()
+		txt.borderStyle = UITextBorderStyle.RoundedRect
+		txt.font = UIFont(name:kDefaultFont, size: 14)
+		txt.autocapitalizationType = UITextAutocapitalizationType.Words
+		txt.clearButtonMode = UITextFieldViewMode.WhileEditing
+		txt.layer.masksToBounds = true
+		txt.layer.borderWidth = 1.0
+		if title != nil {
+			txt.placeholder = title!
+		}
+		contentView.addSubview(txt)
+		inputs.append(txt)
+		return txt
 	}
 	
 	func addButton(title:String, action:()->Void)->UIButton {
@@ -144,12 +170,8 @@ class SCLAlertView: UIView {
 	}
 	
 	private func addButton(title:String)->UIButton {
-		// Update dialog frame
-		kWindowHeight += 50.0
-		var r = contentView.frame
-		r.origin.y -= 25.0
-		r.size.height = kWindowHeight
-		contentView.frame = r
+		// Update view height
+		kWindowHeight += 45.0
 		// Add button
 		let btn = UIButton()
 		btn.layer.masksToBounds = true
@@ -193,6 +215,10 @@ class SCLAlertView: UIView {
 		return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info)
 	}
 	
+	func showEdit(view: UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(view, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit)
+	}
+	
     // showTitle(view, title, subTitle, style)
 	func showTitle(view: UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
         return showTitle(view, title: title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style)
@@ -211,28 +237,31 @@ class SCLAlertView: UIView {
         
         // Icon style
         switch style {
-        case .Success:
-            viewColor = UIColorFromRGB(0x22B573)
-            iconImage = SCLAlertViewStyleKit.imageOfCheckmark
+			case .Success:
+				viewColor = UIColorFromRGB(0x22B573)
+				iconImage = SCLAlertViewStyleKit.imageOfCheckmark
+				
+			case .Error:
+				viewColor = UIColorFromRGB(0xC1272D)
+				iconImage = SCLAlertViewStyleKit.imageOfCross
+				
+			case .Notice:
+				viewColor = UIColorFromRGB(0x727375)
+				iconImage = SCLAlertViewStyleKit.imageOfNotice
+				
+			case .Warning:
+				viewColor = UIColorFromRGB(0xFFD110)
+				iconImage = SCLAlertViewStyleKit.imageOfWarning
+				
+			case .Info:
+				viewColor = UIColorFromRGB(0x2866BF)
+				iconImage = SCLAlertViewStyleKit.imageOfInfo
             
-        case .Error:
-            viewColor = UIColorFromRGB(0xC1272D)
-            iconImage = SCLAlertViewStyleKit.imageOfCross
-            
-        case .Notice:
-            viewColor = UIColorFromRGB(0x727375)
-            iconImage = SCLAlertViewStyleKit.imageOfNotice
-            
-        case .Warning:
-            viewColor = UIColorFromRGB(0xFFD110)
-            iconImage = SCLAlertViewStyleKit.imageOfWarning
-            
-        case .Info:
-            viewColor = UIColorFromRGB(0x2866BF)
-            iconImage = SCLAlertViewStyleKit.imageOfInfo
-            
+			case .Edit:
+				viewColor = UIColorFromRGB(0xA429FF)
+				iconImage = SCLAlertViewStyleKit.imageOfEdit
         }
-        
+		
         // Title
         if !title.isEmpty {
             self.labelTitle.text = title
@@ -260,6 +289,9 @@ class SCLAlertView: UIView {
         // Alert view colour and images
         self.circleView.backgroundColor = viewColor
         self.circleIconImageView.image  = iconImage
+		for txt in inputs {
+			txt.layer.borderColor = viewColor.CGColor
+		}
 		for btn in buttons {
 			btn.backgroundColor = viewColor
 		}
@@ -327,6 +359,8 @@ class SCLAlertViewStyleKit : NSObject {
         static var warningTargets: [AnyObject]?
         static var imageOfInfo: UIImage?
         static var infoTargets: [AnyObject]?
+		static var imageOfEdit: UIImage?
+		static var editTargets: [AnyObject]?
     }
     
     //// Initialization
@@ -481,7 +515,54 @@ class SCLAlertViewStyleKit : NSObject {
         color0.setFill()
         infoShapePath.fill()
     }
-    
+	
+	class func drawEdit() {
+		//// Color Declarations
+		let color = UIColor(red:1.0, green:1.0, blue:1.0, alpha:1.0)
+		
+		//// Edit shape Drawing
+		var editPathPath = UIBezierPath()
+		editPathPath.moveToPoint(CGPointMake(71, 2.7))
+		editPathPath.addCurveToPoint(CGPointMake(71.9, 15.2), controlPoint1: CGPointMake(74.7, 5.9), controlPoint2: CGPointMake(75.1, 11.6))
+		editPathPath.addLineToPoint(CGPointMake(64.5, 23.7))
+		editPathPath.addLineToPoint(CGPointMake(49.9, 11.1))
+		editPathPath.addLineToPoint(CGPointMake(57.3, 2.6))
+		editPathPath.addCurveToPoint(CGPointMake(69.7, 1.7), controlPoint1: CGPointMake(60.4, -1.1), controlPoint2: CGPointMake(66.1, -1.5))
+		editPathPath.addLineToPoint(CGPointMake(71, 2.7))
+		editPathPath.addLineToPoint(CGPointMake(71, 2.7))
+		editPathPath.closePath()
+		editPathPath.moveToPoint(CGPointMake(47.8, 13.5))
+		editPathPath.addLineToPoint(CGPointMake(13.4, 53.1))
+		editPathPath.addLineToPoint(CGPointMake(15.7, 55.1))
+		editPathPath.addLineToPoint(CGPointMake(50.1, 15.5))
+		editPathPath.addLineToPoint(CGPointMake(47.8, 13.5))
+		editPathPath.addLineToPoint(CGPointMake(47.8, 13.5))
+		editPathPath.closePath()
+		editPathPath.moveToPoint(CGPointMake(17.7, 56.7))
+		editPathPath.addLineToPoint(CGPointMake(23.8, 62.2))
+		editPathPath.addLineToPoint(CGPointMake(58.2, 22.6))
+		editPathPath.addLineToPoint(CGPointMake(52, 17.1))
+		editPathPath.addLineToPoint(CGPointMake(17.7, 56.7))
+		editPathPath.addLineToPoint(CGPointMake(17.7, 56.7))
+		editPathPath.closePath()
+		editPathPath.moveToPoint(CGPointMake(25.8, 63.8))
+		editPathPath.addLineToPoint(CGPointMake(60.1, 24.2))
+		editPathPath.addLineToPoint(CGPointMake(62.3, 26.1))
+		editPathPath.addLineToPoint(CGPointMake(28.1, 65.7))
+		editPathPath.addLineToPoint(CGPointMake(25.8, 63.8))
+		editPathPath.addLineToPoint(CGPointMake(25.8, 63.8))
+		editPathPath.closePath()
+		editPathPath.moveToPoint(CGPointMake(25.9, 68.1))
+		editPathPath.addLineToPoint(CGPointMake(4.2, 79.5))
+		editPathPath.addLineToPoint(CGPointMake(11.3, 55.5))
+		editPathPath.addLineToPoint(CGPointMake(25.9, 68.1))
+		editPathPath.closePath()
+		editPathPath.miterLimit = 4;
+		editPathPath.usesEvenOddFillRule = true;
+		color.setFill()
+		editPathPath.fill()
+	}
+	
     //// Generated Images
     
     class var imageOfCheckmark: UIImage {
@@ -548,4 +629,15 @@ class SCLAlertViewStyleKit : NSObject {
         
         return Cache.imageOfInfo!
     }
+	
+	class var imageOfEdit: UIImage {
+		if (Cache.imageOfEdit != nil) {
+			return Cache.imageOfEdit!
+		}
+		UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
+		SCLAlertViewStyleKit.drawEdit()
+		Cache.imageOfEdit = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return Cache.imageOfEdit!
+	}
 }
