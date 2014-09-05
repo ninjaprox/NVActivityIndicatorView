@@ -37,11 +37,11 @@ class ViewController: UIViewController {
 			println("Second button tapped")
 		}
         alert.showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle)
-        // SCLAlertView().showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle).close()
     }
     
     @IBAction func showError(sender: AnyObject) {
-        SCLAlertView().showError(self, title: kErrorTitle, subTitle: kSubtitle)
+		SCLAlertView().showError(self, title:"Hold On...", subTitle:"You have not saved your Submission yet. Please save the Submission before accessing the Responses list. Blah de blah de blah, blah. Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.", closeButtonTitle:"OK")
+//        SCLAlertView().showError(self, title: kErrorTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showNotice(sender: AnyObject) {
