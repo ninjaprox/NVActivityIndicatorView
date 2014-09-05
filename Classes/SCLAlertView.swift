@@ -304,13 +304,13 @@ class SCLAlertView: UIView {
         
         // Animate in the alert view
         UIView.animateWithDuration(0.2, animations: {
-            self.shadowView.alpha = self.kDefaultShadowOpacity
-            self.frame.origin.y = self.rootViewController.view.center.y - (self.frame.size.height * 0.5)
-            self.alpha = 1
+				self.shadowView.alpha = self.kDefaultShadowOpacity
+				self.frame.origin.y = self.rootViewController.view.center.y - 100
+				self.alpha = 1
             }, completion: { finished in
                 UIView.animateWithDuration(0.2, animations: {
                     self.center = self.rootViewController.view.center
-                })
+			})
         })
         
         // Chainable objects
