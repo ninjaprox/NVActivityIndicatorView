@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhe-aS-BHL">
-                                <rect key="frame" x="121" y="156" width="77" height="30"/>
+                                <rect key="frame" x="121" y="153" width="77" height="30"/>
                                 <state key="normal" title="Show Error">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-SD-9bQ">
-                                <rect key="frame" x="116" y="211" width="88" height="30"/>
+                                <rect key="frame" x="116" y="203" width="88" height="30"/>
                                 <state key="normal" title="Show Notice">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWR-vv-K1w">
-                                <rect key="frame" x="110" y="268" width="100" height="30"/>
+                                <rect key="frame" x="110" y="253" width="100" height="30"/>
                                 <state key="normal" title="Show Warning">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ism-f4-jWc">
-                                <rect key="frame" x="126" y="323" width="69" height="30"/>
+                                <rect key="frame" x="126" y="303" width="69" height="30"/>
                                 <state key="normal" title="Show Info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -62,21 +62,40 @@
                                     <action selector="showSuccess:" destination="ngj-nl-OHz" eventType="touchUpInside" id="Xuj-bW-sNI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McK-98-W7e">
+                                <rect key="frame" x="125.5" y="353" width="70" height="30"/>
+                                <state key="normal" title="Show Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showEdit:" destination="ngj-nl-OHz" eventType="touchUpInside" id="Cce-Yv-6Q3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="McK-98-W7e" firstAttribute="centerX" secondItem="arb-3g-Toj" secondAttribute="centerX" constant="0.5" id="6if-Ab-Hmf"/>
                             <constraint firstAttribute="centerX" secondItem="arb-3g-Toj" secondAttribute="centerX" id="6vH-HH-HK4"/>
                             <constraint firstItem="arb-3g-Toj" firstAttribute="top" secondItem="G4y-kv-ZRs" secondAttribute="bottom" constant="83" id="7Lm-Sx-HKe"/>
-                            <constraint firstItem="Uhe-aS-BHL" firstAttribute="top" secondItem="arb-3g-Toj" secondAttribute="bottom" constant="23" id="Eae-gx-wZ6"/>
-                            <constraint firstItem="VWR-vv-K1w" firstAttribute="top" secondItem="dOp-SD-9bQ" secondAttribute="bottom" constant="27" id="GFG-rg-pZM"/>
+                            <constraint firstItem="McK-98-W7e" firstAttribute="top" secondItem="ism-f4-jWc" secondAttribute="bottom" constant="20" id="BXA-QC-rg1"/>
+                            <constraint firstItem="Uhe-aS-BHL" firstAttribute="top" secondItem="arb-3g-Toj" secondAttribute="bottom" constant="20" id="Eae-gx-wZ6"/>
+                            <constraint firstItem="VWR-vv-K1w" firstAttribute="top" secondItem="dOp-SD-9bQ" secondAttribute="bottom" constant="20" id="GFG-rg-pZM"/>
                             <constraint firstAttribute="centerX" secondItem="Uhe-aS-BHL" secondAttribute="centerX" constant="0.5" id="JiZ-Sr-LRZ"/>
+                            <constraint firstItem="McK-98-W7e" firstAttribute="centerY" secondItem="arb-3g-Toj" secondAttribute="centerY" constant="258" id="Olk-US-7Qt"/>
                             <constraint firstItem="VWR-vv-K1w" firstAttribute="centerX" secondItem="dOp-SD-9bQ" secondAttribute="centerX" id="R9D-mp-DSX"/>
                             <constraint firstItem="arb-3g-Toj" firstAttribute="centerX" secondItem="G4y-kv-ZRs" secondAttribute="centerX" id="am6-Lr-rTd"/>
                             <constraint firstItem="VWR-vv-K1w" firstAttribute="centerX" secondItem="ism-f4-jWc" secondAttribute="centerX" id="fku-3F-Xme"/>
                             <constraint firstItem="dOp-SD-9bQ" firstAttribute="centerX" secondItem="arb-3g-Toj" secondAttribute="centerX" id="gPO-a1-Hre"/>
-                            <constraint firstItem="ism-f4-jWc" firstAttribute="top" secondItem="VWR-vv-K1w" secondAttribute="bottom" constant="25" id="m91-r8-IcB"/>
-                            <constraint firstItem="dOp-SD-9bQ" firstAttribute="top" secondItem="Uhe-aS-BHL" secondAttribute="bottom" constant="25" id="rWX-S4-YjF"/>
+                            <constraint firstItem="McK-98-W7e" firstAttribute="leading" secondItem="ism-f4-jWc" secondAttribute="leading" id="kzA-aj-lPP"/>
+                            <constraint firstItem="ism-f4-jWc" firstAttribute="top" secondItem="VWR-vv-K1w" secondAttribute="bottom" constant="20" id="m91-r8-IcB"/>
+                            <constraint firstItem="dOp-SD-9bQ" firstAttribute="top" secondItem="Uhe-aS-BHL" secondAttribute="bottom" constant="20" id="rWX-S4-YjF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Olk-US-7Qt"/>
+                                <exclude reference="kzA-aj-lPP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="EvH-7P-4FD"/>
                     <value key="contentSizeForViewInPopover" type="size" width="480" height="640"/>
