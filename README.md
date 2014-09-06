@@ -1,12 +1,10 @@
 SCLAlertView
 ===========
 
-Animated Alert View. Written in Swift
+Animated Alert View written in Swift, which can be used as a `UIAlertView` or `UIAlertController` replacement. Since `UIAlertView` is deprecated and `UIAlertController` only works on iOS 8.x or above, if you have a Swift project where you want to support iOS 7.x too, SCLAlertView is an ideal substitution.
 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)_
-![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/errorScreenshot.png) 
-
-
+![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/editScreenshot.png) 
 
 ###Easy to use
 ```swift
@@ -23,6 +21,7 @@ SCLAlertView().showError(self, title: "Hello Error", subTitle: "This is a more d
 SCLAlertView().showNotice(self, title: "Hello Notice", subTitle: "This is a more descriptive notice text.") // Notice
 SCLAlertView().showWarning(self, title: "Hello Warning", subTitle: "This is a more descriptive warning text.") // Warning
 SCLAlertView().showInfo(self, title: "Hello Info", subTitle: "This is a more descriptive info text.") // Info
+SCLAlertView().showEdit(self, title: "Hello Edit", subTitle: "This is a more descriptive info text.") // Edit
 
 // Advanced
 SCLAlertView().showTitle(
@@ -33,12 +32,28 @@ SCLAlertView().showTitle(
     completeText: "Done", // Optional button value, default: ""
     style: .Success // Styles - see below.
 )
+
+// Add buttons
+let alert = SCLAlertView()
+alert.addButton("First Button", target:self, selector:Selector("firstButton"))
+alert.addButton("Second Button") {
+    println("Second button tapped")
+}
+alert.showSuccess(self, title: "Button View", subTitle: "This alert view has buttons")
+
+// Add a text field
+let alert = SCLAlertView()
+let txt = alert.addTextField(title:"Enter your name")
+alert.addButton("Show Name") {
+    println("Text value: \(txt.text)")
+}
+alert.showEdit(self, title: "Edit View", subTitle: "This alert view shows a text box")
 ```
 
 ####Alert View Styles
 ```swift
 enum SCLAlertViewStyle: Int {
-    case Success, Error, Notice, Warning, Info
+    case Success, Error, Notice, Warning, Info, Edit
 }
 ```
 
@@ -55,7 +70,6 @@ I tried to build an easy to use API, while beeing flexible enough for multiple v
 
 ###Incoming improvements
 - More animations
-- Blocks
 - Performance tests
 
 Has been developed initially for the [Scroll Feed](https://itunes.apple.com/us/app/scroll-feed/id842422195?ls=1&mt=8) app
