@@ -96,8 +96,8 @@ class SCLAlertView: UIViewController {
         viewText.textAlignment = .Center
         viewText.font = UIFont(name: kDefaultFont, size: 14)
         // Shadow View
-        shadowView = UIView(frame: UIScreen.mainScreen().bounds)
-		shadowView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        shadowView = UIView(frame:UIScreen.mainScreen().bounds)
+		shadowView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
         shadowView.backgroundColor = UIColor.blackColor()
         // Colours
         contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
@@ -110,10 +110,20 @@ class SCLAlertView: UIViewController {
 		super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
 	}
 	
-	override func viewDidLayoutSubviews() {
-		println("Layout Subviews Called")
+	override func viewWillLayoutSubviews() {
 		super.viewWillLayoutSubviews()
-		let sz = UIScreen.mainScreen().bounds.size
+		var sz = UIScreen.mainScreen().bounds.size
+		let sver = UIDevice.currentDevice().systemVersion as NSString
+		let ver = sver.floatValue
+		if ver < 8.0 {
+			// iOS versions before 7.0 did not switch the width and height on device roration
+			if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
+				let ssz = sz
+				sz = CGSize(width:ssz.height, height:ssz.width)
+			}
+		}
+		// Set background frame
+		shadowView.frame.size = sz
 		// Set frames
 		var r:CGRect
 		if view.superview != nil {
@@ -240,13 +250,9 @@ class SCLAlertView: UIViewController {
         rootViewController = vc
 		// Add subviews
 		rootViewController.addChildViewController(self)
+		shadowView.frame = vc.view.bounds
         rootViewController.view.addSubview(shadowView)
         rootViewController.view.addSubview(view)
-		// Autolayout constraints for shadow view (to handle device rotation)
-		let c1 = NSLayoutConstraint(item:shadowView, attribute:NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem:vc.view, attribute:NSLayoutAttribute.Width, multiplier: 1.0, constant:0.0)
-        vc.view.addConstraint(c1)
-		let c2 = NSLayoutConstraint(item:shadowView, attribute:NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem:vc.view, attribute:NSLayoutAttribute.Height, multiplier: 1.0, constant:0.0)
-		vc.view.addConstraint(c2)
 		
         // Alert colour/icon
         var viewColor = UIColor()
