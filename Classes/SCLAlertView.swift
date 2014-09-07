@@ -14,6 +14,31 @@ enum SCLAlertViewStyle {
     case Success, Error, Notice, Warning, Info, Edit
 }
 
+// Action Types
+enum SCLActionType {
+	case None, Selector, Closure
+}
+
+// Button sub-class
+class SCLButton: UIButton {
+	var actionType = SCLActionType.None
+	var target:AnyObject!
+	var selector:Selector!
+	var action:(()->Void)!
+	
+	override init() {
+		super.init()
+	}
+	
+	required init(coder aDecoder: NSCoder) {
+		super.init(coder:aDecoder)
+	}
+	
+	override init(frame:CGRect) {
+		super.init(frame:frame)
+	}
+}
+
 // Allow alerts to be closed/renamed in a chainable manner
 // Example: SCLAlertView().showSuccess(self, title: "Test", subTitle: "Value").close()
 class SCLAlertViewResponder {
@@ -64,8 +89,7 @@ class SCLAlertView: UIViewController {
 	var rootViewController:UIViewController!
     var durationTimer: NSTimer!
 	private var inputs = [UITextField]()
-	private var buttons = [UIButton]()
-	private var actions = Dictionary<UIButton, ()->Void>()
+	private var buttons = [SCLButton]()
 	
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -176,24 +200,28 @@ class SCLAlertView: UIViewController {
 		return txt
 	}
 	
-	func addButton(title:String, action:()->Void)->UIButton {
+	func addButton(title:String, action:()->Void)->SCLButton {
 		let btn = addButton(title)
-		actions[btn] = action
+		btn.actionType = SCLActionType.Closure
+		btn.action = action
 		btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
 		return btn
 	}
 	
-	func addButton(title:String, target:AnyObject, selector:Selector)->UIButton {
+	func addButton(title:String, target:AnyObject, selector:Selector)->SCLButton {
 		let btn = addButton(title)
-		btn.addTarget(target, action:selector, forControlEvents:.TouchUpInside)
+		btn.actionType = SCLActionType.Selector
+		btn.target = target
+		btn.selector = selector
+		btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
 		return btn
 	}
 	
-	private func addButton(title:String)->UIButton {
+	private func addButton(title:String)->SCLButton {
 		// Update view height
 		kWindowHeight += 45.0
 		// Add button
-		let btn = UIButton()
+		let btn = SCLButton()
 		btn.layer.masksToBounds = true
 		btn.setTitle(title, forState: .Normal)
 		btn.titleLabel?.font = UIFont(name:kButtonFont, size: 14)
@@ -202,12 +230,16 @@ class SCLAlertView: UIViewController {
 		return btn
 	}
 
-	func buttonTapped(sender:UIButton) {
-		if let act = actions[sender] {
-			act()
+	func buttonTapped(btn:SCLButton) {
+		if btn.actionType == SCLActionType.Closure {
+			btn.action()
+		} else if btn.actionType == SCLActionType.Selector {
+			let ctrl = UIControl()
+			ctrl.sendAction(btn.selector, to:btn.target, forEvent:nil)
 		} else {
-			println("Could not find matching action for button")
+			println("Unknow action type for button")
 		}
+		hideView()
 	}
 	
 	// showSuccess(view, title, subTitle)
@@ -317,6 +349,9 @@ class SCLAlertView: UIViewController {
 		}
 		for btn in buttons {
 			btn.backgroundColor = viewColor
+			if style == SCLAlertViewStyle.Warning {
+				btn.setTitleColor(UIColor.blackColor(), forState:UIControlState.Normal)
+			}
 		}
 		
         // Adding duration
