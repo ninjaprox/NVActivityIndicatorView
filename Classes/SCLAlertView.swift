@@ -62,14 +62,17 @@ class SCLAlertViewResponder {
 	}
 }
 
+let kCircleHeightBackground: CGFloat = 62.0
+
 // The Main Class
 class SCLAlertView: UIViewController {
     let kDefaultShadowOpacity: CGFloat = 0.7
-    let kCircleHeight: CGFloat = 56.0
     let kCircleTopPosition: CGFloat = -12.0
     let kCircleBackgroundTopPosition: CGFloat = -15.0
-    let kCircleHeightBackground: CGFloat = 62.0
+	let kCircleHeight: CGFloat = 56.0
     let kCircleIconHeight: CGFloat = 20.0
+	let kTitleTop:CGFloat = 24.0
+	let kTitleHeight:CGFloat = 40.0
     let kWindowWidth: CGFloat = 240.0
     var kWindowHeight: CGFloat = 178.0
 	var kTextHeight: CGFloat = 90.0
@@ -81,10 +84,9 @@ class SCLAlertView: UIViewController {
     // Members declaration
     var labelTitle = UILabel()
     var viewText = UITextView()
-    var shadowView = UIView()
     var contentView = UIView()
-    var circleView = UIView()
-    var circleViewBackground = UIView()
+    var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
+	var circleView = UIView()
     var circleIconImageView = UIImageView()
 	var rootViewController:UIViewController!
     var durationTimer: NSTimer!
@@ -97,32 +99,38 @@ class SCLAlertView: UIViewController {
     
     required override init() {
 		super.init()
-		// Add Subvies
+		// Set up main view
+		view.frame = UIScreen.mainScreen().bounds
+		view.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+		view.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:kDefaultShadowOpacity)
 		view.addSubview(contentView)
-		view.addSubview(circleViewBackground)
-		view.addSubview(circleView)
-		circleView.addSubview(circleIconImageView)
-		contentView.addSubview(labelTitle)
-		contentView.addSubview(viewText)
 		// Content View
-        contentView.backgroundColor = UIColor(white: 1, alpha: 1)
+        contentView.backgroundColor = UIColor(white:1, alpha:1)
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0.5
-		// Circle View Background
-		circleViewBackground.backgroundColor = UIColor.whiteColor()
+		contentView.addSubview(labelTitle)
+		contentView.addSubview(viewText)
+		// Circle View
+		circleBG.backgroundColor = UIColor.whiteColor()
+		circleBG.layer.cornerRadius = circleBG.frame.size.height / 2
+		view.addSubview(circleBG)
+		circleBG.addSubview(circleView)
+		circleView.addSubview(circleIconImageView)
+		var x = (kCircleHeightBackground - kCircleHeight) / 2
+		circleView.frame = CGRect(x:x, y:x, width:kCircleHeight, height:kCircleHeight)
+		circleView.layer.cornerRadius = circleView.frame.size.height / 2
+		x = (kCircleHeight - kCircleIconHeight) / 2
+		circleIconImageView.frame = CGRect(x:x, y:x, width:kCircleIconHeight, height:kCircleIconHeight)
         // Title
         labelTitle.numberOfLines = 1
         labelTitle.textAlignment = .Center
-        labelTitle.font = UIFont(name: kDefaultFont, size: 20)
+        labelTitle.font = UIFont(name: kDefaultFont, size:20)
+		labelTitle.frame = CGRect(x:12, y:kTitleTop, width: kWindowWidth - 24, height:kTitleHeight)
         // View text
 		viewText.editable = false
         viewText.textAlignment = .Center
-        viewText.font = UIFont(name: kDefaultFont, size: 14)
-        // Shadow View
-        shadowView = UIView(frame:UIScreen.mainScreen().bounds)
-		shadowView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
-        shadowView.backgroundColor = UIColor.blackColor()
+        viewText.font = UIFont(name: kDefaultFont, size:14)
         // Colours
         contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
         labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
@@ -147,27 +155,19 @@ class SCLAlertView: UIViewController {
 			}
 		}
 		// Set background frame
-		shadowView.frame.size = sz
+		view.frame.size = sz
 		// Set frames
-		var r:CGRect
-		if view.superview != nil {
-			// View is showing, position at center of screen
-			r = CGRect(x:(sz.width-kWindowWidth)/2, y:(sz.height-kWindowHeight)/2, width: kWindowWidth, height: kWindowHeight)
-		} else {
-			// View is not visible, position outside screen bounds
-			r = CGRect(x:(sz.width-kWindowWidth)/2, y:-kWindowHeight, width: kWindowWidth, height: kWindowHeight)
-		}
-		view.frame = r
-		contentView.frame = CGRect(x: 0, y: kCircleHeight / 4, width: kWindowWidth, height: kWindowHeight)
-		circleViewBackground.frame = CGRect(x: kWindowWidth / 2 - kCircleHeightBackground / 2, y: kCircleBackgroundTopPosition, width: kCircleHeightBackground, height: kCircleHeightBackground)
-		circleViewBackground.layer.cornerRadius = circleViewBackground.frame.size.height / 2
-		circleView.frame = CGRect(x: kWindowWidth / 2 - kCircleHeight / 2, y: kCircleTopPosition, width: kCircleHeight, height: kCircleHeight)
-		circleView.layer.cornerRadius = circleView.frame.size.height / 2
-		circleIconImageView.frame = CGRect(x: kCircleHeight / 2 - kCircleIconHeight / 2, y: kCircleHeight / 2 - kCircleIconHeight / 2, width: kCircleIconHeight, height: kCircleIconHeight)
-		labelTitle.frame = CGRect(x:12, y:kCircleHeight / 2 + 12, width: kWindowWidth - 24, height:40)
-		viewText.frame = CGRect(x:12, y:74, width: kWindowWidth - 24, height:kTextHeight)
-		// Text fiels
-		var y = 74.0 + kTextHeight + 14.0
+		var x = (sz.width - kWindowWidth) / 2
+		var y = (sz.height - kWindowHeight -  (kCircleHeight / 8)) / 2
+		contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:kWindowHeight)
+		y -= kCircleHeightBackground * 0.6
+		x = (sz.width - kCircleHeightBackground) / 2
+		circleBG.frame = CGRect(x:x, y:y, width:kCircleHeightBackground, height:kCircleHeightBackground)
+		// Subtitle
+		y = kTitleTop + kTitleHeight
+		viewText.frame = CGRect(x:12, y:y, width: kWindowWidth - 24, height:kTextHeight)
+		// Text fields
+		y += kTextHeight + 14.0
 		for txt in inputs {
 			txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:30)
 			txt.layer.cornerRadius = 3
@@ -178,6 +178,12 @@ class SCLAlertView: UIViewController {
 			btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:35)
 			btn.layer.cornerRadius = 3
 			y += 45.0
+		}
+	}
+	
+	override func touchesEnded(touches:NSSet, withEvent event:UIEvent) {
+		if event.touchesForView(view)?.count > 0 {
+			view.endEditing(true)
 		}
 	}
 	
@@ -282,8 +288,7 @@ class SCLAlertView: UIViewController {
         rootViewController = vc
 		// Add subviews
 		rootViewController.addChildViewController(self)
-		shadowView.frame = vc.view.bounds
-        rootViewController.view.addSubview(shadowView)
+		view.frame = vc.view.bounds
         rootViewController.view.addSubview(view)
 		
         // Alert colour/icon
@@ -362,7 +367,6 @@ class SCLAlertView: UIViewController {
         
         // Animate in the alert view
         UIView.animateWithDuration(0.2, animations: {
-				self.shadowView.alpha = self.kDefaultShadowOpacity
 				self.view.frame.origin.y = self.rootViewController.view.center.y - 100
 				self.view.alpha = 1
             }, completion: { finished in
@@ -377,10 +381,8 @@ class SCLAlertView: UIViewController {
     // Close SCLAlertView
     func hideView() {
         UIView.animateWithDuration(0.2, animations: {
-            self.shadowView.alpha = 0
             self.view.alpha = 0
             }, completion: { finished in
-                self.shadowView.removeFromSuperview()
                 self.view.removeFromSuperview()
         })
     }
