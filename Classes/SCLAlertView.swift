@@ -88,7 +88,6 @@ class SCLAlertView: UIViewController {
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
 	var circleView = UIView()
     var circleIconImageView = UIImageView()
-	var rootViewController:UIViewController!
     var durationTimer: NSTimer!
 	private var inputs = [UITextField]()
 	private var buttons = [SCLButton]()
@@ -249,47 +248,45 @@ class SCLAlertView: UIViewController {
 	}
 	
 	// showSuccess(view, title, subTitle)
-	func showSuccess(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success)
+	func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success)
 	}
 	
 	// showError(view, title, subTitle)
-	func showError(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error)
+	func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error)
 	}
 	
 	// showNotice(view, title, subTitle)
-	func showNotice(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice)
+	func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice)
 	}
 	
 	// showWarning(view, title, subTitle)
-	func showWarning(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning)
+	func showWarning(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning)
 	}
 	
 	// showInfo(view, title, subTitle)
-	func showInfo(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info)
+	func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info)
 	}
 	
-	func showEdit(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit)
+	func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit)
 	}
 	
     // showTitle(view, title, subTitle, style)
-	func showTitle(vc:UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-        return showTitle(vc, title: title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style)
+	func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style)
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    func showTitle(vc:UIViewController, title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
+    func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
         view.alpha = 0
-        rootViewController = vc
-		// Add subviews
-		rootViewController.addChildViewController(self)
-		view.frame = vc.view.bounds
-        rootViewController.view.addSubview(view)
+		let rv = UIApplication.sharedApplication().keyWindow?.subviews.first as UIView
+		rv.addSubview(view)
+		view.frame = rv.bounds
 		
         // Alert colour/icon
         var viewColor = UIColor()
@@ -367,11 +364,11 @@ class SCLAlertView: UIViewController {
         
         // Animate in the alert view
         UIView.animateWithDuration(0.2, animations: {
-				self.view.frame.origin.y = self.rootViewController.view.center.y - 100
+				self.view.frame.origin.y = rv.center.y - 100
 				self.view.alpha = 1
             }, completion: { finished in
                 UIView.animateWithDuration(0.2, animations: {
-                    self.view.center = self.rootViewController.view.center
+                    self.view.center = rv.center
 				})
         })
         // Chainable objects
@@ -404,9 +401,8 @@ class SCLAlertView: UIViewController {
 // ------------------------------------
 
 class SCLAlertViewStyleKit : NSObject {
-    
-    //// Cache
-    
+	
+    // Cache
     struct Cache {
         static var imageOfCheckmark: UIImage?
         static var checkmarkTargets: [AnyObject]?
@@ -422,16 +418,13 @@ class SCLAlertViewStyleKit : NSObject {
 		static var editTargets: [AnyObject]?
     }
     
-    //// Initialization
-    
+    // Initialization
     override class func load() {
     }
     
-    //// Drawing Methods
-    
+    // Drawing Methods
     class func drawCheckmark() {
-        
-        //// Checkmark Shape Drawing
+        // Checkmark Shape Drawing
         var checkmarkShapePath = UIBezierPath()
         checkmarkShapePath.moveToPoint(CGPointMake(73.25, 14.05))
         checkmarkShapePath.addCurveToPoint(CGPointMake(64.51, 13.86), controlPoint1: CGPointMake(70.98, 11.44), controlPoint2: CGPointMake(66.78, 11.26))
@@ -452,25 +445,21 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class func drawCross() {
-        
-        //// Cross Shape Drawing
+        // Cross Shape Drawing
         var crossShapePath = UIBezierPath()
         crossShapePath.moveToPoint(CGPointMake(10, 70))
         crossShapePath.addLineToPoint(CGPointMake(70, 10))
         crossShapePath.moveToPoint(CGPointMake(10, 10))
         crossShapePath.addLineToPoint(CGPointMake(70, 70))
         crossShapePath.lineCapStyle = kCGLineCapRound;
-        
         crossShapePath.lineJoinStyle = kCGLineJoinRound;
-        
         UIColor.whiteColor().setStroke()
         crossShapePath.lineWidth = 14
         crossShapePath.stroke()
     }
     
     class func drawNotice() {
-        
-        //// Notice Shape Drawing
+        // Notice Shape Drawing
         var noticeShapePath = UIBezierPath()
         noticeShapePath.moveToPoint(CGPointMake(72, 48.54))
         noticeShapePath.addLineToPoint(CGPointMake(72, 39.9))
@@ -507,11 +496,11 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class func drawWarning() {
-        //// Color Declarations
+        // Color Declarations
         let greyColor = UIColor(red: 0.236, green: 0.236, blue: 0.236, alpha: 1.000)
         
-        //// Warning Group
-        //// Warning Circle Drawing
+        // Warning Group
+        // Warning Circle Drawing
         var warningCirclePath = UIBezierPath()
         warningCirclePath.moveToPoint(CGPointMake(40.94, 63.39))
         warningCirclePath.addCurveToPoint(CGPointMake(36.03, 65.55), controlPoint1: CGPointMake(39.06, 63.39), controlPoint2: CGPointMake(37.36, 64.18))
@@ -529,7 +518,7 @@ class SCLAlertViewStyleKit : NSObject {
         warningCirclePath.fill()
         
         
-        //// Warning Shape Drawing
+        // Warning Shape Drawing
         var warningShapePath = UIBezierPath()
         warningShapePath.moveToPoint(CGPointMake(46.23, 4.26))
         warningShapePath.addCurveToPoint(CGPointMake(40.94, 2.5), controlPoint1: CGPointMake(44.91, 3.09), controlPoint2: CGPointMake(43.02, 2.5))
@@ -550,10 +539,10 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class func drawInfo() {
-        //// Color Declarations
+        // Color Declarations
         let color0 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         
-        //// Info Shape Drawing
+        // Info Shape Drawing
         var infoShapePath = UIBezierPath()
         infoShapePath.moveToPoint(CGPointMake(45.66, 15.96))
         infoShapePath.addCurveToPoint(CGPointMake(45.66, 5.22), controlPoint1: CGPointMake(48.78, 12.99), controlPoint2: CGPointMake(48.78, 8.19))
@@ -576,10 +565,10 @@ class SCLAlertViewStyleKit : NSObject {
     }
 	
 	class func drawEdit() {
-		//// Color Declarations
+		// Color Declarations
 		let color = UIColor(red:1.0, green:1.0, blue:1.0, alpha:1.0)
 		
-		//// Edit shape Drawing
+		// Edit shape Drawing
 		var editPathPath = UIBezierPath()
 		editPathPath.moveToPoint(CGPointMake(71, 2.7))
 		editPathPath.addCurveToPoint(CGPointMake(71.9, 15.2), controlPoint1: CGPointMake(74.7, 5.9), controlPoint2: CGPointMake(75.1, 11.6))
@@ -622,70 +611,59 @@ class SCLAlertViewStyleKit : NSObject {
 		editPathPath.fill()
 	}
 	
-    //// Generated Images
-    
+    // Generated Images
     class var imageOfCheckmark: UIImage {
-    if (Cache.imageOfCheckmark != nil) {
-        return Cache.imageOfCheckmark!
+    	if (Cache.imageOfCheckmark != nil) {
+        	return Cache.imageOfCheckmark!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawCheckmark()
         Cache.imageOfCheckmark = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfCheckmark!
     }
     
     class var imageOfCross: UIImage {
-    if (Cache.imageOfCross != nil) {
-        return Cache.imageOfCross!
+    	if (Cache.imageOfCross != nil) {
+        	return Cache.imageOfCross!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawCross()
         Cache.imageOfCross = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfCross!
     }
     
     class var imageOfNotice: UIImage {
-    if (Cache.imageOfNotice != nil) {
-        return Cache.imageOfNotice!
+    	if (Cache.imageOfNotice != nil) {
+        	return Cache.imageOfNotice!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawNotice()
         Cache.imageOfNotice = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfNotice!
     }
     
     class var imageOfWarning: UIImage {
-    if (Cache.imageOfWarning != nil) {
-        return Cache.imageOfWarning!
+    	if (Cache.imageOfWarning != nil) {
+        	return Cache.imageOfWarning!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawWarning()
         Cache.imageOfWarning = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfWarning!
     }
     
     class var imageOfInfo: UIImage {
-    if (Cache.imageOfInfo != nil) {
-        return Cache.imageOfInfo!
+    	if (Cache.imageOfInfo != nil) {
+        	return Cache.imageOfInfo!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawInfo()
         Cache.imageOfInfo = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfInfo!
     }
 	
