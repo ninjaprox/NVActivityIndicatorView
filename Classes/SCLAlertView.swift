@@ -62,14 +62,17 @@ class SCLAlertViewResponder {
 	}
 }
 
+let kCircleHeightBackground: CGFloat = 62.0
+
 // The Main Class
 class SCLAlertView: UIViewController {
     let kDefaultShadowOpacity: CGFloat = 0.7
-    let kCircleHeight: CGFloat = 56.0
     let kCircleTopPosition: CGFloat = -12.0
     let kCircleBackgroundTopPosition: CGFloat = -15.0
-    let kCircleHeightBackground: CGFloat = 62.0
+	let kCircleHeight: CGFloat = 56.0
     let kCircleIconHeight: CGFloat = 20.0
+	let kTitleTop:CGFloat = 24.0
+	let kTitleHeight:CGFloat = 40.0
     let kWindowWidth: CGFloat = 240.0
     var kWindowHeight: CGFloat = 178.0
 	var kTextHeight: CGFloat = 90.0
@@ -81,12 +84,10 @@ class SCLAlertView: UIViewController {
     // Members declaration
     var labelTitle = UILabel()
     var viewText = UITextView()
-    var shadowView = UIView()
     var contentView = UIView()
-    var circleView = UIView()
-    var circleViewBackground = UIView()
+    var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
+	var circleView = UIView()
     var circleIconImageView = UIImageView()
-	var rootViewController:UIViewController!
     var durationTimer: NSTimer!
 	private var inputs = [UITextField]()
 	private var buttons = [SCLButton]()
@@ -97,32 +98,38 @@ class SCLAlertView: UIViewController {
     
     required override init() {
 		super.init()
-		// Add Subvies
+		// Set up main view
+		view.frame = UIScreen.mainScreen().bounds
+		view.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+		view.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:kDefaultShadowOpacity)
 		view.addSubview(contentView)
-		view.addSubview(circleViewBackground)
-		view.addSubview(circleView)
-		circleView.addSubview(circleIconImageView)
-		contentView.addSubview(labelTitle)
-		contentView.addSubview(viewText)
 		// Content View
-        contentView.backgroundColor = UIColor(white: 1, alpha: 1)
+        contentView.backgroundColor = UIColor(white:1, alpha:1)
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0.5
-		// Circle View Background
-		circleViewBackground.backgroundColor = UIColor.whiteColor()
+		contentView.addSubview(labelTitle)
+		contentView.addSubview(viewText)
+		// Circle View
+		circleBG.backgroundColor = UIColor.whiteColor()
+		circleBG.layer.cornerRadius = circleBG.frame.size.height / 2
+		view.addSubview(circleBG)
+		circleBG.addSubview(circleView)
+		circleView.addSubview(circleIconImageView)
+		var x = (kCircleHeightBackground - kCircleHeight) / 2
+		circleView.frame = CGRect(x:x, y:x, width:kCircleHeight, height:kCircleHeight)
+		circleView.layer.cornerRadius = circleView.frame.size.height / 2
+		x = (kCircleHeight - kCircleIconHeight) / 2
+		circleIconImageView.frame = CGRect(x:x, y:x, width:kCircleIconHeight, height:kCircleIconHeight)
         // Title
         labelTitle.numberOfLines = 1
         labelTitle.textAlignment = .Center
-        labelTitle.font = UIFont(name: kDefaultFont, size: 20)
+        labelTitle.font = UIFont(name: kDefaultFont, size:20)
+		labelTitle.frame = CGRect(x:12, y:kTitleTop, width: kWindowWidth - 24, height:kTitleHeight)
         // View text
 		viewText.editable = false
         viewText.textAlignment = .Center
-        viewText.font = UIFont(name: kDefaultFont, size: 14)
-        // Shadow View
-        shadowView = UIView(frame:UIScreen.mainScreen().bounds)
-		shadowView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
-        shadowView.backgroundColor = UIColor.blackColor()
+        viewText.font = UIFont(name: kDefaultFont, size:14)
         // Colours
         contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
         labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
@@ -147,27 +154,19 @@ class SCLAlertView: UIViewController {
 			}
 		}
 		// Set background frame
-		shadowView.frame.size = sz
+		view.frame.size = sz
 		// Set frames
-		var r:CGRect
-		if view.superview != nil {
-			// View is showing, position at center of screen
-			r = CGRect(x:(sz.width-kWindowWidth)/2, y:(sz.height-kWindowHeight)/2, width: kWindowWidth, height: kWindowHeight)
-		} else {
-			// View is not visible, position outside screen bounds
-			r = CGRect(x:(sz.width-kWindowWidth)/2, y:-kWindowHeight, width: kWindowWidth, height: kWindowHeight)
-		}
-		view.frame = r
-		contentView.frame = CGRect(x: 0, y: kCircleHeight / 4, width: kWindowWidth, height: kWindowHeight)
-		circleViewBackground.frame = CGRect(x: kWindowWidth / 2 - kCircleHeightBackground / 2, y: kCircleBackgroundTopPosition, width: kCircleHeightBackground, height: kCircleHeightBackground)
-		circleViewBackground.layer.cornerRadius = circleViewBackground.frame.size.height / 2
-		circleView.frame = CGRect(x: kWindowWidth / 2 - kCircleHeight / 2, y: kCircleTopPosition, width: kCircleHeight, height: kCircleHeight)
-		circleView.layer.cornerRadius = circleView.frame.size.height / 2
-		circleIconImageView.frame = CGRect(x: kCircleHeight / 2 - kCircleIconHeight / 2, y: kCircleHeight / 2 - kCircleIconHeight / 2, width: kCircleIconHeight, height: kCircleIconHeight)
-		labelTitle.frame = CGRect(x:12, y:kCircleHeight / 2 + 12, width: kWindowWidth - 24, height:40)
-		viewText.frame = CGRect(x:12, y:74, width: kWindowWidth - 24, height:kTextHeight)
-		// Text fiels
-		var y = 74.0 + kTextHeight + 14.0
+		var x = (sz.width - kWindowWidth) / 2
+		var y = (sz.height - kWindowHeight -  (kCircleHeight / 8)) / 2
+		contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:kWindowHeight)
+		y -= kCircleHeightBackground * 0.6
+		x = (sz.width - kCircleHeightBackground) / 2
+		circleBG.frame = CGRect(x:x, y:y, width:kCircleHeightBackground, height:kCircleHeightBackground)
+		// Subtitle
+		y = kTitleTop + kTitleHeight
+		viewText.frame = CGRect(x:12, y:y, width: kWindowWidth - 24, height:kTextHeight)
+		// Text fields
+		y += kTextHeight + 14.0
 		for txt in inputs {
 			txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:30)
 			txt.layer.cornerRadius = 3
@@ -178,6 +177,12 @@ class SCLAlertView: UIViewController {
 			btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:35)
 			btn.layer.cornerRadius = 3
 			y += 45.0
+		}
+	}
+	
+	override func touchesEnded(touches:NSSet, withEvent event:UIEvent) {
+		if event.touchesForView(view)?.count > 0 {
+			view.endEditing(true)
 		}
 	}
 	
@@ -243,48 +248,45 @@ class SCLAlertView: UIViewController {
 	}
 	
 	// showSuccess(view, title, subTitle)
-	func showSuccess(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success)
+	func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success)
 	}
 	
 	// showError(view, title, subTitle)
-	func showError(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error)
+	func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error)
 	}
 	
 	// showNotice(view, title, subTitle)
-	func showNotice(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice)
+	func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice)
 	}
 	
 	// showWarning(view, title, subTitle)
-	func showWarning(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning)
+	func showWarning(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning)
 	}
 	
 	// showInfo(view, title, subTitle)
-	func showInfo(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info)
+	func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info)
 	}
 	
-	func showEdit(vc:UIViewController, title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-		return showTitle(vc, title: title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit)
+	func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+		return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit)
 	}
 	
     // showTitle(view, title, subTitle, style)
-	func showTitle(vc:UIViewController, title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
-        return showTitle(vc, title: title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style)
+	func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style)
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    func showTitle(vc:UIViewController, title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
+    func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
         view.alpha = 0
-        rootViewController = vc
-		// Add subviews
-		rootViewController.addChildViewController(self)
-		shadowView.frame = vc.view.bounds
-        rootViewController.view.addSubview(shadowView)
-        rootViewController.view.addSubview(view)
+		let rv = UIApplication.sharedApplication().keyWindow?.subviews.first as UIView
+		rv.addSubview(view)
+		view.frame = rv.bounds
 		
         // Alert colour/icon
         var viewColor = UIColor()
@@ -362,12 +364,11 @@ class SCLAlertView: UIViewController {
         
         // Animate in the alert view
         UIView.animateWithDuration(0.2, animations: {
-				self.shadowView.alpha = self.kDefaultShadowOpacity
-				self.view.frame.origin.y = self.rootViewController.view.center.y - 100
+				self.view.frame.origin.y = rv.center.y - 100
 				self.view.alpha = 1
             }, completion: { finished in
                 UIView.animateWithDuration(0.2, animations: {
-                    self.view.center = self.rootViewController.view.center
+                    self.view.center = rv.center
 				})
         })
         // Chainable objects
@@ -377,10 +378,8 @@ class SCLAlertView: UIViewController {
     // Close SCLAlertView
     func hideView() {
         UIView.animateWithDuration(0.2, animations: {
-            self.shadowView.alpha = 0
             self.view.alpha = 0
             }, completion: { finished in
-                self.shadowView.removeFromSuperview()
                 self.view.removeFromSuperview()
         })
     }
@@ -402,9 +401,8 @@ class SCLAlertView: UIViewController {
 // ------------------------------------
 
 class SCLAlertViewStyleKit : NSObject {
-    
-    //// Cache
-    
+	
+    // Cache
     struct Cache {
         static var imageOfCheckmark: UIImage?
         static var checkmarkTargets: [AnyObject]?
@@ -420,16 +418,13 @@ class SCLAlertViewStyleKit : NSObject {
 		static var editTargets: [AnyObject]?
     }
     
-    //// Initialization
-    
+    // Initialization
     override class func load() {
     }
     
-    //// Drawing Methods
-    
+    // Drawing Methods
     class func drawCheckmark() {
-        
-        //// Checkmark Shape Drawing
+        // Checkmark Shape Drawing
         var checkmarkShapePath = UIBezierPath()
         checkmarkShapePath.moveToPoint(CGPointMake(73.25, 14.05))
         checkmarkShapePath.addCurveToPoint(CGPointMake(64.51, 13.86), controlPoint1: CGPointMake(70.98, 11.44), controlPoint2: CGPointMake(66.78, 11.26))
@@ -450,25 +445,21 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class func drawCross() {
-        
-        //// Cross Shape Drawing
+        // Cross Shape Drawing
         var crossShapePath = UIBezierPath()
         crossShapePath.moveToPoint(CGPointMake(10, 70))
         crossShapePath.addLineToPoint(CGPointMake(70, 10))
         crossShapePath.moveToPoint(CGPointMake(10, 10))
         crossShapePath.addLineToPoint(CGPointMake(70, 70))
         crossShapePath.lineCapStyle = kCGLineCapRound;
-        
         crossShapePath.lineJoinStyle = kCGLineJoinRound;
-        
         UIColor.whiteColor().setStroke()
         crossShapePath.lineWidth = 14
         crossShapePath.stroke()
     }
     
     class func drawNotice() {
-        
-        //// Notice Shape Drawing
+        // Notice Shape Drawing
         var noticeShapePath = UIBezierPath()
         noticeShapePath.moveToPoint(CGPointMake(72, 48.54))
         noticeShapePath.addLineToPoint(CGPointMake(72, 39.9))
@@ -505,11 +496,11 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class func drawWarning() {
-        //// Color Declarations
+        // Color Declarations
         let greyColor = UIColor(red: 0.236, green: 0.236, blue: 0.236, alpha: 1.000)
         
-        //// Warning Group
-        //// Warning Circle Drawing
+        // Warning Group
+        // Warning Circle Drawing
         var warningCirclePath = UIBezierPath()
         warningCirclePath.moveToPoint(CGPointMake(40.94, 63.39))
         warningCirclePath.addCurveToPoint(CGPointMake(36.03, 65.55), controlPoint1: CGPointMake(39.06, 63.39), controlPoint2: CGPointMake(37.36, 64.18))
@@ -527,7 +518,7 @@ class SCLAlertViewStyleKit : NSObject {
         warningCirclePath.fill()
         
         
-        //// Warning Shape Drawing
+        // Warning Shape Drawing
         var warningShapePath = UIBezierPath()
         warningShapePath.moveToPoint(CGPointMake(46.23, 4.26))
         warningShapePath.addCurveToPoint(CGPointMake(40.94, 2.5), controlPoint1: CGPointMake(44.91, 3.09), controlPoint2: CGPointMake(43.02, 2.5))
@@ -548,10 +539,10 @@ class SCLAlertViewStyleKit : NSObject {
     }
     
     class func drawInfo() {
-        //// Color Declarations
+        // Color Declarations
         let color0 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         
-        //// Info Shape Drawing
+        // Info Shape Drawing
         var infoShapePath = UIBezierPath()
         infoShapePath.moveToPoint(CGPointMake(45.66, 15.96))
         infoShapePath.addCurveToPoint(CGPointMake(45.66, 5.22), controlPoint1: CGPointMake(48.78, 12.99), controlPoint2: CGPointMake(48.78, 8.19))
@@ -574,10 +565,10 @@ class SCLAlertViewStyleKit : NSObject {
     }
 	
 	class func drawEdit() {
-		//// Color Declarations
+		// Color Declarations
 		let color = UIColor(red:1.0, green:1.0, blue:1.0, alpha:1.0)
 		
-		//// Edit shape Drawing
+		// Edit shape Drawing
 		var editPathPath = UIBezierPath()
 		editPathPath.moveToPoint(CGPointMake(71, 2.7))
 		editPathPath.addCurveToPoint(CGPointMake(71.9, 15.2), controlPoint1: CGPointMake(74.7, 5.9), controlPoint2: CGPointMake(75.1, 11.6))
@@ -620,70 +611,59 @@ class SCLAlertViewStyleKit : NSObject {
 		editPathPath.fill()
 	}
 	
-    //// Generated Images
-    
+    // Generated Images
     class var imageOfCheckmark: UIImage {
-    if (Cache.imageOfCheckmark != nil) {
-        return Cache.imageOfCheckmark!
+    	if (Cache.imageOfCheckmark != nil) {
+        	return Cache.imageOfCheckmark!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawCheckmark()
         Cache.imageOfCheckmark = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfCheckmark!
     }
     
     class var imageOfCross: UIImage {
-    if (Cache.imageOfCross != nil) {
-        return Cache.imageOfCross!
+    	if (Cache.imageOfCross != nil) {
+        	return Cache.imageOfCross!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawCross()
         Cache.imageOfCross = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfCross!
     }
     
     class var imageOfNotice: UIImage {
-    if (Cache.imageOfNotice != nil) {
-        return Cache.imageOfNotice!
+    	if (Cache.imageOfNotice != nil) {
+        	return Cache.imageOfNotice!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawNotice()
         Cache.imageOfNotice = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfNotice!
     }
     
     class var imageOfWarning: UIImage {
-    if (Cache.imageOfWarning != nil) {
-        return Cache.imageOfWarning!
+    	if (Cache.imageOfWarning != nil) {
+        	return Cache.imageOfWarning!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawWarning()
         Cache.imageOfWarning = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfWarning!
     }
     
     class var imageOfInfo: UIImage {
-    if (Cache.imageOfInfo != nil) {
-        return Cache.imageOfInfo!
+    	if (Cache.imageOfInfo != nil) {
+        	return Cache.imageOfInfo!
         }
-        
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
         SCLAlertViewStyleKit.drawInfo()
         Cache.imageOfInfo = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return Cache.imageOfInfo!
     }
 	
