@@ -36,24 +36,24 @@ class ViewController: UIViewController {
 		alert.addButton("Second Button") {
 			println("Second button tapped")
 		}
-        alert.showSuccess(self, title: kSuccessTitle, subTitle: kSubtitle)
+        alert.showSuccess(kSuccessTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showError(sender: AnyObject) {
-		SCLAlertView().showError(self, title:"Hold On...", subTitle:"You have not saved your Submission yet. Please save the Submission before accessing the Responses list. Blah de blah de blah, blah. Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.", closeButtonTitle:"OK")
+		SCLAlertView().showError("Hold On...", subTitle:"You have not saved your Submission yet. Please save the Submission before accessing the Responses list. Blah de blah de blah, blah. Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.", closeButtonTitle:"OK")
 //        SCLAlertView().showError(self, title: kErrorTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showNotice(sender: AnyObject) {
-        SCLAlertView().showNotice(self, title: kNoticeTitle, subTitle: kSubtitle)
+        SCLAlertView().showNotice(kNoticeTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showWarning(sender: AnyObject) {
-        SCLAlertView().showWarning(self, title: kWarningTitle, subTitle: kSubtitle)
+        SCLAlertView().showWarning(kWarningTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showInfo(sender: AnyObject) {
-        SCLAlertView().showInfo(self, title: kInfoTitle, subTitle: kSubtitle)
+        SCLAlertView().showInfo(kInfoTitle, subTitle: kSubtitle)
     }
 
 	@IBAction func showEdit(sender: AnyObject) {
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
 		alert.addButton("Show Name") {
 			println("Text value: \(txt.text)")
 		}
-		alert.showEdit(self, title:kInfoTitle, subTitle:kSubtitle)
+		alert.showEdit(kInfoTitle, subTitle:kSubtitle)
 	}
 	
 	func firstButton() {
