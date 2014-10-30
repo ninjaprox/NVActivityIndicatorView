@@ -129,6 +129,8 @@ class SCLAlertView: UIViewController {
         // View text
 		viewText.editable = false
         viewText.textAlignment = .Center
+        viewText.textContainerInset = UIEdgeInsetsZero
+        viewText.textContainer.lineFragmentPadding = 0;
         viewText.font = UIFont(name: kDefaultFont, size:14)
         // Colours
         contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
@@ -332,7 +334,7 @@ class SCLAlertView: UIViewController {
 			let attr = [NSFontAttributeName:viewText.font]
 			let sz = CGSize(width: kWindowWidth - 24, height:90)
 			let r = str.boundingRectWithSize(sz, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes:attr, context:nil)
-			let ht = ceil(r.size.height) + 10
+			let ht = ceil(r.size.height)
 			if ht < kTextHeight {
 				kWindowHeight -= (kTextHeight - ht)
 				kTextHeight = ht
