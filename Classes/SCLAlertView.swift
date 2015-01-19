@@ -81,6 +81,10 @@ class SCLAlertView: UIViewController {
     let kDefaultFont = "HelveticaNeue"
 	let kButtonFont = "HelveticaNeue-Bold"
 	
+	// UI Colour	
+    var viewColor = UIColor()
+    var pressBrightnessFactor = 0.85
+
     // Members declaration
     var baseView = UIView()
     var labelTitle = UILabel()
@@ -216,6 +220,8 @@ class SCLAlertView: UIViewController {
 		btn.actionType = SCLActionType.Closure
 		btn.action = action
 		btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
+        btn.addTarget(self, action:Selector("buttonTapDown:"), forControlEvents:.TouchDown | .TouchDragEnter)
+        btn.addTarget(self, action:Selector("buttonRelease:"), forControlEvents:.TouchUpInside | .TouchUpOutside | .TouchCancel | .TouchDragOutside )
 		return btn
 	}
 	
@@ -225,6 +231,8 @@ class SCLAlertView: UIViewController {
 		btn.target = target
 		btn.selector = selector
 		btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
+        btn.addTarget(self, action:Selector("buttonTapDown:"), forControlEvents:.TouchDown | .TouchDragEnter)
+        btn.addTarget(self, action:Selector("buttonRelease:"), forControlEvents:.TouchUpInside | .TouchUpOutside | .TouchCancel | .TouchDragOutside )
 		return btn
 	}
 	
@@ -252,6 +260,22 @@ class SCLAlertView: UIViewController {
 		}
 		hideView()
 	}
+	
+
+	func buttonTapDown(btn:SCLButton) {
+        var hue : CGFloat = 0
+        var saturation : CGFloat = 0
+        var brightness : CGFloat = 0
+        var alpha : CGFloat = 0
+        btn.backgroundColor?.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        brightness = brightness * CGFloat(pressBrightness)
+        btn.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+    }
+    
+    func buttonRelease(btn:SCLButton) {
+        btn.backgroundColor = viewColor
+    }
+	
 	
 	// showSuccess(view, title, subTitle)
 	func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
@@ -296,7 +320,7 @@ class SCLAlertView: UIViewController {
         baseView.frame = rv.bounds
 		
         // Alert colour/icon
-        var viewColor = UIColor()
+        viewColor = UIColor()
         var iconImage: UIImage
         
         // Icon style
