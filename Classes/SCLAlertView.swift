@@ -268,7 +268,7 @@ class SCLAlertView: UIViewController {
         var brightness : CGFloat = 0
         var alpha : CGFloat = 0
         btn.backgroundColor?.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        brightness = brightness * CGFloat(pressBrightness)
+        //brightness = brightness * CGFloat(pressBrightness)
         btn.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
     
