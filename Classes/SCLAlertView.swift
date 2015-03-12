@@ -26,7 +26,7 @@ public class SCLButton: UIButton {
     var selector:Selector!
     var action:(()->Void)!
 
-    override init() {
+    override public init() {
         super.init()
     }
 
