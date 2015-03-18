@@ -189,8 +189,8 @@ public class SCLAlertView: UIViewController {
             y += 45.0
         }
     }
-
-    override public func touchesEnded(touches:NSSet, withEvent event:UIEvent) {
+    
+    override public func touchesEnded(touches:Set<NSObject>, withEvent event:UIEvent) {
         if event.touchesForView(view)?.count > 0 {
             view.endEditing(true)
         }
@@ -314,7 +314,7 @@ public class SCLAlertView: UIViewController {
     // showTitle(view, title, subTitle, duration, style)
     public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle) -> SCLAlertViewResponder {
         view.alpha = 0
-        let rv = UIApplication.sharedApplication().keyWindow?.subviews.first as UIView
+        let rv = UIApplication.sharedApplication().keyWindow?.subviews.first as! UIView
         rv.addSubview(view)
         view.frame = rv.bounds
         baseView.frame = rv.bounds
@@ -451,8 +451,9 @@ class SCLAlertViewStyleKit : NSObject {
     }
 
     // Initialization
-    override class func load() {
-    }
+    /// swift 1.2 abolish func load
+//    override class func load() {
+//    }
 
     // Drawing Methods
     class func drawCheckmark() {
