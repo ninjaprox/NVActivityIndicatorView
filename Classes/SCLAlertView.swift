@@ -145,6 +145,10 @@ public class SCLAlertView: UIViewController {
         labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
         viewText.textColor = UIColorFromRGB(0x4D4D4D)
         contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
+        //Gesture Recognizer for tapping outside the textinput
+        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
+        tapGesture.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapGesture)
     }
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -275,7 +279,11 @@ public class SCLAlertView: UIViewController {
     func buttonRelease(btn:SCLButton) {
         btn.backgroundColor = viewColor
     }
-
+    
+    //Dismiss keyboard when tapped outside textfield
+    func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
 
     // showSuccess(view, title, subTitle)
     public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
