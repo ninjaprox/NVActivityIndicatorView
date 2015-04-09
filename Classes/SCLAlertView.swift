@@ -26,8 +26,8 @@ public class SCLButton: UIButton {
     var selector:Selector!
     var action:(()->Void)!
 
-    override public init() {
-        super.init()
+    public init() {
+        super.init(frame: CGRectZero)
     }
 
     required public init(coder aDecoder: NSCoder) {
@@ -101,8 +101,8 @@ public class SCLAlertView: UIViewController {
         fatalError("NSCoding not supported")
     }
 
-    required override public init() {
-        super.init()
+    required public init() {
+        super.init(nibName:nil, bundle:nil)
         // Set up main view
         view.frame = UIScreen.mainScreen().bounds
         view.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
