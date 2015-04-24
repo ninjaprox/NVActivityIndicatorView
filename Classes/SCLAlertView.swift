@@ -71,7 +71,7 @@ public class SCLAlertView: UIViewController {
     let kCircleBackgroundTopPosition: CGFloat = -15.0
     let kCircleHeight: CGFloat = 56.0
     let kCircleIconHeight: CGFloat = 20.0
-    let kTitleTop:CGFloat = 24.0
+    let kTitleTop:CGFloat = 30.0
     let kTitleHeight:CGFloat = 40.0
     let kWindowWidth: CGFloat = 240.0
     var kWindowHeight: CGFloat = 178.0
@@ -175,7 +175,7 @@ public class SCLAlertView: UIViewController {
         contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:kWindowHeight)
         y -= kCircleHeightBackground * 0.6
         x = (sz.width - kCircleHeightBackground) / 2
-        circleBG.frame = CGRect(x:x, y:y, width:kCircleHeightBackground, height:kCircleHeightBackground)
+        circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
         // Subtitle
         y = kTitleTop + kTitleHeight
         viewText.frame = CGRect(x:12, y:y, width: kWindowWidth - 24, height:kTextHeight)
