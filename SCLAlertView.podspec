@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '7.0'
   s.source       = { :git => "https://github.com/vikmeup/SCLAlertView-Swift.git", :tag => "0.3" }
-  s.source_files  = "Classes/*"
+  s.source_files  = "SCLAlertView/*"
   #s.framework  = "QuartzCore"
   s.requires_arc = true
 end
