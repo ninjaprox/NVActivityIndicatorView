@@ -1,0 +1,10 @@
+framework module SCLAlertView {
+  umbrella header "SCLAlertView.h"
+
+  export *
+  module * { export * }
+}
+
+module SCLAlertView.Swift {
+    header "SCLAlertView-Swift.h"
+}
