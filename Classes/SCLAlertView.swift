@@ -315,7 +315,7 @@ public class SCLAlertView: UIViewController {
     }
 
     // showTitle(view, title, subTitle, style)
-    public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+    public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, color : UInt = 0x123456) -> SCLAlertViewResponder {
         return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style)
     }
 
