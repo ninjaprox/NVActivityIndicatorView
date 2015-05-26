@@ -1,0 +1,1 @@
+ const unsigned char SCLAlertViewVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:SCLAlertView  PROJECT:SCLAlertView-1" "\n"; const double SCLAlertViewVersionNumber __attribute__ ((used)) = (double)1.;
