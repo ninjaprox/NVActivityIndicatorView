@@ -11,7 +11,7 @@ import UIKit
 
 // Pop Up Styles
 public enum SCLAlertViewStyle {
-    case Success, Error, Notice, Warning, Info, Edit
+    case Success, Error, Notice, Warning, Info, Edit, Wait
 }
 
 // Action Types
@@ -84,6 +84,9 @@ public class SCLAlertView: UIViewController {
     // UI Colour
     var viewColor = UIColor()
     var pressBrightnessFactor = 0.85
+    
+    // UI Options
+    var showCloseButtton = true
 
     // Members declaration
     var baseView = UIView()
@@ -92,11 +95,11 @@ public class SCLAlertView: UIViewController {
     var contentView = UIView()
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
     var circleView = UIView()
-    var circleIconImageView = UIImageView()
+    var circleIconView : UIView?
     var durationTimer: NSTimer!
     private var inputs = [UITextField]()
     private var buttons = [SCLButton]()
-
+    
     required public init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
@@ -123,12 +126,9 @@ public class SCLAlertView: UIViewController {
         circleBG.layer.cornerRadius = circleBG.frame.size.height / 2
         baseView.addSubview(circleBG)
         circleBG.addSubview(circleView)
-        circleView.addSubview(circleIconImageView)
         var x = (kCircleHeightBackground - kCircleHeight) / 2
         circleView.frame = CGRect(x:x, y:x, width:kCircleHeight, height:kCircleHeight)
         circleView.layer.cornerRadius = circleView.frame.size.height / 2
-        x = (kCircleHeight - kCircleIconHeight) / 2
-        circleIconImageView.frame = CGRect(x:x, y:x, width:kCircleIconHeight, height:kCircleIconHeight)
         // Title
         labelTitle.numberOfLines = 1
         labelTitle.textAlignment = .Center
@@ -310,6 +310,11 @@ public class SCLAlertView: UIViewController {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info)
     }
 
+    // showWait(view, title, subTitle)
+    public func showWait(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait)
+    }
+  
     public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0) -> SCLAlertViewResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit)
     }
@@ -329,7 +334,7 @@ public class SCLAlertView: UIViewController {
 
         // Alert colour/icon
         viewColor = UIColor()
-        var iconImage: UIImage
+        var iconImage: UIImage?
 
         // Icon style
         switch style {
@@ -356,6 +361,9 @@ public class SCLAlertView: UIViewController {
         case .Edit:
             viewColor = UIColorFromRGB(0xA429FF)
             iconImage = SCLAlertViewStyleKit.imageOfEdit
+
+        case .Wait:
+            viewColor = UIColorFromRGB(0xD62DA5)
         }
 
         // Title
@@ -379,12 +387,26 @@ public class SCLAlertView: UIViewController {
         }
 
         // Done button
-        let txt = completeText != nil ? completeText! : "Done"
-        addButton(txt, target:self, selector:Selector("hideView"))
+        if showCloseButtton {
+            let txt = completeText != nil ? completeText! : "Done"
+            addButton(txt, target:self, selector:Selector("hideView"))
+        }
 
         // Alert view colour and images
-        self.circleView.backgroundColor = viewColor
-        self.circleIconImageView.image  = iconImage
+        circleView.backgroundColor = viewColor
+        // Spinner / icon
+        if style == .Wait {
+            let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+            indicator.startAnimating()
+            circleIconView = indicator
+        }
+        else {
+            circleIconView = UIImageView(image: iconImage!)
+        }
+        circleView.addSubview(circleIconView!)
+        let x = (kCircleHeight - kCircleIconHeight) / 2
+        circleIconView!.frame = CGRectMake( x, x, kCircleIconHeight, kCircleIconHeight)
+
         for txt in inputs {
             txt.layer.borderColor = viewColor.CGColor
         }
