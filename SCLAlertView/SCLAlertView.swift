@@ -86,7 +86,7 @@ public class SCLAlertView: UIViewController {
     var pressBrightnessFactor = 0.85
     
     // UI Options
-    var showCloseButtton = true
+    var showCloseButton = true
 
     // Members declaration
     var baseView = UIView()
@@ -387,7 +387,7 @@ public class SCLAlertView: UIViewController {
         }
 
         // Done button
-        if showCloseButtton {
+        if showCloseButton {
             let txt = completeText != nil ? completeText! : "Done"
             addButton(txt, target:self, selector:Selector("hideView"))
         }

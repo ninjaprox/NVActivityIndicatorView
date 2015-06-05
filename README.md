@@ -53,7 +53,7 @@ alert.showEdit(self, title: "Edit View", subTitle: "This alert view shows a text
 ####Alert View Styles
 ```swift
 enum SCLAlertViewStyle: Int {
-    case Success, Error, Notice, Warning, Info, Edit
+    case Success, Error, Notice, Warning, Info, Edit, Wait
 }
 ```
 
