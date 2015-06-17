@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		253330571A428E0700E8CD8E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253330561A428E0700E8CD8E /* Launch Screen.xib */; };
+		3855FAED1B3006620011EDE8 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855FAEC1B3006620011EDE8 /* SCLAlertView.swift */; };
 		CEABB2471942AD9700FCB13C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB2461942AD9700FCB13C /* AppDelegate.swift */; };
 		CEABB2501942AD9700FCB13C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEABB24F1942AD9700FCB13C /* Images.xcassets */; };
 		CEABB25C1942AD9700FCB13C /* SCLAlertViewExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB25B1942AD9700FCB13C /* SCLAlertViewExampleTests.swift */; };
 		CEABB2671942AEA500FCB13C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB2661942AEA500FCB13C /* ViewController.swift */; };
-		CEABB26B1942AFB700FCB13C /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB2691942AFB700FCB13C /* SCLAlertView.swift */; };
 		CEB569971942AE47009959CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB569961942AE47009959CC /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		253330561A428E0700E8CD8E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		3855FAEC1B3006620011EDE8 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		CEABB2411942AD9700FCB13C /* SCLAlertViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCLAlertViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEABB2451942AD9700FCB13C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEABB2461942AD9700FCB13C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		CEABB25A1942AD9700FCB13C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEABB25B1942AD9700FCB13C /* SCLAlertViewExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertViewExampleTests.swift; sourceTree = "<group>"; };
 		CEABB2661942AEA500FCB13C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEABB2691942AFB700FCB13C /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCLAlertView.swift; path = ../../Classes/SCLAlertView.swift; sourceTree = "<group>"; };
 		CEB569961942AE47009959CC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +118,7 @@
 		CEABB2651942ADCD00FCB13C /* SCLAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				CEABB2691942AFB700FCB13C /* SCLAlertView.swift */,
+				3855FAEC1B3006620011EDE8 /* SCLAlertView.swift */,
 			);
 			name = SCLAlertView;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEABB2671942AEA500FCB13C /* ViewController.swift in Sources */,
-				CEABB26B1942AFB700FCB13C /* SCLAlertView.swift in Sources */,
+				3855FAED1B3006620011EDE8 /* SCLAlertView.swift in Sources */,
 				CEABB2471942AD9700FCB13C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
