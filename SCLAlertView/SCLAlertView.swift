@@ -86,7 +86,7 @@ public class SCLAlertView: UIViewController {
     var pressBrightnessFactor = 0.85
     
     // UI Options
-    var showCloseButton = true
+    public var showCloseButton = true
 
     // Members declaration
     var baseView = UIView()
