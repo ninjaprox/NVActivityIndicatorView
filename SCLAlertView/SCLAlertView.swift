@@ -99,6 +99,7 @@ public class SCLAlertView: UIViewController {
     var durationTimer: NSTimer!
     private var inputs = [UITextField]()
     private var buttons = [SCLButton]()
+    private var selfReference: SCLAlertView?
     
     required public init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -326,6 +327,7 @@ public class SCLAlertView: UIViewController {
 
     // showTitle(view, title, subTitle, duration, style)
     public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?, colorTextButton: UInt?) -> SCLAlertViewResponder {
+        selfReference = self
         view.alpha = 0
         let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
         rv.addSubview(view)
@@ -441,6 +443,7 @@ public class SCLAlertView: UIViewController {
             self.view.alpha = 0
             }, completion: { finished in
                 self.view.removeFromSuperview()
+                self.selfReference = nil
         })
     }
 
