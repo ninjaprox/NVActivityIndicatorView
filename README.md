@@ -6,58 +6,95 @@ Animated Alert View written in Swift, which can be used as a `UIAlertView` or `U
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)_
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/editScreenshot.png) 
 
-###Easy to use
+Easy to use
+----
+
+### Get Started
+
 ```swift
 // Get started
-let alertview : SCLAlertViewResponder = SCLAlertView().showSuccess(self, title: "Hello World", subTitle: "This is a more descriptive text.")
+SCLAlertView().showInfo("Important info", subTitle: "You are great")
+```
+
+### Updating the alert view
+
+```swift
+let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showSuccess("Hello World", subTitle: "This is a more descriptive text.")
 
 // Upon displaying, change/close view
-alertview.setTitle("New Title") // Rename title
-alertview.setSubTitle("New description") // Rename subtitle
-alertview.close() // Close view
+alertViewResponder.setTitle("New Title") // Rename title
+alertViewResponder.setSubTitle("New description") // Rename subtitle
+alertViewResponder.close() // Close view
+```
 
-// Alternative alert types
-SCLAlertView().showError(self, title: "Hello Error", subTitle: "This is a more descriptive error text.") // Error
-SCLAlertView().showNotice(self, title: "Hello Notice", subTitle: "This is a more descriptive notice text.") // Notice
-SCLAlertView().showWarning(self, title: "Hello Warning", subTitle: "This is a more descriptive warning text.") // Warning
-SCLAlertView().showInfo(self, title: "Hello Info", subTitle: "This is a more descriptive info text.") // Info
-SCLAlertView().showEdit(self, title: "Hello Edit", subTitle: "This is a more descriptive info text.") // Edit
+### Alternative alert types
 
-// Advanced
+```
+SCLAlertView().showError("Hello Error", subTitle: "This is a more descriptive error text.") // Error
+SCLAlertView().showNotice("Hello Notice", subTitle: "This is a more descriptive notice text.") // Notice
+SCLAlertView().showWarning("Hello Warning", subTitle: "This is a more descriptive warning text.") // Warning
+SCLAlertView().showInfo("Hello Info", subTitle: "This is a more descriptive info text.") // Info
+SCLAlertView().showEdit("Hello Edit", subTitle: "This is a more descriptive info text.") // Edit
+```
+
+### Raw call to showTitle()
+
+```swift
 SCLAlertView().showTitle(
-    view: self, // Parent view controller
     title: "Congratulations", // Title of view
     subTitle: "Operation successfully completed.", // String of view
-    duration: kDefaultAnimationDuration, // Duration to show before closing automatically, default: 2.0
+    duration: 2.0, // Duration to show before closing automatically, default: 0.0
     completeText: "Done", // Optional button value, default: ""
     style: .Success // Styles - see below.
+    colorStyle: 0xA429FF,
+    colorTextButton: 0xFFFFFF
 )
+```
 
-// Add buttons
-let alert = SCLAlertView()
-alert.addButton("First Button", target:self, selector:Selector("firstButton"))
-alert.addButton("Second Button") {
+### Controls
+
+
+#### Add buttons
+
+```swift
+let alertView = SCLAlertView()
+alertView.addButton("First Button", target:self, selector:Selector("firstButton"))
+alertView.addButton("Second Button") {
     println("Second button tapped")
 }
-alert.showSuccess(self, title: "Button View", subTitle: "This alert view has buttons")
+alertView.showSuccess("Button View", subTitle: "This alert view has buttons")
+```
 
+#### Hide default close button
+
+```swift
+let alertView = SCLAlertView()
+alertView.showCloseButton = false
+alertView.showSuccess("No button", subTitle: "You will have hard times trying to close me")
+```
+
+#### Add Text fields
+
+```swift
 // Add a text field
 let alert = SCLAlertView()
 let txt = alert.addTextField(title:"Enter your name")
 alert.addButton("Show Name") {
     println("Text value: \(txt.text)")
 }
-alert.showEdit(self, title: "Edit View", subTitle: "This alert view shows a text box")
+alert.showEdit("Edit View", subTitle: "This alert view shows a text box")
 ```
 
-####Alert View Styles
+### Alert View Styles
+
 ```swift
 enum SCLAlertViewStyle: Int {
     case Success, Error, Notice, Warning, Info, Edit, Wait
 }
 ```
 
-### Installation
+Installation
+---
 
 SCLAlertView is available through [CocoaPods](http://cocoapods.org).
 
@@ -65,10 +102,14 @@ To install add the following line to your Podfile:
 
     pod 'SCLAlertView'
 
-### Collaboration
+Collaboration
+---
+
 I tried to build an easy to use API, while beeing flexible enough for multiple variations, but I'm sure there are ways of improving and adding more features, so feel free to collaborate with ideas, issues and/or pull requests.
 
-###Incoming improvements
+Incoming improvements
+---
+
 - More animations
 - Performance tests
 
