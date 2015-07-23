@@ -12,14 +12,29 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
+        
+        let activityTypes: [NVActivityIndicatorType] = []
+        let cols = 6
+        let rows = 6
+        let cellWidth = Int(self.view.frame.width / CGFloat(cols))
+        let cellHeight = Int(self.view.frame.height / CGFloat(rows))
+        
+        for var i = 0; i < activityTypes.count; i++ {
+            let x = i % cols * cellWidth
+            let y = i / cols * cellHeight
+            let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
+            let activityIndicatorView = NVActivityIndicatorView(frame: frame,
+                type: activityTypes[i])
+            
+            self.view.addSubview(activityIndicatorView)
+            activityIndicatorView.startAnimation()
+            
+            activityIndicatorView.layer.borderWidth = 2
+            activityIndicatorView.layer.borderColor = UIColor.redColor().CGColor
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
