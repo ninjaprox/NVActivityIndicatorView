@@ -84,7 +84,7 @@ class NVActivityIndicatorView: UIView {
         case .BallGridPulse:
             return NVActivityIndicatorAnimationBallGridPulse()
         case .BallClipRotate:
-            return NVActivityIndicatorBallClipRotate()
+            return NVActivityIndicatorAnimationBallClipRotate()
         }
     }
 }
