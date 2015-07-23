@@ -12,6 +12,7 @@ enum NVActivityIndicatorType {
     case Blank
     case BallPulse
     case BallGridPulse
+    case BallClipRotate
 }
 
 class NVActivityIndicatorView: UIView {
@@ -82,6 +83,8 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationBallPulse()
         case .BallGridPulse:
             return NVActivityIndicatorAnimationBallGridPulse()
+        case .BallClipRotate:
+            return NVActivityIndicatorBallClipRotate()
         }
     }
 }
