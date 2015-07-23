@@ -9,13 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
         
-        let activityTypes: [NVActivityIndicatorType] = []
+        let activityTypes: [NVActivityIndicatorType] = [
+            .BallPulse]
         let cols = 6
         let rows = 6
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
@@ -35,6 +36,6 @@ class ViewController: UIViewController {
             activityIndicatorView.layer.borderColor = UIColor.redColor().CGColor
         }
     }
-
+    
 }
 
