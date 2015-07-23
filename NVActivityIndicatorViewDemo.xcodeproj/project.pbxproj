@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2336A7B71B5FEE6B003D0C0A /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2336A7B61B5FEE6B003D0C0A /* NVActivityIndicatorShape.swift */; };
 		239CAB261B5EBB2E0051DC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */; };
 		239CAB281B5EBB2E0051DC06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB271B5EBB2E0051DC06 /* ViewController.swift */; };
 		239CAB2B1B5EBB2E0051DC06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB291B5EBB2E0051DC06 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2336A7B61B5FEE6B003D0C0A /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		239CAB201B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVActivityIndicatorViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239CAB241B5EBB2E0051DC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		239CAB221B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				239CAB451B5EBCE30051DC06 /* NVActivityIndicatorView */,
 				239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */,
 				239CAB271B5EBB2E0051DC06 /* ViewController.swift */,
 				239CAB291B5EBB2E0051DC06 /* Main.storyboard */,
@@ -110,6 +113,14 @@
 				239CAB3A1B5EBB2E0051DC06 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		239CAB451B5EBCE30051DC06 /* NVActivityIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				2336A7B61B5FEE6B003D0C0A /* NVActivityIndicatorShape.swift */,
+			);
+			path = NVActivityIndicatorView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2336A7B71B5FEE6B003D0C0A /* NVActivityIndicatorShape.swift in Sources */,
 				239CAB281B5EBB2E0051DC06 /* ViewController.swift in Sources */,
 				239CAB261B5EBB2E0051DC06 /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +421,7 @@
 				239CAB411B5EBB2E0051DC06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		239CAB421B5EBB2E0051DC06 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +430,7 @@
 				239CAB441B5EBB2E0051DC06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
