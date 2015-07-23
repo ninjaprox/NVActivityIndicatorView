@@ -10,6 +10,7 @@ import UIKit
 
 enum NVActivityIndicatorType {
     case Blank
+    case BallPulse
 }
 
 class NVActivityIndicatorView: UIView {
@@ -76,6 +77,8 @@ class NVActivityIndicatorView: UIView {
         switch type {
         case .Blank:
             return NVActivityIndicatorAnimationBlank()
+        case .BallPulse:
+            return NVActivityIndicatorAnimationBallPulse()
         }
     }
 }
