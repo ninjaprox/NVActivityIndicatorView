@@ -18,6 +18,7 @@ enum NVActivityIndicatorType {
     case BallRotate
     case BallZigZag
     case BallZigZagDeflect
+    case BallTrianglePath
 }
 
 class NVActivityIndicatorView: UIView {
@@ -100,6 +101,8 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationBallZigZag()
         case .BallZigZagDeflect:
             return NVActivityIndicatorAnimationBallZigZagDeflect()
+        case .BallTrianglePath:
+            return NVActivityIndicatorAnimationBallTrianglePath()
         }
     }
 }
