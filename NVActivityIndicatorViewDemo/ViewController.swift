@@ -23,7 +23,8 @@ class ViewController: UIViewController {
             .BallClipRotateMultiple,
             .BallRotate,
             .BallZigZag,
-            .BallZigZagDeflect]
+            .BallZigZagDeflect,
+            .BallTrianglePath]
         let cols = 6
         let rows = 6
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
