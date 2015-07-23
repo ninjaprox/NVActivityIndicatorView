@@ -19,7 +19,8 @@ class ViewController: UIViewController {
             .BallPulse,
             .BallGridPulse,
             .BallClipRotate,
-            .BallClipRotatePulse]
+            .BallClipRotatePulse,
+            .BallClipRotateMultiple]
         let cols = 6
         let rows = 6
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
