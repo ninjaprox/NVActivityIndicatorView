@@ -16,7 +16,8 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
         
         let activityTypes: [NVActivityIndicatorType] = [
-            .BallPulse]
+            .BallPulse,
+            .BallGridPulse]
         let cols = 6
         let rows = 6
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
