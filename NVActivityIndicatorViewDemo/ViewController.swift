@@ -18,7 +18,8 @@ class ViewController: UIViewController {
         let activityTypes: [NVActivityIndicatorType] = [
             .BallPulse,
             .BallGridPulse,
-            .BallClipRotate]
+            .BallClipRotate,
+            .BallClipRotatePulse]
         let cols = 6
         let rows = 6
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
