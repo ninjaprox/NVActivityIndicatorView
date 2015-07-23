@@ -14,6 +14,7 @@
 		235996D31B60CDAA003842B4 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235996D21B60CDAA003842B4 /* NVActivityIndicatorAnimationBallClipRotate.swift */; };
 		235996D51B60D1A7003842B4 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235996D41B60D1A7003842B4 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift */; };
 		235996D71B60E3EC003842B4 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235996D61B60E3EC003842B4 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */; };
+		235996D91B60EB51003842B4 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235996D81B60EB51003842B4 /* NVActivityIndicatorAnimationBallRotate.swift */; };
 		23636F7D1B60769E0072279F /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23636F7C1B60769E0072279F /* NVActivityIndicatorView.swift */; };
 		23636F7F1B6086B10072279F /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23636F7E1B6086B10072279F /* NVActivityIndicatorAnimationDelegate.swift */; };
 		239CAB261B5EBB2E0051DC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		235996D21B60CDAA003842B4 /* NVActivityIndicatorAnimationBallClipRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallClipRotate.swift; sourceTree = "<group>"; };
 		235996D41B60D1A7003842B4 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallClipRotatePulse.swift; sourceTree = "<group>"; };
 		235996D61B60E3EC003842B4 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallClipRotateMultiple.swift; sourceTree = "<group>"; };
+		235996D81B60EB51003842B4 /* NVActivityIndicatorAnimationBallRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallRotate.swift; sourceTree = "<group>"; };
 		23636F7C1B60769E0072279F /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		23636F7E1B6086B10072279F /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
 		239CAB201B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVActivityIndicatorViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 			children = (
 				235996D41B60D1A7003842B4 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift */,
 				235996D61B60E3EC003842B4 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */,
+				235996D81B60EB51003842B4 /* NVActivityIndicatorAnimationBallRotate.swift */,
 				235996CE1B60C693003842B4 /* NVActivityIndicatorAnimationBallPulse.swift */,
 				235996CC1B60C443003842B4 /* NVActivityIndicatorAnimationBlank.swift */,
 				235996D01B60C747003842B4 /* NVActivityIndicatorAnimationBallGridPulse.swift */,
@@ -262,6 +265,7 @@
 				235996CF1B60C693003842B4 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				235996CD1B60C443003842B4 /* NVActivityIndicatorAnimationBlank.swift in Sources */,
 				239CAB281B5EBB2E0051DC06 /* ViewController.swift in Sources */,
+				235996D91B60EB51003842B4 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				23636F7F1B6086B10072279F /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				235996D51B60D1A7003842B4 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				239CAB261B5EBB2E0051DC06 /* AppDelegate.swift in Sources */,
