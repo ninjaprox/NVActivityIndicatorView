@@ -34,7 +34,8 @@ class ViewController: UIViewController {
             .LineScalePulseOut,
             .LineScalePulseOutRapid,
             .BallScaleRipple,
-            .BallScaleRippleMultiple]
+            .BallScaleRippleMultiple,
+            .TriangleSkewSpin]
         let cols = 6
         let rows = 6
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
