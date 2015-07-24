@@ -27,6 +27,7 @@ enum NVActivityIndicatorType {
     case BallBeat
     case LineScalePulseOut
     case LineScalePulseOutRapid
+    case BallScaleRipple
 }
 
 class NVActivityIndicatorView: UIView {
@@ -127,6 +128,8 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationLineScalePulseOut()
         case .LineScalePulseOutRapid:
             return NVActivityIndicatorAnimationLineScalePulseOutRapid()
+        case .BallScaleRipple:
+            return NVActivityIndicatorAnimationBallScaleRipple()
         }
     }
 }
