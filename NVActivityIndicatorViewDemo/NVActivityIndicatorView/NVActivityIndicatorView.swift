@@ -21,6 +21,7 @@ enum NVActivityIndicatorType {
     case BallTrianglePath
     case BallScale
     case LineScale
+    case LineScaleParty
 }
 
 class NVActivityIndicatorView: UIView {
@@ -109,6 +110,8 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationBallScale()
         case .LineScale:
             return NVActivityIndicatorAnimationLineScale()
+        case .LineScaleParty:
+            return NVActivityIndicatorAnimationLineScaleParty()
         }
     }
 }
