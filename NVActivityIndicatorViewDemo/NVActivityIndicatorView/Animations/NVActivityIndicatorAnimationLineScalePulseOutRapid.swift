@@ -1,5 +1,5 @@
 //
-//  NVActivityIndicatorAnimationLineScalePulseOut.swift
+//  NVActivityIndicatorAnimationLineScalePulseOutRapid.swift
 //  NVActivityIndicatorViewDemo
 //
 //  Created by Nguyen Vinh on 7/24/15.
@@ -8,23 +8,24 @@
 
 import UIKit
 
-class NVActivityIndicatorAnimationLineScalePulseOut: NVActivityIndicatorAnimationDelegate {
-    
+class NVActivityIndicatorAnimationLineScalePulseOutRapid: NVActivityIndicatorAnimationDelegate {
+
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let lineSize = size.width / 9
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - size.height) / 2
-        let duration: CFTimeInterval = 1
+        let duration: CFTimeInterval = 0.9
         let beginTime = CACurrentMediaTime()
-        let beginTimes = [0.4, 0.2, 0, 0.2, 0.4]
-        let timingFunction = CAMediaTimingFunction(controlPoints:0.85, 0.25, 0.37, 0.85)
+        let beginTimes = [0.5, 0.25, 0, 0.25, 0.5]
+        let timingFunction = CAMediaTimingFunction(controlPoints: 0.11, 0.49, 0.38, 0.78)
         
         // Animation
         let animation = CAKeyframeAnimation(keyPath: "transform.scale.y")
         
-        animation.keyTimes = [0, 0.5, 1]
+        animation.keyTimes = [0, 0.8, 0.9]
         animation.timingFunctions = [timingFunction, timingFunction]
-        animation.values = [1, 0.4, 1]
+        animation.beginTime = beginTime
+        animation.values = [1, 0.3, 1]
         animation.duration = duration
         animation.repeatCount = HUGE
         animation.removedOnCompletion = false
