@@ -37,6 +37,7 @@ class NVActivityIndicatorAnimationBallRotate: NVActivityIndicatorAnimationDelega
         animation.animations = [scaleAnimation, rotateAnimation]
         animation.duration = duration
         animation.repeatCount = HUGE
+        animation.removedOnCompletion = false
         
         // Draw circles
         let leftCircle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)

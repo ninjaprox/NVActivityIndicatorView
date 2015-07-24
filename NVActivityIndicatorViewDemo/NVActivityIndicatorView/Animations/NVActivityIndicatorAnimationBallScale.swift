@@ -34,6 +34,7 @@ class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegat
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.duration = duration
         animation.repeatCount = HUGE
+        animation.removedOnCompletion = false
         
         // Draw circle
         let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: size, color: color)

@@ -27,6 +27,7 @@ class NVActivityIndicatorAnimationLineScale: NVActivityIndicatorAnimationDelegat
         animation.values = [1, 0.4, 1]
         animation.duration = duration
         animation.repeatCount = HUGE
+        animation.removedOnCompletion = false
         
         // Draw lines
         for var i = 0; i < 5; i++ {
@@ -34,7 +35,7 @@ class NVActivityIndicatorAnimationLineScale: NVActivityIndicatorAnimationDelegat
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i), y: y, width: lineSize, height: size.height)
             
             line.frame = frame
-            animation.beginTime = beginTimes[i]
+            animation.beginTime = beginTime + beginTimes[i]
             line.addAnimation(animation, forKey: "animation")
             layer.addSublayer(line)
         }

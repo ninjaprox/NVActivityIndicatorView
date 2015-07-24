@@ -15,10 +15,10 @@ enum NVActivityIndicatorType {
     case BallClipRotate
     case SquareSpin
     case BallClipRotatePulse
-    case BallPulseRise
     case BallClipRotateMultiple
-    case CubeTransition
+    case BallPulseRise
     case BallRotate
+    case CubeTransition
     case BallZigZag
     case BallZigZagDeflect
     case BallTrianglePath
@@ -110,14 +110,14 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationSquareSpin()
         case .BallClipRotatePulse:
             return NVActivityIndicatorAnimationBallClipRotatePulse()
-        case .BallPulseRise:
-            return NVActivityIndicatorAnimationBallPulseRise()
         case .BallClipRotateMultiple:
             return NVActivityIndicatorAnimationBallClipRotateMultiple()
-        case .CubeTransition:
-            return NVActivityIndicatorAnimationCubeTransition()
+        case .BallPulseRise:
+            return NVActivityIndicatorAnimationBallPulseRise()
         case .BallRotate:
             return NVActivityIndicatorAnimationBallRotate()
+        case .CubeTransition:
+            return NVActivityIndicatorAnimationCubeTransition()
         case .BallZigZag:
             return NVActivityIndicatorAnimationBallZigZag()
         case .BallZigZagDeflect:
