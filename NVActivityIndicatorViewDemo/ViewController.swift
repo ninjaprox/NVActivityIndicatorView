@@ -26,7 +26,8 @@ class ViewController: UIViewController {
             .BallZigZagDeflect,
             .BallTrianglePath,
             .BallScale,
-            .LineScale]
+            .LineScale,
+            .LineScaleParty]
         let cols = 6
         let rows = 6
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
