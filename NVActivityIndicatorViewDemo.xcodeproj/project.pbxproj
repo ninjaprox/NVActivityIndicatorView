@@ -25,6 +25,7 @@
 		2370AAF11B6245C100D36684 /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370AAF01B6245C100D36684 /* NVActivityIndicatorAnimationLineScaleParty.swift */; };
 		2370AAF31B6247D100D36684 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370AAF21B6247D100D36684 /* NVActivityIndicatorAnimationBallScaleMultiple.swift */; };
 		2370AAF51B6249D900D36684 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370AAF41B6249D900D36684 /* NVActivityIndicatorAnimationBallPulseSync.swift */; };
+		2370AAF71B624C4600D36684 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370AAF61B624C4600D36684 /* NVActivityIndicatorAnimationBallBeat.swift */; };
 		239CAB261B5EBB2E0051DC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */; };
 		239CAB281B5EBB2E0051DC06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB271B5EBB2E0051DC06 /* ViewController.swift */; };
 		239CAB2B1B5EBB2E0051DC06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB291B5EBB2E0051DC06 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		2370AAF01B6245C100D36684 /* NVActivityIndicatorAnimationLineScaleParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationLineScaleParty.swift; sourceTree = "<group>"; };
 		2370AAF21B6247D100D36684 /* NVActivityIndicatorAnimationBallScaleMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallScaleMultiple.swift; sourceTree = "<group>"; };
 		2370AAF41B6249D900D36684 /* NVActivityIndicatorAnimationBallPulseSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallPulseSync.swift; sourceTree = "<group>"; };
+		2370AAF61B624C4600D36684 /* NVActivityIndicatorAnimationBallBeat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallBeat.swift; sourceTree = "<group>"; };
 		239CAB201B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVActivityIndicatorViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		239CAB241B5EBB2E0051DC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				2370AAF01B6245C100D36684 /* NVActivityIndicatorAnimationLineScaleParty.swift */,
 				2370AAF21B6247D100D36684 /* NVActivityIndicatorAnimationBallScaleMultiple.swift */,
 				2370AAF41B6249D900D36684 /* NVActivityIndicatorAnimationBallPulseSync.swift */,
+				2370AAF61B624C4600D36684 /* NVActivityIndicatorAnimationBallBeat.swift */,
 				235996D41B60D1A7003842B4 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift */,
 				235996D61B60E3EC003842B4 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */,
 				235996D81B60EB51003842B4 /* NVActivityIndicatorAnimationBallRotate.swift */,
@@ -300,6 +303,7 @@
 				235996D51B60D1A7003842B4 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				239CAB261B5EBB2E0051DC06 /* AppDelegate.swift in Sources */,
 				2370AAF51B6249D900D36684 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
+				2370AAF71B624C4600D36684 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				235996D31B60CDAA003842B4 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				2370AAF11B6245C100D36684 /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 			);
