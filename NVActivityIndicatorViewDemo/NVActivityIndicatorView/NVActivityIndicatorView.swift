@@ -29,6 +29,7 @@ enum NVActivityIndicatorType {
     case LineScalePulseOutRapid
     case BallScaleRipple
     case BallScaleRippleMultiple
+    case TriangleSkewSpin
 }
 
 class NVActivityIndicatorView: UIView {
@@ -133,6 +134,8 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationBallScaleRipple()
         case .BallScaleRippleMultiple:
             return NVActivityIndicatorAnimationBallScaleRippleMultiple()
+        case .TriangleSkewSpin:
+            return NVActivityIndicatorAnimationTriangleSkewSpin()
         }
     }
 }
