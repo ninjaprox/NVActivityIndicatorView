@@ -29,7 +29,8 @@ class ViewController: UIViewController {
             .LineScale,
             .LineScaleParty,
             .BallScaleMultiple,
-            .BallPulseSync]
+            .BallPulseSync,
+            .BallBeat]
         let cols = 6
         let rows = 6
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
