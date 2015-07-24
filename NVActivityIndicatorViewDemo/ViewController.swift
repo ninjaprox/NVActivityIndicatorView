@@ -20,6 +20,7 @@ class ViewController: UIViewController {
             .BallGridPulse,
             .BallClipRotate,
             .BallClipRotatePulse,
+            .SquareSpin,
             .BallClipRotateMultiple,
             .BallRotate,
             .BallZigZag,
@@ -37,8 +38,8 @@ class ViewController: UIViewController {
             .BallScaleRippleMultiple,
             .TriangleSkewSpin,
             .BallGridBeat]
-        let cols = 6
-        let rows = 6
+        let cols = 4
+        let rows = 7
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
         
