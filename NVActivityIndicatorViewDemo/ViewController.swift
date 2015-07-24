@@ -24,6 +24,7 @@ class ViewController: UIViewController {
             .BallClipRotateMultiple,
             .BallPulseRise,
             .BallRotate,
+            .CubeTransition,
             .BallZigZag,
             .BallZigZagDeflect,
             .BallTrianglePath,
