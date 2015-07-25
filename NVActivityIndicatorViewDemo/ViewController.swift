@@ -39,6 +39,7 @@ class ViewController: UIViewController {
             .BallScaleRipple,
             .BallScaleRippleMultiple,
             .BallSpinFadeLoader,
+            .LineSpinFadeLoader,
             .TriangleSkewSpin,
             .BallGridBeat]
         let cols = 4
