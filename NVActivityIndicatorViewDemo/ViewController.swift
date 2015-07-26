@@ -41,6 +41,7 @@ class ViewController: UIViewController {
             .BallSpinFadeLoader,
             .LineSpinFadeLoader,
             .TriangleSkewSpin,
+            .Pacman,
             .BallGridBeat]
         let cols = 4
         let rows = 7
