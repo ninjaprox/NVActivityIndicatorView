@@ -17,6 +17,7 @@ enum NVActivityIndicatorShape {
     case Rectangle
     case Triangle
     case Line
+    case Pacman
     
     func createLayerWith(# size: CGSize, color: UIColor) -> CALayer {
         let layer: CAShapeLayer = CAShapeLayer()
@@ -107,6 +108,15 @@ enum NVActivityIndicatorShape {
             path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: size.width, height: size.height),
                 cornerRadius: size.width / 2)
             layer.fillColor = color.CGColor
+        case .Pacman:
+            path.addArcWithCenter(CGPoint(x: size.width / 2, y: size.height / 2),
+                radius: size.width / 4,
+                startAngle: 0,
+                endAngle: CGFloat(2 * M_PI),
+                clockwise: true);
+            layer.fillColor = nil
+            layer.strokeColor = color.CGColor
+            layer.lineWidth = size.width / 2
         }
         
         layer.backgroundColor = nil
