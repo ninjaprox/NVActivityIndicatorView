@@ -58,9 +58,6 @@ class ViewController: UIViewController {
             
             self.view.addSubview(activityIndicatorView)
             activityIndicatorView.startAnimation()
-            
-            activityIndicatorView.layer.borderWidth = 2
-            activityIndicatorView.layer.borderColor = UIColor.redColor().CGColor
         }
     }
     
