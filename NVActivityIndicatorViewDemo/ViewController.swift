@@ -42,7 +42,8 @@ class ViewController: UIViewController {
             .LineSpinFadeLoader,
             .TriangleSkewSpin,
             .Pacman,
-            .BallGridBeat]
+            .BallGridBeat,
+            .SemiCircleSpin]
         let cols = 4
         let rows = 7
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
