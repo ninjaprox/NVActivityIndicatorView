@@ -10,6 +10,7 @@ import UIKit
 
 enum NVActivityIndicatorShape {
     case Circle
+    case CircleSemi
     case Ring
     case RingTwoHalfVertical
     case RingTwoHalfHorizontal
@@ -31,6 +32,16 @@ enum NVActivityIndicatorShape {
                 startAngle: 0,
                 endAngle: CGFloat(2 * M_PI),
                 clockwise: false);
+            layer.fillColor = color.CGColor
+        case .CircleSemi:
+            let radius = CGFloat(size.width / 2)
+            
+            path.addArcWithCenter(CGPoint(x: size.width / 2, y: size.height / 2),
+                radius: size.width / 2,
+                startAngle: CGFloat(-M_PI / 6),
+                endAngle: CGFloat(-5 * M_PI / 6),
+                clockwise: false)
+            path.closePath()
             layer.fillColor = color.CGColor
         case .Ring:
             path.addArcWithCenter(CGPoint(x: size.width / 2, y: size.height / 2),

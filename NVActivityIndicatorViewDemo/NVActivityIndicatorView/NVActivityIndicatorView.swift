@@ -37,6 +37,7 @@ enum NVActivityIndicatorType {
     case TriangleSkewSpin
     case Pacman
     case BallGridBeat
+    case SemiCircleSpin
 }
 
 class NVActivityIndicatorView: UIView {
@@ -157,6 +158,8 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationPacman()
         case .BallGridBeat:
             return NVActivityIndicatorAnimationBallGridBeat()
+        case .SemiCircleSpin:
+            return NVActivityIndicatorAnimationSemiCircleSpin()
         }
     }
 }
