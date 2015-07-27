@@ -18,11 +18,13 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
     func pacmanInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let pacmanSize = 2 * size.width / 3
         let pacmanDuration: CFTimeInterval = 0.5
+        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
         
         // Stroke start animation
         let strokeStartAnimation = CAKeyframeAnimation(keyPath: "strokeStart")
         
         strokeStartAnimation.keyTimes = [0, 0.5, 1]
+        strokeStartAnimation.timingFunctions = [timingFunction, timingFunction]
         strokeStartAnimation.values = [0.125, 0, 0.125]
         strokeStartAnimation.duration = pacmanDuration
         
@@ -30,6 +32,7 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         let strokeEndAnimation = CAKeyframeAnimation(keyPath: "strokeEnd")
         
         strokeEndAnimation.keyTimes = [0, 0.5, 1]
+        strokeEndAnimation.timingFunctions = [timingFunction, timingFunction]
         strokeEndAnimation.values = [0.875, 1, 0.875]
         strokeEndAnimation.duration = pacmanDuration
         
@@ -77,11 +80,12 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         let animation = CAAnimationGroup()
         
         animation.animations = [translateAnimation, opacityAnimation]
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = circleDuration
         animation.repeatCount = HUGE
         animation.removedOnCompletion = false
         
-        // Draw pacman
+        // Draw circles
         let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
         let frame = CGRect(
             x: (layer.bounds.size.width - size.width) / 2 + size.width - circleSize,
