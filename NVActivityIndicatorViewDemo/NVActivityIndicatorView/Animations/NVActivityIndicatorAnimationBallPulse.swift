@@ -36,8 +36,8 @@ class NVActivityIndicatorAnimationBallPulse: NVActivityIndicatorAnimationDelegat
                 width: circleSize,
                 height: circleSize)
             
-            circle.frame = frame
             animation.beginTime = beginTime + beginTimes[i]
+            circle.frame = frame
             circle.addAnimation(animation, forKey: "animation")
             layer.addSublayer(circle)
         }

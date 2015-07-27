@@ -12,6 +12,7 @@ class NVActivityIndicatorAnimationBallScaleMultiple: NVActivityIndicatorAnimatio
     
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 1
+        let beginTime = CACurrentMediaTime()
         let beginTimes = [0, 0.2, 0.4]
         
         // Scale animation
@@ -45,7 +46,7 @@ class NVActivityIndicatorAnimationBallScaleMultiple: NVActivityIndicatorAnimatio
                 width: size.width,
                 height: size.height)
             
-            animation.beginTime = beginTimes[i]
+            animation.beginTime = beginTime + beginTimes[i]
             circle.frame = frame
             circle.opacity = 0
             circle.addAnimation(animation, forKey: "animation")

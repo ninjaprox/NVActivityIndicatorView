@@ -24,7 +24,6 @@ class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDe
         
         animation.keyTimes = [0, 0.5, 1]
         animation.timingFunctions = [timingFunction, timingFunction]
-        animation.beginTime = beginTime
         animation.values = [1, 0.5, 1]
         animation.repeatCount = HUGE
         animation.removedOnCompletion = false
@@ -33,7 +32,7 @@ class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDe
             let line = NVActivityIndicatorShape.Line.createLayerWith(size: CGSize(width: lineSize, height: size.height), color: color)
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i), y: y, width: lineSize, height: size.height)
             
-            animation.beginTime = beginTimes[i]
+            animation.beginTime = beginTime + beginTimes[i]
             animation.duration = durations[i]
             line.frame = frame
             line.addAnimation(animation, forKey: "animation")

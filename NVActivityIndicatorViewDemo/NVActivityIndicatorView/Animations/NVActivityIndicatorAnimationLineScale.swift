@@ -34,8 +34,8 @@ class NVActivityIndicatorAnimationLineScale: NVActivityIndicatorAnimationDelegat
             let line = NVActivityIndicatorShape.Line.createLayerWith(size: CGSize(width: lineSize, height: size.height), color: color)
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i), y: y, width: lineSize, height: size.height)
             
-            line.frame = frame
             animation.beginTime = beginTime + beginTimes[i]
+            line.frame = frame
             line.addAnimation(animation, forKey: "animation")
             layer.addSublayer(line)
         }

@@ -26,7 +26,6 @@ class NVActivityIndicatorAnimationBallPulseSync: NVActivityIndicatorAnimationDel
         
         animation.keyTimes = [0, 0.33, 0.66, 1]
         animation.timingFunctions = [timingFunciton, timingFunciton, timingFunciton]
-        animation.beginTime = beginTime
         animation.values = [0, deltaY, -deltaY, 0]
         animation.duration = duration
         animation.repeatCount = HUGE
@@ -40,7 +39,7 @@ class NVActivityIndicatorAnimationBallPulseSync: NVActivityIndicatorAnimationDel
                 width: circleSize,
                 height: circleSize)
             
-            animation.beginTime = beginTimes[i]
+            animation.beginTime = beginTime + beginTimes[i]
             circle.frame = frame
             circle.addAnimation(animation, forKey: "animation")
             layer.addSublayer(circle)

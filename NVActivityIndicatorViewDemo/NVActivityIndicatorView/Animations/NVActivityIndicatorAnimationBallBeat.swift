@@ -38,7 +38,6 @@ class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate
         
         animation.animations = [scaleAnimation, opacityAnimation]
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        animation.beginTime = beginTime
         animation.duration = duration
         animation.repeatCount = HUGE
         animation.removedOnCompletion = false
@@ -51,7 +50,7 @@ class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate
                 width: circleSize,
                 height: circleSize)
             
-            animation.beginTime = beginTimes[i]
+            animation.beginTime = beginTime + beginTimes[i]
             circle.frame = frame
             circle.addAnimation(animation, forKey: "animation")
             layer.addSublayer(circle)

@@ -17,7 +17,7 @@ class NVActivityIndicatorAnimationLineScalePulseOut: NVActivityIndicatorAnimatio
         let duration: CFTimeInterval = 1
         let beginTime = CACurrentMediaTime()
         let beginTimes = [0.4, 0.2, 0, 0.2, 0.4]
-        let timingFunction = CAMediaTimingFunction(controlPoints:0.85, 0.25, 0.37, 0.85)
+        let timingFunction = CAMediaTimingFunction(controlPoints: 0.85, 0.25, 0.37, 0.85)
         
         // Animation
         let animation = CAKeyframeAnimation(keyPath: "transform.scale.y")
