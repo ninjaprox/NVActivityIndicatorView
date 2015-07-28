@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "NVActivityIndicatorView"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "A collection of nice loading animations"
 
   s.homepage     = "https://github.com/ninjaprox/NVActivityIndicatorView"
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.source       = { :git => "https://github.com/ninjaprox/NVActivityIndicatorView.git", :tag => "v1.0" }
+  s.source       = { :git => "https://github.com/ninjaprox/NVActivityIndicatorView.git", :tag => "v1.1" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
