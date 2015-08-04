@@ -165,6 +165,8 @@
 		70264EEE1B0F588700B32B18 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Alexey Poimtsev";
 				TargetAttributes = {
