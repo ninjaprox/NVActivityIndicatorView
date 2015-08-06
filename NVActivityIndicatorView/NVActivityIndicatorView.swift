@@ -51,7 +51,7 @@ class NVActivityIndicatorView: UIView {
     
     var animating: Bool = false
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.type = DEFAULT_TYPE
         self.color = DEFAULT_COLOR
         self.size = DEFAULT_SIZE
