@@ -34,7 +34,7 @@ class ViewController: UIViewController {
 		let alert = SCLAlertView()
 		alert.addButton("First Button", target:self, selector:Selector("firstButton"))
 		alert.addButton("Second Button") {
-			println("Second button tapped")
+			print("Second button tapped")
 		}
         alert.showSuccess(kSuccessTitle, subTitle: kSubtitle)
     }
@@ -58,14 +58,14 @@ class ViewController: UIViewController {
 
 	@IBAction func showEdit(sender: AnyObject) {
 		let alert = SCLAlertView()
-		let txt = alert.addTextField(title:"Enter your name")
+		let txt = alert.addTextField("Enter your name")
 		alert.addButton("Show Name") {
-			println("Text value: \(txt.text)")
+			print("Text value: \(txt.text)")
 		}
 		alert.showEdit(kInfoTitle, subTitle:kSubtitle)
 	}
 	
 	func firstButton() {
-		println("First button tapped")
+		print("First button tapped")
 	}
 }
