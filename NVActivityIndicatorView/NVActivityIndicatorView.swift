@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum NVActivityIndicatorType {
+public enum NVActivityIndicatorType {
     case Blank
     case BallPulse
     case BallGridPulse
@@ -40,7 +40,7 @@ enum NVActivityIndicatorType {
     case SemiCircleSpin
 }
 
-class NVActivityIndicatorView: UIView {
+public class NVActivityIndicatorView: UIView {
     private let DEFAULT_TYPE: NVActivityIndicatorType = .Blank
     private let DEFAULT_COLOR = UIColor.whiteColor()
     private let DEFAULT_SIZE: CGSize = CGSize(width: 40, height: 40)
@@ -51,14 +51,14 @@ class NVActivityIndicatorView: UIView {
     
     var animating: Bool = false
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         self.type = DEFAULT_TYPE
         self.color = DEFAULT_COLOR
         self.size = DEFAULT_SIZE
         super.init(coder: aDecoder);
     }
     
-    init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?, size: CGSize?) {
+    public init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?, size: CGSize?) {
         self.type = type
         self.color = DEFAULT_COLOR
         self.size = DEFAULT_SIZE
@@ -72,15 +72,15 @@ class NVActivityIndicatorView: UIView {
         }
     }
     
-    convenience init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?) {
+    convenience public init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?) {
         self.init(frame: frame, type: type, color: color, size: nil)
     }
     
-    convenience init(frame: CGRect, type: NVActivityIndicatorType) {
+    convenience public init(frame: CGRect, type: NVActivityIndicatorType) {
         self.init(frame: frame, type: type, color: nil)
     }
     
-    func startAnimation() {
+    public func startAnimation() {
         if (self.layer.sublayers == nil) {
             setUpAnimation()
         }
@@ -88,10 +88,12 @@ class NVActivityIndicatorView: UIView {
         self.animating = true
     }
     
-    func stopAnimation() {
+    public func stopAnimation() {
         self.layer.speed = 0
         self.animating = false
     }
+    
+    // MARK: Privates
     
     private func setUpAnimation() {
         let animation: protocol<NVActivityIndicatorAnimationDelegate> = animationOfType(self.type)
