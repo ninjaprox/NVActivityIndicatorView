@@ -26,6 +26,8 @@ $ gem install cocoapods
 Add NVActivityIndicatorView in your `Podfile`
 
 ```bash
+use_frameworks!
+
 pod 'NVActivityIndicatorView'
 ```
 
@@ -41,7 +43,16 @@ Copy NVActivityIndicatorView folder to your project. That's it.
 
 # Usage
 
-There are 3 ways you can do:
+Firstly, import NVActivityIndicatorView
+
+```swift
+import NVActivityIndicatorView
+```
+
+Then, there are 4 ways you can do:
+
+- Use it in storyboard by changing class of any `UIView` to `NVActivityIndicatorView`
+This will use default values 40, white, .Pacman for size, color and type respectively.
 
 - Create with specified type and size 40, color white as default
 
