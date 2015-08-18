@@ -50,6 +50,7 @@ public class NVActivityIndicatorView: UIView {
     private var size: CGSize
     
     var animating: Bool = false
+    var hidesWhenStopped: Bool = true
     
     /**
         Create a activity indicator view with default type, color and size
@@ -128,6 +129,9 @@ public class NVActivityIndicatorView: UIView {
         Start animation
     */
     public func startAnimation() {
+        if hidesWhenStopped && hidden {
+            hidden = false
+        }
         if (self.layer.sublayers == nil) {
             setUpAnimation()
         }
@@ -141,6 +145,9 @@ public class NVActivityIndicatorView: UIView {
     public func stopAnimation() {
         self.layer.speed = 0
         self.animating = false
+        if hidesWhenStopped && !hidden {
+            hidden = true
+        }
     }
     
     // MARK: Privates
