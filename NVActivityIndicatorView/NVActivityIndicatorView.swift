@@ -41,9 +41,9 @@ public enum NVActivityIndicatorType {
 }
 
 public class NVActivityIndicatorView: UIView {
-    private let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
-    private let DEFAULT_COLOR = UIColor.whiteColor()
-    private let DEFAULT_SIZE: CGSize = CGSize(width: 40, height: 40)
+    private static let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
+    private static let DEFAULT_COLOR = UIColor.whiteColor()
+    private static let DEFAULT_SIZE: CGSize = CGSize(width: 40, height: 40)
     
     private var type: NVActivityIndicatorType
     private var color: UIColor
@@ -65,9 +65,9 @@ public class NVActivityIndicatorView: UIView {
         :returns: The activity indicator view
     */
     required public init(coder aDecoder: NSCoder) {
-        self.type = DEFAULT_TYPE
-        self.color = DEFAULT_COLOR
-        self.size = DEFAULT_SIZE
+        self.type = NVActivityIndicatorView.DEFAULT_TYPE
+        self.color = NVActivityIndicatorView.DEFAULT_COLOR
+        self.size = NVActivityIndicatorView.DEFAULT_SIZE
         super.init(coder: aDecoder);
     }
     
@@ -75,54 +75,17 @@ public class NVActivityIndicatorView: UIView {
         Create a activity indicator view with specified type, color, size and size
         
         :param: frame view's frame
-        :param: type animation type, value of NVActivityIndicatorType enum
-        :param: color color of activity indicator view
-        :param: size actual size of animation in view
+        :param: type animation type, value of NVActivityIndicatorType enum. Default type is pacman.
+        :param: color color of activity indicator view. Default color is white.
+        :param: size actual size of animation in view. Default size is 40
     
         :returns: The activity indicator view
     */
-    public init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?, size: CGSize?) {
+    public init(frame: CGRect, type: NVActivityIndicatorType = DEFAULT_TYPE, color: UIColor = DEFAULT_COLOR, size: CGSize = DEFAULT_SIZE) {
         self.type = type
-        self.color = DEFAULT_COLOR
-        self.size = DEFAULT_SIZE
+        self.color = color
+        self.size = size
         super.init(frame: frame)
-        
-        if let _color = color {
-            self.color = _color
-        }
-        if let _size = size {
-            self.size = _size
-        }
-    }
-    
-    /**
-        Create a activity indicator view with specified type, color and default size
-    
-        - Default size is 40
-        
-        :param: frame view's frame
-        :param: value animation type, value of NVActivityIndicatorType enum
-        :param: color color of activity indicator view
-    
-        :returns: The activity indicator view
-    */
-    convenience public init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?) {
-        self.init(frame: frame, type: type, color: color, size: nil)
-    }
-    
-    /**
-        Create a activity indicator view with specified type and default color, size
-    
-        - Default color is white
-        - Default size is 40
-    
-        :param: view view's frame
-        :param: value animation type, value of NVActivityIndicatorType enum
-    
-        :returns: The activity indicator view
-    */
-    convenience public init(frame: CGRect, type: NVActivityIndicatorType) {
-        self.init(frame: frame, type: type, color: nil)
     }
     
     /**
