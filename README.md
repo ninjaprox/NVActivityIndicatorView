@@ -49,28 +49,55 @@ Firstly, import NVActivityIndicatorView
 import NVActivityIndicatorView
 ```
 
-Then, there are 4 ways you can do:
+Then, there are multiple ways you can create NVActivityIndicatorView:
 
 - Use it in storyboard by changing class of any `UIView` to `NVActivityIndicatorView`
 This will use default values 40, white, .Pacman for size, color and type respectively.
 
-- Create with specified type and size 40, color white as default
-
-```swift
-NVActivityIndicatorView(frame: frame, type: type)
-```
-
-- Create with specified type, color and size 40 as default
-
-```swift
-NVActivityIndicatorView(frame: frame, type: type, color: color)
-```
-
-- Create with specified type, color, size
+- Create with specified type, color and size
 
 ```swift
 NVActivityIndicatorView(frame: frame, type: type, color: color, size: size)
 ```
+
+Any of the last three arguments can be omitted. If an argument is omitted it will use the default values which are 40, white, .Pacman for size, color and type respectively.
+Therefore, you can also create NVActivityIndicatorView using any of the following:
+
+- specify only frame, type and color
+```swift
+NVActivityIndicatorView(frame: frame, type: type, color: color)
+```
+
+- specify only frame, type and size
+```swift
+NVActivityIndicatorView(frame: frame, type: type, size: size)
+```
+
+- specify only frame, size and color
+```swift
+NVActivityIndicatorView(frame: frame, size: size, color: color)
+```
+
+- specify only frame and type
+```swift
+NVActivityIndicatorView(frame: frame, type: type)
+```
+
+- specify only frame and color
+```swift
+NVActivityIndicatorView(frame: frame, color: color)
+```
+
+- specify only frame and size
+```swift
+NVActivityIndicatorView(frame: frame, size: size)
+```
+
+- specify only frame
+```swift
+NVActivityIndicatorView(frame: frame)
+```
+
 # Acknowledgment
 
 Thanks [Connor Atherton](https://github.com/ConnorAtherton) for great loaders and [Danil Gontovnik](https://github.com/gontovnik) for kick-start.
