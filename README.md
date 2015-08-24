@@ -60,7 +60,7 @@ This will use default values 40, white, .Pacman for size, color and type respect
 NVActivityIndicatorView(frame: frame, type: type, color: color, size: size)
 ```
 
-Any of the last three arguments can be omitted. If an argument is omitted it will use the defailt values which are 40, white, .Pacman for size, color and type respectively.
+Any of the last three arguments can be omitted. If an argument is omitted it will use the default values which are 40, white, .Pacman for size, color and type respectively.
 Therefore, you can also create NVActivityIndicatorView using any of the following:
 
 - specify only frame, type and color
