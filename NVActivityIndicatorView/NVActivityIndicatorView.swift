@@ -38,47 +38,7 @@ public enum NVActivityIndicatorType {
     case Pacman
     case BallGridBeat
     case SemiCircleSpin
-<<<<<<< HEAD
     case BallCirclePath
-}
-
-class NVActivityIndicatorView: UIView {
-    private let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
-    private let DEFAULT_COLOR = UIColor.whiteColor()
-    private let DEFAULT_SIZE: CGSize = CGSize(width: 40, height: 40)
-    
-    private var type: NVActivityIndicatorType
-    private var color: UIColor
-    private var size: CGSize
-    
-    var animating: Bool = false
-    
-    required init(coder aDecoder: NSCoder) {
-        self.type = DEFAULT_TYPE
-        self.color = DEFAULT_COLOR
-        self.size = DEFAULT_SIZE
-        super.init(coder: aDecoder);
-    }
-    
-    init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?, size: CGSize?) {
-        self.type = type
-        self.color = DEFAULT_COLOR
-        self.size = DEFAULT_SIZE
-        super.init(frame: frame)
-        
-        if let _color = color {
-            self.color = _color
-        }
-        if let _size = size {
-            self.size = _size
-        }
-    }
-    
-    convenience init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?) {
-        self.init(frame: frame, type: type, color: color, size: nil)
-    }
-=======
->>>>>>> ninjaprox/master
     
     private func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
@@ -142,7 +102,6 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationSemiCircleSpin()
         case .BallCirclePath:
             return NVActivityIndicatorAnimationBallCirclePath()
-            
         }
     }
 }
@@ -160,16 +119,16 @@ public class NVActivityIndicatorView: UIView {
     var hidesWhenStopped: Bool = true
     
     /**
-        Create a activity indicator view with default type, color and size
-        This is used by storyboard to initiate the view
+    Create a activity indicator view with default type, color and size
+    This is used by storyboard to initiate the view
     
-        - Default type is pacman\n
-        - Default color is white\n
-        - Default size is 40
+    - Default type is pacman\n
+    - Default color is white\n
+    - Default size is 40
     
-        :param: decoder
+    :param: decoder
     
-        :returns: The activity indicator view
+    :returns: The activity indicator view
     */
     required public init(coder aDecoder: NSCoder) {
         self.type = NVActivityIndicatorView.DEFAULT_TYPE
@@ -179,14 +138,14 @@ public class NVActivityIndicatorView: UIView {
     }
     
     /**
-        Create a activity indicator view with specified type, color, size and size
-        
-        :param: frame view's frame
-        :param: type animation type, value of NVActivityIndicatorType enum. Default type is pacman.
-        :param: color color of activity indicator view. Default color is white.
-        :param: size actual size of animation in view. Default size is 40
+    Create a activity indicator view with specified type, color, size and size
     
-        :returns: The activity indicator view
+    :param: frame view's frame
+    :param: type animation type, value of NVActivityIndicatorType enum. Default type is pacman.
+    :param: color color of activity indicator view. Default color is white.
+    :param: size actual size of animation in view. Default size is 40
+    
+    :returns: The activity indicator view
     */
     public init(frame: CGRect, type: NVActivityIndicatorType = DEFAULT_TYPE, color: UIColor = DEFAULT_COLOR, size: CGSize = DEFAULT_SIZE) {
         self.type = type
@@ -196,7 +155,7 @@ public class NVActivityIndicatorView: UIView {
     }
     
     /**
-        Start animation
+    Start animation
     */
     public func startAnimation() {
         if hidesWhenStopped && hidden {
@@ -210,7 +169,7 @@ public class NVActivityIndicatorView: UIView {
     }
     
     /**
-        Stop animation
+    Stop animation
     */
     public func stopAnimation() {
         self.layer.speed = 0
@@ -221,7 +180,7 @@ public class NVActivityIndicatorView: UIView {
     }
     
     // MARK: Privates
-
+    
     private func setUpAnimation() {
         let animation: protocol<NVActivityIndicatorAnimationDelegate> = self.type.animation()
         
