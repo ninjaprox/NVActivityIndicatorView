@@ -13,8 +13,8 @@ class NVActivityIndicatorAnimationBallGridPulse: NVActivityIndicatorAnimationDel
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let circleSpacing: CGFloat = 2
         let circleSize = (size.width - circleSpacing * 2) / 3
-        let x = (layer.bounds.size.width - size.width) / 2
-        let y = (layer.bounds.size.height - size.height) / 2
+        let x = (layer.bounds.width - size.width) / 2
+        let y = (layer.bounds.height - size.height) / 2
         let durations: [CFTimeInterval] = [0.72, 1.02, 1.28, 1.42, 1.45, 1.18, 0.87, 1.45, 1.06]
         let beginTime = CACurrentMediaTime()
         let beginTimes: [CFTimeInterval] = [-0.06, 0.25, -0.17, 0.48, 0.31, 0.03, 0.46, 0.78, 0.45]

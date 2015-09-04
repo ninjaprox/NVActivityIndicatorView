@@ -32,8 +32,8 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         // Draw circle
         let circleSize = size.width / 2
         let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
-        let frame = CGRect(x: (layer.bounds.size.width - circleSize) / 2,
-            y: (layer.bounds.size.height - circleSize) / 2,
+        let frame = CGRect(x: (layer.bounds.width - circleSize) / 2,
+            y: (layer.bounds.height - circleSize) / 2,
             width: circleSize,
             height: circleSize)
         
@@ -69,8 +69,8 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         
         // Draw circle
         let circle = NVActivityIndicatorShape.RingTwoHalfVertical.createLayerWith(size: size, color: color)
-        let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
-            y: (layer.bounds.size.height - size.height) / 2,
+        let frame = CGRect(x: (layer.bounds.width - size.width) / 2,
+            y: (layer.bounds.height - size.height) / 2,
             width: size.width,
             height: size.height)
         circle.frame = frame

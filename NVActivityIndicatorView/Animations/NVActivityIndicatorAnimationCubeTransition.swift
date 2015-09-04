@@ -12,8 +12,8 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
 
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let squareSize = size.width / 5
-        let x = (layer.bounds.size.width - size.width) / 2
-        let y = (layer.bounds.size.height - size.height) / 2
+        let x = (layer.bounds.width - size.width) / 2
+        let y = (layer.bounds.height - size.height) / 2
         let deltaX = size.width - squareSize
         let deltaY = size.height - squareSize
         let duration: CFTimeInterval = 1.6

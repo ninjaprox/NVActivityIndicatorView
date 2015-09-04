@@ -39,8 +39,8 @@ class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegat
         // Draw circle
         let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: size, color: color)
         
-        circle.frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
-            y: (layer.bounds.size.height - size.height) / 2,
+        circle.frame = CGRect(x: (layer.bounds.width - size.width) / 2,
+            y: (layer.bounds.height - size.height) / 2,
             width: size.width,
             height: size.height);
         circle.addAnimation(animation, forKey: "animation")

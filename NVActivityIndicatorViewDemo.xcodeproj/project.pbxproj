@@ -45,6 +45,7 @@
 		23D8616A1B66F8C8009CAEBF /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8614A1B66F8C8009CAEBF /* NVActivityIndicatorAnimationDelegate.swift */; };
 		23D8616B1B66F8C8009CAEBF /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8614B1B66F8C8009CAEBF /* NVActivityIndicatorShape.swift */; };
 		23D8616C1B66F8C8009CAEBF /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8614C1B66F8C8009CAEBF /* NVActivityIndicatorView.swift */; };
+		B4BFFDD41B728C3D00D72B10 /* NVActivityIndicatorAnimationBallCirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BFFDD31B728C3D00D72B10 /* NVActivityIndicatorAnimationBallCirclePath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		23D8614A1B66F8C8009CAEBF /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
 		23D8614B1B66F8C8009CAEBF /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		23D8614C1B66F8C8009CAEBF /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
+		B4BFFDD31B728C3D00D72B10 /* NVActivityIndicatorAnimationBallCirclePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallCirclePath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 		23D8612C1B66F8C8009CAEBF /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				B4BFFDD31B728C3D00D72B10 /* NVActivityIndicatorAnimationBallCirclePath.swift */,
 				23D8612D1B66F8C8009CAEBF /* NVActivityIndicatorAnimationBallBeat.swift */,
 				23D8612E1B66F8C8009CAEBF /* NVActivityIndicatorAnimationBallClipRotate.swift */,
 				23D8612F1B66F8C8009CAEBF /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */,
@@ -268,6 +271,7 @@
 		239CAB181B5EBB2E0051DC06 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Nguyen Vinh";
 				TargetAttributes = {
@@ -356,6 +360,7 @@
 				23D861541B66F8C8009CAEBF /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				23D8615B1B66F8C8009CAEBF /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				23D861631B66F8C8009CAEBF /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
+				B4BFFDD41B728C3D00D72B10 /* NVActivityIndicatorAnimationBallCirclePath.swift in Sources */,
 				23D861591B66F8C8009CAEBF /* NVActivityIndicatorAnimationBallScaleRipple.swift in Sources */,
 				23D8615C1B66F8C8009CAEBF /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
 			);

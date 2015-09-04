@@ -11,8 +11,8 @@ import UIKit
 class NVActivityIndicatorAnimationTriangleSkewSpin: NVActivityIndicatorAnimationDelegate {
     
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
-        let x = (layer.bounds.size.width - size.width) / 2
-        let y = (layer.bounds.size.height - size.height) / 2
+        let x = (layer.bounds.width - size.width) / 2
+        let y = (layer.bounds.height - size.height) / 2
         let duration: CFTimeInterval = 3
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.09, 0.57, 0.49, 0.9)
         

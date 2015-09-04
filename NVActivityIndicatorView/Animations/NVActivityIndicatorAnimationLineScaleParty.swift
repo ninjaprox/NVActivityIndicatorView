@@ -12,8 +12,8 @@ class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDe
     
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let lineSize = size.width / 7
-        let x = (layer.bounds.size.width - size.width) / 2
-        let y = (layer.bounds.size.height - size.height) / 2
+        let x = (layer.bounds.width - size.width) / 2
+        let y = (layer.bounds.height - size.height) / 2
         let durations: [CFTimeInterval] = [1.26, 0.43, 1.01, 0.73]
         let beginTime = CACurrentMediaTime()
         let beginTimes: [CFTimeInterval] = [0.77, 0.29, 0.28, 0.74]
