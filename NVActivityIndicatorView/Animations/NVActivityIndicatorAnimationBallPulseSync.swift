@@ -13,8 +13,8 @@ class NVActivityIndicatorAnimationBallPulseSync: NVActivityIndicatorAnimationDel
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let circleSpacing: CGFloat = 2
         let circleSize = (size.width - circleSpacing * 2) / 3
-        let x = (layer.bounds.size.width - size.width) / 2
-        let y = (layer.bounds.size.height - circleSize) / 2
+        let x = (layer.bounds.width - size.width) / 2
+        let y = (layer.bounds.height - circleSize) / 2
         let deltaY = (size.height / 2 - circleSize / 2) / 2
         let duration: CFTimeInterval = 0.6
         let beginTime = CACurrentMediaTime()

@@ -47,8 +47,8 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         // Draw pacman
         let pacman = NVActivityIndicatorShape.Pacman.createLayerWith(size: CGSize(width: pacmanSize, height: pacmanSize), color: color)
         let frame = CGRect(
-            x: (layer.bounds.size.width - size.width) / 2,
-            y: (layer.bounds.size.height - size.height) / 2 + size.height / 2 - pacmanSize / 2,
+            x: (layer.bounds.width - size.width) / 2,
+            y: (layer.bounds.height - size.height) / 2 + size.height / 2 - pacmanSize / 2,
             width: pacmanSize,
             height: pacmanSize
         )
@@ -88,8 +88,8 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         // Draw circles
         let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
         let frame = CGRect(
-            x: (layer.bounds.size.width - size.width) / 2 + size.width - circleSize,
-            y: (layer.bounds.size.height - size.height) / 2 + size.height / 2 - circleSize
+            x: (layer.bounds.width - size.width) / 2 + size.width - circleSize,
+            y: (layer.bounds.height - size.height) / 2 + size.height / 2 - circleSize
                 / 2,
             width: circleSize,
             height: circleSize

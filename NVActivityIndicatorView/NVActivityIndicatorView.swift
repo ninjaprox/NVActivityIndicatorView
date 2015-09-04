@@ -38,10 +38,11 @@ enum NVActivityIndicatorType {
     case Pacman
     case BallGridBeat
     case SemiCircleSpin
+    case BallCirclePath
 }
 
 class NVActivityIndicatorView: UIView {
-    private let DEFAULT_TYPE: NVActivityIndicatorType = .Blank
+    private let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
     private let DEFAULT_COLOR = UIColor.whiteColor()
     private let DEFAULT_SIZE: CGSize = CGSize(width: 40, height: 40)
     
@@ -160,6 +161,9 @@ class NVActivityIndicatorView: UIView {
             return NVActivityIndicatorAnimationBallGridBeat()
         case .SemiCircleSpin:
             return NVActivityIndicatorAnimationSemiCircleSpin()
+        case .BallCirclePath:
+            return NVActivityIndicatorAnimationBallCirclePath()
+            
         }
     }
 }
