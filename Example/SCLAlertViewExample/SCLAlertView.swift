@@ -160,16 +160,9 @@ public class SCLAlertView: UIViewController {
     
     override public func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        var sz = UIScreen.mainScreen().bounds.size
-        let sver = UIDevice.currentDevice().systemVersion as NSString
-        let ver = sver.floatValue
-        if ver < 8.0 {
-            // iOS versions before 7.0 did not switch the width and height on device roration
-            if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
-                let ssz = sz
-                sz = CGSize(width:ssz.height, height:ssz.width)
-            }
-        }
+        let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
+        let sz = rv.frame.size
+        
         // Set background frame
         view.frame.size = sz
         
