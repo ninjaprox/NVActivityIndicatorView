@@ -18,7 +18,7 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         bigCircleWith(duration: duration, timingFunction: timingFunction, layer: layer, size: size, color: color)
     }
     
-    func smallCircleWith(# duration: CFTimeInterval, timingFunction: CAMediaTimingFunction, layer: CALayer, size: CGSize, color: UIColor) {
+    func smallCircleWith(duration duration: CFTimeInterval, timingFunction: CAMediaTimingFunction, layer: CALayer, size: CGSize, color: UIColor) {
         // Animation
         let animation = CAKeyframeAnimation(keyPath:"transform.scale")
         
@@ -42,7 +42,7 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         layer.addSublayer(circle)
     }
     
-    func bigCircleWith(# duration: CFTimeInterval, timingFunction: CAMediaTimingFunction, layer: CALayer, size: CGSize, color: UIColor) {
+    func bigCircleWith(duration duration: CFTimeInterval, timingFunction: CAMediaTimingFunction, layer: CALayer, size: CGSize, color: UIColor) {
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath:"transform.scale")
         

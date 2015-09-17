@@ -127,7 +127,7 @@ public class NVActivityIndicatorView: UIView {
     
         :returns: The activity indicator view
     */
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         self.type = NVActivityIndicatorView.DEFAULT_TYPE
         self.color = NVActivityIndicatorView.DEFAULT_COLOR
         self.size = NVActivityIndicatorView.DEFAULT_SIZE

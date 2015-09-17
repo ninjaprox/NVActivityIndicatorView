@@ -41,7 +41,7 @@ class NVActivityIndicatorAnimationSquareSpin: NVActivityIndicatorAnimationDelega
         layer.addSublayer(square)
     }
     
-    func createRotateXTransform(# angle: CGFloat) -> CATransform3D {
+    func createRotateXTransform(angle angle: CGFloat) -> CATransform3D {
         var transform = CATransform3DMakeRotation(angle, 1, 0, 0)
         
         transform.m34 = CGFloat(-1) / 100
@@ -49,7 +49,7 @@ class NVActivityIndicatorAnimationSquareSpin: NVActivityIndicatorAnimationDelega
         return transform
     }
     
-    func createRotateYTransform(# angle: CGFloat) -> CATransform3D {
+    func createRotateYTransform(angle angle: CGFloat) -> CATransform3D {
         var transform = CATransform3DMakeRotation(angle, 0, 1, 0)
         
         transform.m34 = CGFloat(-1) / 100

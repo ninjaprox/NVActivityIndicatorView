@@ -20,7 +20,7 @@ enum NVActivityIndicatorShape {
     case Line
     case Pacman
     
-    func createLayerWith(# size: CGSize, color: UIColor) -> CALayer {
+    func createLayerWith(size size: CGSize, color: UIColor) -> CALayer {
         let layer: CAShapeLayer = CAShapeLayer()
         var path: UIBezierPath = UIBezierPath()
         let lineWidth: CGFloat = 2
@@ -34,8 +34,6 @@ enum NVActivityIndicatorShape {
                 clockwise: false);
             layer.fillColor = color.CGColor
         case .CircleSemi:
-            let radius = CGFloat(size.width / 2)
-            
             path.addArcWithCenter(CGPoint(x: size.width / 2, y: size.height / 2),
                 radius: size.width / 2,
                 startAngle: CGFloat(-M_PI / 6),
@@ -53,8 +51,6 @@ enum NVActivityIndicatorShape {
             layer.strokeColor = color.CGColor
             layer.lineWidth = lineWidth
         case .RingTwoHalfVertical:
-            let radius = CGFloat(size.width / 2)
-            
             path.addArcWithCenter(CGPoint(x: size.width / 2, y: size.height / 2),
                 radius:size.width / 2,
                 startAngle:CGFloat(-3 * M_PI_4),
@@ -73,8 +69,6 @@ enum NVActivityIndicatorShape {
             layer.strokeColor = color.CGColor
             layer.lineWidth = lineWidth
         case .RingTwoHalfHorizontal:
-            let radius = size.width / 2
-            
             path.addArcWithCenter(CGPoint(x: size.width / 2, y: size.height / 2),
                 radius:size.width / 2,
                 startAngle:CGFloat(3 * M_PI_4),
