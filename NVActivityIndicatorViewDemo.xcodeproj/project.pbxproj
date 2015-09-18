@@ -268,6 +268,7 @@
 		239CAB181B5EBB2E0051DC06 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Nguyen Vinh";

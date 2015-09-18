@@ -123,9 +123,9 @@ public class NVActivityIndicatorView: UIView {
         - Default color is white\n
         - Default size is 40
     
-        :param: decoder
+        - parameter decoder:
     
-        :returns: The activity indicator view
+        - returns: The activity indicator view
     */
     required public init?(coder aDecoder: NSCoder) {
         self.type = NVActivityIndicatorView.DEFAULT_TYPE
@@ -137,12 +137,12 @@ public class NVActivityIndicatorView: UIView {
     /**
         Create a activity indicator view with specified type, color, size and size
         
-        :param: frame view's frame
-        :param: type animation type, value of NVActivityIndicatorType enum. Default type is pacman.
-        :param: color color of activity indicator view. Default color is white.
-        :param: size actual size of animation in view. Default size is 40
+        - parameter frame: view's frame
+        - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is pacman.
+        - parameter color: color of activity indicator view. Default color is white.
+        - parameter size: actual size of animation in view. Default size is 40
     
-        :returns: The activity indicator view
+        - returns: The activity indicator view
     */
     public init(frame: CGRect, type: NVActivityIndicatorType = DEFAULT_TYPE, color: UIColor = DEFAULT_COLOR, size: CGSize = DEFAULT_SIZE) {
         self.type = type

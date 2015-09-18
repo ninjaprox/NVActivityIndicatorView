@@ -66,7 +66,7 @@ class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDel
         return animation
     }
     
-    func evenAnimation(duration duration: CFTimeInterval, deltaY: CGFloat, timingFunction: CAMediaTimingFunction) -> CAAnimation {
+    func evenAnimation(duration  duration: CFTimeInterval, deltaY: CGFloat, timingFunction: CAMediaTimingFunction) -> CAAnimation {
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
         
