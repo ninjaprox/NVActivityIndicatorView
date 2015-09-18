@@ -1,5 +1,8 @@
 # Change log
 
+## [v2.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.0)
+* Update to Swift 2.0
+
 ## [v1.3](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v1.3)
 * More convenient constructor
 * Hide when stopped option
