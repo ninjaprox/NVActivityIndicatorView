@@ -56,7 +56,7 @@ class NVActivityIndicatorAnimationBallSpinFadeLoader: NVActivityIndicatorAnimati
         }
     }
     
-    func circleAt(# angle: CGFloat, size: CGFloat, origin: CGPoint, containerSize: CGSize, color: UIColor) -> CALayer {
+    func circleAt(angle angle: CGFloat, size: CGFloat, origin: CGPoint, containerSize: CGSize, color: UIColor) -> CALayer {
         let radius = containerSize.width / 2
         let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: size, height: size), color: color)
         let frame = CGRect(
