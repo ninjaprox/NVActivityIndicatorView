@@ -219,6 +219,18 @@ public class SCLAlertView: UIViewController {
         }
     }
     
+    override public func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+    }
+    
+    override public func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(UIKeyboardWillShowNotification)
+        NSNotificationCenter.defaultCenter().removeObserver(UIKeyboardWillHideNotification)
+    }
+    
     override public func touchesEnded(touches:Set<UITouch>, withEvent event:UIEvent?) {
         if event?.touchesForView(view)?.count > 0 {
             view.endEditing(true)
@@ -303,6 +315,39 @@ public class SCLAlertView: UIViewController {
     
     func buttonRelease(btn:SCLButton) {
         btn.backgroundColor = viewColor
+    }
+    
+    var tmpContentViewFrameOrigin: CGPoint?
+    var tmpCircleViewFrameOrigin: CGPoint?
+    var keyboardHasBeenShown:Bool = false
+    
+    func keyboardWillShow(notification: NSNotification) {
+        keyboardHasBeenShown = true
+        if let userInfo = notification.userInfo {
+            if let beginKeyBoardFrame = userInfo[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.origin.y {
+                if let endKeyBoardFrame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.origin.y {
+                    tmpContentViewFrameOrigin = self.contentView.frame.origin
+                    tmpCircleViewFrameOrigin = self.circleBG.frame.origin
+                    let newContentViewFrameY = beginKeyBoardFrame - endKeyBoardFrame - self.contentView.frame.origin.y
+                    let newBallViewFrameY = self.circleBG.frame.origin.y - newContentViewFrameY
+                    self.contentView.frame.origin.y -= newContentViewFrameY
+                    self.circleBG.frame.origin.y = newBallViewFrameY
+                }
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if(keyboardHasBeenShown){//This could happen on the simulator (keyboard will be hidden)
+            if(self.tmpContentViewFrameOrigin != nil){
+                self.contentView.frame.origin.y = self.tmpContentViewFrameOrigin!.y
+            }
+            if(self.tmpCircleViewFrameOrigin != nil){
+                self.circleBG.frame.origin.y = self.tmpCircleViewFrameOrigin!.y
+            }
+            
+            keyboardHasBeenShown = false
+        }
     }
     
     //Dismiss keyboard when tapped outside textfield
