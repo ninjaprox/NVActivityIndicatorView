@@ -132,6 +132,7 @@ public class NVActivityIndicatorView: UIView {
         self.color = NVActivityIndicatorView.DEFAULT_COLOR
         self.size = NVActivityIndicatorView.DEFAULT_SIZE
         super.init(coder: aDecoder);
+        super.backgroundColor = UIColor.clearColor()
     }
     
     /**
