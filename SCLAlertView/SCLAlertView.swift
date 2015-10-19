@@ -95,6 +95,10 @@ public class SCLAlertView: UIViewController {
     
     // UI Options
     public var showCloseButton = true
+    public var showCircularIcon = true
+    public var contentViewCornerRadius : CGFloat = 5.0
+    public var fieldCornerRadius : CGFloat = 3.0
+    public var buttonCornerRadius : CGFloat = 3.0
     
     // Members declaration
     var baseView = UIView()
@@ -126,7 +130,7 @@ public class SCLAlertView: UIViewController {
         baseView.addSubview(contentView)
         // Content View
         contentView.backgroundColor = UIColor(white:1, alpha:1)
-        contentView.layer.cornerRadius = 5
+        contentView.layer.cornerRadius = contentViewCornerRadius
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0.5
         contentView.addSubview(labelTitle)
@@ -197,24 +201,30 @@ public class SCLAlertView: UIViewController {
         var x = (sz.width - kWindowWidth) / 2
         var y = (sz.height - windowHeight - (kCircleHeight / 8)) / 2
         contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:windowHeight)
+        contentView.layer.cornerRadius = contentViewCornerRadius
         y -= kCircleHeightBackground * 0.6
         x = (sz.width - kCircleHeightBackground) / 2
         circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
+        
+        //adjust Title frame based on circularIcon show/hide flag
+        let titleOffset : CGFloat = showCircularIcon ? 0.0 : -12.0
+        labelTitle.frame = labelTitle.frame.offsetBy(dx: 0, dy: titleOffset)
+        
         // Subtitle
-        y = kTitleTop + kTitleHeight
+        y = kTitleTop + kTitleHeight + titleOffset
         viewText.frame = CGRect(x:12, y:y, width: kWindowWidth - 24, height:kTextHeight)
         viewText.frame = CGRect(x:12, y:y, width: viewTextWidth, height:viewTextHeight)
         // Text fields
         y += viewTextHeight + 14.0
         for txt in inputs {
             txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:30)
-            txt.layer.cornerRadius = 3
+            txt.layer.cornerRadius = fieldCornerRadius
             y += kTextFieldHeight
         }
         // Buttons
         for btn in buttons {
             btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:35)
-            btn.layer.cornerRadius = 3
+            btn.layer.cornerRadius = buttonCornerRadius
             y += kButtonHeight
         }
     }
@@ -462,6 +472,10 @@ public class SCLAlertView: UIViewController {
             let txt = completeText != nil ? completeText! : "Done"
             addButton(txt, target:self, selector:Selector("hideView"))
         }
+        
+        //hidden/show circular view based on the ui option
+        circleView.hidden = !showCircularIcon
+        circleBG.hidden = !showCircularIcon
         
         // Alert view colour and images
         circleView.backgroundColor = viewColor
