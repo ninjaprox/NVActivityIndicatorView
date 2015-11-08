@@ -41,11 +41,11 @@ SCLAlertView().showEdit("Hello Edit", subTitle: "This is a more descriptive info
 
 ```swift
 SCLAlertView().showTitle(
-    title: "Congratulations", // Title of view
+    "Congratulations", // Title of view
     subTitle: "Operation successfully completed.", // String of view
     duration: 2.0, // Duration to show before closing automatically, default: 0.0
     completeText: "Done", // Optional button value, default: ""
-    style: .Success // Styles - see below.
+    style: .Success, // Styles - see below.
     colorStyle: 0xA429FF,
     colorTextButton: 0xFFFFFF
 )
