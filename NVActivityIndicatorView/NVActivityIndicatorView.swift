@@ -108,9 +108,9 @@ public class NVActivityIndicatorView: UIView {
     private static let DEFAULT_COLOR = UIColor.whiteColor()
     private static let DEFAULT_SIZE: CGSize = CGSize(width: 40, height: 40)
     
-    private var type: NVActivityIndicatorType
-    private var color: UIColor
-    private var size: CGSize
+    public var type: NVActivityIndicatorType
+    public var color: UIColor
+    public var size: CGSize
     
     var animating: Bool = false
     var hidesWhenStopped: Bool = true
