@@ -112,8 +112,8 @@ public class NVActivityIndicatorView: UIView {
     public var color: UIColor
     public var size: CGSize
     
-    var animating: Bool = false
-    var hidesWhenStopped: Bool = true
+    public var animating: Bool = false
+    public var hidesWhenStopped: Bool = true
     
     /**
         Create a activity indicator view with default type, color and size
