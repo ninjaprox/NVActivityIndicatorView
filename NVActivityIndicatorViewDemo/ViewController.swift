@@ -43,9 +43,10 @@ class ViewController: UIViewController {
             .TriangleSkewSpin,
             .Pacman,
             .BallGridBeat,
-            .SemiCircleSpin]
+            .SemiCircleSpin,
+            .BallRotateChase]
         let cols = 4
-        let rows = 7
+        let rows = 8
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
         
