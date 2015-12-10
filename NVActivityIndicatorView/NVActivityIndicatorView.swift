@@ -38,6 +38,7 @@ public enum NVActivityIndicatorType {
     case Pacman
     case BallGridBeat
     case SemiCircleSpin
+    case BallRotateChase
     
     private func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
@@ -99,6 +100,8 @@ public enum NVActivityIndicatorType {
             return NVActivityIndicatorAnimationBallGridBeat()
         case .SemiCircleSpin:
             return NVActivityIndicatorAnimationSemiCircleSpin()
+        case .BallRotateChase:
+            return NVActivityIndicatorAnimationBallRotateChase()
         }
     }
 }
