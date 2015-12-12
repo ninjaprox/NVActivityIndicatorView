@@ -1,5 +1,11 @@
 # Change log
 
+## [v2.2](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.2)
+* Public properties of animation
+* Public hidesWhenStopped and animating
+* New animation:
+  * Ball rotate chase
+
 ## [v2.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.1)
 * Support Carthage
 
