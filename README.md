@@ -36,6 +36,22 @@ Then, run the following command
 ```bash
 $ pod install
 ```
+## Carthage
+
+Install Cocoapods if need be
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+Add NVActivityIndicatorView in your `Cartfile`
+
+```bash
+github "ninjaprox/NVActivityIndicatorView"
+```
+
+Run `carthage` to build the framework and drag the built `NVActivityIndicatorView.framework` into your Xcode project.
 
 ## Manual
 
