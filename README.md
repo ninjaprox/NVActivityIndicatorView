@@ -1,6 +1,9 @@
 NVActivityIndicatorView
 ===================
 
+[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 # Introduction
 NVActivityIndicatorView is a collection of nice loading animations.
 
