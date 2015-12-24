@@ -41,7 +41,7 @@ $ pod install
 ```
 ## Carthage
 
-Install Cocoapods if need be
+Install Carthage if need be
 
 ```bash
 $ brew update
