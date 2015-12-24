@@ -1,5 +1,9 @@
 # Change log
 
+## [v2.3](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.3)
+* Fix bug when orientation changes once stopped animation
+* Update document
+
 ## [v2.2](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.2)
 * Public properties of animation
 * Public hidesWhenStopped and animating
