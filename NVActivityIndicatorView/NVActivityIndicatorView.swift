@@ -173,7 +173,7 @@ public class NVActivityIndicatorView: UIView {
         Stop animation
     */
     public func stopAnimation() {
-        self.layer.speed = 0
+        self.layer.sublayers = nil
         self.animating = false
         if hidesWhenStopped && !hidden {
             hidden = true
