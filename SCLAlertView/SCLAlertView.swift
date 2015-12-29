@@ -309,7 +309,8 @@ public class SCLAlertView: UIViewController {
         } else {
             print("Unknow action type for button")
         }
-        hideView()
+        
+        if(self.view.alpha != 0.0){ hideView() }
     }
     
     
