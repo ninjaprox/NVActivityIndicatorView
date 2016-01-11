@@ -532,6 +532,13 @@ public class SCLAlertView: UIViewController {
                     self.dismissBlock!()
                 }
                 
+                // This is necessary for SCLAlertView to be de-initialized, preventing a strong reference cycle with the viewcontroller calling SCLAlertView.
+                for button in self.buttons {
+                    button.action = nil
+                    button.target = nil
+                    button.selector = nil
+                }
+                
                 self.view.removeFromSuperview()
                 self.selfReference = nil
         })
