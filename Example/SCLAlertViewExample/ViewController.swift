@@ -59,6 +59,7 @@ class ViewController: UIViewController {
 	@IBAction func showEdit(sender: AnyObject) {
 		let alert = SCLAlertView()
 		let txt = alert.addTextField("Enter your name")
+        alert.hideWhenBackgroundViewIsTapped = true
 		alert.addButton("Show Name") {
 			print("Text value: \(txt.text)")
 		}
