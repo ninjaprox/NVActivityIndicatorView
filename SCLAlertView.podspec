@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   # s.license      = "MIT (example)"
   s.license      = { :type => "MIT", :file => "LICENCE" }
   s.author             = { "Viktor" => "yazexel@gmail.com" }
-  s.social_media_url   = "http://twitter.com/hackua"
+  s.social_media_url   = "http://twitter.com/vikmeup"
   s.platform     = :ios
   s.ios.deployment_target = '8.0'
   s.source       = { :git => "https://github.com/vikmeup/SCLAlertView-Swift.git", :tag => "0.5" }
