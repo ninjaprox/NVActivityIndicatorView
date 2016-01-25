@@ -65,7 +65,7 @@ public class SCLAlertViewResponder {
 let kCircleHeightBackground: CGFloat = 62.0
 
 // The Main Class
-public class SCLAlertView: UIViewController {
+public class SCLAlertView: UIViewController, UITextFieldDelegate {
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
     let kCircleBackgroundTopPosition: CGFloat = -15.0
@@ -227,6 +227,8 @@ public class SCLAlertView: UIViewController {
         txt.font = UIFont(name:kDefaultFont, size: 14)
         txt.autocapitalizationType = UITextAutocapitalizationType.Words
         txt.clearButtonMode = UITextFieldViewMode.WhileEditing
+        txt.returnKeyType = UIReturnKeyType.Done
+        txt.delegate = self
         txt.layer.masksToBounds = true
         txt.layer.borderWidth = 1.0
         if title != nil {
@@ -473,6 +475,13 @@ public class SCLAlertView: UIViewController {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    // MARK UITextFieldDelegate Protocol
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
     }
 }
 
