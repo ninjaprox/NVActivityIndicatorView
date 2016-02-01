@@ -116,5 +116,5 @@ Incoming improvements
 Has been developed initially for the [Scroll Feed](https://itunes.apple.com/us/app/scroll-feed/id842422195?ls=1&mt=8) app
 
 - Design [@SherzodMx](https://twitter.com/SherzodMx) Sherzod Max
-- Development [@hackua](https://twitter.com/vikmeup) Viktor Radchenko
+- Development [@vikmeup](https://twitter.com/vikmeup) Viktor Radchenko
 - Improvements by [@bih](http://github.com/bih) Bilawal Hameed, [@rizjoj](http://github.com/rizjoj) Riz Joj
