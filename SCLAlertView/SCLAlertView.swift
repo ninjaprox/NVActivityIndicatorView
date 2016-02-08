@@ -401,12 +401,12 @@ public class SCLAlertView: UIViewController {
     }
     
     // showTitle(view, title, subTitle, style)
-    public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=0x000000, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
         return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?, colorTextButton: UInt?, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?=0x000000, colorTextButton: UInt?=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
         selfReference = self
         view.alpha = 0
         let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
@@ -421,31 +421,31 @@ public class SCLAlertView: UIViewController {
         // Icon style
         switch style {
         case .Success:
-            viewColor = UIColorFromRGB(colorStyle!)
+            viewColor = UIColorFromRGB(colorStyle ?? 0x22B573)
             iconImage = checkCircleIconImage(circleIconImage, defaultImage: SCLAlertViewStyleKit.imageOfCheckmark)
             
         case .Error:
-            viewColor = UIColorFromRGB(colorStyle!)
+            viewColor = UIColorFromRGB(colorStyle ?? 0xC1272D)
             iconImage = checkCircleIconImage(circleIconImage, defaultImage: SCLAlertViewStyleKit.imageOfCross)
             
         case .Notice:
-            viewColor = UIColorFromRGB(colorStyle!)
+            viewColor = UIColorFromRGB(colorStyle ?? 0x727375)
             iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfNotice)
             
         case .Warning:
-            viewColor = UIColorFromRGB(colorStyle!)
+            viewColor = UIColorFromRGB(colorStyle ?? 0xFFD110)
             iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfWarning)
             
         case .Info:
-            viewColor = UIColorFromRGB(colorStyle!)
+            viewColor = UIColorFromRGB(colorStyle ?? 0x2866BF)
             iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfInfo)
             
         case .Edit:
-            viewColor = UIColorFromRGB(colorStyle!)
+            viewColor = UIColorFromRGB(colorStyle ?? 0xA429FF)
             iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfEdit)
             
         case .Wait:
-            viewColor = UIColorFromRGB(colorStyle!)
+            viewColor = UIColorFromRGB(colorStyle ?? 0xD62DA5)
         }
         
         // Title
@@ -498,7 +498,7 @@ public class SCLAlertView: UIViewController {
         }
         for btn in buttons {
             btn.backgroundColor = viewColor
-            btn.setTitleColor(UIColorFromRGB(colorTextButton!), forState:UIControlState.Normal)
+            btn.setTitleColor(UIColorFromRGB(colorTextButton ?? 0xFFFFFF), forState:UIControlState.Normal)
         }
         
         // Adding duration
