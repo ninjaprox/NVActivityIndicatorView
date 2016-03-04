@@ -42,7 +42,7 @@ import UIKit
  - SemiCircleSpin:          SemiCircleSpin animation.
  - BallRotateChase:         BallRotateChase animation.
  */
-public enum NVActivityIndicatorType {
+public enum NVActivityIndicatorType: Int {
     /**
      Blank.
      
@@ -291,24 +291,31 @@ public enum NVActivityIndicatorType {
 }
 
 public class NVActivityIndicatorView: UIView {
-    private static let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
+private static let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
     private static let DEFAULT_COLOR = UIColor.whiteColor()
     private static let DEFAULT_SIZE: CGSize = CGSize(width: 40, height: 40)
     
     /// Animation type, value of NVActivityIndicatorType enum.
-    public var type: NVActivityIndicatorType
-    
+    public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
+
+    @available(*, unavailable, message="This property is reserved for Interface Builder. Use 'type' instead.")
+    @IBInspectable var TypeAdapter: Int {
+        get {
+            return self.type.rawValue
+        }
+        set (typeIndex) {
+            self.type = NVActivityIndicatorType(rawValue: typeIndex) ?? self.type
+        }
+    }
+
     /// Color of activity indicator view.
-    public var color: UIColor
-    
-    /// Actual size of animation in view.
-    public var size: CGSize
-    
+    @IBInspectable public var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR
+
     /// Current status of animation, this is not used to start or stop animation.
     public var animating: Bool = false
     
     /// Specify whether activity indicator view should hide once stopped.
-    public var hidesWhenStopped: Bool = true
+    @IBInspectable public var hidesWhenStopped: Bool = true
     
     /**
      Create a activity indicator view with default type, color and size.\n
@@ -323,11 +330,8 @@ public class NVActivityIndicatorView: UIView {
      - returns: The activity indicator view.
      */
     required public init?(coder aDecoder: NSCoder) {
-        self.type = NVActivityIndicatorView.DEFAULT_TYPE
-        self.color = NVActivityIndicatorView.DEFAULT_COLOR
-        self.size = NVActivityIndicatorView.DEFAULT_SIZE
-        super.init(coder: aDecoder);
-        super.backgroundColor = UIColor.clearColor()
+        super.init(coder: aDecoder)
+        backgroundColor = UIColor.clearColor()
     }
     
     /**
@@ -340,10 +344,9 @@ public class NVActivityIndicatorView: UIView {
      
      - returns: The activity indicator view.
      */
-    public init(frame: CGRect, type: NVActivityIndicatorType = DEFAULT_TYPE, color: UIColor = DEFAULT_COLOR, size: CGSize = DEFAULT_SIZE) {
+    public init(frame: CGRect, type: NVActivityIndicatorType = DEFAULT_TYPE, color: UIColor = DEFAULT_COLOR) {
         self.type = type
         self.color = color
-        self.size = size
         super.init(frame: frame)
     }
     
@@ -378,6 +381,6 @@ public class NVActivityIndicatorView: UIView {
         let animation: protocol<NVActivityIndicatorAnimationDelegate> = self.type.animation()
         
         self.layer.sublayers = nil
-        animation.setUpAnimationInLayer(self.layer, size: self.size, color: self.color)
+        animation.setUpAnimationInLayer(self.layer, size: self.frame.size, color: self.color)
     }
 }
