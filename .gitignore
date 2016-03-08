@@ -1,12 +1,39 @@
+# Mac OS X
+.DS_Store
 
-Example/SCLAlertViewExample.xcodeproj/project.xcworkspace/xcuserdata/fahim.xcuserdatad/UserInterfaceState.xcuserstate
+# Xcode
 
-Example/SCLAlertViewExample.xcodeproj/xcuserdata/fahim.xcuserdatad/xcschemes/SCLAlertViewExample.xcscheme
+## Build generated
+build/
+DerivedData
 
-Example/SCLAlertViewExample.xcodeproj/xcuserdata/fahim.xcuserdatad/xcschemes/xcschememanagement.plist
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
 
+## Other
 *.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
 
-Example/SCLAlertViewExample.xcodeproj/project.xcworkspace/xcshareddata/SCLAlertViewExample.xccheckout
+## Obj-C/Swift specific
+*.hmap
+*.ipa
 
-Example/SCLAlertViewExample.xcodeproj/xcuserdata/fahim.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+.build/
+
+# Carthage
+Carthage/Build
