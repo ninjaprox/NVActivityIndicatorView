@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SCLAlertView
+
 
 let kSuccessTitle = "Congratulations"
 let kErrorTitle = "Connection error"
@@ -59,7 +61,8 @@ class ViewController: UIViewController {
 	@IBAction func showEdit(sender: AnyObject) {
 		let alert = SCLAlertView()
 		let txt = alert.addTextField("Enter your name")
-        alert.hideWhenBackgroundViewIsTapped = true
+        // Disable this feature since currently it's not availabe in master
+        //alert.hideWhenBackgroundViewIsTapped = true
 		alert.addButton("Show Name") {
 			print("Text value: \(txt.text)")
 		}
