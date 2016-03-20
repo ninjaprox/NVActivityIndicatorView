@@ -67,5 +67,45 @@ class SCLAlertViewInitTests: XCTestCase {
     func testSCLAlertViewTextButtonHeight() {
         XCTAssertTrue(alert.kButtonHeight == 45.0)
     }
+    
+    func testSCLAlertViewDefaultFont() {
+        XCTAssertTrue(alert.kDefaultFont == "HelveticaNeue")
+    }
+    
+    func testSCLAlertViewButtonFont() {
+        XCTAssertTrue(alert.kButtonFont == "HelveticaNeue-Bold")
+    }
+    
+    func testSCLAlertViewColor() {
+        XCTAssertTrue(alert.viewColor.isKindOfClass(UIColor.self))
+    }
+    
+    func testSCLAlertViewPressBrightnessFactor() {
+        XCTAssertTrue(alert.pressBrightnessFactor == 0.85)
+    }
+    
+    func testSCLAlertViewShowCloseButton() {
+        XCTAssertTrue(alert.showCloseButton == true)
+    }
+    
+    func testSCLAlertViewShowCircularIcon() {
+        XCTAssertTrue(alert.showCircularIcon == true)
+    }
+    
+    func testSCLAlertViewContentViewCornerRadius() {
+        XCTAssertTrue(alert.contentViewCornerRadius == 5.0)
+    }
+    
+    func testSCLAlertViewFieldCornerRadius() {
+        XCTAssertTrue(alert.fieldCornerRadius == 3.0)
+    }
+    
+    func testSCLAlertViewButtonCornerRadius() {
+        XCTAssertTrue(alert.buttonCornerRadius == 3.0)
+    }
+    
+    func testSCLAlertViewHideWhenBackgroundViewIsTapped() {
+        XCTAssertTrue(alert.hideWhenBackgroundViewIsTapped == false)
+    }
 }
 
