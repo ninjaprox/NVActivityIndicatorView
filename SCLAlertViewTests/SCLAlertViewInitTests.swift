@@ -56,5 +56,8 @@ class SCLAlertViewInitTests: XCTestCase {
         XCTAssertTrue(subview1.isKindOfClass(UILabel.self))
         let subview2 = alert.contentView.subviews[1]
         XCTAssertTrue(subview2.isKindOfClass(UITextView.self))
+        alert.addButton("testButtonTitle") {}
+        let subview3 = alert.contentView.subviews[2]
+        XCTAssertTrue(subview3.isKindOfClass(SCLButton.self))
     }
 }
