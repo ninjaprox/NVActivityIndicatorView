@@ -135,7 +135,7 @@ public class SCLAlertView: UIViewController {
     var durationTimer: NSTimer!
     var dismissBlock : DismissBlock?
     private var inputs = [UITextField]()
-    private var buttons = [SCLButton]()
+    internal var buttons = [SCLButton]()
     private var selfReference: SCLAlertView?
     
     required public init?(coder aDecoder: NSCoder) {
