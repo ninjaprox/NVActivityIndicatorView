@@ -43,7 +43,7 @@ class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate
         animation.removedOnCompletion = false
         
         // Draw circles
-        for var i = 0; i < 3; i++ {
+        for i in 0 ..< 3 {
             let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
             let frame = CGRect(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
                 y: y,
