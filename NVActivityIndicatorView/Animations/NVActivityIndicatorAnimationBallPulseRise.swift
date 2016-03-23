@@ -22,7 +22,7 @@ class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDel
         let evenAnimation = self.evenAnimation(duration: duration, deltaY: deltaY, timingFunction: timingFunction)
         
         // Draw circles
-        for var i = 0; i < 5; i++ {
+        for i in 0 ..< 5 {
             let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
             let frame = CGRect(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
                 y: y,
