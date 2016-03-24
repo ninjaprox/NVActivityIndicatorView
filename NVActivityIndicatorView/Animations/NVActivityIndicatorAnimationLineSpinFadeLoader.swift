@@ -31,7 +31,7 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
         animation.removedOnCompletion = false
         
         // Draw lines
-        for var i = 0; i < 8; i++ {
+        for i in 0 ..< 8 {
             let line = lineAt(angle: CGFloat(M_PI_4 * Double(i)),
                 size: lineSize,
                 origin: CGPoint(x: x, y: y),

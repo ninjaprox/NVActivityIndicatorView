@@ -14,7 +14,7 @@ class NVActivityIndicatorAnimationBallRotateChase: NVActivityIndicatorAnimationD
         let circleSize = size.width / 5;
         
         // Draw circles
-        for var i = 0; i < 5; i++ {
+        for i in 0 ..< 5 {
             let factor = Float(i) * 1.0 / 5
             let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
             

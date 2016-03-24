@@ -28,7 +28,7 @@ class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDe
         animation.repeatCount = HUGE
         animation.removedOnCompletion = false
         
-        for var i = 0; i < 4; i++ {
+        for i in 0 ..< 4 {
             let line = NVActivityIndicatorShape.Line.createLayerWith(size: CGSize(width: lineSize, height: size.height), color: color)
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i), y: y, width: lineSize, height: size.height)
             

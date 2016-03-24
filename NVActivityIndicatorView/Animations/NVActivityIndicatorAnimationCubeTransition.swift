@@ -60,7 +60,7 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
         animation.removedOnCompletion = false
         
         // Draw squares
-        for var i = 0; i < 2; i++ {
+        for i in 0 ..< 2 {
             let square = NVActivityIndicatorShape.Rectangle.createLayerWith(size: CGSize(width: squareSize, height: squareSize), color: color)
             let frame = CGRect(x: x, y: y, width: squareSize, height: squareSize)
             

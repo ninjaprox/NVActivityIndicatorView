@@ -43,7 +43,7 @@ class NVActivityIndicatorAnimationBallSpinFadeLoader: NVActivityIndicatorAnimati
         animation.removedOnCompletion = false
         
         // Draw circles
-        for var i = 0; i < 8; i++ {
+        for i in 0 ..< 8 {
             let circle = circleAt(angle: CGFloat(M_PI_4 * Double(i)),
                 size: circleSize,
                 origin: CGPoint(x: x, y: y),
