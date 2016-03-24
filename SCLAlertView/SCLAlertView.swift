@@ -117,6 +117,7 @@ public class SCLAlertView: UIViewController {
     // UI Options
     public var showCloseButton = true
     public var showCircularIcon = true
+    public var shouldAutoDismiss = true //Set this false to 'Disable' Auto hideView when SCLButton is tapped
     public var contentViewCornerRadius : CGFloat = 5.0
     public var fieldCornerRadius : CGFloat = 3.0
     public var buttonCornerRadius : CGFloat = 3.0
@@ -334,7 +335,7 @@ public class SCLAlertView: UIViewController {
             print("Unknow action type for button")
         }
         
-        if(self.view.alpha != 0.0){ hideView() }
+        if(self.view.alpha != 0.0 && shouldAutoDismiss){ hideView() }
     }
     
     
