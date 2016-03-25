@@ -121,6 +121,7 @@ public class SCLAlertView: UIViewController {
     public var contentViewCornerRadius : CGFloat = 5.0
     public var fieldCornerRadius : CGFloat = 3.0
     public var buttonCornerRadius : CGFloat = 3.0
+    public var iconTintColor: UIColor?
     
     // Actions
     public var hideWhenBackgroundViewIsTapped = false
@@ -518,7 +519,13 @@ public class SCLAlertView: UIViewController {
             circleIconView = indicator
         }
         else {
-            circleIconView = UIImageView(image: iconImage!)
+            if let iconTintColor = iconTintColor {
+                circleIconView = UIImageView(image: iconImage!.imageWithRenderingMode(.AlwaysTemplate))
+                circleIconView?.tintColor = iconTintColor
+            }
+            else {
+                circleIconView = UIImageView(image: iconImage!)
+            }
         }
         circleView.addSubview(circleIconView!)
         let x = (kCircleHeight - kCircleIconHeight) / 2
