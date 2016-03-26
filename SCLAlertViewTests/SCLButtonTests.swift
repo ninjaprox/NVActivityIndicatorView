@@ -54,7 +54,7 @@ class SCLButtonTests: XCTestCase {
     
     func testButtonTargets() {
         let alert = SCLAlertView()
-        alert.addButton("testButtontitle") {}
+        alert.addButton("testButtonTitle") {}
         let buttonTargets = alert.buttons[0].allTargets().first
         let button = alert.buttons[0]
         
@@ -78,6 +78,18 @@ class SCLButtonTests: XCTestCase {
         XCTAssertTrue(buttonActionsTouchUpOutside![0] == "buttonRelease:")
     }
     
+    func testButtonSelectorAndTarget() {
+        let alert = SCLAlertView()
+        let testTarget = SCLAlertView()
+        let testSelector = Selector()
+        alert.addButton("testButtonTitle", target: testTarget, selector: testSelector)
+        let button = alert.buttons[0]
+        XCTAssertTrue(button.target.isKindOfClass(SCLAlertView.self))
+        XCTAssertTrue(button.selector == testSelector)
+        XCTAssertTrue(button.actionType == SCLActionType.Selector)
+        
+    }
+    
     func testButtonActionType() {
         let alert = SCLAlertView()
         alert.addButton("testButtonTitle") {}
@@ -85,14 +97,3 @@ class SCLButtonTests: XCTestCase {
         XCTAssertTrue(button.actionType == SCLActionType.Closure)
     }
 }
-
-
-//public func addButton(title:String, action:()->Void)->SCLButton {
-//    let btn = addButton(title)
-//    btn.actionType = SCLActionType.Closure
-//    btn.action = action
-//    btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
-//    btn.addTarget(self, action:Selector("buttonTapDown:"), forControlEvents:[.TouchDown, .TouchDragEnter])
-//    btn.addTarget(self, action:Selector("buttonRelease:"), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
-//    return btn
-//}
