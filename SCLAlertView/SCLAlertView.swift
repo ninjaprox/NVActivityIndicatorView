@@ -360,18 +360,17 @@ public class SCLAlertView: UIViewController {
     
     func keyboardWillShow(notification: NSNotification) {
         keyboardHasBeenShown = true
-        if let userInfo = notification.userInfo {
-            if let beginKeyBoardFrame = userInfo[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.origin.y {
-                if let endKeyBoardFrame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.origin.y {
-                    tmpContentViewFrameOrigin = self.contentView.frame.origin
-                    tmpCircleViewFrameOrigin = self.circleBG.frame.origin
-                    let newContentViewFrameY = beginKeyBoardFrame - endKeyBoardFrame - self.contentView.frame.origin.y
-                    let newBallViewFrameY = self.circleBG.frame.origin.y - newContentViewFrameY
-                    self.contentView.frame.origin.y -= newContentViewFrameY
-                    self.circleBG.frame.origin.y = newBallViewFrameY
-                }
-            }
-        }
+        
+        guard let userInfo = notification.userInfo else {return}
+        guard let beginKeyBoardFrame = userInfo[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.origin.y else {return}
+        guard let endKeyBoardFrame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.origin.y else {return}
+        
+        tmpContentViewFrameOrigin = self.contentView.frame.origin
+        tmpCircleViewFrameOrigin = self.circleBG.frame.origin
+        let newContentViewFrameY = beginKeyBoardFrame - endKeyBoardFrame - self.contentView.frame.origin.y
+        let newBallViewFrameY = self.circleBG.frame.origin.y - newContentViewFrameY
+        self.contentView.frame.origin.y -= newContentViewFrameY
+        self.circleBG.frame.origin.y = newBallViewFrameY
     }
     
     func keyboardWillHide(notification: NSNotification) {
