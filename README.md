@@ -16,6 +16,38 @@ You can also find Objective-C version of this [here](https://github.com/ninjapro
 
 For first-hand experience, just open the project and run it.
 
+# Animation types
+
+1. BallPulse
+2. BallGridPulse
+3. BallClipRotate
+4. SquareSpin
+5. BallClipRotatePulse
+6. BallClipRotateMultiple
+7. BallPulseRise
+8. BallRotate
+9. CubeTransition
+10. BallZigZag
+11. BallZigZagDeflect
+12. BallTrianglePath
+13. BallScale
+14. LineScale
+15. LineScaleParty
+16. BallScaleMultiple
+17. BallPulseSync
+18. BallBeat
+19. LineScalePulseOut
+20. LineScalePulseOutRapid
+21. BallScaleRipple
+22. BallScaleRippleMultiple
+23. BallSpinFadeLoader
+24. LineSpinFadeLoader
+25. TriangleSkewSpin
+26. Pacman
+27. BallGridBeat
+28. SemiCircleSpin
+29. BallRotateChase
+
 # Installation
 
 ## Cocoapods
@@ -73,15 +105,15 @@ import NVActivityIndicatorView
 Then, there are multiple ways you can create NVActivityIndicatorView:
 
 - Use it in storyboard by changing class of any `UIView` to `NVActivityIndicatorView`
-This will use default values 40, white, .Pacman for size, color and type respectively.
+This will use default values white, .Pacman, 25 for color, type and padding respectively.
 
-- Create with specified type, color and size
+- Create with specified type, color and padding
 
 ```swift
-NVActivityIndicatorView(frame: frame, type: type, color: color, size: size)
+NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding)
 ```
 
-Any of the last three arguments can be omitted. If an argument is omitted it will use the default values which are 40, white, .Pacman for size, color and type respectively.
+Any of the last three arguments can be omitted. If an argument is omitted it will use the default values which are white, .Pacman, 25 for color, type and padding respectively.
 Therefore, you can also create NVActivityIndicatorView using any of the following:
 
 - Specify only frame, type and color
@@ -89,14 +121,14 @@ Therefore, you can also create NVActivityIndicatorView using any of the followin
 NVActivityIndicatorView(frame: frame, type: type, color: color)
 ```
 
-- Specify only frame, type and size
+- Specify only frame, type and padding
 ```swift
-NVActivityIndicatorView(frame: frame, type: type, size: size)
+NVActivityIndicatorView(frame: frame, type: type, padding: padding)
 ```
 
-- Specify only frame, size and color
+- Specify only frame, color and padding
 ```swift
-NVActivityIndicatorView(frame: frame, size: size, color: color)
+NVActivityIndicatorView(frame: frame, color: color, padding: padding)
 ```
 
 - Specify only frame and type
@@ -109,9 +141,9 @@ NVActivityIndicatorView(frame: frame, type: type)
 NVActivityIndicatorView(frame: frame, color: color)
 ```
 
-- Specify only frame and size
+- Specify only frame and padding
 ```swift
-NVActivityIndicatorView(frame: frame, size: size)
+NVActivityIndicatorView(frame: frame, padding: padding)
 ```
 
 - Specify only frame
@@ -134,6 +166,10 @@ activityIndicatorView.stopAnimation()
 ```
 
 ## Change properties
+
+If you use `NVActivityIndicatorView` in storyboard, you can change these properties in Attributes inspector tab of Utilities panel.
+
+Use one of values (case-insensitive) in [Animation types](#animation-types) for `Type Name`.
 
 Specify individual properties after initialization:
 
