@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
         
-        for var i = 0; i < activityTypes.count; i++ {
+        for i in 0 ..< activityTypes.count {
             let x = i % cols * cellWidth
             let y = i / cols * cellHeight
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
