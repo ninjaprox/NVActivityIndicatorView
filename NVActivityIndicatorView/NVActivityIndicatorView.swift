@@ -295,7 +295,7 @@ public enum NVActivityIndicatorType: Int {
 public class NVActivityIndicatorView: UIView {
     private static let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
     private static let DEFAULT_COLOR = UIColor.whiteColor()
-    private static let DEFAULT_PADDING: CGFloat = 0
+    private static let DEFAULT_PADDING: CGFloat = 25
     
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
@@ -333,7 +333,7 @@ public class NVActivityIndicatorView: UIView {
      
      - Default type is pacman.\n
      - Default color is white.\n
-     - Default padding is 0.
+     - Default padding is 25.
      
      - parameter decoder:
      
@@ -347,10 +347,10 @@ public class NVActivityIndicatorView: UIView {
     /**
      Create a activity indicator view with specified frame, type, color and padding.
      
-     - parameter frame: view's frame setting the actual size of animation.
+     - parameter frame: view's frame.
      - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is pacman.
      - parameter color: color of activity indicator view. Default color is white.
-     - parameter padding: padding of animation in frame. Default padding is 0.
+     - parameter padding: view's padding. Default padding is 25.
      
      - returns: The activity indicator view.
      */
@@ -390,10 +390,9 @@ public class NVActivityIndicatorView: UIView {
     
     private func setUpAnimation() {
         let animation: protocol<NVActivityIndicatorAnimationDelegate> = self.type.animation()
+        let animationRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
         
         self.layer.sublayers = nil
-
-        let paddedRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
-        animation.setUpAnimationInLayer(self.layer, size: paddedRect.size, color: self.color)
+        animation.setUpAnimationInLayer(self.layer, size: animationRect.size, color: self.color)
     }
 }
