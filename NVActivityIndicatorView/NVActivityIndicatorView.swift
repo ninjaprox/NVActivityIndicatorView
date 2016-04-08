@@ -341,7 +341,7 @@ public class NVActivityIndicatorView: UIView {
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        super.backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clearColor()
     }
     
     /**
