@@ -183,11 +183,6 @@ activityIndicatorView.type = .LineScale
 activityIndicatorView.color = UIColor.redColor()
 ```
 
-- Specify size
-```swift
-activityIndicatorView.size = CGSize(width: 100, height: 100)
-```
-
 Specify whether activity indicator view should hide once stopped
 
 ```swift
