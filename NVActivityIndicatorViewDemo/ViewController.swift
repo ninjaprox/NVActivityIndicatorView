@@ -56,8 +56,16 @@ class ViewController: UIViewController {
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
             let activityIndicatorView = NVActivityIndicatorView(frame: frame,
                 type: activityTypes[i])
+            let animationTypeLabel = UILabel(frame: frame)
+            
+            animationTypeLabel.text = String(i + 1)
+            animationTypeLabel.sizeToFit()
+            animationTypeLabel.textColor = UIColor.whiteColor()
+            animationTypeLabel.frame.origin.x += 5
+            animationTypeLabel.frame.origin.y += CGFloat(cellHeight) - animationTypeLabel.frame.size.height
             
             self.view.addSubview(activityIndicatorView)
+            self.view.addSubview(animationTypeLabel)
             activityIndicatorView.startAnimation()
         }
     }
