@@ -385,9 +385,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */,
 				239CAB1F1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */,
 				239CAB341B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests */,
-				90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */,
 			);
 		};
 /* End PBXProject section */

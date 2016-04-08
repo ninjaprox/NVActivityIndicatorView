@@ -292,6 +292,7 @@ public enum NVActivityIndicatorType: Int {
     }
 }
 
+/// Activity indicator view with nice animations
 public class NVActivityIndicatorView: UIView {
     private static let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
     private static let DEFAULT_COLOR = UIColor.whiteColor()
