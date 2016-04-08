@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '8.0'
 
-  s.source       = { :git => "https://github.com/ninjaprox/NVActivityIndicatorView.git", :tag => "v2.3" }
+  s.source       = { :git => "https://github.com/ninjaprox/NVActivityIndicatorView.git", :tag => "v#{s.version}" }
   s.source_files  = "NVActivityIndicatorView/**/*.swift"
 
   s.frameworks = "UIKit", "QuartzCore"
