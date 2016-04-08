@@ -73,6 +73,33 @@ alertView.showCloseButton = false
 alertView.showSuccess("No button", subTitle: "You will have hard times trying to close me")
 ```
 
+#### Hide default close button & a duration to close the alert
+
+```swift
+let alertView = SCLAlertView()
+alertView.showCloseButton = false
+alertView.showWarning("No button", subTitle: "Just wait for 3 seconds and I will disappear", duration: 3)
+```
+
+
+#### Hide alert icon
+
+```swift
+let alertView = SCLAlertView()
+alertView.showCircularIcon = false
+alertView.showSuccess("No icon", subTitle: "This is a clean alert without Icon!")
+```
+
+#### Use a custom icon
+
+```swift
+let alertView = SCLAlertView()
+let alertViewIcon = UIImage(named: "IconImage") //Replace the IconImage text with the image name
+alertView.showCircularIcon = true
+alertView.showInfo("Custom icon", subTitle: "This is a nice alert with a custom icon you choose", circleIconImage: alertViewIcon)
+```
+
+
 #### Add Text fields
 
 ```swift
