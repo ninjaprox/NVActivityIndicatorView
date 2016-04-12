@@ -329,11 +329,11 @@ public class NVActivityIndicatorView: UIView {
     @IBInspectable public var hidesWhenStopped: Bool = true
     
     /**
-     Create a activity indicator view with default type, color and padding.\n
+     Create a activity indicator view with default type, color and padding.
      This is used by storyboard to initiate the view.
      
-     - Default type is pacman.\n
-     - Default color is white.\n
+     - Default type is pacman.
+     - Default color is white.
      - Default padding is 0.
      
      - parameter decoder:
