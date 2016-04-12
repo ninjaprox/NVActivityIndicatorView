@@ -1,5 +1,9 @@
 # Change log
 
+## [v2.5](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.5)
+* Fix padding issues
+* Support other platforms
+
 ## [v2.4](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.4)
 * Fix autolayout compability when using in Storyboard
 * Support for IBInpectable
