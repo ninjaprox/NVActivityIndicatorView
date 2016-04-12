@@ -64,6 +64,7 @@ class ViewController: UIViewController {
             animationTypeLabel.frame.origin.x += 5
             animationTypeLabel.frame.origin.y += CGFloat(cellHeight) - animationTypeLabel.frame.size.height
             
+            activityIndicatorView.padding = 20
             self.view.addSubview(activityIndicatorView)
             self.view.addSubview(animationTypeLabel)
             activityIndicatorView.startAnimation()
