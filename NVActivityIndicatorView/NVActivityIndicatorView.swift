@@ -391,9 +391,11 @@ public class NVActivityIndicatorView: UIView {
     
     private func setUpAnimation() {
         let animation: protocol<NVActivityIndicatorAnimationDelegate> = self.type.animation()
-        let animationRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
+        var animationRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
+        let minEdge = min(animationRect.width, animationRect.height)
         
         self.layer.sublayers = nil
+        animationRect.size = CGSizeMake(minEdge, minEdge)
         animation.setUpAnimationInLayer(self.layer, size: animationRect.size, color: self.color)
     }
 }
