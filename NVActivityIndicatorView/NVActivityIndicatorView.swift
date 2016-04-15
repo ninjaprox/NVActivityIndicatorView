@@ -398,4 +398,6 @@ public class NVActivityIndicatorView: UIView {
         animationRect.size = CGSizeMake(minEdge, minEdge)
         animation.setUpAnimationInLayer(self.layer, size: animationRect.size, color: self.color)
     }
+    
+    
 }
