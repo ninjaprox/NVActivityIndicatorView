@@ -80,6 +80,8 @@
 		90A879C81BA557B1001C8989 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A879851BA55798001C8989 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */; };
 		BD1452341C15810200B952C8 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1452331C15810200B952C8 /* NVActivityIndicatorAnimationBallRotateChase.swift */; };
 		BD1452351C1586F200B952C8 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1452331C15810200B952C8 /* NVActivityIndicatorAnimationBallRotateChase.swift */; };
+		F5BB6A7C1CC09EB000B6D818 /* NVActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB6A7B1CC09EB000B6D818 /* NVActivityIndicator.swift */; settings = {ASSET_TAGS = (); }; };
+		F5BB6A7D1CC0F93300B6D818 /* NVActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BB6A7B1CC09EB000B6D818 /* NVActivityIndicator.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,7 @@
 		90A879871BA55798001C8989 /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		90A879881BA55798001C8989 /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		BD1452331C15810200B952C8 /* NVActivityIndicatorAnimationBallRotateChase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallRotateChase.swift; sourceTree = "<group>"; };
+		F5BB6A7B1CC09EB000B6D818 /* NVActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,7 @@
 				90A879861BA55798001C8989 /* NVActivityIndicatorAnimationDelegate.swift */,
 				90A879871BA55798001C8989 /* NVActivityIndicatorShape.swift */,
 				90A879881BA55798001C8989 /* NVActivityIndicatorView.swift */,
+				F5BB6A7B1CC09EB000B6D818 /* NVActivityIndicator.swift */,
 				90A879331BA554A0001C8989 /* NVActivityIndicatorView.h */,
 				90A879311BA554A0001C8989 /* Supporting Files */,
 			);
@@ -455,6 +459,7 @@
 				90A879C71BA557B1001C8989 /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				90A879AE1BA557B1001C8989 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
 				90A879AF1BA557B1001C8989 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
+				F5BB6A7D1CC0F93300B6D818 /* NVActivityIndicator.swift in Sources */,
 				90A879C21BA557B1001C8989 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				90A879C81BA557B1001C8989 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
 				90A879B41BA557B1001C8989 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
@@ -484,6 +489,7 @@
 				90A879991BA55798001C8989 /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
 				90A879911BA55798001C8989 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
 				90A8798F1BA55798001C8989 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
+				F5BB6A7C1CC09EB000B6D818 /* NVActivityIndicator.swift in Sources */,
 				90A8799F1BA55798001C8989 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				90A879A71BA55798001C8989 /* NVActivityIndicatorShape.swift in Sources */,
 				90A879A01BA55798001C8989 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
