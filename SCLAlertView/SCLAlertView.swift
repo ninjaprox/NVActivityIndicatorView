@@ -359,6 +359,7 @@ public class SCLAlertView: UIViewController {
     var keyboardHasBeenShown:Bool = false
     
     func keyboardWillShow(notification: NSNotification) {
+        guard !keyboardHasBeenShown else {return}
         keyboardHasBeenShown = true
         
         guard let userInfo = notification.userInfo else {return}
@@ -374,16 +375,16 @@ public class SCLAlertView: UIViewController {
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if(keyboardHasBeenShown){//This could happen on the simulator (keyboard will be hidden)
-            if(self.tmpContentViewFrameOrigin != nil){
-                self.contentView.frame.origin.y = self.tmpContentViewFrameOrigin!.y
-            }
-            if(self.tmpCircleViewFrameOrigin != nil){
-                self.circleBG.frame.origin.y = self.tmpCircleViewFrameOrigin!.y
-            }
-            
-            keyboardHasBeenShown = false
+        guard keyboardHasBeenShown else {return} //This could happen on the simulator (keyboard will be hidden)
+        
+        if(self.tmpContentViewFrameOrigin != nil){
+            self.contentView.frame.origin.y = self.tmpContentViewFrameOrigin!.y
         }
+        if(self.tmpCircleViewFrameOrigin != nil){
+            self.circleBG.frame.origin.y = self.tmpCircleViewFrameOrigin!.y
+        }
+        
+        keyboardHasBeenShown = false
     }
     
     //Dismiss keyboard when tapped outside textfield & close SCLAlertView when hideWhenBackgroundViewIsTapped
