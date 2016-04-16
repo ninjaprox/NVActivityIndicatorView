@@ -179,12 +179,12 @@ public class SCLAlertView: UIViewController {
         viewText.textContainer.lineFragmentPadding = 0;
         viewText.font = UIFont(name: kDefaultFont, size:14)
         // Colours
-        contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
-        labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
-        viewText.textColor = UIColorFromRGB(0x4D4D4D)
-        contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
+        contentView.backgroundColor = 0xFFFFFF.toUIColor()
+        labelTitle.textColor = 0x4D4D4D.toUIColor()
+        viewText.textColor = 0x4D4D4D.toUIColor()
+        contentView.layer.borderColor = 0xCCCCCC.toCGColor()
         //Gesture Recognizer for tapping outside the textinput
-        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tapped:"))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
         tapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGesture)
     }
@@ -255,8 +255,8 @@ public class SCLAlertView: UIViewController {
     
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SCLAlertView.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SCLAlertView.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
     }
     
     override public func viewDidDisappear(animated: Bool) {
@@ -294,9 +294,9 @@ public class SCLAlertView: UIViewController {
         let btn = addButton(title)
         btn.actionType = SCLActionType.Closure
         btn.action = action
-        btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
-        btn.addTarget(self, action:Selector("buttonTapDown:"), forControlEvents:[.TouchDown, .TouchDragEnter])
-        btn.addTarget(self, action:Selector("buttonRelease:"), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), forControlEvents:.TouchUpInside)
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapDown(_:)), forControlEvents:[.TouchDown, .TouchDragEnter])
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonRelease(_:)), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
         return btn
     }
     
@@ -305,9 +305,9 @@ public class SCLAlertView: UIViewController {
         btn.actionType = SCLActionType.Selector
         btn.target = target
         btn.selector = selector
-        btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
-        btn.addTarget(self, action:Selector("buttonTapDown:"), forControlEvents:[.TouchDown, .TouchDragEnter])
-        btn.addTarget(self, action:Selector("buttonRelease:"), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), forControlEvents:.TouchUpInside)
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapDown(_:)), forControlEvents:[.TouchDown, .TouchDragEnter])
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonRelease(_:)), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
         return btn
     }
     
@@ -358,18 +358,17 @@ public class SCLAlertView: UIViewController {
     
     func keyboardWillShow(notification: NSNotification) {
         keyboardHasBeenShown = true
-        if let userInfo = notification.userInfo {
-            if let beginKeyBoardFrame = userInfo[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.origin.y {
-                if let endKeyBoardFrame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.origin.y {
-                    tmpContentViewFrameOrigin = self.contentView.frame.origin
-                    tmpCircleViewFrameOrigin = self.circleBG.frame.origin
-                    let newContentViewFrameY = beginKeyBoardFrame - endKeyBoardFrame - self.contentView.frame.origin.y
-                    let newBallViewFrameY = self.circleBG.frame.origin.y - newContentViewFrameY
-                    self.contentView.frame.origin.y -= newContentViewFrameY
-                    self.circleBG.frame.origin.y = newBallViewFrameY
-                }
-            }
-        }
+        
+        guard let userInfo = notification.userInfo else {return}
+        guard let beginKeyBoardFrame = userInfo[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.origin.y else {return}
+        guard let endKeyBoardFrame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.origin.y else {return}
+        
+        tmpContentViewFrameOrigin = self.contentView.frame.origin
+        tmpCircleViewFrameOrigin = self.circleBG.frame.origin
+        let newContentViewFrameY = beginKeyBoardFrame - endKeyBoardFrame - self.contentView.frame.origin.y
+        let newBallViewFrameY = self.circleBG.frame.origin.y - newContentViewFrameY
+        self.contentView.frame.origin.y -= newContentViewFrameY
+        self.circleBG.frame.origin.y = newBallViewFrameY
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -447,7 +446,7 @@ public class SCLAlertView: UIViewController {
         viewColor = UIColor()
         var iconImage: UIImage?
         let colorInt = colorStyle ?? style.defaultColorInt
-        viewColor = UIColorFromRGB(colorInt)
+        viewColor = colorInt.toUIColor()
         // Icon style
         switch style {
         case .Success:
@@ -501,7 +500,7 @@ public class SCLAlertView: UIViewController {
         // Done button
         if showCloseButton {
             let txt = completeText != nil ? completeText! : "Done"
-            addButton(txt, target:self, selector:Selector("hideView"))
+            addButton(txt, target:self, selector:#selector(SCLAlertView.hideView))
         }
         
         //hidden/show circular view based on the ui option
@@ -528,13 +527,13 @@ public class SCLAlertView: UIViewController {
         }
         for btn in buttons {
             btn.backgroundColor = viewColor
-            btn.setTitleColor(UIColorFromRGB(colorTextButton ?? 0xFFFFFF), forState:UIControlState.Normal)
+            btn.setTitleColor(colorTextButton?.toUIColor() ?? 0xFFFFFF.toUIColor(), forState:UIControlState.Normal)
         }
         
         // Adding duration
         if duration > 0 {
             durationTimer?.invalidate()
-            durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration!, target: self, selector: Selector("hideView"), userInfo: nil, repeats: false)
+            durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration!, target: self, selector: #selector(SCLAlertView.hideView), userInfo: nil, repeats: false)
         }
         
         // Animate in the alert view
@@ -580,16 +579,6 @@ public class SCLAlertView: UIViewController {
         } else {
             return defaultImage
         }
-    }
-    
-    // Helper function to convert from RGB to UIColor
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
     }
 }
 
