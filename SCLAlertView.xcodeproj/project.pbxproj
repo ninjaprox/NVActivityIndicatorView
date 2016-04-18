@@ -14,9 +14,11 @@
 		9E124F1B1C9EA303001A4972 /* SCLAlertViewInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E124F1A1C9EA303001A4972 /* SCLAlertViewInitTests.swift */; };
 		9E124F1D1C9EA6B5001A4972 /* SCLTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E124F1C1C9EA6B5001A4972 /* SCLTextFieldTests.swift */; };
 		9E47417F1CA1DABE00F95B05 /* SCLButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E47417E1CA1DABE00F95B05 /* SCLButtonTests.swift */; };
+		9EAEFBC51CC2AA6600BA87FB /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEFBC41CC2AA6600BA87FB /* SCLExtensions.swift */; };
 		9EE073151C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE073131C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift */; };
 		9EE073161C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE073141C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift */; };
 		9EE073171C9D7F6B002B43FD /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70264F171B0F592500B32B18 /* SCLAlertView.swift */; };
+		9EE99F911CA6B2320090F845 /* SCLPublicConstructorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE99F901CA6B2320090F845 /* SCLPublicConstructorsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +42,10 @@
 		9E124F1A1C9EA303001A4972 /* SCLAlertViewInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewInitTests.swift; sourceTree = "<group>"; };
 		9E124F1C1C9EA6B5001A4972 /* SCLTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLTextFieldTests.swift; sourceTree = "<group>"; };
 		9E47417E1CA1DABE00F95B05 /* SCLButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLButtonTests.swift; sourceTree = "<group>"; };
+		9EAEFBC41CC2AA6600BA87FB /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
 		9EE073131C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewPropertiesTests.swift; sourceTree = "<group>"; };
 		9EE073141C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertViewStyleTests.swift; sourceTree = "<group>"; };
+		9EE99F901CA6B2320090F845 /* SCLPublicConstructorsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLPublicConstructorsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				70264F171B0F592500B32B18 /* SCLAlertView.swift */,
+				9EAEFBC41CC2AA6600BA87FB /* SCLExtensions.swift */,
 				70264EFA1B0F588700B32B18 /* Supporting Files */,
 			);
 			path = SCLAlertView;
@@ -110,6 +115,7 @@
 				9EE073141C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift */,
 				9E124F1C1C9EA6B5001A4972 /* SCLTextFieldTests.swift */,
 				9E47417E1CA1DABE00F95B05 /* SCLButtonTests.swift */,
+				9EE99F901CA6B2320090F845 /* SCLPublicConstructorsTest.swift */,
 				70264F071B0F588800B32B18 /* Supporting Files */,
 			);
 			path = SCLAlertViewTests;
@@ -231,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EAEFBC51CC2AA6600BA87FB /* SCLExtensions.swift in Sources */,
 				70264F181B0F592500B32B18 /* SCLAlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +248,7 @@
 			files = (
 				9E47417F1CA1DABE00F95B05 /* SCLButtonTests.swift in Sources */,
 				9EE073151C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift in Sources */,
+				9EE99F911CA6B2320090F845 /* SCLPublicConstructorsTest.swift in Sources */,
 				9EE073161C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift in Sources */,
 				9E124F1D1C9EA6B5001A4972 /* SCLTextFieldTests.swift in Sources */,
 				9E124F1B1C9EA303001A4972 /* SCLAlertViewInitTests.swift in Sources */,
