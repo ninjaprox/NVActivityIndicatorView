@@ -6,6 +6,8 @@
 //  Copyright © 2016 Alexey Poimtsev. All rights reserved.
 //
 
+@testable import SCLAlertView
+
 import XCTest
 
 class SCLAlertViewInitTests: XCTestCase {

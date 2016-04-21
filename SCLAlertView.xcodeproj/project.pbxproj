@@ -17,7 +17,6 @@
 		9EAEFBC51CC2AA6600BA87FB /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEFBC41CC2AA6600BA87FB /* SCLExtensions.swift */; };
 		9EE073151C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE073131C9D7F4C002B43FD /* SCLAlertViewPropertiesTests.swift */; };
 		9EE073161C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE073141C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift */; };
-		9EE073171C9D7F6B002B43FD /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70264F171B0F592500B32B18 /* SCLAlertView.swift */; };
 		9EE99F911CA6B2320090F845 /* SCLPublicConstructorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE99F901CA6B2320090F845 /* SCLPublicConstructorsTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -252,7 +251,6 @@
 				9EE073161C9D7F4C002B43FD /* SCLAlertViewStyleTests.swift in Sources */,
 				9E124F1D1C9EA6B5001A4972 /* SCLTextFieldTests.swift in Sources */,
 				9E124F1B1C9EA303001A4972 /* SCLAlertViewInitTests.swift in Sources */,
-				9EE073171C9D7F6B002B43FD /* SCLAlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +361,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = SCLAlertView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -379,6 +378,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = SCLAlertView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
