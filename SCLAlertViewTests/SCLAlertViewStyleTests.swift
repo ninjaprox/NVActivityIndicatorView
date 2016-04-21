@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Alexey Poimtsev. All rights reserved.
 //
 
+@testable import SCLAlertView
+
 import UIKit
 import XCTest
 
