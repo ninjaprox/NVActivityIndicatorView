@@ -99,11 +99,12 @@ public class SCLAlertView: UIViewController {
     let kCircleHeight: CGFloat = 56.0
     let kCircleIconHeight: CGFloat = 20.0
     let kTitleTop:CGFloat = 30.0
-    let kTitleHeight:CGFloat = 40.0
+    let kTitleHeight:CGFloat = 25.0
     let kWindowWidth: CGFloat = 240.0
     var kWindowHeight: CGFloat = 178.0
     var kTextHeight: CGFloat = 90.0
     let kTextFieldHeight: CGFloat = 45.0
+    let kTextViewdHeight: CGFloat = 80.0
     let kButtonHeight: CGFloat = 45.0
     
     // Font
@@ -137,6 +138,7 @@ public class SCLAlertView: UIViewController {
     var durationTimer: NSTimer!
     var dismissBlock : DismissBlock?
     private var inputs = [UITextField]()
+    private var input = [UITextView]()
     internal var buttons = [SCLButton]()
     private var selfReference: SCLAlertView?
     
@@ -181,10 +183,10 @@ public class SCLAlertView: UIViewController {
         viewText.textContainer.lineFragmentPadding = 0;
         viewText.font = UIFont(name: kDefaultFont, size:14)
         // Colours
-        contentView.backgroundColor = 0xFFFFFF.toUIColor()
-        labelTitle.textColor = 0x4D4D4D.toUIColor()
-        viewText.textColor = 0x4D4D4D.toUIColor()
-        contentView.layer.borderColor = 0xCCCCCC.toCGColor()
+        contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
+        labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
+        viewText.textColor = UIColorFromRGB(0x4D4D4D)
+        contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
         //Gesture Recognizer for tapping outside the textinput
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
         tapGesture.numberOfTapsRequired = 1
@@ -210,6 +212,7 @@ public class SCLAlertView: UIViewController {
         consumedHeight += 14
         consumedHeight += kButtonHeight * CGFloat(buttons.count)
         consumedHeight += kTextFieldHeight * CGFloat(inputs.count)
+        consumedHeight += kTextViewdHeight * CGFloat(input.count)
         let maxViewTextHeight = maxHeight - consumedHeight
         let viewTextWidth = kWindowWidth - 24
         let suggestedViewTextSize = viewText.sizeThatFits(CGSizeMake(viewTextWidth, CGFloat.max))
@@ -246,6 +249,11 @@ public class SCLAlertView: UIViewController {
             txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:30)
             txt.layer.cornerRadius = fieldCornerRadius
             y += kTextFieldHeight
+        }
+        for txt in input {
+            txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:70)
+            //txt.layer.cornerRadius = fieldCornerRadius
+            y += kTextViewdHeight
         }
         // Buttons
         for btn in buttons {
@@ -289,6 +297,22 @@ public class SCLAlertView: UIViewController {
         }
         contentView.addSubview(txt)
         inputs.append(txt)
+        return txt
+    }
+    
+    public func addTextView()->UITextView {
+        // Update view height
+        kWindowHeight += kTextViewdHeight
+        // Add text view
+        let txt = UITextView()
+        // No placeholder with UITextView but you can use KMPlaceholderTextView library 
+        txt.font = UIFont(name:kDefaultFont, size: 14)
+        //txt.autocapitalizationType = UITextAutocapitalizationType.Words
+        //txt.clearButtonMode = UITextFieldViewMode.WhileEditing
+        txt.layer.masksToBounds = true
+        txt.layer.borderWidth = 1.0
+        contentView.addSubview(txt)
+        input.append(txt)
         return txt
     }
     
@@ -359,7 +383,6 @@ public class SCLAlertView: UIViewController {
     var keyboardHasBeenShown:Bool = false
     
     func keyboardWillShow(notification: NSNotification) {
-        guard !keyboardHasBeenShown else {return}
         keyboardHasBeenShown = true
         
         guard let userInfo = notification.userInfo else {return}
@@ -375,16 +398,16 @@ public class SCLAlertView: UIViewController {
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        guard keyboardHasBeenShown else {return} //This could happen on the simulator (keyboard will be hidden)
-        
-        if(self.tmpContentViewFrameOrigin != nil){
-            self.contentView.frame.origin.y = self.tmpContentViewFrameOrigin!.y
+        if(keyboardHasBeenShown){//This could happen on the simulator (keyboard will be hidden)
+            if(self.tmpContentViewFrameOrigin != nil){
+                self.contentView.frame.origin.y = self.tmpContentViewFrameOrigin!.y
+            }
+            if(self.tmpCircleViewFrameOrigin != nil){
+                self.circleBG.frame.origin.y = self.tmpCircleViewFrameOrigin!.y
+            }
+            
+            keyboardHasBeenShown = false
         }
-        if(self.tmpCircleViewFrameOrigin != nil){
-            self.circleBG.frame.origin.y = self.tmpCircleViewFrameOrigin!.y
-        }
-        
-        keyboardHasBeenShown = false
     }
     
     //Dismiss keyboard when tapped outside textfield & close SCLAlertView when hideWhenBackgroundViewIsTapped
@@ -449,7 +472,7 @@ public class SCLAlertView: UIViewController {
         viewColor = UIColor()
         var iconImage: UIImage?
         let colorInt = colorStyle ?? style.defaultColorInt
-        viewColor = colorInt.toUIColor()
+        viewColor = UIColorFromRGB(colorInt)
         // Icon style
         switch style {
         case .Success:
@@ -534,9 +557,14 @@ public class SCLAlertView: UIViewController {
         for txt in inputs {
             txt.layer.borderColor = viewColor.CGColor
         }
+        
+        for txt in input {
+            txt.layer.borderColor = viewColor.CGColor
+        }
+        
         for btn in buttons {
             btn.backgroundColor = viewColor
-            btn.setTitleColor(colorTextButton?.toUIColor() ?? 0xFFFFFF.toUIColor(), forState:UIControlState.Normal)
+            btn.setTitleColor(UIColorFromRGB(colorTextButton ?? 0xFFFFFF), forState:UIControlState.Normal)
         }
         
         // Adding duration
@@ -588,6 +616,16 @@ public class SCLAlertView: UIViewController {
         } else {
             return defaultImage
         }
+    }
+    
+    // Helper function to convert from RGB to UIColor
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }
 
