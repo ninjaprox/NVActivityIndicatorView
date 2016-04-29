@@ -123,6 +123,7 @@ public class SCLAlertView: UIViewController {
     public var fieldCornerRadius : CGFloat = 3.0
     public var buttonCornerRadius : CGFloat = 3.0
     public var iconTintColor: UIColor?
+    public var customSubview : UIView?
     
     // Actions
     public var hideWhenBackgroundViewIsTapped = false
@@ -215,14 +216,24 @@ public class SCLAlertView: UIViewController {
         consumedHeight += kTextViewdHeight * CGFloat(input.count)
         let maxViewTextHeight = maxHeight - consumedHeight
         let viewTextWidth = kWindowWidth - 24
-        let suggestedViewTextSize = viewText.sizeThatFits(CGSizeMake(viewTextWidth, CGFloat.max))
-        let viewTextHeight = min(suggestedViewTextSize.height, maxViewTextHeight)
+        var viewTextHeight = kTextHeight
         
-        // scroll management
-        if (suggestedViewTextSize.height > maxViewTextHeight) {
-            viewText.scrollEnabled = true
+        // Check if there is a custom subview and add it over the textview
+        if let customSubview = customSubview {
+            viewTextHeight = min(customSubview.frame.height, maxViewTextHeight)
+            viewText.text = ""
+            viewText.addSubview(customSubview)
         } else {
-            viewText.scrollEnabled = false
+            // computing the right size to use for the textView
+            let suggestedViewTextSize = viewText.sizeThatFits(CGSizeMake(viewTextWidth, CGFloat.max))
+            viewTextHeight = min(suggestedViewTextSize.height, maxViewTextHeight)
+            
+            // scroll management
+            if (suggestedViewTextSize.height > maxViewTextHeight) {
+                viewText.scrollEnabled = true
+            } else {
+                viewText.scrollEnabled = false
+            }
         }
         
         let windowHeight = consumedHeight + viewTextHeight

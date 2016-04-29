@@ -67,6 +67,44 @@ class ViewController: UIViewController {
 		}
 		alert.showEdit(kInfoTitle, subTitle:kSubtitle)
 	}
+    
+    
+    @IBAction func showCustomSubview(sender: AnyObject) {
+        let alert = SCLAlertView()
+        
+        // Creat the subview
+        let subview = UIView(frame: CGRectMake(0,0,216,70))
+        let x = (subview.frame.width - 180) / 2
+        
+        // Add textfield 1
+        let textfield1 = UITextField(frame: CGRectMake(x,10,180,25))
+        textfield1.layer.borderColor = UIColor.greenColor().CGColor
+        textfield1.layer.borderWidth = 1.5
+        textfield1.layer.cornerRadius = 5
+        textfield1.placeholder = "Username"
+        textfield1.textAlignment = NSTextAlignment.Center
+        subview.addSubview(textfield1)
+        
+        // Add textfield 2
+        let textfield2 = UITextField(frame: CGRectMake(x,textfield1.frame.maxY + 10,180,25))
+        textfield2.secureTextEntry = true
+        textfield2.layer.borderColor = UIColor.blueColor().CGColor
+        textfield2.layer.borderWidth = 1.5
+        textfield2.layer.cornerRadius = 5
+        textfield1.layer.borderColor = UIColor.blueColor().CGColor
+        textfield2.placeholder = "Password"
+        textfield2.textAlignment = NSTextAlignment.Center
+        subview.addSubview(textfield2)
+        
+        // Add the subview to the alert's UI property
+        alert.customSubview = subview
+        alert.showCloseButton = false
+        alert.addButton("Login") {
+            print("Logged in")
+        }
+        
+        alert.showInfo("Login", subTitle: "")
+    }
 	
 	func firstButton() {
 		print("First button tapped")
