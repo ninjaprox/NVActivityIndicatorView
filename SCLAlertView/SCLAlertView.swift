@@ -136,6 +136,9 @@ public class SCLAlertView: UIViewController {
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
     var circleView = UIView()
     var circleIconView : UIView?
+    var duration: NSTimeInterval!
+    var durationTitle: String!
+    var durationStatusTimer: NSTimer!
     var durationTimer: NSTimer!
     var dismissBlock : DismissBlock?
     private var inputs = [UITextField]()
@@ -536,8 +539,7 @@ public class SCLAlertView: UIViewController {
         
         // Done button
         if showCloseButton {
-            let txt = completeText != nil ? completeText! : "Done"
-            addButton(txt, target:self, selector:#selector(SCLAlertView.hideView))
+            addButton(completeText ?? "Done", target:self, selector:#selector(SCLAlertView.hideView))
         }
         
         //hidden/show circular view based on the ui option
@@ -580,8 +582,12 @@ public class SCLAlertView: UIViewController {
         
         // Adding duration
         if duration > 0 {
+            self.duration = duration
+            self.durationTitle = completeText ?? "Done"
             durationTimer?.invalidate()
-            durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration!, target: self, selector: #selector(SCLAlertView.hideView), userInfo: nil, repeats: false)
+            durationTimer = NSTimer.scheduledTimerWithTimeInterval(self.duration, target: self, selector: #selector(SCLAlertView.hideView), userInfo: nil, repeats: false)
+            durationStatusTimer?.invalidate()
+            durationStatusTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(SCLAlertView.updateStatusView), userInfo: nil, repeats: true)
         }
         
         // Animate in the alert view
@@ -598,11 +604,23 @@ public class SCLAlertView: UIViewController {
         return SCLAlertViewResponder(alertview: self)
     }
     
+    public func updateStatusView() {
+        
+        if let btn = buttons.last {
+            duration = duration.advancedBy(-1)
+            let txt = "\(durationTitle) (\(duration))"
+            btn.setTitle(txt, forState: .Normal)
+        }
+    }
+    
     // Close SCLAlertView
     public func hideView() {
         UIView.animateWithDuration(0.2, animations: {
             self.view.alpha = 0
             }, completion: { finished in
+                
+                // Stop StatusTimer
+                self.durationStatusTimer?.invalidate()
                 
                 if(self.dismissBlock != nil) {
                     // Call completion handler when the alert is dismissed
