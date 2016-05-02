@@ -46,6 +46,10 @@ public class SCLButton: UIButton {
     var target:AnyObject!
     var selector:Selector!
     var action:(()->Void)!
+    var customBackgroundColor:UIColor?
+    var customTextColor:UIColor?
+    var initialTitle:String!
+    var showDurationStatus:Bool=false
     
     public init() {
         super.init(frame: CGRectZero)
@@ -136,6 +140,8 @@ public class SCLAlertView: UIViewController {
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
     var circleView = UIView()
     var circleIconView : UIView?
+    var duration: NSTimeInterval!
+    var durationStatusTimer: NSTimer!
     var durationTimer: NSTimer!
     var dismissBlock : DismissBlock?
     private var inputs = [UITextField]()
@@ -327,8 +333,8 @@ public class SCLAlertView: UIViewController {
         return txt
     }
     
-    public func addButton(title:String, action:()->Void)->SCLButton {
-        let btn = addButton(title)
+    public func addButton(title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool=false, action:()->Void)->SCLButton {
+        let btn = addButton(title, backgroundColor: backgroundColor, textColor: textColor, showDurationStatus: showDurationStatus)
         btn.actionType = SCLActionType.Closure
         btn.action = action
         btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), forControlEvents:.TouchUpInside)
@@ -337,8 +343,8 @@ public class SCLAlertView: UIViewController {
         return btn
     }
     
-    public func addButton(title:String, target:AnyObject, selector:Selector)->SCLButton {
-        let btn = addButton(title)
+    public func addButton(title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool = false, target:AnyObject, selector:Selector)->SCLButton {
+        let btn = addButton(title, backgroundColor: backgroundColor, textColor: textColor, showDurationStatus: showDurationStatus)
         btn.actionType = SCLActionType.Selector
         btn.target = target
         btn.selector = selector
@@ -348,7 +354,7 @@ public class SCLAlertView: UIViewController {
         return btn
     }
     
-    private func addButton(title:String)->SCLButton {
+    private func addButton(title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool=false)->SCLButton {
         // Update view height
         kWindowHeight += kButtonHeight
         // Add button
@@ -356,6 +362,10 @@ public class SCLAlertView: UIViewController {
         btn.layer.masksToBounds = true
         btn.setTitle(title, forState: .Normal)
         btn.titleLabel?.font = UIFont(name:kButtonFont, size: 14)
+        btn.customBackgroundColor = backgroundColor
+        btn.customTextColor = textColor
+        btn.initialTitle = title
+        btn.showDurationStatus = showDurationStatus
         contentView.addSubview(btn)
         buttons.append(btn)
         return btn
@@ -536,8 +546,7 @@ public class SCLAlertView: UIViewController {
         
         // Done button
         if showCloseButton {
-            let txt = completeText != nil ? completeText! : "Done"
-            addButton(txt, target:self, selector:#selector(SCLAlertView.hideView))
+            addButton(completeText ?? "Done", target:self, selector:#selector(SCLAlertView.hideView))
         }
         
         //hidden/show circular view based on the ui option
@@ -574,14 +583,30 @@ public class SCLAlertView: UIViewController {
         }
         
         for btn in buttons {
-            btn.backgroundColor = viewColor
-            btn.setTitleColor(UIColorFromRGB(colorTextButton ?? 0xFFFFFF), forState:UIControlState.Normal)
+            if let customBackgroundColor = btn.customBackgroundColor {
+                // Custom BackgroundColor set
+                btn.backgroundColor = customBackgroundColor
+            } else {
+                // Use default BackgroundColor derived from AlertStyle
+                btn.backgroundColor = viewColor
+            }
+            
+            if let customTextColor = btn.customTextColor {
+                // Custom TextColor set
+                btn.setTitleColor(customTextColor, forState:UIControlState.Normal)
+            } else {
+                // Use default BackgroundColor derived from AlertStyle
+                btn.setTitleColor(UIColorFromRGB(colorTextButton ?? 0xFFFFFF), forState:UIControlState.Normal)
+            }
         }
         
         // Adding duration
         if duration > 0 {
+            self.duration = duration
             durationTimer?.invalidate()
-            durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration!, target: self, selector: #selector(SCLAlertView.hideView), userInfo: nil, repeats: false)
+            durationTimer = NSTimer.scheduledTimerWithTimeInterval(self.duration, target: self, selector: #selector(SCLAlertView.hideView), userInfo: nil, repeats: false)
+            durationStatusTimer?.invalidate()
+            durationStatusTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(SCLAlertView.updateDurationStatus), userInfo: nil, repeats: true)
         }
         
         // Animate in the alert view
@@ -598,11 +623,22 @@ public class SCLAlertView: UIViewController {
         return SCLAlertViewResponder(alertview: self)
     }
     
+    public func updateDurationStatus() {
+        duration = duration.advancedBy(-1)
+        for btn in buttons.filter({$0.showDurationStatus}) {
+            let txt = "\(btn.initialTitle) (\(duration))"
+            btn.setTitle(txt, forState: .Normal)
+        }
+    }
+    
     // Close SCLAlertView
     public func hideView() {
         UIView.animateWithDuration(0.2, animations: {
             self.view.alpha = 0
             }, completion: { finished in
+                
+                // Stop StatusTimer
+                self.durationStatusTimer?.invalidate()
                 
                 if(self.dismissBlock != nil) {
                     // Call completion handler when the alert is dismissed
