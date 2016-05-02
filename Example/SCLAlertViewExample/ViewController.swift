@@ -103,7 +103,12 @@ class ViewController: UIViewController {
             print("Logged in")
         }
         
-        alert.showInfo("Login", subTitle: "")
+        // Add Button with Duration Status and custom Colors
+        alert.addButton("Duration Button", backgroundColor: UIColor.brownColor(), textColor: UIColor.yellowColor(), showDurationStatus: true) {
+            print("Duration Button tapped")
+        }
+
+        alert.showInfo("Login", subTitle: "", duration: 10)
     }
 	
 	func firstButton() {
