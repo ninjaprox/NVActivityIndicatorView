@@ -70,7 +70,14 @@ class ViewController: UIViewController {
     
     
     @IBAction func showCustomSubview(sender: AnyObject) {
-        let alert = SCLAlertView()
+        // Create custom Appearance Configuration
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
+            kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!)
+        
+        // Initialize SCLAlertView using custom Appearance
+        let alert = SCLAlertView(appearance: appearance)
         
         // Creat the subview
         let subview = UIView(frame: CGRectMake(0,0,216,70))
