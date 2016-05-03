@@ -99,21 +99,39 @@ public typealias DismissBlock = () -> Void
 public class SCLAlertView: UIViewController {
     
     public struct SCLAppearance {
-        let kDefaultShadowOpacity: CGFloat = 0.7
-        let kCircleTopPosition: CGFloat = -12.0
-        let kCircleBackgroundTopPosition: CGFloat = -15.0
-        let kCircleHeight: CGFloat = 56.0
-        let kCircleIconHeight: CGFloat = 20.0
-        let kTitleTop:CGFloat = 30.0
-        let kTitleHeight:CGFloat = 25.0
-        let kWindowWidth: CGFloat = 240.0
-        var kWindowHeight: CGFloat = 178.0
-        var kTextHeight: CGFloat = 90.0
-        let kTextFieldHeight: CGFloat = 45.0
-        let kTextViewdHeight: CGFloat = 80.0
-        let kButtonHeight: CGFloat = 45.0
-        let kDefaultFont = "HelveticaNeue"
-        let kButtonFont = "HelveticaNeue-Bold"
+        let kDefaultShadowOpacity: CGFloat
+        let kCircleTopPosition: CGFloat
+        let kCircleBackgroundTopPosition: CGFloat
+        let kCircleHeight: CGFloat
+        let kCircleIconHeight: CGFloat
+        let kTitleTop:CGFloat
+        let kTitleHeight:CGFloat
+        let kWindowWidth: CGFloat
+        var kWindowHeight: CGFloat
+        var kTextHeight: CGFloat
+        let kTextFieldHeight: CGFloat
+        let kTextViewdHeight: CGFloat
+        let kButtonHeight: CGFloat
+        let kDefaultFont: String
+        let kButtonFont: String
+        
+        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kDefaultFont: String = "HelveticaNeue", kButtonFont: String = "HelveticaNeue-Bold") {
+            self.kDefaultShadowOpacity = kDefaultShadowOpacity
+            self.kCircleTopPosition = kCircleTopPosition
+            self.kCircleBackgroundTopPosition = kCircleBackgroundTopPosition
+            self.kCircleHeight = kCircleHeight
+            self.kCircleIconHeight = kCircleIconHeight
+            self.kTitleTop = kTitleTop
+            self.kTitleHeight = kTitleHeight
+            self.kWindowWidth = kWindowWidth
+            self.kWindowHeight = kWindowHeight
+            self.kTextHeight = kTextHeight
+            self.kTextFieldHeight = kTextFieldHeight
+            self.kTextViewdHeight = kTextViewdHeight
+            self.kButtonHeight = kButtonHeight
+            self.kDefaultFont = kDefaultFont
+            self.kButtonFont = kButtonFont
+        }
         
         mutating func setkWindowHeight(kWindowHeight:CGFloat) {
             self.kWindowHeight = kWindowHeight
@@ -124,7 +142,7 @@ public class SCLAlertView: UIViewController {
         }
     }
     
-    var appearance: SCLAppearance
+    var appearance: SCLAppearance!
     
     // UI Colour
     var viewColor = UIColor()
@@ -160,6 +178,12 @@ public class SCLAlertView: UIViewController {
     internal var buttons = [SCLButton]()
     private var selfReference: SCLAlertView?
     
+    public init(appearance: SCLAppearance) {
+        self.appearance = appearance
+        super.init(nibName:nil, bundle:nil)
+        setup()
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
@@ -167,6 +191,15 @@ public class SCLAlertView: UIViewController {
     required public init() {
         appearance = SCLAppearance()
         super.init(nibName:nil, bundle:nil)
+        setup()
+    }
+    
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        appearance = SCLAppearance()
+        super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
+    }
+    
+    private func setup() {
         // Set up main view
         view.frame = UIScreen.mainScreen().bounds
         view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
@@ -210,11 +243,6 @@ public class SCLAlertView: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
         tapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGesture)
-    }
-    
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        appearance = SCLAppearance()
-        super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
     }
     
     override public func viewWillLayoutSubviews() {
