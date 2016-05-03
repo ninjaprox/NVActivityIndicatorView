@@ -112,10 +112,13 @@ public class SCLAlertView: UIViewController {
         let kTextFieldHeight: CGFloat
         let kTextViewdHeight: CGFloat
         let kButtonHeight: CGFloat
-        let kDefaultFont: String
-        let kButtonFont: String
         
-        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kDefaultFont: String = "HelveticaNeue", kButtonFont: String = "HelveticaNeue-Bold") {
+        // Fonts
+        let kTitleFont: UIFont
+        let kTextFont: UIFont
+        let kButtonFont: UIFont
+        
+        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFontOfSize(20), kTextFont: UIFont = UIFont.systemFontOfSize(14), kButtonFont: UIFont = UIFont.boldSystemFontOfSize(14)) {
             self.kDefaultShadowOpacity = kDefaultShadowOpacity
             self.kCircleTopPosition = kCircleTopPosition
             self.kCircleBackgroundTopPosition = kCircleBackgroundTopPosition
@@ -129,7 +132,8 @@ public class SCLAlertView: UIViewController {
             self.kTextFieldHeight = kTextFieldHeight
             self.kTextViewdHeight = kTextViewdHeight
             self.kButtonHeight = kButtonHeight
-            self.kDefaultFont = kDefaultFont
+            self.kTitleFont = kTitleFont
+            self.kTextFont = kTextFont
             self.kButtonFont = kButtonFont
         }
         
@@ -226,14 +230,14 @@ public class SCLAlertView: UIViewController {
         // Title
         labelTitle.numberOfLines = 1
         labelTitle.textAlignment = .Center
-        labelTitle.font = UIFont(name: appearance.kDefaultFont, size:20)
+        labelTitle.font = appearance.kTitleFont
         labelTitle.frame = CGRect(x:12, y:appearance.kTitleTop, width: appearance.kWindowWidth - 24, height:appearance.kTitleHeight)
         // View text
         viewText.editable = false
         viewText.textAlignment = .Center
         viewText.textContainerInset = UIEdgeInsetsZero
         viewText.textContainer.lineFragmentPadding = 0;
-        viewText.font = UIFont(name: appearance.kDefaultFont, size:14)
+        viewText.font = appearance.kTextFont
         // Colours
         contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
         labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
@@ -345,7 +349,7 @@ public class SCLAlertView: UIViewController {
         // Add text field
         let txt = UITextField()
         txt.borderStyle = UITextBorderStyle.RoundedRect
-        txt.font = UIFont(name:appearance.kDefaultFont, size: 14)
+        txt.font = appearance.kTextFont
         txt.autocapitalizationType = UITextAutocapitalizationType.Words
         txt.clearButtonMode = UITextFieldViewMode.WhileEditing
         txt.layer.masksToBounds = true
@@ -364,7 +368,7 @@ public class SCLAlertView: UIViewController {
         // Add text view
         let txt = UITextView()
         // No placeholder with UITextView but you can use KMPlaceholderTextView library 
-        txt.font = UIFont(name:appearance.kDefaultFont, size: 14)
+        txt.font = appearance.kTextFont
         //txt.autocapitalizationType = UITextAutocapitalizationType.Words
         //txt.clearButtonMode = UITextFieldViewMode.WhileEditing
         txt.layer.masksToBounds = true
@@ -402,7 +406,7 @@ public class SCLAlertView: UIViewController {
         let btn = SCLButton()
         btn.layer.masksToBounds = true
         btn.setTitle(title, forState: .Normal)
-        btn.titleLabel?.font = UIFont(name:appearance.kButtonFont, size: 14)
+        btn.titleLabel?.font = appearance.kButtonFont
         btn.customBackgroundColor = backgroundColor
         btn.customTextColor = textColor
         btn.initialTitle = title
