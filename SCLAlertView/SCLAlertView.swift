@@ -150,7 +150,6 @@ public class SCLAlertView: UIViewController {
     
     // UI Colour
     var viewColor = UIColor()
-    var pressBrightnessFactor = 0.85
     
     // UI Options
     public var showCloseButton = true
@@ -159,6 +158,7 @@ public class SCLAlertView: UIViewController {
     public var contentViewCornerRadius : CGFloat = 5.0
     public var fieldCornerRadius : CGFloat = 3.0
     public var buttonCornerRadius : CGFloat = 3.0
+    
     public var iconTintColor: UIColor?
     public var customSubview : UIView?
     

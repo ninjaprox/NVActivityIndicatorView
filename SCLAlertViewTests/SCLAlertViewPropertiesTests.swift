@@ -86,10 +86,6 @@ class SCLAlertViewPropertiesTests: XCTestCase {
         XCTAssertTrue(alert.viewColor.isKindOfClass(UIColor.self))
     }
     
-    func testSCLAlertViewPressBrightnessFactor() {
-        XCTAssertTrue(alert.pressBrightnessFactor == 0.85)
-    }
-    
     func testSCLAlertViewShowCloseButton() {
         XCTAssertTrue(alert.showCloseButton == true)
     }
