@@ -118,7 +118,19 @@ public class SCLAlertView: UIViewController {
         let kTextFont: UIFont
         let kButtonFont: UIFont
         
-        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFontOfSize(20), kTextFont: UIFont = UIFont.systemFontOfSize(14), kButtonFont: UIFont = UIFont.boldSystemFontOfSize(14)) {
+        // UI Options
+        var showCloseButton: Bool
+        var showCircularIcon: Bool
+        var shouldAutoDismiss: Bool // Set this false to 'Disable' Auto hideView when SCLButton is tapped
+        var contentViewCornerRadius : CGFloat
+        var fieldCornerRadius : CGFloat
+        var buttonCornerRadius : CGFloat
+        
+        // Actions
+        var hideWhenBackgroundViewIsTapped: Bool
+        
+        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFontOfSize(20), kTextFont: UIFont = UIFont.systemFontOfSize(14), kButtonFont: UIFont = UIFont.boldSystemFontOfSize(14), showCloseButton: Bool = true, showCircularIcon: Bool = true, shouldAutoDismiss: Bool = true, contentViewCornerRadius: CGFloat = 5.0, fieldCornerRadius: CGFloat = 3.0, buttonCornerRadius: CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Bool = false) {
+            
             self.kDefaultShadowOpacity = kDefaultShadowOpacity
             self.kCircleTopPosition = kCircleTopPosition
             self.kCircleBackgroundTopPosition = kCircleBackgroundTopPosition
@@ -132,9 +144,19 @@ public class SCLAlertView: UIViewController {
             self.kTextFieldHeight = kTextFieldHeight
             self.kTextViewdHeight = kTextViewdHeight
             self.kButtonHeight = kButtonHeight
+            
             self.kTitleFont = kTitleFont
             self.kTextFont = kTextFont
             self.kButtonFont = kButtonFont
+            
+            self.showCloseButton = showCloseButton
+            self.showCircularIcon = showCircularIcon
+            self.shouldAutoDismiss = shouldAutoDismiss
+            self.contentViewCornerRadius = contentViewCornerRadius
+            self.fieldCornerRadius = fieldCornerRadius
+            self.buttonCornerRadius = buttonCornerRadius
+            
+            self.hideWhenBackgroundViewIsTapped = hideWhenBackgroundViewIsTapped
         }
         
         mutating func setkWindowHeight(kWindowHeight:CGFloat) {
@@ -152,18 +174,10 @@ public class SCLAlertView: UIViewController {
     var viewColor = UIColor()
     
     // UI Options
-    public var showCloseButton = true
-    public var showCircularIcon = true
-    public var shouldAutoDismiss = true //Set this false to 'Disable' Auto hideView when SCLButton is tapped
-    public var contentViewCornerRadius : CGFloat = 5.0
-    public var fieldCornerRadius : CGFloat = 3.0
-    public var buttonCornerRadius : CGFloat = 3.0
-    
     public var iconTintColor: UIColor?
     public var customSubview : UIView?
     
-    // Actions
-    public var hideWhenBackgroundViewIsTapped = false
+
     
     // Members declaration
     var baseView = UIView()
@@ -214,7 +228,7 @@ public class SCLAlertView: UIViewController {
         baseView.addSubview(contentView)
         // Content View
         contentView.backgroundColor = UIColor(white:1, alpha:1)
-        contentView.layer.cornerRadius = contentViewCornerRadius
+        contentView.layer.cornerRadius = appearance.contentViewCornerRadius
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0.5
         contentView.addSubview(labelTitle)
@@ -292,13 +306,13 @@ public class SCLAlertView: UIViewController {
         var x = (sz.width - appearance.kWindowWidth) / 2
         var y = (sz.height - windowHeight - (appearance.kCircleHeight / 8)) / 2
         contentView.frame = CGRect(x:x, y:y, width:appearance.kWindowWidth, height:windowHeight)
-        contentView.layer.cornerRadius = contentViewCornerRadius
+        contentView.layer.cornerRadius = appearance.contentViewCornerRadius
         y -= kCircleHeightBackground * 0.6
         x = (sz.width - kCircleHeightBackground) / 2
         circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
         
         //adjust Title frame based on circularIcon show/hide flag
-        let titleOffset : CGFloat = showCircularIcon ? 0.0 : -12.0
+        let titleOffset : CGFloat = appearance.showCircularIcon ? 0.0 : -12.0
         labelTitle.frame = labelTitle.frame.offsetBy(dx: 0, dy: titleOffset)
         
         // Subtitle
@@ -309,7 +323,7 @@ public class SCLAlertView: UIViewController {
         y += viewTextHeight + 14.0
         for txt in inputs {
             txt.frame = CGRect(x:12, y:y, width:appearance.kWindowWidth - 24, height:30)
-            txt.layer.cornerRadius = fieldCornerRadius
+            txt.layer.cornerRadius = appearance.fieldCornerRadius
             y += appearance.kTextFieldHeight
         }
         for txt in input {
@@ -320,7 +334,7 @@ public class SCLAlertView: UIViewController {
         // Buttons
         for btn in buttons {
             btn.frame = CGRect(x:12, y:y, width:appearance.kWindowWidth - 24, height:35)
-            btn.layer.cornerRadius = buttonCornerRadius
+            btn.layer.cornerRadius = appearance.buttonCornerRadius
             y += appearance.kButtonHeight
         }
     }
@@ -426,7 +440,7 @@ public class SCLAlertView: UIViewController {
             print("Unknow action type for button")
         }
         
-        if(self.view.alpha != 0.0 && shouldAutoDismiss){ hideView() }
+        if(self.view.alpha != 0.0 && appearance.shouldAutoDismiss){ hideView() }
     }
     
     
@@ -480,7 +494,7 @@ public class SCLAlertView: UIViewController {
     func tapped(gestureRecognizer: UITapGestureRecognizer) {
         self.view.endEditing(true)
         
-        if let tappedView = gestureRecognizer.view where tappedView.hitTest(gestureRecognizer.locationInView(tappedView), withEvent: nil) == baseView && hideWhenBackgroundViewIsTapped {
+        if let tappedView = gestureRecognizer.view where tappedView.hitTest(gestureRecognizer.locationInView(tappedView), withEvent: nil) == baseView && appearance.hideWhenBackgroundViewIsTapped {
             
             hideView()
         }
@@ -590,13 +604,13 @@ public class SCLAlertView: UIViewController {
         }
         
         // Done button
-        if showCloseButton {
+        if appearance.showCloseButton {
             addButton(completeText ?? "Done", target:self, selector:#selector(SCLAlertView.hideView))
         }
         
         //hidden/show circular view based on the ui option
-        circleView.hidden = !showCircularIcon
-        circleBG.hidden = !showCircularIcon
+        circleView.hidden = !appearance.showCircularIcon
+        circleBG.hidden = !appearance.showCircularIcon
         
         // Alert view colour and images
         circleView.backgroundColor = viewColor

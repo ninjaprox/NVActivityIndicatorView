@@ -87,27 +87,27 @@ class SCLAlertViewPropertiesTests: XCTestCase {
     }
     
     func testSCLAlertViewShowCloseButton() {
-        XCTAssertTrue(alert.showCloseButton == true)
+        XCTAssertTrue(alert.appearance.showCloseButton == true)
     }
     
     func testSCLAlertViewShowCircularIcon() {
-        XCTAssertTrue(alert.showCircularIcon == true)
+        XCTAssertTrue(alert.appearance.showCircularIcon == true)
     }
     
     func testSCLAlertViewContentViewCornerRadius() {
-        XCTAssertTrue(alert.contentViewCornerRadius == 5.0)
+        XCTAssertTrue(alert.appearance.contentViewCornerRadius == 5.0)
     }
     
     func testSCLAlertViewFieldCornerRadius() {
-        XCTAssertTrue(alert.fieldCornerRadius == 3.0)
+        XCTAssertTrue(alert.appearance.fieldCornerRadius == 3.0)
     }
     
     func testSCLAlertViewButtonCornerRadius() {
-        XCTAssertTrue(alert.buttonCornerRadius == 3.0)
+        XCTAssertTrue(alert.appearance.buttonCornerRadius == 3.0)
     }
     
     func testSCLAlertViewHideWhenBackgroundViewIsTapped() {
-        XCTAssertTrue(alert.hideWhenBackgroundViewIsTapped == false)
+        XCTAssertTrue(alert.appearance.hideWhenBackgroundViewIsTapped == false)
     }
     
     func testSCLAlertViewBaseView() {
