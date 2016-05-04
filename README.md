@@ -53,6 +53,20 @@ SCLAlertView().showTitle(
 
 ### Controls
 
+Custom Appearance
+
+```swift
+// SCLAlertView.SCLAppearanc has more than 15 different properties to customize.
+
+let appearance = SCLAlertView.SCLAppearance(
+    kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
+    kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
+    kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
+    showCloseButton: false
+)
+
+let alert = SCLAlertView(appearance: appearance)
+```
 
 #### Add buttons
 
@@ -68,16 +82,20 @@ alertView.showSuccess("Button View", subTitle: "This alert view has buttons")
 #### Hide default close button
 
 ```swift
-let alertView = SCLAlertView()
-alertView.showCloseButton = false
+let appearance = SCLAlertView.SCLAppearance(
+    showCloseButton: false
+)
+let alertView = SCLAlertView(appearance: appearance)
 alertView.showSuccess("No button", subTitle: "You will have hard times trying to close me")
 ```
 
 #### Hide default close button & a duration to close the alert
 
 ```swift
-let alertView = SCLAlertView()
-alertView.showCloseButton = false
+let appearance = SCLAlertView.SCLAppearance(
+    showCloseButton: false
+)
+let alertView = SCLAlertView(appearance: appearance)
 alertView.showWarning("No button", subTitle: "Just wait for 3 seconds and I will disappear", duration: 3)
 ```
 
@@ -85,17 +103,21 @@ alertView.showWarning("No button", subTitle: "Just wait for 3 seconds and I will
 #### Hide alert icon
 
 ```swift
-let alertView = SCLAlertView()
-alertView.showCircularIcon = false
+let appearance = SCLAlertView.SCLAppearance(
+    showCircularIcon: false
+)
+let alert = SCLAlertView(appearance: appearance)
 alertView.showSuccess("No icon", subTitle: "This is a clean alert without Icon!")
 ```
 
 #### Use a custom icon
 
 ```swift
-let alertView = SCLAlertView()
+let appearance = SCLAlertView.SCLAppearance(
+    showCircularIcon: true
+)
+let alert = SCLAlertView(appearance: appearance)
 let alertViewIcon = UIImage(named: "IconImage") //Replace the IconImage text with the image name
-alertView.showCircularIcon = true
 alertView.showInfo("Custom icon", subTitle: "This is a nice alert with a custom icon you choose", circleIconImage: alertViewIcon)
 ```
 
