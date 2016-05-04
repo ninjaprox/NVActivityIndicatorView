@@ -59,10 +59,10 @@ class ViewController: UIViewController {
     }
 
 	@IBAction func showEdit(sender: AnyObject) {
-		let alert = SCLAlertView()
+        let appearance = SCLAlertView.SCLAppearance(showCloseButton: true)
+        let alert = SCLAlertView(appearance: appearance)
 		let txt = alert.addTextField("Enter your name")
-        alert.hideWhenBackgroundViewIsTapped = true
-		alert.addButton("Show Name") {
+        alert.addButton("Show Name") {
 			print("Text value: \(txt.text)")
 		}
 		alert.showEdit(kInfoTitle, subTitle:kSubtitle)
@@ -74,7 +74,9 @@ class ViewController: UIViewController {
         let appearance = SCLAlertView.SCLAppearance(
             kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
             kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
-            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!)
+            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
+            showCloseButton: false
+        )
         
         // Initialize SCLAlertView using custom Appearance
         let alert = SCLAlertView(appearance: appearance)
@@ -105,7 +107,6 @@ class ViewController: UIViewController {
         
         // Add the subview to the alert's UI property
         alert.customSubview = subview
-        alert.showCloseButton = false
         alert.addButton("Login") {
             print("Logged in")
         }
