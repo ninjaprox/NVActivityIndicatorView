@@ -53,10 +53,10 @@ SCLAlertView().showTitle(
 
 ### Controls
 
-Custom Appearance
+#### Custom Appearance
 
 ```swift
-// SCLAlertView.SCLAppearanc has more than 15 different properties to customize.
+// SCLAlertView.SCLAppearanc has more than 15 different properties to customize. See below.
 
 let appearance = SCLAlertView.SCLAppearance(
     kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
@@ -184,6 +184,41 @@ alert.addButton("Duration Button", backgroundColor: UIColor.brownColor(), textCo
 }
 
 alert.showInfo("Login", subTitle: "", duration: 10)
+```
+
+
+#### List of properties to customize
+
+````swift
+// Button 
+kButtonFont: UIFont                     
+buttonCornerRadius : CGFloat            
+showCloseButton: Bool                   
+kButtonHeight: CGFloat                  
+
+// Circle Image
+showCircularIcon: Bool
+kCircleTopPosition: CGFloat
+kCircleBackgroundTopPosition: CGFloat
+kCircleHeight: CGFloat
+kCircleIconHeight: CGFloat
+
+// Text
+kTitleFont: UIFont
+kTitleTop:CGFloat
+kTitleHeight:CGFloat
+kTextFont: UIFont
+kTextHeight: CGFloat
+kTextFieldHeight: CGFloat
+kTextViewdHeight: CGFloat
+
+// View 
+kDefaultShadowOpacity: CGFloat          
+kWindowWidth: CGFloat
+kWindowHeight: CGFloat
+shouldAutoDismiss: Bool // Set this false to 'Disable' Auto hideView when SCLButton is tapped
+fieldCornerRadius : CGFloat
+contentViewCornerRadius : CGFloat
 ```
 
 
