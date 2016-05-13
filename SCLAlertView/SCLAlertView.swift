@@ -707,6 +707,8 @@ public class SCLAlertView: UIViewController {
             self.view.alpha = 0
             }, completion: { finished in
                 
+                //Stop durationTimer so alertView does not attempt to hide itself and fire it's dimiss block a second time when close button is tapped
+                self.durationTimer?.invalidate()
                 // Stop StatusTimer
                 self.durationStatusTimer?.invalidate()
                 
