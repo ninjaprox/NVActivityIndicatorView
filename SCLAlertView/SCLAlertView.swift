@@ -32,7 +32,7 @@ public enum SCLAlertViewStyle {
         }
         
     }
-    
+
 }
 
 // Action Types
@@ -112,6 +112,9 @@ public class SCLAlertView: UIViewController {
         let kTextFieldHeight: CGFloat
         let kTextViewdHeight: CGFloat
         let kButtonHeight: CGFloat
+        let contentViewColor: UIColor
+        let contentViewBorderColor: UIColor
+        let titleColor: UIColor
         
         // Fonts
         let kTitleFont: UIFont
@@ -129,7 +132,7 @@ public class SCLAlertView: UIViewController {
         // Actions
         var hideWhenBackgroundViewIsTapped: Bool
         
-        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFontOfSize(20), kTextFont: UIFont = UIFont.systemFontOfSize(14), kButtonFont: UIFont = UIFont.boldSystemFontOfSize(14), showCloseButton: Bool = true, showCircularIcon: Bool = true, shouldAutoDismiss: Bool = true, contentViewCornerRadius: CGFloat = 5.0, fieldCornerRadius: CGFloat = 3.0, buttonCornerRadius: CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Bool = false) {
+        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFontOfSize(20), kTextFont: UIFont = UIFont.systemFontOfSize(14), kButtonFont: UIFont = UIFont.boldSystemFontOfSize(14), showCloseButton: Bool = true, showCircularIcon: Bool = true, shouldAutoDismiss: Bool = true, contentViewCornerRadius: CGFloat = 5.0, fieldCornerRadius: CGFloat = 3.0, buttonCornerRadius: CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Bool = false, contentViewColor: UIColor = UIColorFromRGB(0xFFFFFF), contentViewBorderColor: UIColor = UIColorFromRGB(0xCCCCCC), titleColor: UIColor = UIColorFromRGB(0x4D4D4D)) {
             
             self.kDefaultShadowOpacity = kDefaultShadowOpacity
             self.kCircleTopPosition = kCircleTopPosition
@@ -144,6 +147,9 @@ public class SCLAlertView: UIViewController {
             self.kTextFieldHeight = kTextFieldHeight
             self.kTextViewdHeight = kTextViewdHeight
             self.kButtonHeight = kButtonHeight
+            self.contentViewColor = contentViewColor
+            self.contentViewBorderColor = contentViewBorderColor
+            self.titleColor = titleColor
             
             self.kTitleFont = kTitleFont
             self.kTextFont = kTextFont
@@ -177,7 +183,7 @@ public class SCLAlertView: UIViewController {
     public var iconTintColor: UIColor?
     public var customSubview : UIView?
     
-    
+
     
     // Members declaration
     var baseView = UIView()
@@ -227,7 +233,6 @@ public class SCLAlertView: UIViewController {
         baseView.frame = view.frame
         baseView.addSubview(contentView)
         // Content View
-        contentView.backgroundColor = UIColor(white:1, alpha:1)
         contentView.layer.cornerRadius = appearance.contentViewCornerRadius
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0.5
@@ -253,10 +258,11 @@ public class SCLAlertView: UIViewController {
         viewText.textContainer.lineFragmentPadding = 0;
         viewText.font = appearance.kTextFont
         // Colours
-        contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
-        labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
-        viewText.textColor = UIColorFromRGB(0x4D4D4D)
-        contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
+        contentView.backgroundColor = appearance.contentViewColor
+        viewText.backgroundColor = appearance.contentViewColor
+        labelTitle.textColor = appearance.titleColor
+        viewText.textColor = appearance.titleColor
+        contentView.layer.borderColor = appearance.contentViewBorderColor.CGColor
         //Gesture Recognizer for tapping outside the textinput
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
         tapGesture.numberOfTapsRequired = 1
@@ -381,7 +387,7 @@ public class SCLAlertView: UIViewController {
         appearance.setkWindowHeight(appearance.kWindowHeight + appearance.kTextViewdHeight)
         // Add text view
         let txt = UITextView()
-        // No placeholder with UITextView but you can use KMPlaceholderTextView library
+        // No placeholder with UITextView but you can use KMPlaceholderTextView library 
         txt.font = appearance.kTextFont
         //txt.autocapitalizationType = UITextAutocapitalizationType.Words
         //txt.clearButtonMode = UITextFieldViewMode.WhileEditing
@@ -470,11 +476,11 @@ public class SCLAlertView: UIViewController {
         guard let endKeyBoardFrame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.minY else {return}
         
         if tmpContentViewFrameOrigin == nil {
-            tmpContentViewFrameOrigin = self.contentView.frame.origin
+        tmpContentViewFrameOrigin = self.contentView.frame.origin
         }
         
         if tmpCircleViewFrameOrigin == nil {
-            tmpCircleViewFrameOrigin = self.circleBG.frame.origin
+        tmpCircleViewFrameOrigin = self.circleBG.frame.origin
         }
         
         var newContentViewFrameY = self.contentView.frame.maxY - endKeyBoardFrame
@@ -736,16 +742,16 @@ public class SCLAlertView: UIViewController {
             return defaultImage
         }
     }
-    
-    // Helper function to convert from RGB to UIColor
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
+
+// Helper function to convert from RGB to UIColor
+func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+    return UIColor(
+        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+        alpha: CGFloat(1.0)
+    )
+}
 }
 
 // ------------------------------------
