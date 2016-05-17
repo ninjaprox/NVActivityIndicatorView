@@ -742,6 +742,7 @@ public class SCLAlertView: UIViewController {
             return defaultImage
         }
     }
+}
 
 // Helper function to convert from RGB to UIColor
 func UIColorFromRGB(rgbValue: UInt) -> UIColor {
@@ -751,7 +752,6 @@ func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
         alpha: CGFloat(1.0)
     )
-}
 }
 
 // ------------------------------------
