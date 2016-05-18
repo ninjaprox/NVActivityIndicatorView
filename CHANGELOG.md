@@ -1,5 +1,11 @@
 # Change log
 
+## [v2.6](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.6)
+* Fix BallSpinFadeLoader animation
+* Fix LineSpinFadeLoader animation
+* Fix BallRotateChase animation
+* Change default animation to BallSpinFadeLoader
+
 ## [v2.5](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.5)
 * Fix padding issues
 
