@@ -105,7 +105,7 @@ import NVActivityIndicatorView
 Then, there are multiple ways you can create NVActivityIndicatorView:
 
 - Use it in storyboard by changing class of any `UIView` to `NVActivityIndicatorView`
-This will use default values white, .Pacman, 0 for color, type and padding respectively.
+This will use default values white, .BallSpinFadeLoader, 0 for color, type and padding respectively.
 
 - Create with specified type, color and padding
 
@@ -113,7 +113,7 @@ This will use default values white, .Pacman, 0 for color, type and padding respe
 NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding)
 ```
 
-Any of the last three arguments can be omitted. If an argument is omitted it will use the default values which are white, .Pacman, 0 for color, type and padding respectively.
+Any of the last three arguments can be omitted. If an argument is omitted it will use the default values which are white, .BallSpinFadeLoader, 0 for color, type and padding respectively.
 Therefore, you can also create NVActivityIndicatorView using any of the following:
 
 - Specify only frame, type and color
