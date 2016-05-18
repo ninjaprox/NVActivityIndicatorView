@@ -45,12 +45,12 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
     }
     
     func lineAt(angle angle: CGFloat, size: CGSize, origin: CGPoint, containerSize: CGSize, color: UIColor) -> CALayer {
-        let radius = containerSize.width / 2
+        let radius = containerSize.width / 2 - max(size.width, size.height) / 2
         let lineContainerSize = CGSize(width: max(size.width, size.height), height: max(size.width, size.height))
         let lineContainer = CALayer()
         let lineContainerFrame = CGRect(
-            x: origin.x + radius * (cos(angle) + 1) - lineContainerSize.width / 2,
-            y: origin.y + radius * (sin(angle) + 1) - lineContainerSize.height / 2,
+            x: origin.x + radius * (cos(angle) + 1),
+            y: origin.y + radius * (sin(angle) + 1),
             width: lineContainerSize.width,
             height: lineContainerSize.height)
         let line = NVActivityIndicatorShape.Line.createLayerWith(size: size, color: color)
