@@ -12,7 +12,7 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
     
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let lineSpacing: CGFloat = 2
-        let lineSize = CGSize(width: (size.width - 4 * lineSpacing) / 5, height: size.height / 3)
+        let lineSize = CGSize(width: (size.width - 4 * lineSpacing) / 5, height: (size.height - 2 * lineSpacing) / 3)
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - size.height) / 2
         let duration: CFTimeInterval = 1.2
