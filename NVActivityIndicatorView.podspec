@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NVActivityIndicatorView"
-  s.version      = "2.5"
+  s.version      = "2.6"
   s.summary      = "A collection of nice loading animations"
   s.homepage     = "https://github.com/ninjaprox/NVActivityIndicatorView"
   s.screenshots  = "https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif"
