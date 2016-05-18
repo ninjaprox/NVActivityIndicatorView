@@ -126,6 +126,7 @@ enum NVActivityIndicatorShape {
         
         layer.backgroundColor = nil
         layer.path = path.CGPath
+        layer.frame = CGRectMake(0, 0, size.width, size.height)
         
         return layer
     }
