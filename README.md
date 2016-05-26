@@ -165,15 +165,25 @@ Stop animation
 activityIndicatorView.stopAnimation()
 ```
 
-UI blocker
+## UI blocker
+
+You can use `NVActivityIndicatorView` as UI blocker for `UIViewController` by conforming `NVActivityIndicatorViewable` protocol.
 
 ```swift
-class ViewController: UIViewController, NVActivityIndicatorViewable {
-    func buttonTapped(sender: UIButton) {
-        startActivityAnimating("Loading...")
-        //stopActivityAnimating()
-    }
-}
+class ViewController: UIViewController, NVActivityIndicatorViewable { }
+```
+
+Start animation
+
+```swift
+startActivityAnimating(message) // plus other parameters as when initializing
+startActivityAnimating(message, color: color)
+```
+
+Stop animation
+
+```swift
+stopActivityAnimating()
 ```
 
 ## Change properties
