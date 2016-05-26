@@ -169,13 +169,6 @@ UI blocker
 
 ```swift
 class ViewController: UIViewController, NVActivityIndicatorViewable {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Change global default if needed
-        NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
-    }
-    
     func buttonTapped(sender: UIButton) {
         startActivityAnimating("Loading...")
         //stopActivityAnimating()
@@ -210,6 +203,13 @@ activityIndicatorView.hidesWhenStopped = true
 Get current status of animation
 ```swift
 animation = activityIndicatorView.animating
+```
+
+Specify global defaults if needed
+```swift
+NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
+NVActivityIndicatorView.DEFAULT_COLOR = .yellowColor()
+NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(5.0)
 ```
 
 # Acknowledgment
