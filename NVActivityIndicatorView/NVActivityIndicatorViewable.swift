@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+ *  UIViewController conforms this protocol to be able to display NVActivityIndicatorView as UI blocker.
+ *
+ *  This will add functionalities to UIViewController to display and remove UI blocker.
+ */
 public protocol NVActivityIndicatorViewable { }
 
 public extension NVActivityIndicatorViewable where Self: UIViewController {

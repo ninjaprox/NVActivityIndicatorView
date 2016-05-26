@@ -294,8 +294,13 @@ public enum NVActivityIndicatorType: Int {
 
 /// Activity indicator view with nice animations
 public class NVActivityIndicatorView: UIView {
+    /// Default type. Default value is .BallSpinFadeLoader.
     public static var DEFAULT_TYPE: NVActivityIndicatorType = .BallSpinFadeLoader
+    
+    /// Default color. Default value is UIColor.whiteColor().
     public static var DEFAULT_COLOR = UIColor.whiteColor()
+    
+    /// Default padding. Default value is 0.
     public static var DEFAULT_PADDING: CGFloat = 0
     
     /// Animation type, value of NVActivityIndicatorType enum.
