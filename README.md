@@ -165,6 +165,17 @@ Stop animation
 activityIndicatorView.stopAnimation()
 ```
 
+UI blocker
+
+```swift
+class ViewController: UIViewController, NVActivityIndicatorViewable {
+    func buttonTapped(sender: UIButton) {
+        startActivityAnimating("Loading...")
+        //stopActivityAnimating()
+    }
+}
+```
+
 ## Change properties
 
 If you use `NVActivityIndicatorView` in storyboard, you can change these properties in Attributes inspector tab of Utilities panel.
@@ -192,6 +203,13 @@ activityIndicatorView.hidesWhenStopped = true
 Get current status of animation
 ```swift
 animation = activityIndicatorView.animating
+```
+
+Specify global defaults if needed
+```swift
+NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
+NVActivityIndicatorView.DEFAULT_COLOR = .yellowColor()
+NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(5.0)
 ```
 
 # Acknowledgment
