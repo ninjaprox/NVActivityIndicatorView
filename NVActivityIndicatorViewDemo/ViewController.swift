@@ -8,14 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, NVActivityIndicatorViewable {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
-        
-        let activityTypes: [NVActivityIndicatorType] = [
+    let activityTypes: [NVActivityIndicatorType] = [
             .BallPulse,
             .BallGridPulse,
             .BallClipRotate,
@@ -44,7 +39,14 @@ class ViewController: UIViewController {
             .Pacman,
             .BallGridBeat,
             .SemiCircleSpin,
-            .BallRotateChase]
+            .BallRotateChase
+        ]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
+        
         let cols = 4
         let rows = 8
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
@@ -68,7 +70,25 @@ class ViewController: UIViewController {
             self.view.addSubview(activityIndicatorView)
             self.view.addSubview(animationTypeLabel)
             activityIndicatorView.startAnimation()
+            
+            let button:UIButton = UIButton(frame: frame)
+            button.tag = i
+            button.addTarget(self,
+                action: #selector(buttonTapped(_:)),
+                forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(button)
         }
+    }
+    
+    func buttonTapped(sender: UIButton) {
+        startActivityAnimating("Loading...", type: activityTypes[sender.tag])
+        performSelector(#selector(delayedStopActivity),
+            withObject: nil,
+            afterDelay: 2.5)
+    }
+    
+    func delayedStopActivity() {
+        stopActivityAnimating()
     }
     
 }
