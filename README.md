@@ -165,6 +165,17 @@ Stop animation
 activityIndicatorView.stopAnimation()
 ```
 
+UI blocker
+
+```swift
+class ViewController: UIViewController, NVActivityIndicatorViewable {
+    func buttonTapped(sender: UIButton) {
+        startActivityAnimating(.BallSpinFadeLoader, message: "Loading...")
+        //stopActivityAnimating()
+    }
+}
+```
+
 ## Change properties
 
 If you use `NVActivityIndicatorView` in storyboard, you can change these properties in Attributes inspector tab of Utilities panel.

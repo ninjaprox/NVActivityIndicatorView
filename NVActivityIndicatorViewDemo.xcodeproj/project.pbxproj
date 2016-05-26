@@ -13,6 +13,8 @@
 		239CAB2D1B5EBB2E0051DC06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2C1B5EBB2E0051DC06 /* Images.xcassets */; };
 		239CAB301B5EBB2E0051DC06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2E1B5EBB2E0051DC06 /* LaunchScreen.xib */; };
 		239CAB3C1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */; };
+		8B1EEC821CF723E100AE054B /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */; };
+		8B1EEC831CF7252600AE054B /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */; };
 		90A879341BA554A0001C8989 /* NVActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 90A879331BA554A0001C8989 /* NVActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90A879891BA55798001C8989 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A879691BA55798001C8989 /* NVActivityIndicatorAnimationBallBeat.swift */; };
 		90A8798A1BA55798001C8989 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8796A1BA55798001C8989 /* NVActivityIndicatorAnimationBallClipRotate.swift */; };
@@ -103,6 +105,7 @@
 		239CAB351B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		239CAB3A1B5EBB2E0051DC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewDemoTests.swift; sourceTree = "<group>"; };
+		8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
 		90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A879321BA554A0001C8989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90A879331BA554A0001C8989 /* NVActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorView.h; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 				90A879681BA55798001C8989 /* Animations */,
 				90A879861BA55798001C8989 /* NVActivityIndicatorAnimationDelegate.swift */,
 				90A879871BA55798001C8989 /* NVActivityIndicatorShape.swift */,
+				8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */,
 				90A879881BA55798001C8989 /* NVActivityIndicatorView.swift */,
 				90A879331BA554A0001C8989 /* NVActivityIndicatorView.h */,
 				90A879311BA554A0001C8989 /* Supporting Files */,
@@ -459,6 +463,7 @@
 				90A879C81BA557B1001C8989 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
 				90A879B41BA557B1001C8989 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
 				90A879B71BA557B1001C8989 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
+				8B1EEC831CF7252600AE054B /* NVActivityIndicatorViewable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +506,7 @@
 				90A879A31BA55798001C8989 /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
 				90A879A61BA55798001C8989 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				90A879891BA55798001C8989 /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
+				8B1EEC821CF723E100AE054B /* NVActivityIndicatorViewable.swift in Sources */,
 				90A879961BA55798001C8989 /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift in Sources */,
 				90A8799C1BA55798001C8989 /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
 				90A8799B1BA55798001C8989 /* NVActivityIndicatorAnimationBlank.swift in Sources */,
