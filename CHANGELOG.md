@@ -2,6 +2,7 @@
 
 ## [v2.7](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.7)
 * Display as UI blocker for UIViewController
+* Be able to change defaults
 
 ## [v2.6](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.6)
 * Fix BallSpinFadeLoader animation
