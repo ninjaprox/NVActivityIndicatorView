@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol NVActivityIndicatorViewable: class { }
+public protocol NVActivityIndicatorViewable { }
 
 public extension NVActivityIndicatorViewable where Self: UIViewController {
 
