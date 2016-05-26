@@ -42,7 +42,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             .BallRotateChase
         ]
     
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
@@ -81,7 +81,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func buttonTapped(sender: UIButton) {
-        startActivityAnimating(activityTypes[sender.tag], message: "Loading...")
+        startActivityAnimating("Loading...", type: activityTypes[sender.tag])
         performSelector(#selector(delayedStopActivity),
             withObject: nil,
             afterDelay: 2.5)

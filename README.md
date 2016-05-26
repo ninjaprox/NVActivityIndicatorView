@@ -169,8 +169,15 @@ UI blocker
 
 ```swift
 class ViewController: UIViewController, NVActivityIndicatorViewable {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Change global default if needed
+        NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
+    }
+    
     func buttonTapped(sender: UIButton) {
-        startActivityAnimating(.BallSpinFadeLoader, message: "Loading...")
+        startActivityAnimating("Loading...")
         //stopActivityAnimating()
     }
 }

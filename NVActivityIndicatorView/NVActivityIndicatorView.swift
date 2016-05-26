@@ -294,9 +294,9 @@ public enum NVActivityIndicatorType: Int {
 
 /// Activity indicator view with nice animations
 public class NVActivityIndicatorView: UIView {
-    private static let DEFAULT_TYPE: NVActivityIndicatorType = .BallSpinFadeLoader
-    private static let DEFAULT_COLOR = UIColor.whiteColor()
-    private static let DEFAULT_PADDING: CGFloat = 0
+    public static var DEFAULT_TYPE: NVActivityIndicatorType = .BallSpinFadeLoader
+    public static var DEFAULT_COLOR = UIColor.whiteColor()
+    public static var DEFAULT_PADDING: CGFloat = 0
     
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE

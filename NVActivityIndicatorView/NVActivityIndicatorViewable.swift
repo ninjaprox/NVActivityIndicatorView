@@ -24,7 +24,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter color: color of activity indicator view. Default color is white.
      - parameter padding: view's padding. Default padding is 0.
      */
-    public func startActivityAnimating(type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil, message: String? = nil) {
+    public func startActivityAnimating(message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
         let activityContainer: UIView = UIView(frame: view.bounds)
         activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         activityContainer.restorationIdentifier = activityRestorationIdentifier
@@ -42,7 +42,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         activityIndicatorView.startAnimation()
         activityContainer.addSubview(activityIndicatorView)
         
-        if let message = message {
+        if let message = message where !message.isEmpty {
             let label = UILabel(frame: CGRectMake(0, 0, width, 30))
             label.center = CGPointMake(
                 activityIndicatorView.center.x,
