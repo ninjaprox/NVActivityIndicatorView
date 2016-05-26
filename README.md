@@ -215,7 +215,10 @@ Get current status of animation
 animation = activityIndicatorView.animating
 ```
 
-Specify global defaults if needed
+## Change defaults
+
+Change global defaults if needed
+
 ```swift
 NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
 NVActivityIndicatorView.DEFAULT_COLOR = .yellowColor()
