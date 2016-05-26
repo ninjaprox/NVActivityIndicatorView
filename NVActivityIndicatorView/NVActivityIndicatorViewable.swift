@@ -20,7 +20,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      Create a activity indicator view with specified frame, type, color and padding and start animation.
      
      - parameter frame: view's frame.
-     - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is pacman.
+     - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is BallSpinFadeLoader.
      - parameter color: color of activity indicator view. Default color is white.
      - parameter padding: view's padding. Default padding is 0.
      */
