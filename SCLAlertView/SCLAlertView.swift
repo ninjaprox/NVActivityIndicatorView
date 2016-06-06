@@ -37,7 +37,7 @@ public enum SCLAlertViewStyle {
 
 // Animation Styles
 public enum SCLAnimationStyle {
-    case NoAnimation, TopToBottom, BottomToTop, LeftToRight, RightToLeft, Appear
+    case NoAnimation, TopToBottom, BottomToTop, LeftToRight, RightToLeft
 }
 
 // Action Types
@@ -692,66 +692,52 @@ public class SCLAlertView: UIViewController {
         }
         
         // Animate in the alert view
-        switch animationStyle {
-        
-        case .NoAnimation:
-            self.view.alpha = 1.0
-            
-        case .TopToBottom:
-            self.baseView.frame.origin.y = -400
-            UIView.animateWithDuration(0.2, animations: {
-                self.baseView.center.y = rv.center.y + 15
-                self.view.alpha = 1
-                }, completion: { finished in
-                    UIView.animateWithDuration(0.2, animations: {
-                        self.baseView.center = rv.center
-                    })
-            })
-            
-        case .BottomToTop:
-            self.baseView.frame.origin.y = 400
-            UIView.animateWithDuration(0.2, animations: {
-                self.baseView.center.y = rv.center.y - 15
-                self.view.alpha = 1
-                }, completion: { finished in
-                    UIView.animateWithDuration(0.2, animations: {
-                        self.baseView.center = rv.center
-                    })
-            })
-            
-        case .LeftToRight:
-            self.baseView.frame.origin.x = -400
-            UIView.animateWithDuration(0.2, animations: {
-                self.baseView.center.x = rv.center.x + 15
-                self.view.alpha = 1
-                }, completion: { finished in
-                    UIView.animateWithDuration(0.2, animations: {
-                        self.baseView.center = rv.center
-                    })
-            })
-            
-        case .RightToLeft:
-            self.baseView.frame.origin.x = 400
-            UIView.animateWithDuration(0.2, animations: {
-                self.baseView.center.x = rv.center.x - 15
-                self.view.alpha = 1
-                }, completion: { finished in
-                    UIView.animateWithDuration(0.2, animations: {
-                        self.baseView.center = rv.center
-                    })
-            })
-            
-        case .Appear:
-            self.view.alpha = 0.0
-            UIView.animateWithDuration(0.2, animations: {
-                self.view.alpha = 1.0
-                }, completion: { finished in
-            })
-            
-        }
+        self.showAnimation(animationStyle)
        
         // Chainable objects
         return SCLAlertViewResponder(alertview: self)
+    }
+    
+    // Show animation in the alert view
+    private func showAnimation(animationStyle: SCLAnimationStyle = .TopToBottom, animationStartOffset: CGFloat = -400.0, boundingAnimationOffset: CGFloat = 15.0, animationDuration: NSTimeInterval = 0.2) {
+        
+        let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
+        var animationStartOrigin = self.baseView.frame.origin
+        var animationCenter : CGPoint = rv.center
+        
+        switch animationStyle {
+
+        case .NoAnimation:
+            self.view.alpha = 1.0
+            return;
+            
+        case .TopToBottom:
+            animationStartOrigin = CGPoint(x: animationStartOrigin.x, y: self.baseView.frame.origin.y + animationStartOffset)
+            animationCenter = CGPoint(x: animationCenter.x, y: animationCenter.y + boundingAnimationOffset)
+            
+        case .BottomToTop:
+            animationStartOrigin = CGPoint(x: animationStartOrigin.x, y: self.baseView.frame.origin.y - animationStartOffset)
+            animationCenter = CGPoint(x: animationCenter.x, y: animationCenter.y - boundingAnimationOffset)
+            
+        case .LeftToRight:
+            animationStartOrigin = CGPoint(x: self.baseView.frame.origin.x + animationStartOffset, y: animationStartOrigin.y)
+            animationCenter = CGPoint(x: animationCenter.x + boundingAnimationOffset, y: animationCenter.y)
+            
+        case .RightToLeft:
+            animationStartOrigin = CGPoint(x: self.baseView.frame.origin.x - animationStartOffset, y: animationStartOrigin.y)
+            animationCenter = CGPoint(x: animationCenter.x - boundingAnimationOffset, y: animationCenter.y)
+        }
+
+        self.baseView.frame.origin = animationStartOrigin
+        UIView.animateWithDuration(animationDuration, animations: {
+            self.view.alpha = 1.0
+            self.baseView.center = animationCenter
+            }, completion: { finished in
+                UIView.animateWithDuration(animationDuration, animations: {
+                    self.view.alpha = 1.0
+                    self.baseView.center = rv.center
+                })
+        })
     }
     
     public func updateDurationStatus() {
