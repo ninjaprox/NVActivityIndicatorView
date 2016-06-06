@@ -230,6 +230,17 @@ enum SCLAlertViewStyle: Int {
 }
 ```
 
+
+### Alert show animation Styles
+
+```swift
+// Animation Styles
+public enum SCLAnimationStyle {
+    case NoAnimation, TopToBottom, BottomToTop, LeftToRight, RightToLeft
+}
+```
+
+
 Installation
 ---
 

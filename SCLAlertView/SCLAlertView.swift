@@ -35,6 +35,11 @@ public enum SCLAlertViewStyle {
 
 }
 
+// Animation Styles
+public enum SCLAnimationStyle {
+    case NoAnimation, TopToBottom, BottomToTop, LeftToRight, RightToLeft
+}
+
 // Action Types
 public enum SCLActionType {
     case None, Selector, Closure
@@ -518,46 +523,47 @@ public class SCLAlertView: UIViewController {
     }
     
     // showSuccess(view, title, subTitle)
-    public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showError(view, title, subTitle)
-    public func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Error.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Error.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showNotice(view, title, subTitle)
-    public func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Notice.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Notice.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showWarning(view, title, subTitle)
-    public func showWarning(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Warning.defaultColorInt, colorTextButton: UInt=0x000000, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showWarning(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Warning.defaultColorInt, colorTextButton: UInt=0x000000, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showInfo(view, title, subTitle)
-    public func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Info.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Info.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showWait(view, title, subTitle)
-    public func showWait(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=SCLAlertViewStyle.Wait.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showWait(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=SCLAlertViewStyle.Wait.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
-    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Edit.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Edit.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showTitle(view, title, subTitle, style)
-    public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=0x000000, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=0x000000, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+        
+        return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?=0x000000, colorTextButton: UInt?=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?=0x000000, colorTextButton: UInt?=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
         selfReference = self
         view.alpha = 0
         let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
@@ -686,17 +692,52 @@ public class SCLAlertView: UIViewController {
         }
         
         // Animate in the alert view
-        self.baseView.frame.origin.y = -400
-        UIView.animateWithDuration(0.2, animations: {
-            self.baseView.center.y = rv.center.y + 15
-            self.view.alpha = 1
+        self.showAnimation(animationStyle)
+       
+        // Chainable objects
+        return SCLAlertViewResponder(alertview: self)
+    }
+    
+    // Show animation in the alert view
+    private func showAnimation(animationStyle: SCLAnimationStyle = .TopToBottom, animationStartOffset: CGFloat = -400.0, boundingAnimationOffset: CGFloat = 15.0, animationDuration: NSTimeInterval = 0.2) {
+        
+        let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
+        var animationStartOrigin = self.baseView.frame.origin
+        var animationCenter : CGPoint = rv.center
+        
+        switch animationStyle {
+
+        case .NoAnimation:
+            self.view.alpha = 1.0
+            return;
+            
+        case .TopToBottom:
+            animationStartOrigin = CGPoint(x: animationStartOrigin.x, y: self.baseView.frame.origin.y + animationStartOffset)
+            animationCenter = CGPoint(x: animationCenter.x, y: animationCenter.y + boundingAnimationOffset)
+            
+        case .BottomToTop:
+            animationStartOrigin = CGPoint(x: animationStartOrigin.x, y: self.baseView.frame.origin.y - animationStartOffset)
+            animationCenter = CGPoint(x: animationCenter.x, y: animationCenter.y - boundingAnimationOffset)
+            
+        case .LeftToRight:
+            animationStartOrigin = CGPoint(x: self.baseView.frame.origin.x + animationStartOffset, y: animationStartOrigin.y)
+            animationCenter = CGPoint(x: animationCenter.x + boundingAnimationOffset, y: animationCenter.y)
+            
+        case .RightToLeft:
+            animationStartOrigin = CGPoint(x: self.baseView.frame.origin.x - animationStartOffset, y: animationStartOrigin.y)
+            animationCenter = CGPoint(x: animationCenter.x - boundingAnimationOffset, y: animationCenter.y)
+        }
+
+        self.baseView.frame.origin = animationStartOrigin
+        UIView.animateWithDuration(animationDuration, animations: {
+            self.view.alpha = 1.0
+            self.baseView.center = animationCenter
             }, completion: { finished in
-                UIView.animateWithDuration(0.2, animations: {
+                UIView.animateWithDuration(animationDuration, animations: {
+                    self.view.alpha = 1.0
                     self.baseView.center = rv.center
                 })
         })
-        // Chainable objects
-        return SCLAlertViewResponder(alertview: self)
     }
     
     public func updateDurationStatus() {
