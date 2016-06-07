@@ -118,6 +118,20 @@ class ViewController: UIViewController {
 
         alert.showInfo("Login", subTitle: "", duration: 10)
     }
+    
+    @IBAction func showCustomAlert(sender: AnyObject) {
+    
+        let alert = SCLAlertView()
+        alert.addButton("First Button", target:self, selector:#selector(ViewController.firstButton))
+        alert.addButton("Second Button") {
+            print("Second button tapped")
+        }
+        
+        let icon = UIImage(named:"custom_icon.png")
+        let color = UIColor.orangeColor()
+        
+        alert.showCustom("Custom Color", subTitle: "Custom color", color: color, icon: icon!)
+    }
 	
 	func firstButton() {
 		print("First button tapped")
