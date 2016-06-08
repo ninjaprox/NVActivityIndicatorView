@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ngj-nl-OHz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ngj-nl-OHz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -80,6 +80,13 @@
                                     <action selector="showEdit:" destination="ngj-nl-OHz" eventType="touchUpInside" id="Cce-Yv-6Q3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioy-Wh-g2g">
+                                <rect key="frame" x="234" y="437" width="132" height="30"/>
+                                <state key="normal" title="Show Custom Alert"/>
+                                <connections>
+                                    <action selector="showCustomAlert:" destination="ngj-nl-OHz" eventType="touchUpInside" id="mOn-fE-qni"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -93,6 +100,7 @@
                             <constraint firstAttribute="centerX" secondItem="Uhe-aS-BHL" secondAttribute="centerX" constant="0.5" id="JiZ-Sr-LRZ"/>
                             <constraint firstItem="McK-98-W7e" firstAttribute="centerY" secondItem="arb-3g-Toj" secondAttribute="centerY" constant="258" id="Olk-US-7Qt"/>
                             <constraint firstItem="VWR-vv-K1w" firstAttribute="centerX" secondItem="dOp-SD-9bQ" secondAttribute="centerX" id="R9D-mp-DSX"/>
+                            <constraint firstItem="ioy-Wh-g2g" firstAttribute="centerX" secondItem="7du-np-8iv" secondAttribute="centerX" id="TJm-hW-AWH"/>
                             <constraint firstItem="arb-3g-Toj" firstAttribute="centerX" secondItem="G4y-kv-ZRs" secondAttribute="centerX" id="am6-Lr-rTd"/>
                             <constraint firstItem="VWR-vv-K1w" firstAttribute="centerX" secondItem="ism-f4-jWc" secondAttribute="centerX" id="fku-3F-Xme"/>
                             <constraint firstItem="9bA-oa-lCU" firstAttribute="top" secondItem="McK-98-W7e" secondAttribute="bottom" constant="8" id="fph-BA-FU4"/>
@@ -100,6 +108,7 @@
                             <constraint firstItem="McK-98-W7e" firstAttribute="leading" secondItem="ism-f4-jWc" secondAttribute="leading" id="kzA-aj-lPP"/>
                             <constraint firstItem="ism-f4-jWc" firstAttribute="top" secondItem="VWR-vv-K1w" secondAttribute="bottom" constant="20" id="m91-r8-IcB"/>
                             <constraint firstItem="dOp-SD-9bQ" firstAttribute="top" secondItem="Uhe-aS-BHL" secondAttribute="bottom" constant="20" id="rWX-S4-YjF"/>
+                            <constraint firstItem="ioy-Wh-g2g" firstAttribute="top" secondItem="9bA-oa-lCU" secondAttribute="bottom" constant="16" id="wfc-Ch-5d6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
