@@ -424,7 +424,7 @@ public class NVActivityIndicatorView: UIView {
     // MARK: Privates
     
     private func setUpAnimation() {
-        let animation = customType ?? self.type.animation()
+        let animation = self.customType ?? self.type.animation()
         var animationRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
         let minEdge = min(animationRect.width, animationRect.height)
         
