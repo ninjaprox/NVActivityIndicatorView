@@ -39,7 +39,8 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             .Pacman,
             .BallGridBeat,
             .SemiCircleSpin,
-            .BallRotateChase
+            .BallRotateChase,
+            .Orbit
         ]
     
     override func viewDidLoad() {
