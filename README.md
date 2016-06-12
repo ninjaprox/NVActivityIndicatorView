@@ -151,6 +151,14 @@ NVActivityIndicatorView(frame: frame, padding: padding)
 NVActivityIndicatorView(frame: frame)
 ```
 
+- Create with custom type, color and padding
+
+```swift
+NVActivityIndicatorView(frame: frame, type: NVActivityIndicatorAnimationDelegate, color: color, padding: padding)
+```
+
+Custom animations can be created by conforming your activity indicator to `NVActivityIndicatorAnimationDelegate`.
+
 ## Start/Stop animation
 
 Start animation
@@ -164,14 +172,6 @@ Stop animation
 ```swift
 activityIndicatorView.stopAnimation()
 ```
-
-- Create with custom type, color and padding
-
-```swift
-NVActivityIndicatorView(frame: frame, type: NVActivityIndicatorAnimationDelegate, color: color, padding: padding)
-```
-
-Custom animations can be created by conforming your activity indicator to `NVActivityIndicatorAnimationDelegate`.
 
 ## UI blocker
 
