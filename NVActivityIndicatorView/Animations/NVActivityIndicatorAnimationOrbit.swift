@@ -9,7 +9,7 @@
 import UIKit
 
 class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
-    let duration: CFTimeInterval = 1.8
+    let duration: CFTimeInterval = 1.9
     let distanceIncrement: CGFloat = 25
     let satelliteIncrement: CGFloat = 5
     let coreIncrement: CGFloat = 25
