@@ -8,6 +8,6 @@
 
 import UIKit
 
-public protocol NVActivityIndicatorAnimationDelegate {
+protocol NVActivityIndicatorAnimationDelegate {
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor)
 }

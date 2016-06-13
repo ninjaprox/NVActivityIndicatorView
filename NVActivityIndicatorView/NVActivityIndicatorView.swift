@@ -314,9 +314,6 @@ public class NVActivityIndicatorView: UIView {
     
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
-    
-    /// Custom animation indicator
-    public var customType: NVActivityIndicatorAnimationDelegate? = nil
 
     @available(*, unavailable, message="This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
@@ -380,23 +377,6 @@ public class NVActivityIndicatorView: UIView {
     }
     
     /**
-     Create a activity indicator view with specified frame, type, color and padding.
-     
-     - parameter frame: view's frame.
-     - parameter customType: custom animation type, conforms to NVActivityIndicatorAnimationDelegate.
-     - parameter color: color of activity indicator view. Default color is white.
-     - parameter padding: view's padding. Default padding is 0.
-     
-     - returns: The activity indicator view.
-     */
-    public init(frame: CGRect, type: NVActivityIndicatorAnimationDelegate, color: UIColor? = nil, padding: CGFloat? = nil) {
-        self.customType = type
-        self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
-        self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
-        super.init(frame: frame)
-    }
-    
-    /**
      Start animation.
      */
     public func startAnimation() {
@@ -424,7 +404,7 @@ public class NVActivityIndicatorView: UIView {
     // MARK: Privates
     
     private func setUpAnimation() {
-        let animation = customType ?? self.type.animation()
+        let animation: protocol<NVActivityIndicatorAnimationDelegate> = self.type.animation()
         var animationRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
         let minEdge = min(animationRect.width, animationRect.height)
         

@@ -15,7 +15,6 @@
 		239CAB2D1B5EBB2E0051DC06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2C1B5EBB2E0051DC06 /* Images.xcassets */; };
 		239CAB301B5EBB2E0051DC06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2E1B5EBB2E0051DC06 /* LaunchScreen.xib */; };
 		239CAB3C1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */; };
-		8B12D3061D0E1A0700A65756 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12D3051D0E1A0700A65756 /* CustomActivityIndicator.swift */; };
 		8B1EEC821CF723E100AE054B /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */; };
 		8B1EEC831CF7252600AE054B /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */; };
 		90A879341BA554A0001C8989 /* NVActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 90A879331BA554A0001C8989 /* NVActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -109,7 +108,6 @@
 		239CAB351B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		239CAB3A1B5EBB2E0051DC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewDemoTests.swift; sourceTree = "<group>"; };
-		8B12D3051D0E1A0700A65756 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
 		90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A879321BA554A0001C8989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 			children = (
 				239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */,
 				239CAB271B5EBB2E0051DC06 /* ViewController.swift */,
-				8B12D3051D0E1A0700A65756 /* CustomActivityIndicator.swift */,
 				239CAB291B5EBB2E0051DC06 /* Main.storyboard */,
 				239CAB2C1B5EBB2E0051DC06 /* Images.xcassets */,
 				239CAB2E1B5EBB2E0051DC06 /* LaunchScreen.xib */,
@@ -452,7 +449,6 @@
 				90A879B91BA557B1001C8989 /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift in Sources */,
 				90A879BB1BA557B1001C8989 /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
 				90A879B21BA557B1001C8989 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
-				8B12D3061D0E1A0700A65756 /* CustomActivityIndicator.swift in Sources */,
 				90A879C51BA557B1001C8989 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				90A879BF1BA557B1001C8989 /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
 				90A879C11BA557B1001C8989 /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,

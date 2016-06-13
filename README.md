@@ -165,14 +165,6 @@ Stop animation
 activityIndicatorView.stopAnimation()
 ```
 
-- Create with custom type, color and padding
-
-```swift
-NVActivityIndicatorView(frame: frame, type: NVActivityIndicatorAnimationDelegate, color: color, padding: padding)
-```
-
-Custom animations can be created by conforming your activity indicator to `NVActivityIndicatorAnimationDelegate`.
-
 ## UI blocker
 
 You can use `NVActivityIndicatorView` as UI blocker for `UIViewController` by conforming `NVActivityIndicatorViewable` protocol.
