@@ -53,6 +53,10 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     
     func buttonTapped(sender: UIButton) {
         startActivityAnimating("Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
+        
+        // Can do custom animations also
+        // startActivityAnimating("Loading...", type: CustomActivityIndicator())
+        
         performSelector(#selector(delayedStopActivity),
             withObject: nil,
             afterDelay: 2.5)
