@@ -10,16 +10,15 @@ import UIKit
 
 class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
     let duration: CFTimeInterval = 1.9
-    let distanceIncrement: CGFloat = 25
-    let satelliteIncrement: CGFloat = 5
-    let coreIncrement: CGFloat = 25
+    let satelliteCoreRatio: CGFloat = 0.25
+    let distanceRatio:CGFloat = 1.5 // distance / core size
     
-    var satelliteSize: CGFloat = 0
     var coreSize: CGFloat = 0
+    var satelliteSize: CGFloat = 0
     
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
-        satelliteSize = size.width / 15 + satelliteIncrement
-        coreSize = size.width / 5 + coreIncrement
+        coreSize = size.width / (1 + satelliteCoreRatio + distanceRatio)
+        satelliteSize = coreSize * satelliteCoreRatio
         
         ring1InLayer(layer, size: size, color: color)
         ring2InLayer(layer, size: size, color: color)
@@ -134,7 +133,11 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
         // Rotate animation
         let rotateAnimation = CAKeyframeAnimation(keyPath: "position")
         
-        rotateAnimation.path = UIBezierPath(arcCenter: CGPoint(x: CGRectGetMidX(layer.bounds), y: CGRectGetMidY(layer.bounds)), radius: (size.width - satelliteSize) / 2 + distanceIncrement, startAngle: 3 * CGFloat(M_PI) * 0.5, endAngle: 3 * CGFloat(M_PI) * 0.5 + 4 * CGFloat(M_PI), clockwise: true).CGPath
+        rotateAnimation.path = UIBezierPath(arcCenter: CGPoint(x: CGRectGetMidX(layer.bounds), y: CGRectGetMidY(layer.bounds)),
+                                            radius: (size.width - satelliteSize) / 2,
+                                            startAngle: CGFloat(M_PI) * 1.5,
+                                            endAngle: CGFloat(M_PI) * 1.5 + 4 * CGFloat(M_PI),
+                                            clockwise: true).CGPath
         rotateAnimation.duration = duration * 2
         rotateAnimation.repeatCount = HUGE
         rotateAnimation.removedOnCompletion = false
