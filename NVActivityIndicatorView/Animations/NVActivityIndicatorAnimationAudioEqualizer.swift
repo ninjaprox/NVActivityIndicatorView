@@ -12,7 +12,7 @@ class NVActivityIndicatorAnimationAudioEqualizer: NVActivityIndicatorAnimationDe
     
     func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
         let lineSize = size.width / 9
-        let x = (layer.bounds.size.width - size.width) / 2
+        let x = (layer.bounds.size.width - lineSize * 7) / 2
         let y = (layer.bounds.size.height - size.height) / 2
         let duration: [CFTimeInterval] = [4.3, 2.5, 1.7, 3.1]
         let values = [0, 0.7, 0.4, 0.05, 0.95, 0.3, 0.9, 0.4, 0.15, 0.18, 0.75, 0.01]
