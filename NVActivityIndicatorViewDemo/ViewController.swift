@@ -20,7 +20,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
         
-        (NVActivityIndicatorType.BallPulse.rawValue ... NVActivityIndicatorType.Orbit.rawValue).forEach {
+        (NVActivityIndicatorType.BallPulse.rawValue ... NVActivityIndicatorType.AudioEqualizer.rawValue).forEach {
             let x = ($0 - 1) % cols * cellWidth
             let y = ($0 - 1) / cols * cellHeight
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
