@@ -1,5 +1,9 @@
 # Change log
 
+## [v2.8](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.8)
+* New Orbit animation
+* New Audio equalizer animation
+
 ## [v2.7](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.7)
 * Display as UI blocker for UIViewController
 * Be able to change defaults
