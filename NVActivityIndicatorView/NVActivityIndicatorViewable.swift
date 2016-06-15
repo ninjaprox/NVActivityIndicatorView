@@ -24,21 +24,18 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
     /**
      Create a activity indicator view with specified frame, type, color and padding and start animation.
      
-     - parameter frame: view's frame.
+     - parameter size: indicator's size. Default is CGSize(width: 60, height: 60)
      - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is BallSpinFadeLoader.
      - parameter color: color of activity indicator view. Default color is white.
      - parameter padding: view's padding. Default padding is 0.
      */
-    public func startActivityAnimating(frame: CGRect = CGRectZero, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
+    public func startActivityAnimating(size: CGSize = CGSize(width: 60, height: 60), message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
         let activityContainer: UIView = UIView(frame: view.bounds)
         activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         activityContainer.restorationIdentifier = activityRestorationIdentifier
         
-        let width = frame.width
-        let height = width
-        
         let activityIndicatorView = NVActivityIndicatorView(
-            frame: CGRectMake(0, 0, width, height),
+            frame: CGRectMake(0, 0, size.width, size.height),
             type: type,
             color: color,
             padding: padding)
@@ -47,11 +44,12 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         activityIndicatorView.startAnimation()
         activityContainer.addSubview(activityIndicatorView)
         
+        let width = activityContainer.frame.size.width / 3
         if let message = message where !message.isEmpty {
             let label = UILabel(frame: CGRectMake(0, 0, width, 30))
             label.center = CGPointMake(
                 activityIndicatorView.center.x,
-                activityIndicatorView.center.y + height)
+                activityIndicatorView.center.y + size.height)
             label.textAlignment = .Center
             label.text = message
             label.font = UIFont.boldSystemFontOfSize(20)
