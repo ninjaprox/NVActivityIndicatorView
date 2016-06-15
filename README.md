@@ -1,6 +1,9 @@
 SCLAlertView
 ===========
 
+[![Version](https://img.shields.io/cocoapods/v/SCLAlertView.svg?style=flat)](http://cocoadocs.org/docsets/SCLAlertView/)
+
+
 Animated Alert View written in Swift, which can be used as a `UIAlertView` or `UIAlertController` replacement. Since `UIAlertView` is deprecated and `UIAlertController` only works on iOS 8.x or above, if you have a Swift project where you want to support iOS 7.x too, SCLAlertView is an ideal substitution.
 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)_
