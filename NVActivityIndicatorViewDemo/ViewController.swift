@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController, NVActivityIndicatorViewable {
     
@@ -81,7 +82,8 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func buttonTapped(sender: UIButton) {
-        startActivityAnimating("Loading...", type: activityTypes[sender.tag])
+        let size = CGSize(width: 30, height:30)
+        startActivityAnimating(size, message: "Loading...", type: activityTypes[sender.tag])
         performSelector(#selector(delayedStopActivity),
             withObject: nil,
             afterDelay: 2.5)
