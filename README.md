@@ -47,6 +47,8 @@ For first-hand experience, just open the project and run it.
 27. BallGridBeat
 28. SemiCircleSpin
 29. BallRotateChase
+30. Orbit
+31. AudioEqualizer
 
 # Installation
 
