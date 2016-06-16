@@ -178,8 +178,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable { }
 Start animation
 
 ```swift
-startActivityAnimating(message) // plus other parameters as when initializing
-startActivityAnimating(message, color: color)
+startActivityAnimating(size, message) // plus other parameters as when initializing
 ```
 
 Stop animation
@@ -223,7 +222,7 @@ Change global defaults if needed
 
 ```swift
 NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
-NVActivityIndicatorView.DEFAULT_COLOR = .yellowColor()
+NVActivityIndicatorView.DEFAULT_COLOR = UIColor.yellowColor()
 NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(5.0)
 ```
 
