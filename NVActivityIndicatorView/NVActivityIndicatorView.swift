@@ -324,7 +324,7 @@ public class NVActivityIndicatorView: UIView {
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
     
     ///Custom activitiy indicator, value conforms NVActivityIndicatorAnimationDelegate.
-    public var customAnimation: protocol<NVActivityIndicatorAnimationDelegate>?
+    public var customAnimation: NVActivityIndicatorAnimationDelegate?
 
     @available(*, unavailable, message="This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
