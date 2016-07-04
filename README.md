@@ -224,6 +224,7 @@ Change global defaults if needed
 NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
 NVActivityIndicatorView.DEFAULT_COLOR = UIColor.yellowColor()
 NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(5.0)
+NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
 ```
 
 # Acknowledgment
