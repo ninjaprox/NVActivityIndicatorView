@@ -1,5 +1,8 @@
 # Change log
 
+## [v2.9](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.8)
+* Ability to change size of animation in UI blocker
+
 ## [v2.8](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.8)
 * New Orbit animation
 * New Audio equalizer animation
