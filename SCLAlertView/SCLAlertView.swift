@@ -467,7 +467,7 @@ public class SCLAlertView: UIViewController {
     }
     
     func buttonRelease(btn:SCLButton) {
-        btn.backgroundColor = btn.customBackgroundColor
+        btn.backgroundColor = btn.customBackgroundColor ?? viewColor
     }
     
     var tmpContentViewFrameOrigin: CGPoint?
