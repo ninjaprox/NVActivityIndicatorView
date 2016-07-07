@@ -109,7 +109,7 @@ alertView.showWarning("No button", subTitle: "Just wait for 3 seconds and I will
 let appearance = SCLAlertView.SCLAppearance(
     showCircularIcon: false
 )
-let alert = SCLAlertView(appearance: appearance)
+let alertView = SCLAlertView(appearance: appearance)
 alertView.showSuccess("No icon", subTitle: "This is a clean alert without Icon!")
 ```
 
@@ -119,7 +119,7 @@ alertView.showSuccess("No icon", subTitle: "This is a clean alert without Icon!"
 let appearance = SCLAlertView.SCLAppearance(
     showCircularIcon: true
 )
-let alert = SCLAlertView(appearance: appearance)
+let alertView = SCLAlertView(appearance: appearance)
 let alertViewIcon = UIImage(named: "IconImage") //Replace the IconImage text with the image name
 alertView.showInfo("Custom icon", subTitle: "This is a nice alert with a custom icon you choose", circleIconImage: alertViewIcon)
 ```
