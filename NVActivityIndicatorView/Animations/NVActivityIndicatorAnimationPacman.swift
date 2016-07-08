@@ -10,12 +10,12 @@ import UIKit
 
 class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         circleInLayer(layer, size: size, color: color)
         pacmanInLayer(layer, size: size, color: color)
     }
     
-    func pacmanInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func pacmanInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let pacmanSize = 2 * size.width / 3
         let pacmanDuration: CFTimeInterval = 0.5
         let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
@@ -42,23 +42,18 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         animation.animations = [strokeStartAnimation, strokeEndAnimation]
         animation.duration = pacmanDuration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw pacman
-        let pacman = NVActivityIndicatorShape.Pacman.createLayerWith(size: CGSize(width: pacmanSize, height: pacmanSize), color: color)
-        let frame = CGRect(
-            x: (layer.bounds.size.width - size.width) / 2,
-            y: (layer.bounds.size.height - size.height) / 2 + size.height / 2 - pacmanSize / 2,
-            width: pacmanSize,
-            height: pacmanSize
-        )
+        let pacman = NVActivityIndicatorShape.pacman.createLayerWith(CGSize(width: pacmanSize, height: pacmanSize), color: color)
+        let frame = CGRect(x:(layer.bounds.width - size.width)/2, y: (layer.bounds.height - size.height)/2 + size.height/2 - pacmanSize/2, width: pacmanSize, height: pacmanSize)
         
         pacman.frame = frame
-        pacman.addAnimation(animation, forKey: "animation")
+        pacman.add(animation, forKey: "animation")
         layer.addSublayer(pacman)
     }
     
-    func circleInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func circleInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let circleSize = size.width / 5
         let circleDuration: CFTimeInterval = 1
         
@@ -83,20 +78,16 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = circleDuration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw circles
-        let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
-        let frame = CGRect(
-            x: (layer.bounds.size.width - size.width) / 2 + size.width - circleSize,
-            y: (layer.bounds.size.height - size.height) / 2 + size.height / 2 - circleSize
-                / 2,
-            width: circleSize,
-            height: circleSize
-        )
+        let circle = NVActivityIndicatorShape.circle.createLayerWith(CGSize(width: circleSize, height: circleSize), color: color)
+        let x =  (layer.bounds.size.width-size.width)/2 + size.width - circleSize
+        let y = (layer.bounds.height-size.height)/2 + size.height/2 - circleSize/2
+        let frame = CGRect(x:x,y:y,width: circleSize,height: circleSize)
         
         circle.frame = frame
-        circle.addAnimation(animation, forKey: "animation")
+        circle.add(animation, forKey: "animation")
         layer.addSublayer(circle)
     }
 }

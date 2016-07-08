@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBlank: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         // Do nothing
     }
 }
