@@ -24,25 +24,22 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
     /**
      Create a activity indicator view with specified frame, type, color and padding and start animation.
      
-     - parameter size: activity indicator view's size. Default size is 60x60.
-     - parameter message: message under activity indicator view.
+     - parameter size: indicator's size. Default is CGSize(width: 60, height: 60)
+     - parameter message: message displayed under the animation.
      - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is BallSpinFadeLoader.
      - parameter color: color of activity indicator view. Default color is white.
      - parameter padding: view's padding. Default padding is 0.
      */
-    public func startActivityAnimating(size: CGSize? = nil, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
+    public func startActivityAnimating(_ size: CGSize = CGSize(width: 60, height: 60), message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
         let activityContainer: UIView = UIView(frame: view.bounds)
-        
         activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         activityContainer.restorationIdentifier = activityRestorationIdentifier
         
-        let actualSize = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         let activityIndicatorView = NVActivityIndicatorView(
-            frame: CGRectMake(0, 0, actualSize.width, actualSize.height),
+            frame: CGRect(x: 0, y: 0, width: size.width, height: size.height),
             type: type,
             color: color,
             padding: padding)
-        
         activityIndicatorView.center = activityContainer.center
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.startAnimation()
@@ -50,13 +47,13 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         
         let width = activityContainer.frame.size.width / 3
         if let message = message where !message.isEmpty {
-            let label = UILabel(frame: CGRectMake(0, 0, width, 30))
-            label.center = CGPointMake(
-                activityIndicatorView.center.x,
-                activityIndicatorView.center.y + actualSize.height)
-            label.textAlignment = .Center
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 30))
+            label.center = CGPoint(
+                x: activityIndicatorView.center.x,
+                y: activityIndicatorView.center.y + size.height)
+            label.textAlignment = .center
             label.text = message
-            label.font = UIFont.boldSystemFontOfSize(20)
+            label.font = UIFont.boldSystemFont(ofSize: 20)
             label.textColor = activityIndicatorView.color
             activityContainer.addSubview(label)
         }

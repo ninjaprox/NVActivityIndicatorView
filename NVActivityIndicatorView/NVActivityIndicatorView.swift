@@ -49,261 +49,261 @@ public enum NVActivityIndicatorType: Int {
      
      - returns: Instance of NVActivityIndicatorAnimationBlank.
      */
-    case Blank
+    case blank
     /**
      BallPulse.
      
      - returns: Instance of NVActivityIndicatorAnimationBallPulse.
      */
-    case BallPulse
+    case ballPulse
     /**
      BallGridPulse.
      
      - returns: Instance of NVActivityIndicatorAnimationBallGridPulse.
      */
-    case BallGridPulse
+    case ballGridPulse
     /**
      BallClipRotate.
      
      - returns: Instance of NVActivityIndicatorAnimationBallClipRotate.
      */
-    case BallClipRotate
+    case ballClipRotate
     /**
      SquareSpin.
      
      - returns: Instance of NVActivityIndicatorAnimationSquareSpin.
      */
-    case SquareSpin
+    case squareSpin
     /**
      BallClipRotatePulse.
      
      - returns: Instance of NVActivityIndicatorAnimationBallClipRotatePulse.
      */
-    case BallClipRotatePulse
+    case ballClipRotatePulse
     /**
      BallClipRotateMultiple.
      
      - returns: Instance of NVActivityIndicatorAnimationBallClipRotateMultiple.
      */
-    case BallClipRotateMultiple
+    case ballClipRotateMultiple
     /**
      BallPulseRise.
      
      - returns: Instance of NVActivityIndicatorAnimationBallPulseRise.
      */
-    case BallPulseRise
+    case ballPulseRise
     /**
      BallRotate.
      
      - returns: Instance of NVActivityIndicatorAnimationBallRotate.
      */
-    case BallRotate
+    case ballRotate
     /**
      CubeTransition.
      
      - returns: Instance of NVActivityIndicatorAnimationCubeTransition.
      */
-    case CubeTransition
+    case cubeTransition
     /**
      BallZigZag.
      
      - returns: Instance of NVActivityIndicatorAnimationBallZigZag.
      */
-    case BallZigZag
+    case ballZigZag
     /**
      BallZigZagDeflect
      
      - returns: Instance of NVActivityIndicatorAnimationBallZigZagDeflect
      */
-    case BallZigZagDeflect
+    case ballZigZagDeflect
     /**
      BallTrianglePath.
      
      - returns: Instance of NVActivityIndicatorAnimationBallTrianglePath.
      */
-    case BallTrianglePath
+    case ballTrianglePath
     /**
      BallScale.
      
      - returns: Instance of NVActivityIndicatorAnimationBallScale.
      */
-    case BallScale
+    case ballScale
     /**
      LineScale.
      
      - returns: Instance of NVActivityIndicatorAnimationLineScale.
      */
-    case LineScale
+    case lineScale
     /**
      LineScaleParty.
      
      - returns: Instance of NVActivityIndicatorAnimationLineScaleParty.
      */
-    case LineScaleParty
+    case lineScaleParty
     /**
      BallScaleMultiple.
      
      - returns: Instance of NVActivityIndicatorAnimationBallScaleMultiple.
      */
-    case BallScaleMultiple
+    case ballScaleMultiple
     /**
      BallPulseSync.
      
      - returns: Instance of NVActivityIndicatorAnimationBallPulseSync.
      */
-    case BallPulseSync
+    case ballPulseSync
     /**
      BallBeat.
      
      - returns: Instance of NVActivityIndicatorAnimationBallBeat.
      */
-    case BallBeat
+    case ballBeat
     /**
      LineScalePulseOut.
      
      - returns: Instance of NVActivityIndicatorAnimationLineScalePulseOut.
      */
-    case LineScalePulseOut
+    case lineScalePulseOut
     /**
      LineScalePulseOutRapid.
      
      - returns: Instance of NVActivityIndicatorAnimationLineScalePulseOutRapid.
      */
-    case LineScalePulseOutRapid
+    case lineScalePulseOutRapid
     /**
      BallScaleRipple.
      
      - returns: Instance of NVActivityIndicatorAnimationBallScaleRipple.
      */
-    case BallScaleRipple
+    case ballScaleRipple
     /**
      BallScaleRippleMultiple.
      
      - returns: Instance of NVActivityIndicatorAnimationBallScaleRippleMultiple.
      */
-    case BallScaleRippleMultiple
+    case ballScaleRippleMultiple
     /**
      BallSpinFadeLoader.
      
      - returns: Instance of NVActivityIndicatorAnimationBallSpinFadeLoader.
      */
-    case BallSpinFadeLoader
+    case ballSpinFadeLoader
     /**
      LineSpinFadeLoader.
      
      - returns: Instance of NVActivityIndicatorAnimationLineSpinFadeLoader.
      */
-    case LineSpinFadeLoader
+    case lineSpinFadeLoader
     /**
      TriangleSkewSpin.
      
      - returns: Instance of NVActivityIndicatorAnimationTriangleSkewSpin.
      */
-    case TriangleSkewSpin
+    case triangleSkewSpin
     /**
      Pacman.
      
      - returns: Instance of NVActivityIndicatorAnimationPacman.
      */
-    case Pacman
+    case pacman
     /**
      BallGridBeat.
      
      - returns: Instance of NVActivityIndicatorAnimationBallGridBeat.
      */
-    case BallGridBeat
+    case ballGridBeat
     /**
      SemiCircleSpin.
      
      - returns: Instance of NVActivityIndicatorAnimationSemiCircleSpin.
      */
-    case SemiCircleSpin
+    case semiCircleSpin
     /**
      BallRotateChase.
      
      - returns: Instance of NVActivityIndicatorAnimationBallRotateChase.
      */
-    case BallRotateChase
+    case ballRotateChase
     /**
      Orbit.
      
      - returns: Instance of NVActivityIndicatorAnimationOrbit.
      */
-    case Orbit
+    case orbit
     /**
      AudioEqualizer.
      
      - returns: Instance of NVActivityIndicatorAnimationAudioEqualizer.
      */
-    case AudioEqualizer
+    case audioEqualizer
     
-    private static let allTypes = (Blank.rawValue ... Orbit.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
+    private static let allTypes = (blank.rawValue ... orbit.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
 
     private func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
-        case .Blank:
+        case .blank:
             return NVActivityIndicatorAnimationBlank()
-        case .BallPulse:
+        case .ballPulse:
             return NVActivityIndicatorAnimationBallPulse()
-        case .BallGridPulse:
+        case .ballGridPulse:
             return NVActivityIndicatorAnimationBallGridPulse()
-        case .BallClipRotate:
+        case .ballClipRotate:
             return NVActivityIndicatorAnimationBallClipRotate()
-        case .SquareSpin:
+        case .squareSpin:
             return NVActivityIndicatorAnimationSquareSpin()
-        case .BallClipRotatePulse:
+        case .ballClipRotatePulse:
             return NVActivityIndicatorAnimationBallClipRotatePulse()
-        case .BallClipRotateMultiple:
+        case .ballClipRotateMultiple:
             return NVActivityIndicatorAnimationBallClipRotateMultiple()
-        case .BallPulseRise:
+        case .ballPulseRise:
             return NVActivityIndicatorAnimationBallPulseRise()
-        case .BallRotate:
+        case .ballRotate:
             return NVActivityIndicatorAnimationBallRotate()
-        case .CubeTransition:
+        case .cubeTransition:
             return NVActivityIndicatorAnimationCubeTransition()
-        case .BallZigZag:
+        case .ballZigZag:
             return NVActivityIndicatorAnimationBallZigZag()
-        case .BallZigZagDeflect:
+        case .ballZigZagDeflect:
             return NVActivityIndicatorAnimationBallZigZagDeflect()
-        case .BallTrianglePath:
+        case .ballTrianglePath:
             return NVActivityIndicatorAnimationBallTrianglePath()
-        case .BallScale:
+        case .ballScale:
             return NVActivityIndicatorAnimationBallScale()
-        case .LineScale:
+        case .lineScale:
             return NVActivityIndicatorAnimationLineScale()
-        case .LineScaleParty:
+        case .lineScaleParty:
             return NVActivityIndicatorAnimationLineScaleParty()
-        case .BallScaleMultiple:
+        case .ballScaleMultiple:
             return NVActivityIndicatorAnimationBallScaleMultiple()
-        case .BallPulseSync:
+        case .ballPulseSync:
             return NVActivityIndicatorAnimationBallPulseSync()
-        case .BallBeat:
+        case .ballBeat:
             return NVActivityIndicatorAnimationBallBeat()
-        case .LineScalePulseOut:
+        case .lineScalePulseOut:
             return NVActivityIndicatorAnimationLineScalePulseOut()
-        case .LineScalePulseOutRapid:
+        case .lineScalePulseOutRapid:
             return NVActivityIndicatorAnimationLineScalePulseOutRapid()
-        case .BallScaleRipple:
+        case .ballScaleRipple:
             return NVActivityIndicatorAnimationBallScaleRipple()
-        case .BallScaleRippleMultiple:
+        case .ballScaleRippleMultiple:
             return NVActivityIndicatorAnimationBallScaleRippleMultiple()
-        case .BallSpinFadeLoader:
+        case .ballSpinFadeLoader:
             return NVActivityIndicatorAnimationBallSpinFadeLoader()
-        case .LineSpinFadeLoader:
+        case .lineSpinFadeLoader:
             return NVActivityIndicatorAnimationLineSpinFadeLoader()
-        case .TriangleSkewSpin:
+        case .triangleSkewSpin:
             return NVActivityIndicatorAnimationTriangleSkewSpin()
-        case .Pacman:
+        case .pacman:
             return NVActivityIndicatorAnimationPacman()
-        case .BallGridBeat:
+        case .ballGridBeat:
             return NVActivityIndicatorAnimationBallGridBeat()
-        case .SemiCircleSpin:
+        case .semiCircleSpin:
             return NVActivityIndicatorAnimationSemiCircleSpin()
-        case .BallRotateChase:
+        case .ballRotateChase:
             return NVActivityIndicatorAnimationBallRotateChase()
-        case .Orbit:
+        case .orbit:
             return NVActivityIndicatorAnimationOrbit()
-        case .AudioEqualizer:
+        case .audioEqualizer:
             return NVActivityIndicatorAnimationAudioEqualizer()
         }
     }
@@ -312,28 +312,25 @@ public enum NVActivityIndicatorType: Int {
 /// Activity indicator view with nice animations
 public class NVActivityIndicatorView: UIView {
     /// Default type. Default value is .BallSpinFadeLoader.
-    public static var DEFAULT_TYPE: NVActivityIndicatorType = .BallSpinFadeLoader
+    public static var DEFAULT_TYPE: NVActivityIndicatorType = .ballSpinFadeLoader
     
     /// Default color. Default value is UIColor.whiteColor().
-    public static var DEFAULT_COLOR = UIColor.whiteColor()
+    public static var DEFAULT_COLOR = UIColor.white()
     
     /// Default padding. Default value is 0.
     public static var DEFAULT_PADDING: CGFloat = 0
     
-    /// Default size of activity indicator view in UI blocker. Default value is 60x60.
-    public static var DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
-    
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
 
-    @available(*, unavailable, message="This property is reserved for Interface Builder. Use 'type' instead.")
+    @available(*, unavailable, message:"This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
         get {
             return String(self.type)
         }
         set (typeString) {
             for item in NVActivityIndicatorType.allTypes {
-                if String(item).caseInsensitiveCompare(typeString) == NSComparisonResult.OrderedSame {
+                if String(item).caseInsensitiveCompare(typeString) == ComparisonResult.orderedSame {
                     self.type = item
                     break
                 }
@@ -367,7 +364,7 @@ public class NVActivityIndicatorView: UIView {
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear()
     }
     
     /**
@@ -391,8 +388,8 @@ public class NVActivityIndicatorView: UIView {
      Start animation.
      */
     public func startAnimation() {
-        if hidesWhenStopped && hidden {
-            hidden = false
+        if hidesWhenStopped && isHidden {
+            isHidden = false
         }
         if (self.layer.sublayers == nil) {
             setUpAnimation()
@@ -407,8 +404,8 @@ public class NVActivityIndicatorView: UIView {
     public func stopAnimation() {
         self.layer.sublayers = nil
         self.animating = false
-        if hidesWhenStopped && !hidden {
-            hidden = true
+        if hidesWhenStopped && !isHidden {
+            isHidden = true
         }
     }
     
@@ -420,7 +417,7 @@ public class NVActivityIndicatorView: UIView {
         let minEdge = min(animationRect.width, animationRect.height)
         
         self.layer.sublayers = nil
-        animationRect.size = CGSizeMake(minEdge, minEdge)
+        animationRect.size = CGSize(width:minEdge,height: minEdge)
         animation.setUpAnimationInLayer(self.layer, size: animationRect.size, color: self.color)
     }
 }
