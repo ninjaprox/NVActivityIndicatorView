@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         circleInLayer(layer, size: size, color: color)
         pacmanInLayer(layer, size: size, color: color)
     }
@@ -46,7 +46,7 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         
         // Draw pacman
         let pacman = NVActivityIndicatorShape.pacman.createLayerWith(CGSize(width: pacmanSize, height: pacmanSize), color: color)
-        let frame = CGRect(x:(layer.bounds.width - size.width)/2, y: (layer.bounds.height - size.height)/2 + size.height/2 - pacmanSize/2, width: pacmanSize, height: pacmanSize)
+        let frame = CGRect(x: (layer.bounds.width - size.width) / 2, y: (layer.bounds.height - size.height) / 2 + size.height / 2 - pacmanSize / 2, width: pacmanSize, height: pacmanSize)
         
         pacman.frame = frame
         pacman.add(animation, forKey: "animation")
@@ -82,9 +82,9 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         
         // Draw circles
         let circle = NVActivityIndicatorShape.circle.createLayerWith(CGSize(width: circleSize, height: circleSize), color: color)
-        let x =  (layer.bounds.size.width-size.width)/2 + size.width - circleSize
-        let y = (layer.bounds.height-size.height)/2 + size.height/2 - circleSize/2
-        let frame = CGRect(x:x,y:y,width: circleSize,height: circleSize)
+        let x =  (layer.bounds.size.width - size.width) / 2 + size.width - circleSize
+        let y = (layer.bounds.height - size.height) / 2 + size.height / 2 - circleSize / 2
+        let frame = CGRect(x: x,y: y,width: circleSize,height: circleSize)
         
         circle.frame = frame
         circle.add(animation, forKey: "animation")

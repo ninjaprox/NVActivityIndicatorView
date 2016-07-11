@@ -16,7 +16,7 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
     var coreSize: CGFloat = 0
     var satelliteSize: CGFloat = 0
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         coreSize = size.width / (1 + satelliteCoreRatio + distanceRatio)
         satelliteSize = coreSize * satelliteCoreRatio
         
@@ -54,8 +54,8 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
 
         // Draw circle
         let circle = NVActivityIndicatorShape.circle.createLayerWith(CGSize(width: coreSize, height: coreSize), color: color)
-        let frame = CGRect(x:(layer.bounds.size.width - coreSize) / 2,
-                           y:(layer.bounds.size.height - coreSize) / 2,
+        let frame = CGRect(x: (layer.bounds.size.width - coreSize) / 2,
+                           y: (layer.bounds.size.height - coreSize) / 2,
                            width: coreSize,
                            height:coreSize)
         
@@ -92,7 +92,7 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
         
         // Draw circle
         let circle = NVActivityIndicatorShape.circle.createLayerWith(CGSize(width: coreSize, height: coreSize), color: color)
-        let frame = CGRect(x:(layer.bounds.size.width - coreSize) / 2,
+        let frame = CGRect(x: (layer.bounds.size.width - coreSize) / 2,
                            y: (layer.bounds.size.height - coreSize) / 2,
                            width:  coreSize,
                            height:coreSize)
@@ -119,7 +119,7 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
         
         // Draw circle
         let circle = NVActivityIndicatorShape.circle.createLayerWith(CGSize(width: coreSize, height: coreSize), color: color)
-        let frame = CGRect(x:(layer.bounds.size.width - coreSize) / 2,
+        let frame = CGRect(x: (layer.bounds.size.width - coreSize) / 2,
                            y:  (layer.bounds.size.height - coreSize) / 2,
                            width:  coreSize,
                            height: coreSize)
