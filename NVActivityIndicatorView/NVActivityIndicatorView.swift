@@ -323,6 +323,9 @@ public class NVActivityIndicatorView: UIView {
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
 
+    /// Default size of activity indicator view in UI blocker. Default value is 60x60.
+    public static var DEFAULT_BLOCKER_SIZE = CGSize(width: 60,height: 60)
+    
     @available(*, unavailable, message:"This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
         get {
@@ -418,6 +421,6 @@ public class NVActivityIndicatorView: UIView {
         
         self.layer.sublayers = nil
         animationRect.size = CGSize(width: minEdge,height: minEdge)
-        animation.setUpAnimationInLayer(self.layer, size: animationRect.size, color: self.color)
+        animation.setUpAnimation(in: self.layer, size: animationRect.size, color: self.color)
     }
 }
