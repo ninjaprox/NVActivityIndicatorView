@@ -30,10 +30,10 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter color: color of activity indicator view. Default color is white.
      - parameter padding: view's padding. Default padding is 0.
      */
-    public func startActivityAnimating(size: CGSize? = nil, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
+    public func startActivityAnimating(size: CGSize? = nil, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, backgroundColor: UIColor? = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5), padding: CGFloat? = nil) {
         let activityContainer: UIView = UIView(frame: view.bounds)
         
-        activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        activityContainer.backgroundColor = backgroundColor
         activityContainer.restorationIdentifier = activityRestorationIdentifier
         
         let actualSize = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
