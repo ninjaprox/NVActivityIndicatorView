@@ -22,18 +22,19 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
     }
 
     /**
-     Create a activity indicator view with specified frame, type, color and padding and start animation.
+     Create a activity indicator view with specified frame, type, color, background color and padding and start animation.
      
      - parameter size: activity indicator view's size. Default size is 60x60.
      - parameter message: message under activity indicator view.
      - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is BallSpinFadeLoader.
      - parameter color: color of activity indicator view. Default color is white.
+     - parameter backgroundColor: background color of activity indicator view. Default color is black with 0.5 alpha.
      - parameter padding: view's padding. Default padding is 0.
      */
-    public func startActivityAnimating(size: CGSize? = nil, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
+    public func startActivityAnimating(size: CGSize? = nil, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, backgroundColor: UIColor? = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5), padding: CGFloat? = nil) {
         let activityContainer: UIView = UIView(frame: view.bounds)
         
-        activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        activityContainer.backgroundColor = backgroundColor
         activityContainer.restorationIdentifier = activityRestorationIdentifier
         
         let actualSize = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
