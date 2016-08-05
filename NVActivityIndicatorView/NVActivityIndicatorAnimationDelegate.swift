@@ -9,5 +9,5 @@
 import UIKit
 
 protocol NVActivityIndicatorAnimationDelegate {
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor)
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor)
 }
