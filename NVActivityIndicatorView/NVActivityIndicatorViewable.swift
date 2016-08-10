@@ -31,7 +31,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter padding: view's padding. Default padding is 0.
      */
     public func startActivityAnimating(size: CGSize? = nil, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
-        let activityContainer: UIView = UIView(frame: view.bounds)
+        let activityContainer: UIView = UIView(frame: UIScreen.mainScreen().bounds)
         
         activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         activityContainer.restorationIdentifier = activityRestorationIdentifier
@@ -61,14 +61,14 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
             activityContainer.addSubview(label)
         }
         
-        view.addSubview(activityContainer)
+        UIApplication.sharedApplication().keyWindow!.addSubview(activityContainer)
     }
-
+    
     /**
      Stop animation and remove from view hierarchy.
      */
     public func stopActivityAnimating() {
-        for item in view.subviews
+        for item in UIApplication.sharedApplication().keyWindow!.subviews
             where item.restorationIdentifier == activityRestorationIdentifier {
                 item.removeFromSuperview()
         }
