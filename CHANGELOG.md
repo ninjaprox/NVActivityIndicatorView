@@ -1,6 +1,10 @@
 # Change log
 
-## [v2.9](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.8)
+## [v2.10](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.10)
+* Fix UI block not showing full screen
+* Support tvOS
+
+## [v2.9](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.9)
 * Ability to change size of animation in UI blocker
 
 ## [v2.8](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.8)
