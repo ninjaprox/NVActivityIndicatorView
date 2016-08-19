@@ -47,7 +47,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         activityContainer.addSubview(activityIndicatorView)
         
         let width = activityContainer.frame.size.width / 3
-        if let message = message where !message.isEmpty {
+        if let message = message , !message.isEmpty {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 30))
             label.center = CGPoint(
                 x: activityIndicatorView.center.x,

@@ -237,9 +237,9 @@ public enum NVActivityIndicatorType: Int {
      */
     case audioEqualizer
     
-    private static let allTypes = (blank.rawValue ... orbit.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
+    fileprivate static let allTypes = (blank.rawValue ... orbit.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
 
-    private func animation() -> NVActivityIndicatorAnimationDelegate {
+    fileprivate func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
         case .blank:
             return NVActivityIndicatorAnimationBlank()
@@ -315,7 +315,7 @@ public class NVActivityIndicatorView: UIView {
     public static var DEFAULT_TYPE: NVActivityIndicatorType = .ballSpinFadeLoader
     
     /// Default color. Default value is UIColor.whiteColor().
-    public static var DEFAULT_COLOR = UIColor.white()
+    public static var DEFAULT_COLOR = UIColor.white
     
     /// Default padding. Default value is 0.
     public static var DEFAULT_PADDING: CGFloat = 0
@@ -329,11 +329,11 @@ public class NVActivityIndicatorView: UIView {
     @available(*, unavailable, message:"This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
         get {
-            return String(self.type)
+            return String(describing: self.type)
         }
         set (typeString) {
             for item in NVActivityIndicatorType.allTypes {
-                if String(item).caseInsensitiveCompare(typeString) == ComparisonResult.orderedSame {
+                if String(describing: item).caseInsensitiveCompare(typeString) == ComparisonResult.orderedSame {
                     self.type = item
                     break
                 }
@@ -367,7 +367,7 @@ public class NVActivityIndicatorView: UIView {
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.clear()
+        backgroundColor = UIColor.clear
     }
     
     /**
@@ -415,7 +415,7 @@ public class NVActivityIndicatorView: UIView {
     // MARK: Privates
     
     private func setUpAnimation() {
-        let animation: protocol<NVActivityIndicatorAnimationDelegate> = self.type.animation()
+        let animation: NVActivityIndicatorAnimationDelegate = self.type.animation()
         var animationRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
         let minEdge = min(animationRect.width, animationRect.height)
         

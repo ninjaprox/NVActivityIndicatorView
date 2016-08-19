@@ -72,13 +72,13 @@ class NVActivityIndicatorAnimationBallTrianglePath: NVActivityIndicatorAnimation
         let fullDeltaY = 2 * deltaY
         var range = NSMakeRange(0, valueMutableString.length)
         
-        valueMutableString.replaceOccurrences(of: "hx", with: "\(deltaX)", options: NSString.CompareOptions.caseInsensitiveSearch, range: range)
+        valueMutableString.replaceOccurrences(of: "hx", with: "\(deltaX)", options: NSString.CompareOptions.caseInsensitive, range: range)
         range.length = valueMutableString.length
-        valueMutableString.replaceOccurrences(of: "fx", with: "\(fullDeltaX)", options: NSString.CompareOptions.caseInsensitiveSearch, range: range)
+        valueMutableString.replaceOccurrences(of: "fx", with: "\(fullDeltaX)", options: NSString.CompareOptions.caseInsensitive, range: range)
         range.length = valueMutableString.length
-        valueMutableString.replaceOccurrences(of: "hy", with: "\(deltaY)", options: NSString.CompareOptions.caseInsensitiveSearch, range: range)
+        valueMutableString.replaceOccurrences(of: "hy", with: "\(deltaY)", options: NSString.CompareOptions.caseInsensitive, range: range)
         range.length = valueMutableString.length
-        valueMutableString.replaceOccurrences(of: "fy", with: "\(fullDeltaY)", options: NSString.CompareOptions.caseInsensitiveSearch, range: range)
+        valueMutableString.replaceOccurrences(of: "fy", with: "\(fullDeltaY)", options: NSString.CompareOptions.caseInsensitive, range: range)
         
         return valueMutableString as String
     }
