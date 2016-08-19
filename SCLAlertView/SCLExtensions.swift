@@ -20,7 +20,7 @@ extension Int {
     }
     
     func toCGColor() -> CGColor {
-        return self.toUIColor().CGColor
+        return self.toUIColor().cgColor
     }
 }
 
@@ -36,6 +36,6 @@ extension UInt {
     }
     
     func toCGColor() -> CGColor {
-        return self.toUIColor().CGColor
+        return self.toUIColor().cgColor
     }
 }
