@@ -23,7 +23,7 @@ class SCLButtonTests: XCTestCase {
     func testButtonClassType() {
         let alert = SCLAlertView()
         alert.addButton("testButtonTitle") {}
-        let type = alert.buttons[0].isKindOfClass(SCLButton.self)
+        let type = alert.buttons[0].isKind(of: SCLButton.self)
         XCTAssertTrue(type == true)
     }
     
@@ -40,7 +40,7 @@ class SCLButtonTests: XCTestCase {
         let alert = SCLAlertView()
         alert.addButton("testButtonTitle") {}
         XCTAssertTrue(alert.contentView.subviews.count == 3)
-        XCTAssertTrue(alert.contentView.subviews[2].isKindOfClass(SCLButton.self))
+        XCTAssertTrue(alert.contentView.subviews[2].isKind(of: SCLButton.self))
     }
     
     func actionHelperForTests() -> Void {
@@ -57,38 +57,41 @@ class SCLButtonTests: XCTestCase {
     func testButtonTargets() {
         let alert = SCLAlertView()
         alert.addButton("testButtonTitle") {}
-        let buttonTargets = alert.buttons[0].allTargets().first
+        let buttonTargets = alert.buttons[0].allTargets.first
         let button = alert.buttons[0]
         
-        let actionsTouchUpInside = button.actionsForTarget(buttonTargets, forControlEvent: .TouchUpInside)
+        let actionsTouchUpInside = button.actions(forTarget: buttonTargets, forControlEvent: .touchUpInside)
         XCTAssertTrue(actionsTouchUpInside![0] == "buttonTapped:")
         XCTAssertTrue(actionsTouchUpInside![1] == "buttonRelease:")
 
-        let buttonActionsTouchDown = button.actionsForTarget(buttonTargets, forControlEvent: .TouchDown)
+        let buttonActionsTouchDown = button.actions(forTarget: buttonTargets, forControlEvent: .touchDown)
         XCTAssertTrue(buttonActionsTouchDown![0] == "buttonTapDown:")
         
-        let buttonActionsTouchDragEnter = button.actionsForTarget(buttonTargets, forControlEvent: .TouchDragEnter)
+        let buttonActionsTouchDragEnter = button.actions(forTarget: buttonTargets, forControlEvent: .touchDragEnter)
         XCTAssertTrue(buttonActionsTouchDragEnter![0] == "buttonTapDown:")
         
-        let buttonActionsTouchCancel = button.actionsForTarget(buttonTargets, forControlEvent: .TouchCancel)
+        let buttonActionsTouchCancel = button.actions(forTarget: buttonTargets, forControlEvent: .touchCancel)
         XCTAssertTrue(buttonActionsTouchCancel![0] == "buttonRelease:")
         
-        let buttonActionsTouchDragOutside = button.actionsForTarget(buttonTargets, forControlEvent: .TouchDragOutside)
+        let buttonActionsTouchDragOutside = button.actions(forTarget: buttonTargets, forControlEvent: .touchDragOutside)
         XCTAssertTrue(buttonActionsTouchDragOutside![0] == "buttonRelease:")
         
-        let buttonActionsTouchUpOutside = button.actionsForTarget(buttonTargets, forControlEvent: .TouchUpOutside)
+        let buttonActionsTouchUpOutside = button.actions(forTarget: buttonTargets, forControlEvent: .touchUpOutside)
         XCTAssertTrue(buttonActionsTouchUpOutside![0] == "buttonRelease:")
     }
     
     func testButtonSelectorAndTarget() {
         let alert = SCLAlertView()
         let testTarget = SCLAlertView()
-        let testSelector = Selector()
-        alert.addButton("testButtonTitle", target: testTarget, selector: testSelector)
+        alert.addButton("testButtonTitle", target: testTarget, selector: #selector(testSelector))
         let button = alert.buttons[0]
-        XCTAssertTrue(button.target.isKindOfClass(SCLAlertView.self))
-        XCTAssertTrue(button.selector == testSelector)
-        XCTAssertTrue(button.actionType == SCLActionType.Selector)
+        XCTAssertTrue(button.target.isKind(of: SCLAlertView.self))
+        XCTAssertTrue(button.selector == #selector(testSelector))
+        XCTAssertTrue(button.actionType == SCLActionType.selector)
+        
+    }
+    
+    func testSelector() {
         
     }
     
@@ -96,6 +99,6 @@ class SCLButtonTests: XCTestCase {
         let alert = SCLAlertView()
         alert.addButton("testButtonTitle") {}
         let button = alert.buttons[0]
-        XCTAssertTrue(button.actionType == SCLActionType.Closure)
+        XCTAssertTrue(button.actionType == SCLActionType.closure)
     }
 }
