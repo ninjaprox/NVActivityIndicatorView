@@ -376,10 +376,10 @@ open class SCLAlertView: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(SCLAlertView.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
     }
     
-    override open func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(NSNotification.Name.UIKeyboardWillShow)
-        NotificationCenter.default.removeObserver(NSNotification.Name.UIKeyboardWillHide)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override open func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?) {
