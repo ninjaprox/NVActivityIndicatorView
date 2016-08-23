@@ -71,19 +71,19 @@ class SCLAlertViewPropertiesTests: XCTestCase {
     }
     
     func testSCLAlertViewTitleFont() {
-        XCTAssertTrue(alert.appearance.kTitleFont == UIFont.systemFontOfSize(20))
+        XCTAssertTrue(alert.appearance.kTitleFont == UIFont.systemFont(ofSize: 20))
     }
     
     func testSCLAlertViewTextFont() {
-        XCTAssertTrue(alert.appearance.kTextFont == UIFont.systemFontOfSize(14))
+        XCTAssertTrue(alert.appearance.kTextFont == UIFont.systemFont(ofSize: 14))
     }
     
     func testSCLAlertViewButtonFont() {
-        XCTAssertTrue(alert.appearance.kButtonFont == UIFont.boldSystemFontOfSize(14))
+        XCTAssertTrue(alert.appearance.kButtonFont == UIFont.boldSystemFont(ofSize: 14))
     }
         
     func testSCLAlertViewColor() {
-        XCTAssertTrue(alert.viewColor.isKindOfClass(UIColor.self))
+        XCTAssertTrue(alert.viewColor.isKind(of:UIColor.self))
     }
     
     func testSCLAlertViewShowCloseButton() {
@@ -111,23 +111,23 @@ class SCLAlertViewPropertiesTests: XCTestCase {
     }
     
     func testSCLAlertViewBaseView() {
-        XCTAssertTrue(alert.baseView.isKindOfClass(UIView.self))
+        XCTAssertTrue(alert.baseView.isKind(of:UIView.self))
     }
     
     func testSCLAlertViewLabelTitle() {
-        XCTAssertTrue(alert.labelTitle.isKindOfClass(UILabel.self))
+        XCTAssertTrue(alert.labelTitle.isKind(of:UILabel.self))
     }
     
     func testSCLAlertViewViewText() {
-        XCTAssertTrue(alert.viewText.isKindOfClass(UITextView.self))
+        XCTAssertTrue(alert.viewText.isKind(of:UITextView.self))
     }
     
     func testSCLAlertViewContentView() {
-        XCTAssertTrue(alert.contentView.isKindOfClass(UIView.self))
+        XCTAssertTrue(alert.contentView.isKind(of:UIView.self))
     }
     
     func testSCLAlertViewCircleBG() {
-        XCTAssertTrue(alert.circleBG.isKindOfClass(UIView.self))
+        XCTAssertTrue(alert.circleBG.isKind(of:UIView.self))
         XCTAssertTrue(alert.circleBG.frame.origin.x == 0)
         XCTAssertTrue(alert.circleBG.frame.origin.y == 0)
         XCTAssertTrue(alert.circleBG.frame.size.width == kCircleHeightBackground)
@@ -135,12 +135,12 @@ class SCLAlertViewPropertiesTests: XCTestCase {
     }
     
     func testSCLAlertViewCircleView() {
-        XCTAssertTrue(alert.circleView.isKindOfClass(UIView.self))
+        XCTAssertTrue(alert.circleView.isKind(of:UIView.self))
     }
     
     func testSCLAlertViewCircleIconView() {
         if let iconView = alert.circleIconView {
-            XCTAssertTrue(iconView.isKindOfClass(UIView.self))
+            XCTAssertTrue(iconView.isKind(of:UIView.self))
         }else {
             XCTAssertTrue(alert.circleIconView == nil)
         }
@@ -148,7 +148,7 @@ class SCLAlertViewPropertiesTests: XCTestCase {
     
     func testSCLAlertViewDurationTimer() {
         if let timer = alert.durationTimer {
-            XCTAssertTrue(timer.isKindOfClass(NSTimer.self))
+            XCTAssertTrue(timer.isKind(of:Timer.self))
         }else {
             XCTAssertTrue(alert.durationTimer == nil)
         }
