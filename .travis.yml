@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode7.3
+xcode_project: NVActivityIndicatorView.xcodeproj
+xcode_scheme: NVActivityIndicatorView
+xcode_sdk: iphonesimulator8.0
