@@ -17,6 +17,8 @@
 		239CAB2D1B5EBB2E0051DC06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2C1B5EBB2E0051DC06 /* Images.xcassets */; };
 		239CAB301B5EBB2E0051DC06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2E1B5EBB2E0051DC06 /* LaunchScreen.xib */; };
 		239CAB3C1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */; };
+		23FB13521D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB13511D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift */; };
+		23FB13541D76D5370096EBE3 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */; };
 		8B1EEC821CF723E100AE054B /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */; };
 		8B1EEC831CF7252600AE054B /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */; };
 		90A879341BA554A0001C8989 /* NVActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 90A879331BA554A0001C8989 /* NVActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -96,6 +98,13 @@
 			remoteGlobalIDString = 239CAB1F1B5EBB2E0051DC06;
 			remoteInfo = NVActivityIndicatorViewDemo;
 		};
+		23FB13551D76D5370096EBE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 239CAB181B5EBB2E0051DC06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90A8792E1BA554A0001C8989;
+			remoteInfo = NVActivityIndicatorView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +120,9 @@
 		239CAB351B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		239CAB3A1B5EBB2E0051DC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewDemoTests.swift; sourceTree = "<group>"; };
+		23FB134F1D76D5370096EBE3 /* NVActivityIndicatorViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23FB13511D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewTests.swift; sourceTree = "<group>"; };
+		23FB13531D76D5370096EBE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B1EEC811CF723E100AE054B /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
 		90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A879321BA554A0001C8989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,6 +177,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23FB134C1D76D5370096EBE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23FB13541D76D5370096EBE3 /* NVActivityIndicatorView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90A8792B1BA554A0001C8989 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -181,6 +201,7 @@
 				239CAB221B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */,
 				239CAB381B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests */,
 				90A879301BA554A0001C8989 /* NVActivityIndicatorView */,
+				23FB13501D76D5370096EBE3 /* NVActivityIndicatorViewTests */,
 				239CAB211B5EBB2E0051DC06 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -191,6 +212,7 @@
 				239CAB201B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo.app */,
 				239CAB351B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.xctest */,
 				90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */,
+				23FB134F1D76D5370096EBE3 /* NVActivityIndicatorViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,6 +253,15 @@
 				239CAB3A1B5EBB2E0051DC06 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23FB13501D76D5370096EBE3 /* NVActivityIndicatorViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				23FB13511D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift */,
+				23FB13531D76D5370096EBE3 /* Info.plist */,
+			);
+			path = NVActivityIndicatorViewTests;
 			sourceTree = "<group>";
 		};
 		90A879301BA554A0001C8989 /* NVActivityIndicatorView */ = {
@@ -343,6 +374,24 @@
 			productReference = 239CAB351B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		23FB134E1D76D5370096EBE3 /* NVActivityIndicatorViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23FB13591D76D5370096EBE3 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests" */;
+			buildPhases = (
+				23FB134B1D76D5370096EBE3 /* Sources */,
+				23FB134C1D76D5370096EBE3 /* Frameworks */,
+				23FB134D1D76D5370096EBE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23FB13561D76D5370096EBE3 /* PBXTargetDependency */,
+			);
+			name = NVActivityIndicatorViewTests;
+			productName = NVActivityIndicatorViewTests;
+			productReference = 23FB134F1D76D5370096EBE3 /* NVActivityIndicatorViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A879421BA554A0001C8989 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorView" */;
@@ -368,7 +417,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Nguyen Vinh";
 				TargetAttributes = {
@@ -378,6 +427,9 @@
 					239CAB341B5EBB2E0051DC06 = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 239CAB1F1B5EBB2E0051DC06;
+					};
+					23FB134E1D76D5370096EBE3 = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
 					90A8792E1BA554A0001C8989 = {
 						CreatedOnToolsVersion = 6.4;
@@ -400,6 +452,7 @@
 				90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */,
 				239CAB1F1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */,
 				239CAB341B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests */,
+				23FB134E1D76D5370096EBE3 /* NVActivityIndicatorViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -416,6 +469,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		239CAB331B5EBB2E0051DC06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23FB134D1D76D5370096EBE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -485,6 +545,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23FB134B1D76D5370096EBE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23FB13521D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90A8792A1BA554A0001C8989 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -535,6 +603,11 @@
 			isa = PBXTargetDependency;
 			target = 239CAB1F1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */;
 			targetProxy = 239CAB361B5EBB2E0051DC06 /* PBXContainerItemProxy */;
+		};
+		23FB13561D76D5370096EBE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */;
+			targetProxy = 23FB13551D76D5370096EBE3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -698,6 +771,31 @@
 			};
 			name = Release;
 		};
+		23FB13571D76D5370096EBE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = NVActivityIndicatorViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhn.NVActivityIndicatorViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		23FB13581D76D5370096EBE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = NVActivityIndicatorViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhn.NVActivityIndicatorViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		90A879431BA554A0001C8989 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -771,6 +869,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		23FB13591D76D5370096EBE3 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23FB13571D76D5370096EBE3 /* Debug */,
+				23FB13581D76D5370096EBE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		90A879421BA554A0001C8989 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorView" */ = {
 			isa = XCConfigurationList;
