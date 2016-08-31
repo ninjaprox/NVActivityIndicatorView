@@ -29,6 +29,8 @@ class NVActivityIndicatorViewTests: XCTestCase {
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_COLOR, UIColor.whiteColor())
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_PADDING, 0)
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE, CGSize(width: 60, height: 60))
+        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_VISIBLE_TIME, NSTimeInterval(0))
+        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD, NSTimeInterval(0))
     }
     
     func testSetTypeName() {
