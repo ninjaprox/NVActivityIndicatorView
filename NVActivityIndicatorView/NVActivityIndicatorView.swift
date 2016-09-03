@@ -329,15 +329,10 @@ public class NVActivityIndicatorView: UIView {
     @available(*, unavailable, message="This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
         get {
-            return String(self.type)
+            return self.getTypeName()
         }
-        set (typeString) {
-            for item in NVActivityIndicatorType.allTypes {
-                if String(item).caseInsensitiveCompare(typeString) == NSComparisonResult.OrderedSame {
-                    self.type = item
-                    break
-                }
-            }
+        set {
+            self.setTypeName_(newValue)
         }
     }
 
@@ -410,6 +405,21 @@ public class NVActivityIndicatorView: UIView {
         if hidesWhenStopped && !hidden {
             hidden = true
         }
+    }
+    
+    // MARK: Internal
+    
+    func setTypeName_(typeName: String) {
+        for item in NVActivityIndicatorType.allTypes {
+            if String(item).caseInsensitiveCompare(typeName) == NSComparisonResult.OrderedSame {
+                self.type = item
+                break
+            }
+        }
+    }
+    
+    func getTypeName() -> String {
+        return String(self.type)
     }
     
     // MARK: Privates

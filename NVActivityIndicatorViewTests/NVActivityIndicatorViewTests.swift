@@ -30,4 +30,20 @@ class NVActivityIndicatorViewTests: XCTestCase {
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_PADDING, 0)
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE, CGSize(width: 60, height: 60))
     }
+    
+    func testSetTypeName() {
+        self.activityIndicatorView.setTypeName_("unknown")
+        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
+        self.activityIndicatorView.setTypeName_("Orbit")
+        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.Orbit)
+        self.activityIndicatorView.setTypeName_("orbit")
+        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.Orbit)
+        self.activityIndicatorView.setTypeName_("orbiT")
+        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.Orbit)
+    }
+    
+    func testGetTypeName() {
+        self.activityIndicatorView.type = .AudioEqualizer
+        XCTAssertEqual(self.activityIndicatorView.getTypeName(), String(NVActivityIndicatorType.AudioEqualizer))
+    }
 }
