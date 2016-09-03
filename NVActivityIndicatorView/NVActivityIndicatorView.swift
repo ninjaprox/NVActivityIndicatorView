@@ -239,7 +239,7 @@ public enum NVActivityIndicatorType: Int {
     
     private static let allTypes = (Blank.rawValue ... Orbit.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
 
-    private func animation() -> NVActivityIndicatorAnimationDelegate {
+    func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
         case .Blank:
             return NVActivityIndicatorAnimationBlank()
