@@ -7,29 +7,27 @@
 //
 
 import XCTest
+@testable import NVActivityIndicatorView
 
 class NVActivityIndicatorViewTests: XCTestCase {
+    var activityIndicatorView: NVActivityIndicatorView! = nil
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRectZero)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.activityIndicatorView = nil
+        
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDefaultValues() {
+        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_TYPE, NVActivityIndicatorType.BallSpinFadeLoader)
+        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_COLOR, UIColor.whiteColor())
+        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_PADDING, 0)
+        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE, CGSize(width: 60, height: 60))
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
