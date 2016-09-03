@@ -237,7 +237,7 @@ public enum NVActivityIndicatorType: Int {
      */
     case AudioEqualizer
     
-    static let allTypes = (Blank.rawValue ... Orbit.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
+    static let allTypes = (Blank.rawValue ... AudioEqualizer.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
 
     func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
