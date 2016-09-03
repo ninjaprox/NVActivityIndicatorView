@@ -46,4 +46,24 @@ class NVActivityIndicatorViewTests: XCTestCase {
         self.activityIndicatorView.type = .AudioEqualizer
         XCTAssertEqual(self.activityIndicatorView.getTypeName(), String(NVActivityIndicatorType.AudioEqualizer))
     }
+    
+    func testInitWithParams() {
+        let type: NVActivityIndicatorType = .AudioEqualizer
+        let color = UIColor.redColor()
+        let padding: CGFloat = 10
+        
+        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRectZero, type: type)
+        XCTAssertEqual(self.activityIndicatorView.type, type)
+        
+        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRectZero, color: color)
+        XCTAssertEqual(self.activityIndicatorView.color, color)
+        
+        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRectZero, padding: padding)
+        XCTAssertEqual(self.activityIndicatorView.padding, padding)
+        
+        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRectZero, type: type, color: color, padding: padding)
+        XCTAssertEqual(self.activityIndicatorView.type, type)
+        XCTAssertEqual(self.activityIndicatorView.color, color)
+        XCTAssertEqual(self.activityIndicatorView.padding, padding)
+    }
 }
