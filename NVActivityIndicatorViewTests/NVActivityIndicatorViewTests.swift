@@ -66,4 +66,11 @@ class NVActivityIndicatorViewTests: XCTestCase {
         XCTAssertEqual(self.activityIndicatorView.color, color)
         XCTAssertEqual(self.activityIndicatorView.padding, padding)
     }
+    
+    func testInitWithFrame() {
+        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
+        XCTAssertEqual(self.activityIndicatorView.color, NVActivityIndicatorView.DEFAULT_COLOR)
+        XCTAssertEqual(self.activityIndicatorView.padding, NVActivityIndicatorView.DEFAULT_PADDING)
+    }
 }
