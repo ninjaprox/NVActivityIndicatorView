@@ -54,4 +54,8 @@ class NVActivityIndicatorTypeTests: XCTestCase {
             XCTAssertTrue(enummClassString.hasSuffix(clazzString))
         }
     }
+    
+    func testAllTypes() {
+        XCTAssertEqual(NVActivityIndicatorType.allTypes.last, NVActivityIndicatorType.AudioEqualizer)
+    }
 }
