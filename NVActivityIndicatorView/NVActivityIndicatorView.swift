@@ -348,10 +348,6 @@ public class NVActivityIndicatorView: UIView {
     }
     private var _animating: Bool = false
     
-    /// Specify whether activity indicator view should hide once stopped.
-    @available(*, deprecated=2.11)
-    @IBInspectable public var hidesWhenStopped: Bool = true
-    
     /**
      Create a activity indicator view with default type, color and padding.
      This is used by storyboard to initiate the view.
@@ -387,28 +383,12 @@ public class NVActivityIndicatorView: UIView {
     }
     
     /**
-     Start animation.
-     */
-    @available(*, deprecated=2.11, renamed="startAnimating()")
-    public func startAnimation() {
-        self.startAnimating()
-    }
-    
-    /**
      Start animating.
      */
     public func startAnimating() {
         self._animating = true
         self.layer.speed = 1
         setUpAnimation()
-    }
-    
-    /**
-     Stop animation.
-     */
-    @available(*, deprecated=2.11, renamed="stopAnimating()")
-    public func stopAnimation() {
-        self.stopAnimating()
     }
     
     /**
@@ -444,5 +424,27 @@ public class NVActivityIndicatorView: UIView {
         self.layer.sublayers = nil
         animationRect.size = CGSizeMake(minEdge, minEdge)
         animation.setUpAnimationInLayer(self.layer, size: animationRect.size, color: self.color)
+    }
+    
+    // MARK: Deprecated
+    
+    /// Specify whether activity indicator view should hide once stopped.
+    @available(*, deprecated=2.11)
+    @IBInspectable public var hidesWhenStopped: Bool = true
+    
+    /**
+     Start animation.
+     */
+    @available(*, deprecated=2.11, renamed="startAnimating()")
+    public func startAnimation() {
+        self.startAnimating()
+    }
+    
+    /**
+     Stop animation.
+     */
+    @available(*, deprecated=2.11, renamed="stopAnimating()")
+    public func stopAnimation() {
+        self.stopAnimation()
     }
 }
