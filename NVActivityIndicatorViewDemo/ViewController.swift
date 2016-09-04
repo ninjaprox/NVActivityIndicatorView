@@ -41,7 +41,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             }
             self.view.addSubview(activityIndicatorView)
             self.view.addSubview(animationTypeLabel)
-            activityIndicatorView.startAnimation()
+            activityIndicatorView.startAnimating()
             
             let button:UIButton = UIButton(frame: frame)
             button.tag = $0
