@@ -73,4 +73,11 @@ class NVActivityIndicatorViewTests: XCTestCase {
         XCTAssertEqual(self.activityIndicatorView.color, NVActivityIndicatorView.DEFAULT_COLOR)
         XCTAssertEqual(self.activityIndicatorView.padding, NVActivityIndicatorView.DEFAULT_PADDING)
     }
+    
+    func testStartAnimating() {
+        XCTAssertFalse(self.activityIndicatorView.animating)
+        self.activityIndicatorView.startAnimating()
+        XCTAssertEqual(self.activityIndicatorView.layer.speed, 1)
+        XCTAssertTrue(self.activityIndicatorView.animating)
+    }
 }
