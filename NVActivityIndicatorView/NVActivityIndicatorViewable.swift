@@ -44,7 +44,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
             padding: padding)
         
         activityIndicatorView.center = activityContainer.center
-        activityIndicatorView.startAnimation()
+        activityIndicatorView.startAnimating()
         activityContainer.addSubview(activityIndicatorView)
         
         let width = activityContainer.frame.size.width / 3

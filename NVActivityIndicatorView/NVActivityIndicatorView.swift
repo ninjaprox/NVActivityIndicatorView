@@ -386,7 +386,15 @@ public class NVActivityIndicatorView: UIView {
     /**
      Start animation.
      */
+    @available(*, deprecated=2.11, renamed="startAnimating()")
     public func startAnimation() {
+        self.startAnimating()
+    }
+    
+    /**
+     Start animating.
+     */
+    public func startAnimating() {
         self.animating = true
         self.layer.speed = 1
         setUpAnimation()
@@ -395,7 +403,15 @@ public class NVActivityIndicatorView: UIView {
     /**
      Stop animation.
      */
+    @available(*, deprecated=2.11, renamed="stopAnimating()")
     public func stopAnimation() {
+        self.stopAnimating()
+    }
+    
+    /**
+     Stop animating.
+     */
+    public func stopAnimating() {
         self.animating = false
         self.layer.sublayers?.removeAll()
     }
