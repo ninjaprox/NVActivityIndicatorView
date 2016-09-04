@@ -44,7 +44,6 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
             padding: padding)
         
         activityIndicatorView.center = activityContainer.center
-        activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.startAnimation()
         activityContainer.addSubview(activityIndicatorView)
         

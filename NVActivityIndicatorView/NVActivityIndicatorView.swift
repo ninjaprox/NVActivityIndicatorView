@@ -346,6 +346,7 @@ public class NVActivityIndicatorView: UIView {
     public var animating: Bool = false
     
     /// Specify whether activity indicator view should hide once stopped.
+    @available(*, deprecated=2.11)
     @IBInspectable public var hidesWhenStopped: Bool = true
     
     /**
@@ -386,25 +387,17 @@ public class NVActivityIndicatorView: UIView {
      Start animation.
      */
     public func startAnimation() {
-        if hidesWhenStopped && hidden {
-            hidden = false
-        }
-        if (self.layer.sublayers == nil) {
-            setUpAnimation()
-        }
-        self.layer.speed = 1
         self.animating = true
+        self.layer.speed = 1
+        setUpAnimation()
     }
     
     /**
      Stop animation.
      */
     public func stopAnimation() {
-        self.layer.sublayers = nil
         self.animating = false
-        if hidesWhenStopped && !hidden {
-            hidden = true
-        }
+        self.layer.sublayers?.removeAll()
     }
     
     // MARK: Internal
