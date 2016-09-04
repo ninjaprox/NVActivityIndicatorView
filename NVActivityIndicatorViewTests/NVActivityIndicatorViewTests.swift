@@ -80,4 +80,11 @@ class NVActivityIndicatorViewTests: XCTestCase {
         XCTAssertEqual(self.activityIndicatorView.layer.speed, 1)
         XCTAssertTrue(self.activityIndicatorView.animating)
     }
+    
+    func testStopAnimating() {
+        self.activityIndicatorView.startAnimating()
+        self.activityIndicatorView.stopAnimating()
+        XCTAssertFalse(self.activityIndicatorView.animating)
+        XCTAssertTrue(self.activityIndicatorView.layer.sublayers == nil)
+    }
 }
