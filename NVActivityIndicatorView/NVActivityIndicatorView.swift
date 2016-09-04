@@ -343,7 +343,10 @@ public class NVActivityIndicatorView: UIView {
     @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
 
     /// Current status of animation, this is not used to start or stop animation.
-    public var animating: Bool = false
+    public var animating: Bool {
+        return _animating
+    }
+    private var _animating: Bool = false
     
     /// Specify whether activity indicator view should hide once stopped.
     @available(*, deprecated=2.11)
@@ -395,7 +398,7 @@ public class NVActivityIndicatorView: UIView {
      Start animating.
      */
     public func startAnimating() {
-        self.animating = true
+        self._animating = true
         self.layer.speed = 1
         setUpAnimation()
     }
@@ -412,7 +415,7 @@ public class NVActivityIndicatorView: UIView {
      Stop animating.
      */
     public func stopAnimating() {
-        self.animating = false
+        self._animating = false
         self.layer.sublayers?.removeAll()
     }
     
