@@ -362,7 +362,8 @@ public class NVActivityIndicatorView: UIView {
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clearColor()
+        self.hidden = true
     }
     
     /**
@@ -380,12 +381,14 @@ public class NVActivityIndicatorView: UIView {
         self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
         self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
         super.init(frame: frame)
+        self.hidden = true
     }
     
     /**
      Start animating.
      */
     public func startAnimating() {
+        self.hidden = false
         self._animating = true
         self.layer.speed = 1
         setUpAnimation()
@@ -395,6 +398,7 @@ public class NVActivityIndicatorView: UIView {
      Stop animating.
      */
     public func stopAnimating() {
+        self.hidden = true
         self._animating = false
         self.layer.sublayers?.removeAll()
     }
