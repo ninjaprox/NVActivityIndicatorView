@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import NVActivityIndicatorView
 
 class ViewController: UIViewController, NVActivityIndicatorViewable {
     
