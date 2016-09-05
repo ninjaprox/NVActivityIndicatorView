@@ -12,7 +12,6 @@
 		239CAB2B1B5EBB2E0051DC06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB291B5EBB2E0051DC06 /* Main.storyboard */; };
 		239CAB2D1B5EBB2E0051DC06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2C1B5EBB2E0051DC06 /* Images.xcassets */; };
 		239CAB301B5EBB2E0051DC06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2E1B5EBB2E0051DC06 /* LaunchScreen.xib */; };
-		239CAB3C1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */; };
 		23B201041D7DADBF00130679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */; };
 		23B201051D7DADBF00130679 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB271B5EBB2E0051DC06 /* ViewController.swift */; };
 		23B201061D7DADBF00130679 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2315A51A1D7BF6C600C3305F /* ViewController2.swift */; };
@@ -58,13 +57,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		239CAB361B5EBB2E0051DC06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 239CAB181B5EBB2E0051DC06 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 239CAB1F1B5EBB2E0051DC06;
-			remoteInfo = NVActivityIndicatorViewDemo;
-		};
 		23FB13551D76D5370096EBE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 239CAB181B5EBB2E0051DC06 /* Project object */;
@@ -85,9 +77,6 @@
 		239CAB2A1B5EBB2E0051DC06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		239CAB2C1B5EBB2E0051DC06 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		239CAB2F1B5EBB2E0051DC06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		239CAB351B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		239CAB3A1B5EBB2E0051DC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewDemoTests.swift; sourceTree = "<group>"; };
 		23B6C6041D7AD28500C90328 /* NVActivityIndicatorTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorTypeTests.swift; sourceTree = "<group>"; };
 		23FB134F1D76D5370096EBE3 /* NVActivityIndicatorViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FB13511D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewTests.swift; sourceTree = "<group>"; };
@@ -140,13 +129,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		239CAB321B5EBB2E0051DC06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		23FB134C1D76D5370096EBE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				239CAB221B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */,
-				239CAB381B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests */,
 				90A879301BA554A0001C8989 /* NVActivityIndicatorView */,
 				23FB13501D76D5370096EBE3 /* NVActivityIndicatorViewTests */,
 				239CAB211B5EBB2E0051DC06 /* Products */,
@@ -180,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				239CAB201B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo.app */,
-				239CAB351B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.xctest */,
 				90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */,
 				23FB134F1D76D5370096EBE3 /* NVActivityIndicatorViewTests.xctest */,
 			);
@@ -205,23 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				239CAB241B5EBB2E0051DC06 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		239CAB381B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				239CAB3B1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift */,
-				239CAB391B5EBB2E0051DC06 /* Supporting Files */,
-			);
-			path = NVActivityIndicatorViewDemoTests;
-			sourceTree = "<group>";
-		};
-		239CAB391B5EBB2E0051DC06 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				239CAB3A1B5EBB2E0051DC06 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -328,24 +291,6 @@
 			productReference = 239CAB201B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		239CAB341B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 239CAB421B5EBB2E0051DC06 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewDemoTests" */;
-			buildPhases = (
-				239CAB311B5EBB2E0051DC06 /* Sources */,
-				239CAB321B5EBB2E0051DC06 /* Frameworks */,
-				239CAB331B5EBB2E0051DC06 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				239CAB371B5EBB2E0051DC06 /* PBXTargetDependency */,
-			);
-			name = NVActivityIndicatorViewDemoTests;
-			productName = NVActivityIndicatorViewDemoTests;
-			productReference = 239CAB351B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		23FB134E1D76D5370096EBE3 /* NVActivityIndicatorViewTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23FB13591D76D5370096EBE3 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests" */;
@@ -396,10 +341,6 @@
 					239CAB1F1B5EBB2E0051DC06 = {
 						CreatedOnToolsVersion = 6.4;
 					};
-					239CAB341B5EBB2E0051DC06 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 239CAB1F1B5EBB2E0051DC06;
-					};
 					23FB134E1D76D5370096EBE3 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -423,7 +364,6 @@
 			targets = (
 				90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */,
 				239CAB1F1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */,
-				239CAB341B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests */,
 				23FB134E1D76D5370096EBE3 /* NVActivityIndicatorViewTests */,
 			);
 		};
@@ -437,13 +377,6 @@
 				239CAB2B1B5EBB2E0051DC06 /* Main.storyboard in Resources */,
 				239CAB301B5EBB2E0051DC06 /* LaunchScreen.xib in Resources */,
 				239CAB2D1B5EBB2E0051DC06 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		239CAB331B5EBB2E0051DC06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,14 +404,6 @@
 				23B201041D7DADBF00130679 /* AppDelegate.swift in Sources */,
 				23B201051D7DADBF00130679 /* ViewController.swift in Sources */,
 				23B201061D7DADBF00130679 /* ViewController2.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		239CAB311B5EBB2E0051DC06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				239CAB3C1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,11 +462,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		239CAB371B5EBB2E0051DC06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 239CAB1F1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */;
-			targetProxy = 239CAB361B5EBB2E0051DC06 /* PBXContainerItemProxy */;
-		};
 		23FB13561D76D5370096EBE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */;
@@ -673,42 +593,6 @@
 			};
 			name = Release;
 		};
-		239CAB431B5EBB2E0051DC06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NVActivityIndicatorViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVActivityIndicatorViewDemo.app/NVActivityIndicatorViewDemo";
-			};
-			name = Debug;
-		};
-		239CAB441B5EBB2E0051DC06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NVActivityIndicatorViewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVActivityIndicatorViewDemo.app/NVActivityIndicatorViewDemo";
-			};
-			name = Release;
-		};
 		23FB13571D76D5370096EBE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -795,15 +679,6 @@
 			buildConfigurations = (
 				239CAB401B5EBB2E0051DC06 /* Debug */,
 				239CAB411B5EBB2E0051DC06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		239CAB421B5EBB2E0051DC06 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				239CAB431B5EBB2E0051DC06 /* Debug */,
-				239CAB441B5EBB2E0051DC06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
