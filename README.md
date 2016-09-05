@@ -236,4 +236,4 @@ Thanks [Connor Atherton](https://github.com/ConnorAtherton) for great loaders an
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Nguyen Vinh [@ninjaprox](http://twitter.com/ninjaprox)
+Copyright (c) 2016 Nguyen Vinh [@ninjaprox](http://twitter.com/ninjaprox)
