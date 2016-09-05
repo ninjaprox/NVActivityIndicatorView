@@ -87,6 +87,7 @@ class NVActivityIndicatorViewTests: XCTestCase {
         self.activityIndicatorView.startAnimating()
         self.activityIndicatorView.stopAnimating()
         XCTAssertFalse(self.activityIndicatorView.animating)
+        XCTAssertTrue(self.activityIndicatorView.hidden)
         XCTAssertTrue(self.activityIndicatorView.layer.sublayers == nil)
     }
 }
