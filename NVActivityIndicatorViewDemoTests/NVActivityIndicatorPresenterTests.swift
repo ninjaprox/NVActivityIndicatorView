@@ -30,17 +30,29 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     func testDelay00() {
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(self.activityData)
-        self.checkAfter(approximateZero, value: true)
+        self.doAfter(approximateZero) {
+            XCTAssertTrue(self.checkActivityViewAppeared())
+        }
         NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
         XCTAssertFalse(self.checkActivityViewAppeared())
     }
     
-    func xtestDelay10() {
-        let checkAfter: Int64 = 80
-        
+    // minimumVisiableTime = 0
+    // displayTimeThreshold = 100
+    func testDelay10() {
+        self.activityData = ActivityData(size: CGSizeZero,
+                                         message: "",
+                                         type: nil,
+                                         color: nil,
+                                         padding: 0,
+                                         minimumVisibleTime: 0,
+                                         displayTimeThreshold: 100)
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(self.activityData)
-        self.checkAfter(checkAfter, value: true)
+        self.doAfter(50) {
+            XCTAssertFalse(self.checkActivityViewAppeared())
+            NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+        }
     }
     
     // MARK: Helpers
@@ -54,11 +66,11 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
         return false
     }
     
-    func checkAfter(after: Int64, value: Bool) {
+    func doAfter(after: Int64, thing: () -> Void) {
         let expectation = self.expectationWithDescription("")
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC) * after), dispatch_get_main_queue()) {
-            XCTAssertEqual(self.checkActivityViewAppeared(), value)
+            thing()
             expectation.fulfill()
         }
         self.waitForExpectationsWithTimeout(Double(after) * 1.2 / 1000) { (error) in
