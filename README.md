@@ -221,30 +221,12 @@ animation = activityIndicatorView.animating
 
 Change global defaults if needed
 
-###### `NVActivityIndicatorView.DEFAULT_TYPE = .Pacman`
-
-Default type of activity indicator.
-
-###### `NVActivityIndicatorView.DEFAULT_COLOR = UIColor.yellowColor()`
-
-Default color of activity indicator.
-
-###### `NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(5.0)`
-
-Default padding of activity indicator.
-
-###### `NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)`
-
-Default size of activity indicator used in UI Blocker.
-
-###### `NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_VISIBLE_TIME = NSTimeInterval(0)`
-
-Default minimum visible time of an activity indicator view in UI Blocker. Its main purpose is to avoid flashes showing and hiding it so fast. For instance, setting it to 200 ms will force every activity indicator to be shown for at least this time (regardless if you call `stopActivityAnimating` before).
-
-###### `NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = NSTimeInterval(0)`
-
-Default minimum time that has to be elapsed (between calls of `startActivityAnimating` and `stopActivityAnimating`) in order to actually display the activity indicator view in UI Blocker. It should be set thinking about what the minimum duration of an activity is to be worth showing it to the user. If the activity ends before this time threshold, then it will not be displayed at all.
-
+```swift
+NVActivityIndicatorView.DEFAULT_TYPE = .Pacman
+NVActivityIndicatorView.DEFAULT_COLOR = UIColor.yellowColor()
+NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(5.0)
+NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
+```
 
 # Acknowledgment
 

@@ -323,12 +323,6 @@ public class NVActivityIndicatorView: UIView {
     /// Default size of activity indicator view in UI blocker. Default value is 60x60.
     public static var DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
     
-    /// Default minimum visible time of activity indicator view in UI blocker. Default value is 0 ms.
-    public static var DEFAULT_BLOCKER_MINIMUM_VISIBLE_TIME = NSTimeInterval(0)
-
-    /// Minimum time that has to be elapsed in order to actually display the activity indicator view. Default is 0 ms.
-    public static var DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = NSTimeInterval(0)
-
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
 
