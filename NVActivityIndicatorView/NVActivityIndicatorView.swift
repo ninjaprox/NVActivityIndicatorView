@@ -390,6 +390,13 @@ public class NVActivityIndicatorView: UIView {
         self.hidden = true
     }
     
+    // Fix issue #62
+    // Intrinsic content size is used in autolayout
+    // that causes mislayout when using with MBProgressHUD.
+    public override func intrinsicContentSize() -> CGSize {
+        return CGSize(width: self.bounds.width, height: self.bounds.height)
+    }
+    
     /**
      Start animating.
      */
