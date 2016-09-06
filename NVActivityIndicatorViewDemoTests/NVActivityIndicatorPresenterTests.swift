@@ -56,7 +56,21 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     }
     
     func testZeroMinimumVisibleTime() {
-        
+        let activityData = ActivityData(size: CGSizeZero,
+                                        message: "",
+                                        type: nil,
+                                        color: nil,
+                                        padding: 0,
+                                        minimumVisibleTime: 0,
+                                        displayTimeThreshold: 0)
+
+        XCTAssertFalse(self.checkActivityViewAppeared())
+        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
+        self.doAfter(approximateZero) {
+            XCTAssertTrue(self.checkActivityViewAppeared())
+            NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+            XCTAssertFalse(self.checkActivityViewAppeared())
+        }
     }
     
     func testNonZeroMinimumVisiableTime() {
