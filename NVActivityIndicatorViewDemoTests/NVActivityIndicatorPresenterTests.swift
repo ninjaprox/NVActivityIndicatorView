@@ -29,18 +29,17 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     func testDelay00() {
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(self.activityData)
-        XCTAssertTrue(self.checkActivityViewAppeared())
+        self.checkAfter(5, value: true)
         NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
         XCTAssertFalse(self.checkActivityViewAppeared())
     }
     
     func xtestDelay10() {
-        let expectation = self.expectationWithDescription("")
         let checkAfter: Int64 = 80
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(self.activityData)
-        self.checkAfter(checkAfter, timeout: Double(checkAfter) * 1.2, expectation: expectation, value: true)
+        self.checkAfter(checkAfter, value: true)
     }
     
     // MARK: Helpers
@@ -54,12 +53,14 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
         return false
     }
     
-    func checkAfter(after: Int64, timeout: Double, expectation: XCTestExpectation, value: Bool) {
+    func checkAfter(after: Int64, value: Bool) {
+        let expectation = self.expectationWithDescription("")
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC) * after), dispatch_get_main_queue()) {
             XCTAssertEqual(self.checkActivityViewAppeared(), value)
             expectation.fulfill()
         }
-        self.waitForExpectationsWithTimeout(timeout / 1000) { (error) in
+        self.waitForExpectationsWithTimeout(Double(after) * 1.2 / 1000) { (error) in
             print(error)
         }
     }
