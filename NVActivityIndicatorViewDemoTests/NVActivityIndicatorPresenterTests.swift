@@ -13,7 +13,21 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     let approximateZero:Int64 = 5
     
     func testZeroDisplayTimeThreshold() {
+        let activityData = ActivityData(size: CGSizeZero,
+                                         message: "",
+                                         type: nil,
+                                         color: nil,
+                                         padding: 0,
+                                         minimumVisibleTime: 0,
+                                         displayTimeThreshold: 0)
         
+        XCTAssertFalse(self.checkActivityViewAppeared())
+        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
+        self.doAfter(approximateZero) {
+            XCTAssertTrue(self.checkActivityViewAppeared())
+            NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+            XCTAssertFalse(self.checkActivityViewAppeared())
+        }
     }
     
     func testNonZeroDisplayTimeThreshold() {
