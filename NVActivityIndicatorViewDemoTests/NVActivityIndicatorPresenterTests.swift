@@ -10,6 +10,7 @@ import XCTest
 @testable import NVActivityIndicatorView
 
 class NVActivityIndicatorPresenterTests: XCTestCase {
+    let approximateZero:Int64 = 5
     var activityData: ActivityData!
     
     override func setUp() {
@@ -29,7 +30,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     func testDelay00() {
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(self.activityData)
-        self.checkAfter(5, value: true)
+        self.checkAfter(approximateZero, value: true)
         NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
         XCTAssertFalse(self.checkActivityViewAppeared())
     }
