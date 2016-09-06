@@ -15,10 +15,10 @@ class ActivityData {
     let type: NVActivityIndicatorType?
     let color: UIColor?
     let padding: CGFloat?
-    let minimumVisibleTime: NSTimeInterval
-    let displayTimeThreshold: NSTimeInterval
+    let minimumVisibleTime: Int
+    let displayTimeThreshold: Int
 
-    init(size: CGSize?, message: String?, type: NVActivityIndicatorType?, color: UIColor?, padding: CGFloat?, minimumVisibleTime: NSTimeInterval, displayTimeThreshold: NSTimeInterval) {
+    init(size: CGSize?, message: String?, type: NVActivityIndicatorType?, color: UIColor?, padding: CGFloat?, minimumVisibleTime: Int, displayTimeThreshold: Int) {
         self.size = size
         self.message = message
         self.type = type
@@ -113,8 +113,10 @@ class NVActivityIndicatorPresenter {
         showActivityTimer = nil
     }
 
-    private func scheduleTimer(timeInterval: NSTimeInterval, selector: Selector, data: ActivityData?) -> NSTimer {
-        return NSTimer.scheduledTimerWithTimeInterval(timeInterval / 1000, target: self, selector: selector, userInfo: data, repeats: false)
+    private func scheduleTimer(_timeInterval: Int, selector: Selector, data: ActivityData?) -> NSTimer {
+        let timeInterval: NSTimeInterval = (_timeInterval == 0) ? 0.1 / 1000 : Double(_timeInterval) / 1000
+        
+        return NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: selector, userInfo: data, repeats: false)
     }
 
 }

@@ -16,7 +16,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.activityData = ActivityData(size: CGSizeZero, message: "", type: nil, color: nil, padding: 0, minimumVisibleTime: 0.1, displayTimeThreshold: 0.1)
+        self.activityData = ActivityData(size: CGSizeZero, message: "", type: nil, color: nil, padding: 0, minimumVisibleTime: 0, displayTimeThreshold: 0)
     }
     
     override func tearDown() {

@@ -34,8 +34,8 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         type: NVActivityIndicatorType? = nil,
         color: UIColor? = nil,
         padding: CGFloat? = nil,
-        minimumVisibleTime: NSTimeInterval = NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_VISIBLE_TIME,
-        displayTimeThreshold: NSTimeInterval = NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD) {
+        minimumVisibleTime: Int = NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_VISIBLE_TIME,
+        displayTimeThreshold: Int = NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD) {
 
         let data = ActivityData(
             size: size,
