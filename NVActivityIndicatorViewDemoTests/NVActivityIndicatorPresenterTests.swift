@@ -22,10 +22,10 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                         minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         self.doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
-            NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             XCTAssertFalse(self.checkActivityViewAppeared())
         }
     }
@@ -40,17 +40,17 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                         minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         self.doAfter(50) {
             XCTAssertFalse(self.checkActivityViewAppeared())
-            NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         }
         
         XCTAssertFalse(self.checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         self.doAfter(150) {
             XCTAssertTrue(self.checkActivityViewAppeared())
-            NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             XCTAssertFalse(self.checkActivityViewAppeared())
         }
     }
@@ -65,10 +65,10 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                         minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         self.doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
-            NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             XCTAssertFalse(self.checkActivityViewAppeared())
         }
     }
@@ -83,11 +83,11 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                         minimumDisplayTime: 100)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         self.doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
         }
-        NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         self.doAfter(50) {
             XCTAssertTrue(self.checkActivityViewAppeared())
         }
