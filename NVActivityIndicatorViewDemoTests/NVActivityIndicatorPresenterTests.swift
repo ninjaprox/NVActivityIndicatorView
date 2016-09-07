@@ -18,8 +18,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                         type: nil,
                                         color: nil,
                                         padding: 0,
-                                        minimumVisibleTime: 0,
-                                        displayTimeThreshold: 0)
+                                        displayTimeThreshold: 0,
+                                        minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
@@ -36,8 +36,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                         type: nil,
                                         color: nil,
                                         padding: 0,
-                                        minimumVisibleTime: 0,
-                                        displayTimeThreshold: 100)
+                                        displayTimeThreshold: 100,
+                                        minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
@@ -61,8 +61,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                         type: nil,
                                         color: nil,
                                         padding: 0,
-                                        minimumVisibleTime: 0,
-                                        displayTimeThreshold: 0)
+                                        displayTimeThreshold: 0,
+                                        minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
@@ -79,8 +79,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                         type: nil,
                                         color: nil,
                                         padding: 0,
-                                        minimumVisibleTime: 100,
-                                        displayTimeThreshold: 0)
+                                        displayTimeThreshold: 0,
+                                        minimumDisplayTime: 100)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
@@ -99,14 +99,14 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     // MARK: Helpers
     
     func createActivityData(displayTimeThreshold displayTimeThreshold: Int,
-                                                 minimumVisibleTime: Int) -> ActivityData {
+                                                 minimumDisplayTime: Int) -> ActivityData {
         return ActivityData(size: CGSizeZero,
                             message: "",
                             type: nil,
                             color: nil,
                             padding: 0,
-                            minimumVisibleTime: minimumVisibleTime,
-                            displayTimeThreshold: displayTimeThreshold)
+                            displayTimeThreshold: displayTimeThreshold,
+                            minimumDisplayTime: minimumDisplayTime)
     }
     
     func checkActivityViewAppeared() -> Bool {
