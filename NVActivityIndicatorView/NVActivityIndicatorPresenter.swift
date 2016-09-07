@@ -44,13 +44,13 @@ public class ActivityData {
      
      - returns: The information package used to display UI blocker.
      */
-    init(size: CGSize?,
-         message: String?,
-         type: NVActivityIndicatorType?,
-         color: UIColor?,
-         padding: CGFloat?,
-         displayTimeThreshold: Int?,
-         minimumDisplayTime: Int?) {
+    init(size: CGSize? = nil,
+         message: String? = nil,
+         type: NVActivityIndicatorType? = nil,
+         color: UIColor? = nil,
+         padding: CGFloat? = nil,
+         displayTimeThreshold: Int? = nil,
+         minimumDisplayTime: Int? = nil) {
         self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message
         self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
