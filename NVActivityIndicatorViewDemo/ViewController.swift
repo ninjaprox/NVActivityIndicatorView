@@ -56,14 +56,14 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     func buttonTapped(sender: UIButton) {
         let size = CGSize(width: 30, height:30)
 
-        startActivityAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
+        startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
         performSelector(#selector(delayedStopActivity),
             withObject: nil,
             afterDelay: 2.5)
     }
     
     func delayedStopActivity() {
-        stopActivityAnimating()
+        stopAnimating()
     }
 }
 
