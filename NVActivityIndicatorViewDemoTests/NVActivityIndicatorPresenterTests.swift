@@ -125,7 +125,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
             thing()
             expectation.fulfill()
         }
-        self.waitForExpectationsWithTimeout(Double(after) * 1.2 / 1000) { (error) in
+        self.waitForExpectationsWithTimeout(Double(after) * 1.5 / 1000) { (error) in
             print(error)
         }
     }
