@@ -16,45 +16,75 @@ import UIKit
 public protocol NVActivityIndicatorViewable { }
 
 public extension NVActivityIndicatorViewable where Self: UIViewController {
-
+    
     /**
-     Create a activity indicator view with specified frame, type, color and padding and start animation.
+     Create an activity indicator view and display as UI blocker.
      
-     - parameter size: activity indicator view's size. Default size is 60x60.
-     - parameter message: message under activity indicator view.
-     - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is BallSpinFadeLoader.
-     - parameter color: color of activity indicator view. Default color is white.
-     - parameter padding: view's padding. Default padding is 0.
-     - parameter minimumVisibleTime: minimum visible time of activity indicator view in UI blocker. Default value is 0 ms.
-     - parameter displayTimeThreshold: minimum time that has to be elapsed in order to actually display the activity indicator view. Default is 0 ms.
+     - parameter size:                 size of activity indicator view.
+     - parameter message:              message displayed under activity indicator view.
+     - parameter type:                 type of activity indicator view.
+     - parameter color:                color of activity indicator view.
+     - parameter padding:              padding of activity indicator view.
+     - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
+     - parameter minimumDisplayTime:   minimum display time of UI blocker.
      */
-    public func startActivityAnimating(
+    public func startAnimating(
         size: CGSize? = nil,
         message: String? = nil,
         type: NVActivityIndicatorType? = nil,
         color: UIColor? = nil,
         padding: CGFloat? = nil,
-        minimumVisibleTime: Int = NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_VISIBLE_TIME,
-        displayTimeThreshold: Int = NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD) {
-
-        let data = ActivityData(
-            size: size,
-            message: message,
-            type: type,
-            color: color,
-            padding: padding,
-            minimumVisibleTime: minimumVisibleTime,
-            displayTimeThreshold: displayTimeThreshold
-        )
-
-        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(data)
+        displayTimeThreshold: Int? = nil,
+        minimumDisplayTime: Int? = nil) {
+        let activityData = ActivityData(size: size,
+                                        message: message,
+                                        type: type,
+                                        color: color,
+                                        padding: padding,
+                                        displayTimeThreshold: displayTimeThreshold,
+                                        minimumDisplayTime: minimumDisplayTime)
+        
+        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
     }
-
+    
     /**
-     Stop animation and remove from view hierarchy.
+     Remove UI blocker.
      */
+    public func stopAnimating() {
+        NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+    }
+    
+    // MARK: Deprecated
+    
+    /**
+     Create a activity indicator view with specified frame, type, color and padding and start animation.
+     
+     - parameter size:    size of activity indicator view.
+     - parameter message: message displayed under activity indicator view.
+     - parameter type:    type of activity indicator view.
+     - parameter color:   color of activity indicator view.
+     - parameter padding: padding of activity indicator view.
+     */
+    @available(*, deprecated=2.11, renamed="startAnimating()")
+    public func startActivityAnimating(
+        size: CGSize? = nil,
+        message: String? = nil,
+        type: NVActivityIndicatorType? = nil,
+        color: UIColor? = nil,
+        padding: CGFloat? = nil) {
+        self.startAnimating(size,
+                            message: message,
+                            type: type,
+                            color: color,
+                            padding: padding)
+    }
+    
+    /**
+     Remove UI blocker.
+     */
+    @available(*, deprecated=2.11, renamed="stopAnimating()")
     public func stopActivityAnimating() {
         NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
     }
-
+    
 }

@@ -8,26 +8,57 @@
 
 import UIKit
 
-class ActivityData {
-
-    let size: CGSize?
+/// Class packages information used to display UI blocker.
+public class ActivityData {
+    /// Size of activity indicator view.
+    let size: CGSize
+    
+    /// Message displayed under activity indicator view.
     let message: String?
-    let type: NVActivityIndicatorType?
-    let color: UIColor?
-    let padding: CGFloat?
-    let minimumVisibleTime: Int
+    
+    /// Animation type of activity indicator view.
+    let type: NVActivityIndicatorType
+    
+    /// Color of activity indicator view.
+    let color: UIColor
+    
+    /// Padding of activity indicator view.
+    let padding: CGFloat
+    
+    /// Display time threshold to actually display UI blocker.
     let displayTimeThreshold: Int
-
-    init(size: CGSize?, message: String?, type: NVActivityIndicatorType?, color: UIColor?, padding: CGFloat?, minimumVisibleTime: Int, displayTimeThreshold: Int) {
-        self.size = size
+    
+    /// Minimum display time of UI blocker.
+    let minimumDisplayTime: Int
+    
+    /**
+     Create information package used to display UI blocker with specified size, message, type, color, padding, display time threshold and minimum display time.
+     
+     - parameter size:                 size of activity indicator view.
+     - parameter message:              message displayed under activity indicator view.
+     - parameter type:                 type of activity indicator view.
+     - parameter color:                color of activity indicator view.
+     - parameter padding:              padding of activity indicator view.
+     - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
+     - parameter minimumDisplayTime:   minimum display time of UI blocker.
+     
+     - returns: The information package used to display UI blocker.
+     */
+    init(size: CGSize?,
+         message: String?,
+         type: NVActivityIndicatorType?,
+         color: UIColor?,
+         padding: CGFloat?,
+         displayTimeThreshold: Int?,
+         minimumDisplayTime: Int?) {
+        self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message
-        self.type = type
-        self.color = color
-        self.padding = padding
-        self.minimumVisibleTime = minimumVisibleTime
-        self.displayTimeThreshold = displayTimeThreshold
+        self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
+        self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
+        self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
+        self.displayTimeThreshold = displayTimeThreshold ?? NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD
+        self.minimumDisplayTime = minimumDisplayTime ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME
     }
-
 }
 
 class NVActivityIndicatorPresenter {
@@ -100,7 +131,7 @@ class NVActivityIndicatorPresenter {
             activityContainer.addSubview(label)
         }
 
-        hideActivityTimer = scheduleTimer(activityData.minimumVisibleTime, selector: #selector(NVActivityIndicatorPresenter.hideActivityTimerFired(_:)), data: nil)
+        hideActivityTimer = scheduleTimer(activityData.minimumDisplayTime, selector: #selector(NVActivityIndicatorPresenter.hideActivityTimerFired(_:)), data: nil)
         UIApplication.sharedApplication().keyWindow!.addSubview(activityContainer)
     }
 
