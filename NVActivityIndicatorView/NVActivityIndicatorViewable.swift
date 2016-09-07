@@ -11,7 +11,7 @@ import UIKit
 /**
  *  UIViewController conforms this protocol to be able to display NVActivityIndicatorView as UI blocker.
  *
- *  This will add functionalities to UIViewController to display and remove UI blocker.
+ *  This extends abilities of UIViewController to display and remove UI blocker.
  */
 public protocol NVActivityIndicatorViewable { }
 
@@ -22,7 +22,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      
      - parameter size:                 size of activity indicator view.
      - parameter message:              message displayed under activity indicator view.
-     - parameter type:                 type of activity indicator view.
+     - parameter type:                 animation type.
      - parameter color:                color of activity indicator view.
      - parameter padding:              padding of activity indicator view.
      - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
@@ -61,7 +61,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      
      - parameter size:    size of activity indicator view.
      - parameter message: message displayed under activity indicator view.
-     - parameter type:    type of activity indicator view.
+     - parameter type:    animation type.
      - parameter color:   color of activity indicator view.
      - parameter padding: padding of activity indicator view.
      */

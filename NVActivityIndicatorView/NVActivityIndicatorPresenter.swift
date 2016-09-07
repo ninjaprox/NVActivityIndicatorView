@@ -16,7 +16,7 @@ public class ActivityData {
     /// Message displayed under activity indicator view.
     let message: String?
     
-    /// Animation type of activity indicator view.
+    /// Animation type.
     let type: NVActivityIndicatorType
     
     /// Color of activity indicator view.
@@ -32,11 +32,11 @@ public class ActivityData {
     let minimumDisplayTime: Int
     
     /**
-     Create information package used to display UI blocker with specified size, message, type, color, padding, display time threshold and minimum display time.
+     Create information package used to display UI blocker.
      
      - parameter size:                 size of activity indicator view.
      - parameter message:              message displayed under activity indicator view.
-     - parameter type:                 type of activity indicator view.
+     - parameter type:                 animation type.
      - parameter color:                color of activity indicator view.
      - parameter padding:              padding of activity indicator view.
      - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
