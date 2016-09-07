@@ -18,7 +18,7 @@ public protocol NVActivityIndicatorViewable { }
 public extension NVActivityIndicatorViewable where Self: UIViewController {
     
     /**
-     Create an activity indicator view and display as UI blocker.
+     Display UI blocker.
      
      - parameter size:                 size of activity indicator view.
      - parameter message:              message displayed under activity indicator view.
@@ -44,20 +44,20 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
                                         displayTimeThreshold: displayTimeThreshold,
                                         minimumDisplayTime: minimumDisplayTime)
         
-        NVActivityIndicatorPresenter.sharedInstance.startActivityAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
     }
     
     /**
      Remove UI blocker.
      */
     public func stopAnimating() {
-        NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
     
     // MARK: Deprecated
     
     /**
-     Create a activity indicator view with specified frame, type, color and padding and start animation.
+     Display UI blocker.
      
      - parameter size:    size of activity indicator view.
      - parameter message: message displayed under activity indicator view.
@@ -84,7 +84,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      */
     @available(*, deprecated=2.11, renamed="stopAnimating()")
     public func stopActivityAnimating() {
-        NVActivityIndicatorPresenter.sharedInstance.stopActivityAnimating()
+        self.stopAnimating()
     }
     
 }

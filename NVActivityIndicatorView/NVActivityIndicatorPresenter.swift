@@ -61,24 +61,34 @@ public class ActivityData {
     }
 }
 
-class NVActivityIndicatorPresenter {
-
-    static let sharedInstance = NVActivityIndicatorPresenter()
-
+/// Presenter that displays NVActivityIndicatorView as UI blocker.
+public class NVActivityIndicatorPresenter {
     private var showActivityTimer: NSTimer?
     private var hideActivityTimer: NSTimer?
     private var userWantsToStopActivity = false
     private let activityRestorationIdentifier = "NVActivityIndicatorViewContainer"
+    
+    static let sharedInstance = NVActivityIndicatorPresenter()
 
     private init() { }
+    
+    // MARK: - Public interface
 
-    func startActivityAnimating(data: ActivityData) {
+    /**
+     Display UI blocker.
+     
+     - parameter data: Information package used to display UI blocker.
+     */
+    public func startAnimating(data: ActivityData) {
         guard showActivityTimer == nil else { return }
         userWantsToStopActivity = false
         showActivityTimer = scheduleTimer(data.displayTimeThreshold, selector: #selector(NVActivityIndicatorPresenter.showActivityTimerFired(_:)), data: data)
     }
 
-    func stopActivityAnimating() {
+    /**
+     Remove UI blocker.
+     */
+    public func stopAnimating() {
         userWantsToStopActivity = true
         guard hideActivityTimer == nil else { return }
         hideActivity()
@@ -86,17 +96,17 @@ class NVActivityIndicatorPresenter {
 
     // MARK: - Timer events
 
-    @objc func hideActivityTimerFired(timer: NSTimer) {
+    @objc private func showActivityTimerFired(timer: NSTimer) {
+        guard let activityData = timer.userInfo as? ActivityData else { return }
+        showActivity(activityData)
+    }
+    
+    @objc private func hideActivityTimerFired(timer: NSTimer) {
         hideActivityTimer?.invalidate()
         hideActivityTimer = nil
         if userWantsToStopActivity {
             hideActivity()
         }
-    }
-
-    @objc func showActivityTimerFired(timer: NSTimer) {
-        guard let activityData = timer.userInfo as? ActivityData else { return }
-        showActivity(activityData)
     }
 
     // MARK: - Helpers
@@ -149,5 +159,4 @@ class NVActivityIndicatorPresenter {
         
         return NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: selector, userInfo: data, repeats: false)
     }
-
 }
