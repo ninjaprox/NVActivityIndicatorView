@@ -154,9 +154,11 @@ public class NVActivityIndicatorPresenter {
         showActivityTimer = nil
     }
     
-    private func scheduleTimer(_timeInterval: Int, selector: Selector, data: ActivityData?) -> NSTimer {
-        let timeInterval: NSTimeInterval = (_timeInterval == 0) ? 0.1 / 1000 : Double(_timeInterval) / 1000
-        
-        return NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: selector, userInfo: data, repeats: false)
+    private func scheduleTimer(timeInterval: Int, selector: Selector, data: ActivityData?) -> NSTimer {
+        return NSTimer.scheduledTimerWithTimeInterval(Double(timeInterval) / 1000,
+                                                      target: self,
+                                                      selector: selector,
+                                                      userInfo: data,
+                                                      repeats: false)
     }
 }
