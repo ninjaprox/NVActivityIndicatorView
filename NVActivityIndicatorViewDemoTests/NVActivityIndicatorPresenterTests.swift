@@ -13,13 +13,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     let approximateZero:Int64 = 5
     
     func testZeroDisplayTimeThreshold() {
-        let activityData = ActivityData(size: CGSizeZero,
-                                        message: "",
-                                        type: nil,
-                                        color: nil,
-                                        padding: 0,
-                                        displayTimeThreshold: 0,
-                                        minimumDisplayTime: 0)
+        let activityData = self.createActivityData(displayTimeThreshold: 0,
+                                                   minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
@@ -31,13 +26,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     }
     
     func testNonZeroDisplayTimeThreshold() {
-        let activityData = ActivityData(size: CGSizeZero,
-                                        message: "",
-                                        type: nil,
-                                        color: nil,
-                                        padding: 0,
-                                        displayTimeThreshold: 100,
-                                        minimumDisplayTime: 0)
+        let activityData = self.createActivityData(displayTimeThreshold: 100,
+                                                   minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
@@ -56,13 +46,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     }
     
     func testZeroMinimumVisibleTime() {
-        let activityData = ActivityData(size: CGSizeZero,
-                                        message: "",
-                                        type: nil,
-                                        color: nil,
-                                        padding: 0,
-                                        displayTimeThreshold: 0,
-                                        minimumDisplayTime: 0)
+        let activityData = self.createActivityData(displayTimeThreshold: 0,
+                                                   minimumDisplayTime: 0)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
@@ -74,13 +59,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     }
     
     func testNonZeroMinimumVisibleTime() {
-        let activityData = ActivityData(size: CGSizeZero,
-                                        message: "",
-                                        type: nil,
-                                        color: nil,
-                                        padding: 0,
-                                        displayTimeThreshold: 0,
-                                        minimumDisplayTime: 100)
+        let activityData = self.createActivityData(displayTimeThreshold: 0,
+                                                   minimumDisplayTime: 100)
         
         XCTAssertFalse(self.checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
