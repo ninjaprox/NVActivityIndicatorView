@@ -45,7 +45,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
         }
     }
     
-    func testZeroMinimumVisibleTime() {
+    func testZeroMinimumDisplayTime() {
         let activityData = self.createActivityData(displayTimeThreshold: 0,
                                                    minimumDisplayTime: 0)
         
@@ -58,7 +58,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
         }
     }
     
-    func testNonZeroMinimumVisibleTime() {
+    func testNonZeroMinimumDisplayTime() {
         let activityData = self.createActivityData(displayTimeThreshold: 0,
                                                    minimumDisplayTime: 100)
         
