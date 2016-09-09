@@ -456,7 +456,7 @@ public class NVActivityIndicatorView: UIView {
     @IBInspectable public var hidesWhenStopped: Bool = true
     
     /**
-     Start animation.
+     Start animating.
      */
     @available(*, deprecated=2.11, renamed="startAnimating()")
     public func startAnimation() {
@@ -464,7 +464,7 @@ public class NVActivityIndicatorView: UIView {
     }
     
     /**
-     Stop animation.
+     Stop animating.
      */
     @available(*, deprecated=2.11, renamed="stopAnimating()")
     public func stopAnimation() {

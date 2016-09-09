@@ -34,6 +34,8 @@ public class ActivityData {
     /**
      Create information package used to display UI blocker.
      
+     Appropriate NVActivityIndicatorView.DEFAULT_* values are used for omitted params.
+     
      - parameter size:                 size of activity indicator view.
      - parameter message:              message displayed under activity indicator view.
      - parameter type:                 animation type.
