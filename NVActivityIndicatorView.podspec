@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "NVActivityIndicatorView"
-  s.version      = "2.10"
-  s.summary      = "A collection of nice loading animations"
+  s.version      = "2.11"
+  s.summary      = "A collection of awesome loading animations"
   s.homepage     = "https://github.com/ninjaprox/NVActivityIndicatorView"
   s.screenshot  = "https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif"
   s.license      = { :type => "MIT", :file => "LICENSE" }
