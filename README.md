@@ -6,9 +6,9 @@ NVActivityIndicatorView
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 # Introduction
-NVActivityIndicatorView is a collection of nice loading animations.
+`NVActivityIndicatorView` is a collection of awesome loading animations.
 
-This is original a fork from [DGActivityIndicatorView](https://github.com/gontovnik/DGActivityIndicatorView), inspired by [Loaders.css](https://github.com/ConnorAtherton/loaders.css), written in Swift with full implementation of animations.
+This is original a fork from [DGActivityIndicatorView](https://github.com/gontovnik/DGActivityIndicatorView), inspired by [Loaders.css](https://github.com/ConnorAtherton/loaders.css), written in Swift with full implementation of animations, plus more.
 
 You can also find Objective-C version of this [here](https://github.com/ninjaprox/DGActivityIndicatorView).
 
@@ -55,13 +55,13 @@ For first-hand experience, just open the project and run it.
 
 ## Cocoapods
 
-Install Cocoapods if need be
+Install Cocoapods if need be.
 
 ```bash
 $ gem install cocoapods
 ```
 
-Add NVActivityIndicatorView in your `Podfile`
+Add `NVActivityIndicatorView` in your `Podfile`.
 
 ```bash
 use_frameworks!
@@ -69,21 +69,21 @@ use_frameworks!
 pod 'NVActivityIndicatorView'
 ```
 
-Then, run the following command
+Then, run the following command.
 
 ```bash
 $ pod install
 ```
 ## Carthage
 
-Install Carthage if need be
+Install Carthage if need be.
 
 ```bash
 $ brew update
 $ brew install carthage
 ```
 
-Add NVActivityIndicatorView in your `Cartfile`
+Add `NVActivityIndicatorView` in your `Cartfile`.
 
 ```bash
 github "ninjaprox/NVActivityIndicatorView"
@@ -93,11 +93,11 @@ Run `carthage` to build the framework and drag the built `NVActivityIndicatorVie
 
 ## Manual
 
-Copy NVActivityIndicatorView folder to your project. That's it.
+Copy `NVActivityIndicatorView` folder to your project. That's it.
 
 # Usage
 
-Firstly, import NVActivityIndicatorView
+Firstly, import `NVActivityIndicatorView`.
 
 ```swift
 import NVActivityIndicatorView
@@ -105,146 +105,129 @@ import NVActivityIndicatorView
 
 ## Initialization
 
-Then, there are multiple ways you can create NVActivityIndicatorView:
+Then, there are two ways you can create NVActivityIndicatorView:
 
-- Use it in storyboard by changing class of any `UIView` to `NVActivityIndicatorView`
-This will use default values white, .BallSpinFadeLoader, 0 for color, type and padding respectively.
+- By storyboard, changing class of any `UIView` to `NVActivityIndicatorView`.
 
-- Create with specified type, color and padding
+- By code, using initializer. All parameters other than `frame` are optional and `NVActivityIndicatorView.DEFAULT_*` are used as default values.
 
 ```swift
 NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding)
 ```
 
-Any of the last three arguments can be omitted. If an argument is omitted it will use the default values which are white, .BallSpinFadeLoader, 0 for color, type and padding respectively.
-Therefore, you can also create NVActivityIndicatorView using any of the following:
+_**Note:** Check [DEFAULTS](#DEFAULTS) for default values._
 
-- Specify only frame, type and color
-```swift
-NVActivityIndicatorView(frame: frame, type: type, color: color)
-```
+## Control
 
-- Specify only frame, type and padding
-```swift
-NVActivityIndicatorView(frame: frame, type: type, padding: padding)
-```
-
-- Specify only frame, color and padding
-```swift
-NVActivityIndicatorView(frame: frame, color: color, padding: padding)
-```
-
-- Specify only frame and type
-```swift
-NVActivityIndicatorView(frame: frame, type: type)
-```
-
-- Specify only frame and color
-```swift
-NVActivityIndicatorView(frame: frame, color: color)
-```
-
-- Specify only frame and padding
-```swift
-NVActivityIndicatorView(frame: frame, padding: padding)
-```
-
-- Specify only frame
-```swift
-NVActivityIndicatorView(frame: frame)
-```
-
-## Start/Stop animation
-
-Start animation
+Start animating.
 
 ```swift
-activityIndicatorView.startAnimation()
+activityIndicatorView.startAnimating()
 ```
 
-Stop animation
+Stop animating.
 
 ```swift
-activityIndicatorView.stopAnimation()
+activityIndicatorView.stopAnimating()
 ```
+
+Determine if it is animating.
+
+```swift
+animating = activityIndicatorView.animating
+```
+
+## Change properties
+
+In storyboard, you can change all properties in Attributes inspector tab of Utilities panel.
+
+_**Note:** Use one of values (case-insensitive) in [Animation types](#animation-types) for `Type Name`._
+
+All properties are public so you can change them all after initiating.
+
+_**Note:** All changes must be made before calling `startAnimating()`._
 
 ## UI blocker
 
-You can use `NVActivityIndicatorView` as UI blocker for `UIViewController` by conforming `NVActivityIndicatorViewable` protocol.
+By conforming `NVActivityIndicatorViewable` protocol, you can use `NVActivityIndicatorView` as UI blocker for `UIViewController`.
 
 ```swift
 class ViewController: UIViewController, NVActivityIndicatorViewable { }
 ```
 
-Start animation
+Start animating.
 
 ```swift
-startActivityAnimating(size, message) // plus other parameters as when initializing
+startActivityAnimating(size, message) // plus other parameters as in initializer.
 ```
 
-Stop animation
+Stop animating.
 
 ```swift
 stopActivityAnimating()
 ```
 
-## Change properties
+Or you can use `NVActivityIndicatorPresenter` to display UI blocker anywhere.
 
-If you use `NVActivityIndicatorView` in storyboard, you can change these properties in Attributes inspector tab of Utilities panel.
-
-Use one of values (case-insensitive) in [Animation types](#animation-types) for `Type Name`.
-
-Specify individual properties after initialization:
-
-- Specify type
-```swift
-activityIndicatorView.type = .LineScale
-```
-
-- Specify color
-```swift
-activityIndicatorView.color = UIColor.redColor()
-```
-
-Specify whether activity indicator view should hide once stopped
+Start animating.
 
 ```swift
-activityIndicatorView.hidesWhenStopped = true
+let activityData = ActivityData()
+
+NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
 ```
 
-Get current status of animation
+_**Note:** Check documentation for detail of `ActivityData`._
+
+Stop animating.
+
 ```swift
-animation = activityIndicatorView.animating
+NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
 ```
 
-## Change defaults
+## DEFAULTS
 
-Change global defaults if needed
+There are global defaults for all `NVActivityIndicatorView` instances.
 
-###### `NVActivityIndicatorView.DEFAULT_TYPE = .Pacman`
+- Default animation type.
 
-Default type of activity indicator.
+```swift
+NVActivityIndicatorView.DEFAULT_TYPE = .BallSpinFadeLoader
+```
 
-###### `NVActivityIndicatorView.DEFAULT_COLOR = UIColor.yellowColor()`
+- Default color of activity indicator view.
 
-Default color of activity indicator.
+```swift
+NVActivityIndicatorView.DEFAULT_COLOR = UIColor.whiteColor()
+```
 
-###### `NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(5.0)`
+- Default padding of activity indicator view.
 
-Default padding of activity indicator.
+```swift
+NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(0)
+```
 
-###### `NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)`
+- Default size of activity indicator view used in UI blocker.
 
-Default size of activity indicator used in UI Blocker.
+```swift
+NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
+```
 
-###### `NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_VISIBLE_TIME = NSTimeInterval(0)`
+- Default display time threshold.
 
-Default minimum visible time of an activity indicator view in UI Blocker. Its main purpose is to avoid flashes showing and hiding it so fast. For instance, setting it to 200 ms will force every activity indicator to be shown for at least this time (regardless if you call `stopActivityAnimating` before).
+> Default time that has to be elapsed (between calls of `startAnimating()` and `stopAnimating()`) in order to actually display UI blocker. It should be set thinking about what the minimum duration of an activity is to be worth showing it to the user. If the activity ends before this time threshold, then it will not be displayed at all.
 
-###### `NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = NSTimeInterval(0)`
+```swift
+NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 0 // in milliseconds
+```
 
-Default minimum time that has to be elapsed (between calls of `startActivityAnimating` and `stopActivityAnimating`) in order to actually display the activity indicator view in UI Blocker. It should be set thinking about what the minimum duration of an activity is to be worth showing it to the user. If the activity ends before this time threshold, then it will not be displayed at all.
+- Default minimum display time.
 
+> Default minimum display time of UI blocker. Its main purpose is to avoid flashes showing and hiding it so fast. For instance, setting it to 200ms will force UI blocker to be shown for at least this time (regardless of calling `stopAnimating()` ealier).
+
+```swift
+NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0 // in milliseconds
+```
 
 # Acknowledgment
 
