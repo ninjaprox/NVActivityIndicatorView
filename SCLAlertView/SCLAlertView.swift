@@ -111,7 +111,7 @@ open class SCLAlertViewResponder {
         self.alertview.hideView()
     }
     
-    open func setDismissBlock(_ dismissBlock: DismissBlock) {
+    open func setDismissBlock(_ dismissBlock: @escaping DismissBlock) {
         self.alertview.dismissBlock = dismissBlock
     }
 }
