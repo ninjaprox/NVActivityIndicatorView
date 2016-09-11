@@ -158,13 +158,13 @@ class ViewController: UIViewController, NVActivityIndicatorViewable { }
 Start animating.
 
 ```swift
-startActivityAnimating(size, message) // plus other parameters as in initializer.
+startAnimating(size, message) // plus other parameters as in initializer.
 ```
 
 Stop animating.
 
 ```swift
-stopActivityAnimating()
+stopAnimating()
 ```
 
 Or you can use `NVActivityIndicatorPresenter` to display UI blocker anywhere.
