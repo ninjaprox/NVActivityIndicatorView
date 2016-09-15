@@ -8,26 +8,46 @@
 
 import Foundation
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 // Pop Up Styles
 public enum SCLAlertViewStyle {
-    case Success, Error, Notice, Warning, Info, Edit, Wait
+    case success, error, notice, warning, info, edit, wait
     
     var defaultColorInt: UInt {
         switch self {
-        case Success:
+        case .success:
             return 0x22B573
-        case Error:
+        case .error:
             return 0xC1272D
-        case Notice:
+        case .notice:
             return 0x727375
-        case Warning:
+        case .warning:
             return 0xFFD110
-        case Info:
+        case .info:
             return 0x2866BF
-        case Edit:
+        case .edit:
             return 0xA429FF
-        case Wait:
+        case .wait:
             return 0xD62DA5
         }
         
@@ -37,17 +57,17 @@ public enum SCLAlertViewStyle {
 
 // Animation Styles
 public enum SCLAnimationStyle {
-    case NoAnimation, TopToBottom, BottomToTop, LeftToRight, RightToLeft
+    case noAnimation, topToBottom, bottomToTop, leftToRight, rightToLeft
 }
 
 // Action Types
 public enum SCLActionType {
-    case None, Selector, Closure
+    case none, selector, closure
 }
 
 // Button sub-class
-public class SCLButton: UIButton {
-    var actionType = SCLActionType.None
+open class SCLButton: UIButton {
+    var actionType = SCLActionType.none
     var target:AnyObject!
     var selector:Selector!
     var action:(()->Void)!
@@ -57,7 +77,7 @@ public class SCLButton: UIButton {
     var showDurationStatus:Bool=false
     
     public init() {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -71,7 +91,7 @@ public class SCLButton: UIButton {
 
 // Allow alerts to be closed/renamed in a chainable manner
 // Example: SCLAlertView().showSuccess(self, title: "Test", subTitle: "Value").close()
-public class SCLAlertViewResponder {
+open class SCLAlertViewResponder {
     let alertview: SCLAlertView
     
     // Initialisation and Title/Subtitle/Close functions
@@ -79,19 +99,19 @@ public class SCLAlertViewResponder {
         self.alertview = alertview
     }
     
-    public func setTitle(title: String) {
+    open func setTitle(_ title: String) {
         self.alertview.labelTitle.text = title
     }
     
-    public func setSubTitle(subTitle: String) {
+    open func setSubTitle(_ subTitle: String) {
         self.alertview.viewText.text = subTitle
     }
     
-    public func close() {
+    open func close() {
         self.alertview.hideView()
     }
     
-    public func setDismissBlock(dismissBlock: DismissBlock) {
+    open func setDismissBlock(_ dismissBlock: @escaping DismissBlock) {
         self.alertview.dismissBlock = dismissBlock
     }
 }
@@ -101,7 +121,7 @@ let kCircleHeightBackground: CGFloat = 62.0
 public typealias DismissBlock = () -> Void
 
 // The Main Class
-public class SCLAlertView: UIViewController {
+open class SCLAlertView: UIViewController {
     
     public struct SCLAppearance {
         let kDefaultShadowOpacity: CGFloat
@@ -137,7 +157,7 @@ public class SCLAlertView: UIViewController {
         // Actions
         var hideWhenBackgroundViewIsTapped: Bool
         
-        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFontOfSize(20), kTextFont: UIFont = UIFont.systemFontOfSize(14), kButtonFont: UIFont = UIFont.boldSystemFontOfSize(14), showCloseButton: Bool = true, showCircularIcon: Bool = true, shouldAutoDismiss: Bool = true, contentViewCornerRadius: CGFloat = 5.0, fieldCornerRadius: CGFloat = 3.0, buttonCornerRadius: CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Bool = false, contentViewColor: UIColor = UIColorFromRGB(0xFFFFFF), contentViewBorderColor: UIColor = UIColorFromRGB(0xCCCCCC), titleColor: UIColor = UIColorFromRGB(0x4D4D4D)) {
+        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = -12.0, kCircleBackgroundTopPosition: CGFloat = -15.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0, kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFont(ofSize: 20), kTextFont: UIFont = UIFont.systemFont(ofSize: 14), kButtonFont: UIFont = UIFont.boldSystemFont(ofSize: 14), showCloseButton: Bool = true, showCircularIcon: Bool = true, shouldAutoDismiss: Bool = true, contentViewCornerRadius: CGFloat = 5.0, fieldCornerRadius: CGFloat = 3.0, buttonCornerRadius: CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Bool = false, contentViewColor: UIColor = UIColorFromRGB(0xFFFFFF), contentViewBorderColor: UIColor = UIColorFromRGB(0xCCCCCC), titleColor: UIColor = UIColorFromRGB(0x4D4D4D)) {
             
             self.kDefaultShadowOpacity = kDefaultShadowOpacity
             self.kCircleTopPosition = kCircleTopPosition
@@ -170,11 +190,11 @@ public class SCLAlertView: UIViewController {
             self.hideWhenBackgroundViewIsTapped = hideWhenBackgroundViewIsTapped
         }
         
-        mutating func setkWindowHeight(kWindowHeight:CGFloat) {
+        mutating func setkWindowHeight(_ kWindowHeight:CGFloat) {
             self.kWindowHeight = kWindowHeight
         }
         
-        mutating func setkTextHeight(kTextHeight:CGFloat) {
+        mutating func setkTextHeight(_ kTextHeight:CGFloat) {
             self.kTextHeight = kTextHeight
         }
     }
@@ -185,8 +205,8 @@ public class SCLAlertView: UIViewController {
     var viewColor = UIColor()
     
     // UI Options
-    public var iconTintColor: UIColor?
-    public var customSubview : UIView?
+    open var iconTintColor: UIColor?
+    open var customSubview : UIView?
     
 
     
@@ -198,14 +218,14 @@ public class SCLAlertView: UIViewController {
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
     var circleView = UIView()
     var circleIconView : UIView?
-    var duration: NSTimeInterval!
-    var durationStatusTimer: NSTimer!
-    var durationTimer: NSTimer!
+    var duration: TimeInterval!
+    var durationStatusTimer: Timer!
+    var durationTimer: Timer!
     var dismissBlock : DismissBlock?
-    private var inputs = [UITextField]()
-    private var input = [UITextView]()
+    fileprivate var inputs = [UITextField]()
+    fileprivate var input = [UITextView]()
     internal var buttons = [SCLButton]()
-    private var selfReference: SCLAlertView?
+    fileprivate var selfReference: SCLAlertView?
     
     public init(appearance: SCLAppearance) {
         self.appearance = appearance
@@ -223,15 +243,15 @@ public class SCLAlertView: UIViewController {
         setup()
     }
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         appearance = SCLAppearance()
         super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
     }
     
-    private func setup() {
+    fileprivate func setup() {
         // Set up main view
-        view.frame = UIScreen.mainScreen().bounds
-        view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
+        view.frame = UIScreen.main.bounds
+        view.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
         view.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:appearance.kDefaultShadowOpacity)
         view.addSubview(baseView)
         // Base View
@@ -244,7 +264,7 @@ public class SCLAlertView: UIViewController {
         contentView.addSubview(labelTitle)
         contentView.addSubview(viewText)
         // Circle View
-        circleBG.backgroundColor = UIColor.whiteColor()
+        circleBG.backgroundColor = UIColor.white
         circleBG.layer.cornerRadius = circleBG.frame.size.height / 2
         baseView.addSubview(circleBG)
         circleBG.addSubview(circleView)
@@ -253,13 +273,13 @@ public class SCLAlertView: UIViewController {
         circleView.layer.cornerRadius = circleView.frame.size.height / 2
         // Title
         labelTitle.numberOfLines = 1
-        labelTitle.textAlignment = .Center
+        labelTitle.textAlignment = .center
         labelTitle.font = appearance.kTitleFont
         labelTitle.frame = CGRect(x:12, y:appearance.kTitleTop, width: appearance.kWindowWidth - 24, height:appearance.kTitleHeight)
         // View text
-        viewText.editable = false
-        viewText.textAlignment = .Center
-        viewText.textContainerInset = UIEdgeInsetsZero
+        viewText.isEditable = false
+        viewText.textAlignment = .center
+        viewText.textContainerInset = UIEdgeInsets.zero
         viewText.textContainer.lineFragmentPadding = 0;
         viewText.font = appearance.kTextFont
         // Colours
@@ -267,16 +287,16 @@ public class SCLAlertView: UIViewController {
         viewText.backgroundColor = appearance.contentViewColor
         labelTitle.textColor = appearance.titleColor
         viewText.textColor = appearance.titleColor
-        contentView.layer.borderColor = appearance.contentViewBorderColor.CGColor
+        contentView.layer.borderColor = appearance.contentViewBorderColor.cgColor
         //Gesture Recognizer for tapping outside the textinput
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
         tapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    override public func viewWillLayoutSubviews() {
+    override open func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
+        let rv = UIApplication.shared.keyWindow! as UIWindow
         let sz = rv.frame.size
         
         // Set background frame
@@ -301,14 +321,14 @@ public class SCLAlertView: UIViewController {
             viewText.addSubview(customSubview)
         } else {
             // computing the right size to use for the textView
-            let suggestedViewTextSize = viewText.sizeThatFits(CGSizeMake(viewTextWidth, CGFloat.max))
+            let suggestedViewTextSize = viewText.sizeThatFits(CGSize(width: viewTextWidth, height: CGFloat.greatestFiniteMagnitude))
             viewTextHeight = min(suggestedViewTextSize.height, maxViewTextHeight)
             
             // scroll management
             if (suggestedViewTextSize.height > maxViewTextHeight) {
-                viewText.scrollEnabled = true
+                viewText.isScrollEnabled = true
             } else {
-                viewText.scrollEnabled = false
+                viewText.isScrollEnabled = false
             }
         }
         
@@ -350,33 +370,33 @@ public class SCLAlertView: UIViewController {
         }
     }
     
-    override public func viewDidAppear(animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SCLAlertView.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SCLAlertView.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(SCLAlertView.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(SCLAlertView.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
     }
     
-    override public func viewDidDisappear(animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(UIKeyboardWillShowNotification)
-        NSNotificationCenter.defaultCenter().removeObserver(UIKeyboardWillHideNotification)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    override public func touchesEnded(touches:Set<UITouch>, withEvent event:UIEvent?) {
-        if event?.touchesForView(view)?.count > 0 {
+    override open func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?) {
+        if event?.touches(for: view)?.count > 0 {
             view.endEditing(true)
         }
     }
     
-    public func addTextField(title:String?=nil)->UITextField {
+    open func addTextField(_ title:String?=nil)->UITextField {
         // Update view height
         appearance.setkWindowHeight(appearance.kWindowHeight + appearance.kTextFieldHeight)
         // Add text field
         let txt = UITextField()
-        txt.borderStyle = UITextBorderStyle.RoundedRect
+        txt.borderStyle = UITextBorderStyle.roundedRect
         txt.font = appearance.kTextFont
-        txt.autocapitalizationType = UITextAutocapitalizationType.Words
-        txt.clearButtonMode = UITextFieldViewMode.WhileEditing
+        txt.autocapitalizationType = UITextAutocapitalizationType.words
+        txt.clearButtonMode = UITextFieldViewMode.whileEditing
         txt.layer.masksToBounds = true
         txt.layer.borderWidth = 1.0
         if title != nil {
@@ -387,7 +407,7 @@ public class SCLAlertView: UIViewController {
         return txt
     }
     
-    public func addTextView()->UITextView {
+    open func addTextView()->UITextView {
         // Update view height
         appearance.setkWindowHeight(appearance.kWindowHeight + appearance.kTextViewdHeight)
         // Add text view
@@ -403,34 +423,34 @@ public class SCLAlertView: UIViewController {
         return txt
     }
     
-    public func addButton(title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool=false, action:()->Void)->SCLButton {
+    open func addButton(_ title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool=false, action:@escaping ()->Void)->SCLButton {
         let btn = addButton(title, backgroundColor: backgroundColor, textColor: textColor, showDurationStatus: showDurationStatus)
-        btn.actionType = SCLActionType.Closure
+        btn.actionType = SCLActionType.closure
         btn.action = action
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), forControlEvents:.TouchUpInside)
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapDown(_:)), forControlEvents:[.TouchDown, .TouchDragEnter])
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonRelease(_:)), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), for:.touchUpInside)
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapDown(_:)), for:[.touchDown, .touchDragEnter])
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonRelease(_:)), for:[.touchUpInside, .touchUpOutside, .touchCancel, .touchDragOutside] )
         return btn
     }
     
-    public func addButton(title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool = false, target:AnyObject, selector:Selector)->SCLButton {
+    open func addButton(_ title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool = false, target:AnyObject, selector:Selector)->SCLButton {
         let btn = addButton(title, backgroundColor: backgroundColor, textColor: textColor, showDurationStatus: showDurationStatus)
-        btn.actionType = SCLActionType.Selector
+        btn.actionType = SCLActionType.selector
         btn.target = target
         btn.selector = selector
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), forControlEvents:.TouchUpInside)
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapDown(_:)), forControlEvents:[.TouchDown, .TouchDragEnter])
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonRelease(_:)), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), for:.touchUpInside)
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapDown(_:)), for:[.touchDown, .touchDragEnter])
+        btn.addTarget(self, action:#selector(SCLAlertView.buttonRelease(_:)), for:[.touchUpInside, .touchUpOutside, .touchCancel, .touchDragOutside] )
         return btn
     }
     
-    private func addButton(title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool=false)->SCLButton {
+    fileprivate func addButton(_ title:String, backgroundColor:UIColor? = nil, textColor:UIColor? = nil, showDurationStatus:Bool=false)->SCLButton {
         // Update view height
         appearance.setkWindowHeight(appearance.kWindowHeight + appearance.kButtonHeight)
         // Add button
         let btn = SCLButton()
         btn.layer.masksToBounds = true
-        btn.setTitle(title, forState: .Normal)
+        btn.setTitle(title, for: UIControlState())
         btn.titleLabel?.font = appearance.kButtonFont
         btn.customBackgroundColor = backgroundColor
         btn.customTextColor = textColor
@@ -441,12 +461,12 @@ public class SCLAlertView: UIViewController {
         return btn
     }
     
-    func buttonTapped(btn:SCLButton) {
-        if btn.actionType == SCLActionType.Closure {
+    func buttonTapped(_ btn:SCLButton) {
+        if btn.actionType == SCLActionType.closure {
             btn.action()
-        } else if btn.actionType == SCLActionType.Selector {
+        } else if btn.actionType == SCLActionType.selector {
             let ctrl = UIControl()
-            ctrl.sendAction(btn.selector, to:btn.target, forEvent:nil)
+            ctrl.sendAction(btn.selector, to:btn.target, for:nil)
         } else {
             print("Unknow action type for button")
         }
@@ -455,7 +475,7 @@ public class SCLAlertView: UIViewController {
     }
     
     
-    func buttonTapDown(btn:SCLButton) {
+    func buttonTapDown(_ btn:SCLButton) {
         var hue : CGFloat = 0
         var saturation : CGFloat = 0
         var brightness : CGFloat = 0
@@ -466,7 +486,7 @@ public class SCLAlertView: UIViewController {
         btn.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
     
-    func buttonRelease(btn:SCLButton) {
+    func buttonRelease(_ btn:SCLButton) {
         btn.backgroundColor = btn.customBackgroundColor ?? viewColor
     }
     
@@ -474,11 +494,11 @@ public class SCLAlertView: UIViewController {
     var tmpCircleViewFrameOrigin: CGPoint?
     var keyboardHasBeenShown:Bool = false
     
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         keyboardHasBeenShown = true
         
-        guard let userInfo = notification.userInfo else {return}
-        guard let endKeyBoardFrame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.minY else {return}
+        guard let userInfo = (notification as NSNotification).userInfo else {return}
+        guard let endKeyBoardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.minY else {return}
         
         if tmpContentViewFrameOrigin == nil {
         tmpContentViewFrameOrigin = self.contentView.frame.origin
@@ -497,7 +517,7 @@ public class SCLAlertView: UIViewController {
         self.circleBG.frame.origin.y = newBallViewFrameY
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         if(keyboardHasBeenShown){//This could happen on the simulator (keyboard will be hidden)
             if(self.tmpContentViewFrameOrigin != nil){
                 self.contentView.frame.origin.y = self.tmpContentViewFrameOrigin!.y
@@ -513,17 +533,17 @@ public class SCLAlertView: UIViewController {
     }
     
     //Dismiss keyboard when tapped outside textfield & close SCLAlertView when hideWhenBackgroundViewIsTapped
-    func tapped(gestureRecognizer: UITapGestureRecognizer) {
+    func tapped(_ gestureRecognizer: UITapGestureRecognizer) {
         self.view.endEditing(true)
         
-        if let tappedView = gestureRecognizer.view where tappedView.hitTest(gestureRecognizer.locationInView(tappedView), withEvent: nil) == baseView && appearance.hideWhenBackgroundViewIsTapped {
+        if let tappedView = gestureRecognizer.view , tappedView.hitTest(gestureRecognizer.location(in: tappedView), with: nil) == baseView && appearance.hideWhenBackgroundViewIsTapped {
             
             hideView()
         }
     }
     
     // showCustom(view, title, subTitle, UIColor, UIImage)
-    public func showCustom(title: String, subTitle: String, color: UIColor, icon: UIImage, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+    open func showCustom(_ title: String, subTitle: String, color: UIColor, icon: UIImage, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
         
         
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
@@ -531,58 +551,60 @@ public class SCLAlertView: UIViewController {
         color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
         var colorAsUInt32 : UInt32 = 0
-        colorAsUInt32 += UInt32(red * 255.0) << 16 + UInt32(green * 255.0) << 8 + UInt32(blue * 255.0)
+        colorAsUInt32 += UInt32(red * 255.0) << 16
+        colorAsUInt32 += UInt32(green * 255.0) << 8
+        colorAsUInt32 += UInt32(blue * 255.0)
         
         let colorAsUInt = UInt(colorAsUInt32)
         
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success, colorStyle: colorAsUInt, colorTextButton: colorTextButton, circleIconImage: icon, animationStyle: animationStyle)
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .success, colorStyle: colorAsUInt, colorTextButton: colorTextButton, circleIconImage: icon, animationStyle: animationStyle)
     }
     
     // showSuccess(view, title, subTitle)
-    public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
+    open func showSuccess(_ title: String, subTitle: String, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .success, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showError(view, title, subTitle)
-    public func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Error.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
+    open func showError(_ title: String, subTitle: String, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.error.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .error, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showNotice(view, title, subTitle)
-    public func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Notice.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
+    open func showNotice(_ title: String, subTitle: String, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.notice.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .notice, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showWarning(view, title, subTitle)
-    public func showWarning(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Warning.defaultColorInt, colorTextButton: UInt=0x000000, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
+    open func showWarning(_ title: String, subTitle: String, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.warning.defaultColorInt, colorTextButton: UInt=0x000000, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .warning, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showInfo(view, title, subTitle)
-    public func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Info.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
+    open func showInfo(_ title: String, subTitle: String, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.info.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .info, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showWait(view, title, subTitle)
-    public func showWait(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=SCLAlertViewStyle.Wait.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
+    open func showWait(_ title: String, subTitle: String, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt?=SCLAlertViewStyle.wait.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .wait, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
-    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Edit.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
+    open func showEdit(_ title: String, subTitle: String, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.edit.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .edit, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showTitle(view, title, subTitle, style)
-    public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=0x000000, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+    open func showTitle(_ title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UInt?=0x000000, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
         
         return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage, animationStyle: animationStyle)
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?=0x000000, colorTextButton: UInt?=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .TopToBottom) -> SCLAlertViewResponder {
+    open func showTitle(_ title: String, subTitle: String, duration: TimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?=0x000000, colorTextButton: UInt?=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
         selfReference = self
         view.alpha = 0
-        let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
+        let rv = UIApplication.shared.keyWindow! as UIWindow
         rv.addSubview(view)
         view.frame = rv.bounds
         baseView.frame = rv.bounds
@@ -594,31 +616,31 @@ public class SCLAlertView: UIViewController {
         viewColor = UIColorFromRGB(colorInt)
         // Icon style
         switch style {
-        case .Success:
+        case .success:
             
             iconImage = checkCircleIconImage(circleIconImage, defaultImage: SCLAlertViewStyleKit.imageOfCheckmark)
             
-        case .Error:
+        case .error:
             
             iconImage = checkCircleIconImage(circleIconImage, defaultImage: SCLAlertViewStyleKit.imageOfCross)
             
-        case .Notice:
+        case .notice:
             
             iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfNotice)
             
-        case .Warning:
+        case .warning:
             
             iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfWarning)
             
-        case .Info:
+        case .info:
             
             iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfInfo)
             
-        case .Edit:
+        case .edit:
             
             iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfEdit)
             
-        case .Wait:
+        case .wait:
             iconImage = nil
         }
         
@@ -634,7 +656,7 @@ public class SCLAlertView: UIViewController {
             let str = subTitle as NSString
             let attr = [NSFontAttributeName:viewText.font ?? UIFont()]
             let sz = CGSize(width: appearance.kWindowWidth - 24, height:90)
-            let r = str.boundingRectWithSize(sz, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes:attr, context:nil)
+            let r = str.boundingRect(with: sz, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:attr, context:nil)
             let ht = ceil(r.size.height)
             if ht < appearance.kTextHeight {
                 appearance.kWindowHeight -= (appearance.kTextHeight - ht)
@@ -648,20 +670,20 @@ public class SCLAlertView: UIViewController {
         }
         
         //hidden/show circular view based on the ui option
-        circleView.hidden = !appearance.showCircularIcon
-        circleBG.hidden = !appearance.showCircularIcon
+        circleView.isHidden = !appearance.showCircularIcon
+        circleBG.isHidden = !appearance.showCircularIcon
         
         // Alert view colour and images
         circleView.backgroundColor = viewColor
         // Spinner / icon
-        if style == .Wait {
-            let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        if style == .wait {
+            let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
             indicator.startAnimating()
             circleIconView = indicator
         }
         else {
             if let iconTintColor = iconTintColor {
-                circleIconView = UIImageView(image: iconImage!.imageWithRenderingMode(.AlwaysTemplate))
+                circleIconView = UIImageView(image: iconImage!.withRenderingMode(.alwaysTemplate))
                 circleIconView?.tintColor = iconTintColor
             }
             else {
@@ -670,16 +692,16 @@ public class SCLAlertView: UIViewController {
         }
         circleView.addSubview(circleIconView!)
         let x = (appearance.kCircleHeight - appearance.kCircleIconHeight) / 2
-        circleIconView!.frame = CGRectMake( x, x, appearance.kCircleIconHeight, appearance.kCircleIconHeight)
+        circleIconView!.frame = CGRect( x: x, y: x, width: appearance.kCircleIconHeight, height: appearance.kCircleIconHeight)
         circleIconView?.layer.cornerRadius = circleIconView!.bounds.height / 2
         circleIconView?.layer.masksToBounds = true
         
         for txt in inputs {
-            txt.layer.borderColor = viewColor.CGColor
+            txt.layer.borderColor = viewColor.cgColor
         }
         
         for txt in input {
-            txt.layer.borderColor = viewColor.CGColor
+            txt.layer.borderColor = viewColor.cgColor
         }
         
         for btn in buttons {
@@ -693,10 +715,10 @@ public class SCLAlertView: UIViewController {
             
             if let customTextColor = btn.customTextColor {
                 // Custom TextColor set
-                btn.setTitleColor(customTextColor, forState:UIControlState.Normal)
+                btn.setTitleColor(customTextColor, for:UIControlState())
             } else {
                 // Use default BackgroundColor derived from AlertStyle
-                btn.setTitleColor(UIColorFromRGB(colorTextButton ?? 0xFFFFFF), forState:UIControlState.Normal)
+                btn.setTitleColor(UIColorFromRGB(colorTextButton ?? 0xFFFFFF), for:UIControlState())
             }
         }
         
@@ -704,9 +726,9 @@ public class SCLAlertView: UIViewController {
         if duration > 0 {
             self.duration = duration
             durationTimer?.invalidate()
-            durationTimer = NSTimer.scheduledTimerWithTimeInterval(self.duration, target: self, selector: #selector(SCLAlertView.hideView), userInfo: nil, repeats: false)
+            durationTimer = Timer.scheduledTimer(timeInterval: self.duration, target: self, selector: #selector(SCLAlertView.hideView), userInfo: nil, repeats: false)
             durationStatusTimer?.invalidate()
-            durationStatusTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(SCLAlertView.updateDurationStatus), userInfo: nil, repeats: true)
+            durationStatusTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(SCLAlertView.updateDurationStatus), userInfo: nil, repeats: true)
         }
         
         // Animate in the alert view
@@ -717,58 +739,58 @@ public class SCLAlertView: UIViewController {
     }
     
     // Show animation in the alert view
-    private func showAnimation(animationStyle: SCLAnimationStyle = .TopToBottom, animationStartOffset: CGFloat = -400.0, boundingAnimationOffset: CGFloat = 15.0, animationDuration: NSTimeInterval = 0.2) {
+    fileprivate func showAnimation(_ animationStyle: SCLAnimationStyle = .topToBottom, animationStartOffset: CGFloat = -400.0, boundingAnimationOffset: CGFloat = 15.0, animationDuration: TimeInterval = 0.2) {
         
-        let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
+        let rv = UIApplication.shared.keyWindow! as UIWindow
         var animationStartOrigin = self.baseView.frame.origin
         var animationCenter : CGPoint = rv.center
         
         switch animationStyle {
 
-        case .NoAnimation:
+        case .noAnimation:
             self.view.alpha = 1.0
             return;
             
-        case .TopToBottom:
+        case .topToBottom:
             animationStartOrigin = CGPoint(x: animationStartOrigin.x, y: self.baseView.frame.origin.y + animationStartOffset)
             animationCenter = CGPoint(x: animationCenter.x, y: animationCenter.y + boundingAnimationOffset)
             
-        case .BottomToTop:
+        case .bottomToTop:
             animationStartOrigin = CGPoint(x: animationStartOrigin.x, y: self.baseView.frame.origin.y - animationStartOffset)
             animationCenter = CGPoint(x: animationCenter.x, y: animationCenter.y - boundingAnimationOffset)
             
-        case .LeftToRight:
+        case .leftToRight:
             animationStartOrigin = CGPoint(x: self.baseView.frame.origin.x + animationStartOffset, y: animationStartOrigin.y)
             animationCenter = CGPoint(x: animationCenter.x + boundingAnimationOffset, y: animationCenter.y)
             
-        case .RightToLeft:
+        case .rightToLeft:
             animationStartOrigin = CGPoint(x: self.baseView.frame.origin.x - animationStartOffset, y: animationStartOrigin.y)
             animationCenter = CGPoint(x: animationCenter.x - boundingAnimationOffset, y: animationCenter.y)
         }
 
         self.baseView.frame.origin = animationStartOrigin
-        UIView.animateWithDuration(animationDuration, animations: {
+        UIView.animate(withDuration: animationDuration, animations: {
             self.view.alpha = 1.0
             self.baseView.center = animationCenter
             }, completion: { finished in
-                UIView.animateWithDuration(animationDuration, animations: {
+                UIView.animate(withDuration: animationDuration, animations: {
                     self.view.alpha = 1.0
                     self.baseView.center = rv.center
                 })
         })
     }
     
-    public func updateDurationStatus() {
-        duration = duration.advancedBy(-1)
+    open func updateDurationStatus() {
+        duration = duration.advanced(by: -1)
         for btn in buttons.filter({$0.showDurationStatus}) {
             let txt = "\(btn.initialTitle) (\(duration))"
-            btn.setTitle(txt, forState: .Normal)
+            btn.setTitle(txt, for: UIControlState())
         }
     }
     
     // Close SCLAlertView
-    public func hideView() {
-        UIView.animateWithDuration(0.2, animations: {
+    open func hideView() {
+        UIView.animate(withDuration: 0.2, animations: {
             self.view.alpha = 0
             }, completion: { finished in
                 
@@ -794,7 +816,7 @@ public class SCLAlertView: UIViewController {
         })
     }
     
-    func checkCircleIconImage(circleIconImage: UIImage?, defaultImage: UIImage) -> UIImage {
+    func checkCircleIconImage(_ circleIconImage: UIImage?, defaultImage: UIImage) -> UIImage {
         if let image = circleIconImage {
             return image
         } else {
@@ -804,7 +826,7 @@ public class SCLAlertView: UIViewController {
 }
 
 // Helper function to convert from RGB to UIColor
-func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+func UIColorFromRGB(_ rgbValue: UInt) -> UIColor {
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
         green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -845,34 +867,34 @@ class SCLAlertViewStyleKit : NSObject {
     class func drawCheckmark() {
         // Checkmark Shape Drawing
         let checkmarkShapePath = UIBezierPath()
-        checkmarkShapePath.moveToPoint(CGPointMake(73.25, 14.05))
-        checkmarkShapePath.addCurveToPoint(CGPointMake(64.51, 13.86), controlPoint1: CGPointMake(70.98, 11.44), controlPoint2: CGPointMake(66.78, 11.26))
-        checkmarkShapePath.addLineToPoint(CGPointMake(27.46, 52))
-        checkmarkShapePath.addLineToPoint(CGPointMake(15.75, 39.54))
-        checkmarkShapePath.addCurveToPoint(CGPointMake(6.84, 39.54), controlPoint1: CGPointMake(13.48, 36.93), controlPoint2: CGPointMake(9.28, 36.93))
-        checkmarkShapePath.addCurveToPoint(CGPointMake(6.84, 49.02), controlPoint1: CGPointMake(4.39, 42.14), controlPoint2: CGPointMake(4.39, 46.42))
-        checkmarkShapePath.addLineToPoint(CGPointMake(22.91, 66.14))
-        checkmarkShapePath.addCurveToPoint(CGPointMake(27.28, 68), controlPoint1: CGPointMake(24.14, 67.44), controlPoint2: CGPointMake(25.71, 68))
-        checkmarkShapePath.addCurveToPoint(CGPointMake(31.65, 66.14), controlPoint1: CGPointMake(28.86, 68), controlPoint2: CGPointMake(30.43, 67.26))
-        checkmarkShapePath.addLineToPoint(CGPointMake(73.08, 23.35))
-        checkmarkShapePath.addCurveToPoint(CGPointMake(73.25, 14.05), controlPoint1: CGPointMake(75.52, 20.75), controlPoint2: CGPointMake(75.7, 16.65))
-        checkmarkShapePath.closePath()
+        checkmarkShapePath.move(to: CGPoint(x: 73.25, y: 14.05))
+        checkmarkShapePath.addCurve(to: CGPoint(x: 64.51, y: 13.86), controlPoint1: CGPoint(x: 70.98, y: 11.44), controlPoint2: CGPoint(x: 66.78, y: 11.26))
+        checkmarkShapePath.addLine(to: CGPoint(x: 27.46, y: 52))
+        checkmarkShapePath.addLine(to: CGPoint(x: 15.75, y: 39.54))
+        checkmarkShapePath.addCurve(to: CGPoint(x: 6.84, y: 39.54), controlPoint1: CGPoint(x: 13.48, y: 36.93), controlPoint2: CGPoint(x: 9.28, y: 36.93))
+        checkmarkShapePath.addCurve(to: CGPoint(x: 6.84, y: 49.02), controlPoint1: CGPoint(x: 4.39, y: 42.14), controlPoint2: CGPoint(x: 4.39, y: 46.42))
+        checkmarkShapePath.addLine(to: CGPoint(x: 22.91, y: 66.14))
+        checkmarkShapePath.addCurve(to: CGPoint(x: 27.28, y: 68), controlPoint1: CGPoint(x: 24.14, y: 67.44), controlPoint2: CGPoint(x: 25.71, y: 68))
+        checkmarkShapePath.addCurve(to: CGPoint(x: 31.65, y: 66.14), controlPoint1: CGPoint(x: 28.86, y: 68), controlPoint2: CGPoint(x: 30.43, y: 67.26))
+        checkmarkShapePath.addLine(to: CGPoint(x: 73.08, y: 23.35))
+        checkmarkShapePath.addCurve(to: CGPoint(x: 73.25, y: 14.05), controlPoint1: CGPoint(x: 75.52, y: 20.75), controlPoint2: CGPoint(x: 75.7, y: 16.65))
+        checkmarkShapePath.close()
         checkmarkShapePath.miterLimit = 4;
         
-        UIColor.whiteColor().setFill()
+        UIColor.white.setFill()
         checkmarkShapePath.fill()
     }
     
     class func drawCross() {
         // Cross Shape Drawing
         let crossShapePath = UIBezierPath()
-        crossShapePath.moveToPoint(CGPointMake(10, 70))
-        crossShapePath.addLineToPoint(CGPointMake(70, 10))
-        crossShapePath.moveToPoint(CGPointMake(10, 10))
-        crossShapePath.addLineToPoint(CGPointMake(70, 70))
-        crossShapePath.lineCapStyle = CGLineCap.Round;
-        crossShapePath.lineJoinStyle = CGLineJoin.Round;
-        UIColor.whiteColor().setStroke()
+        crossShapePath.move(to: CGPoint(x: 10, y: 70))
+        crossShapePath.addLine(to: CGPoint(x: 70, y: 10))
+        crossShapePath.move(to: CGPoint(x: 10, y: 10))
+        crossShapePath.addLine(to: CGPoint(x: 70, y: 70))
+        crossShapePath.lineCapStyle = CGLineCap.round;
+        crossShapePath.lineJoinStyle = CGLineJoin.round;
+        UIColor.white.setStroke()
         crossShapePath.lineWidth = 14
         crossShapePath.stroke()
     }
@@ -880,37 +902,37 @@ class SCLAlertViewStyleKit : NSObject {
     class func drawNotice() {
         // Notice Shape Drawing
         let noticeShapePath = UIBezierPath()
-        noticeShapePath.moveToPoint(CGPointMake(72, 48.54))
-        noticeShapePath.addLineToPoint(CGPointMake(72, 39.9))
-        noticeShapePath.addCurveToPoint(CGPointMake(66.38, 34.01), controlPoint1: CGPointMake(72, 36.76), controlPoint2: CGPointMake(69.48, 34.01))
-        noticeShapePath.addCurveToPoint(CGPointMake(61.53, 35.97), controlPoint1: CGPointMake(64.82, 34.01), controlPoint2: CGPointMake(62.69, 34.8))
-        noticeShapePath.addCurveToPoint(CGPointMake(60.36, 35.78), controlPoint1: CGPointMake(61.33, 35.97), controlPoint2: CGPointMake(62.3, 35.78))
-        noticeShapePath.addLineToPoint(CGPointMake(60.36, 33.22))
-        noticeShapePath.addCurveToPoint(CGPointMake(54.16, 26.16), controlPoint1: CGPointMake(60.36, 29.3), controlPoint2: CGPointMake(57.65, 26.16))
-        noticeShapePath.addCurveToPoint(CGPointMake(48.73, 29.89), controlPoint1: CGPointMake(51.64, 26.16), controlPoint2: CGPointMake(50.67, 27.73))
-        noticeShapePath.addLineToPoint(CGPointMake(48.73, 28.71))
-        noticeShapePath.addCurveToPoint(CGPointMake(43.49, 21.64), controlPoint1: CGPointMake(48.73, 24.78), controlPoint2: CGPointMake(46.98, 21.64))
-        noticeShapePath.addCurveToPoint(CGPointMake(39.03, 25.37), controlPoint1: CGPointMake(40.97, 21.64), controlPoint2: CGPointMake(39.03, 23.01))
-        noticeShapePath.addLineToPoint(CGPointMake(39.03, 9.07))
-        noticeShapePath.addCurveToPoint(CGPointMake(32.24, 2), controlPoint1: CGPointMake(39.03, 5.14), controlPoint2: CGPointMake(35.73, 2))
-        noticeShapePath.addCurveToPoint(CGPointMake(25.45, 9.07), controlPoint1: CGPointMake(28.56, 2), controlPoint2: CGPointMake(25.45, 5.14))
-        noticeShapePath.addLineToPoint(CGPointMake(25.45, 41.47))
-        noticeShapePath.addCurveToPoint(CGPointMake(24.29, 43.44), controlPoint1: CGPointMake(25.45, 42.45), controlPoint2: CGPointMake(24.68, 43.04))
-        noticeShapePath.addCurveToPoint(CGPointMake(9.55, 43.04), controlPoint1: CGPointMake(16.73, 40.88), controlPoint2: CGPointMake(11.88, 40.69))
-        noticeShapePath.addCurveToPoint(CGPointMake(8, 46.58), controlPoint1: CGPointMake(8.58, 43.83), controlPoint2: CGPointMake(8, 45.2))
-        noticeShapePath.addCurveToPoint(CGPointMake(14.4, 55.81), controlPoint1: CGPointMake(8.19, 50.31), controlPoint2: CGPointMake(12.07, 53.84))
-        noticeShapePath.addLineToPoint(CGPointMake(27.2, 69.56))
-        noticeShapePath.addCurveToPoint(CGPointMake(42.91, 77.8), controlPoint1: CGPointMake(30.5, 74.47), controlPoint2: CGPointMake(35.73, 77.21))
-        noticeShapePath.addCurveToPoint(CGPointMake(43.88, 77.8), controlPoint1: CGPointMake(43.3, 77.8), controlPoint2: CGPointMake(43.68, 77.8))
-        noticeShapePath.addCurveToPoint(CGPointMake(47.18, 78), controlPoint1: CGPointMake(45.04, 77.8), controlPoint2: CGPointMake(46.01, 78))
-        noticeShapePath.addLineToPoint(CGPointMake(48.34, 78))
-        noticeShapePath.addLineToPoint(CGPointMake(48.34, 78))
-        noticeShapePath.addCurveToPoint(CGPointMake(71.61, 52.08), controlPoint1: CGPointMake(56.48, 78), controlPoint2: CGPointMake(69.87, 75.05))
-        noticeShapePath.addCurveToPoint(CGPointMake(72, 48.54), controlPoint1: CGPointMake(71.81, 51.29), controlPoint2: CGPointMake(72, 49.72))
-        noticeShapePath.closePath()
+        noticeShapePath.move(to: CGPoint(x: 72, y: 48.54))
+        noticeShapePath.addLine(to: CGPoint(x: 72, y: 39.9))
+        noticeShapePath.addCurve(to: CGPoint(x: 66.38, y: 34.01), controlPoint1: CGPoint(x: 72, y: 36.76), controlPoint2: CGPoint(x: 69.48, y: 34.01))
+        noticeShapePath.addCurve(to: CGPoint(x: 61.53, y: 35.97), controlPoint1: CGPoint(x: 64.82, y: 34.01), controlPoint2: CGPoint(x: 62.69, y: 34.8))
+        noticeShapePath.addCurve(to: CGPoint(x: 60.36, y: 35.78), controlPoint1: CGPoint(x: 61.33, y: 35.97), controlPoint2: CGPoint(x: 62.3, y: 35.78))
+        noticeShapePath.addLine(to: CGPoint(x: 60.36, y: 33.22))
+        noticeShapePath.addCurve(to: CGPoint(x: 54.16, y: 26.16), controlPoint1: CGPoint(x: 60.36, y: 29.3), controlPoint2: CGPoint(x: 57.65, y: 26.16))
+        noticeShapePath.addCurve(to: CGPoint(x: 48.73, y: 29.89), controlPoint1: CGPoint(x: 51.64, y: 26.16), controlPoint2: CGPoint(x: 50.67, y: 27.73))
+        noticeShapePath.addLine(to: CGPoint(x: 48.73, y: 28.71))
+        noticeShapePath.addCurve(to: CGPoint(x: 43.49, y: 21.64), controlPoint1: CGPoint(x: 48.73, y: 24.78), controlPoint2: CGPoint(x: 46.98, y: 21.64))
+        noticeShapePath.addCurve(to: CGPoint(x: 39.03, y: 25.37), controlPoint1: CGPoint(x: 40.97, y: 21.64), controlPoint2: CGPoint(x: 39.03, y: 23.01))
+        noticeShapePath.addLine(to: CGPoint(x: 39.03, y: 9.07))
+        noticeShapePath.addCurve(to: CGPoint(x: 32.24, y: 2), controlPoint1: CGPoint(x: 39.03, y: 5.14), controlPoint2: CGPoint(x: 35.73, y: 2))
+        noticeShapePath.addCurve(to: CGPoint(x: 25.45, y: 9.07), controlPoint1: CGPoint(x: 28.56, y: 2), controlPoint2: CGPoint(x: 25.45, y: 5.14))
+        noticeShapePath.addLine(to: CGPoint(x: 25.45, y: 41.47))
+        noticeShapePath.addCurve(to: CGPoint(x: 24.29, y: 43.44), controlPoint1: CGPoint(x: 25.45, y: 42.45), controlPoint2: CGPoint(x: 24.68, y: 43.04))
+        noticeShapePath.addCurve(to: CGPoint(x: 9.55, y: 43.04), controlPoint1: CGPoint(x: 16.73, y: 40.88), controlPoint2: CGPoint(x: 11.88, y: 40.69))
+        noticeShapePath.addCurve(to: CGPoint(x: 8, y: 46.58), controlPoint1: CGPoint(x: 8.58, y: 43.83), controlPoint2: CGPoint(x: 8, y: 45.2))
+        noticeShapePath.addCurve(to: CGPoint(x: 14.4, y: 55.81), controlPoint1: CGPoint(x: 8.19, y: 50.31), controlPoint2: CGPoint(x: 12.07, y: 53.84))
+        noticeShapePath.addLine(to: CGPoint(x: 27.2, y: 69.56))
+        noticeShapePath.addCurve(to: CGPoint(x: 42.91, y: 77.8), controlPoint1: CGPoint(x: 30.5, y: 74.47), controlPoint2: CGPoint(x: 35.73, y: 77.21))
+        noticeShapePath.addCurve(to: CGPoint(x: 43.88, y: 77.8), controlPoint1: CGPoint(x: 43.3, y: 77.8), controlPoint2: CGPoint(x: 43.68, y: 77.8))
+        noticeShapePath.addCurve(to: CGPoint(x: 47.18, y: 78), controlPoint1: CGPoint(x: 45.04, y: 77.8), controlPoint2: CGPoint(x: 46.01, y: 78))
+        noticeShapePath.addLine(to: CGPoint(x: 48.34, y: 78))
+        noticeShapePath.addLine(to: CGPoint(x: 48.34, y: 78))
+        noticeShapePath.addCurve(to: CGPoint(x: 71.61, y: 52.08), controlPoint1: CGPoint(x: 56.48, y: 78), controlPoint2: CGPoint(x: 69.87, y: 75.05))
+        noticeShapePath.addCurve(to: CGPoint(x: 72, y: 48.54), controlPoint1: CGPoint(x: 71.81, y: 51.29), controlPoint2: CGPoint(x: 72, y: 49.72))
+        noticeShapePath.close()
         noticeShapePath.miterLimit = 4;
         
-        UIColor.whiteColor().setFill()
+        UIColor.white.setFill()
         noticeShapePath.fill()
     }
     
@@ -921,16 +943,16 @@ class SCLAlertViewStyleKit : NSObject {
         // Warning Group
         // Warning Circle Drawing
         let warningCirclePath = UIBezierPath()
-        warningCirclePath.moveToPoint(CGPointMake(40.94, 63.39))
-        warningCirclePath.addCurveToPoint(CGPointMake(36.03, 65.55), controlPoint1: CGPointMake(39.06, 63.39), controlPoint2: CGPointMake(37.36, 64.18))
-        warningCirclePath.addCurveToPoint(CGPointMake(34.14, 70.45), controlPoint1: CGPointMake(34.9, 66.92), controlPoint2: CGPointMake(34.14, 68.49))
-        warningCirclePath.addCurveToPoint(CGPointMake(36.22, 75.54), controlPoint1: CGPointMake(34.14, 72.41), controlPoint2: CGPointMake(34.9, 74.17))
-        warningCirclePath.addCurveToPoint(CGPointMake(40.94, 77.5), controlPoint1: CGPointMake(37.54, 76.91), controlPoint2: CGPointMake(39.06, 77.5))
-        warningCirclePath.addCurveToPoint(CGPointMake(45.86, 75.35), controlPoint1: CGPointMake(42.83, 77.5), controlPoint2: CGPointMake(44.53, 76.72))
-        warningCirclePath.addCurveToPoint(CGPointMake(47.93, 70.45), controlPoint1: CGPointMake(47.18, 74.17), controlPoint2: CGPointMake(47.93, 72.41))
-        warningCirclePath.addCurveToPoint(CGPointMake(45.86, 65.35), controlPoint1: CGPointMake(47.93, 68.49), controlPoint2: CGPointMake(47.18, 66.72))
-        warningCirclePath.addCurveToPoint(CGPointMake(40.94, 63.39), controlPoint1: CGPointMake(44.53, 64.18), controlPoint2: CGPointMake(42.83, 63.39))
-        warningCirclePath.closePath()
+        warningCirclePath.move(to: CGPoint(x: 40.94, y: 63.39))
+        warningCirclePath.addCurve(to: CGPoint(x: 36.03, y: 65.55), controlPoint1: CGPoint(x: 39.06, y: 63.39), controlPoint2: CGPoint(x: 37.36, y: 64.18))
+        warningCirclePath.addCurve(to: CGPoint(x: 34.14, y: 70.45), controlPoint1: CGPoint(x: 34.9, y: 66.92), controlPoint2: CGPoint(x: 34.14, y: 68.49))
+        warningCirclePath.addCurve(to: CGPoint(x: 36.22, y: 75.54), controlPoint1: CGPoint(x: 34.14, y: 72.41), controlPoint2: CGPoint(x: 34.9, y: 74.17))
+        warningCirclePath.addCurve(to: CGPoint(x: 40.94, y: 77.5), controlPoint1: CGPoint(x: 37.54, y: 76.91), controlPoint2: CGPoint(x: 39.06, y: 77.5))
+        warningCirclePath.addCurve(to: CGPoint(x: 45.86, y: 75.35), controlPoint1: CGPoint(x: 42.83, y: 77.5), controlPoint2: CGPoint(x: 44.53, y: 76.72))
+        warningCirclePath.addCurve(to: CGPoint(x: 47.93, y: 70.45), controlPoint1: CGPoint(x: 47.18, y: 74.17), controlPoint2: CGPoint(x: 47.93, y: 72.41))
+        warningCirclePath.addCurve(to: CGPoint(x: 45.86, y: 65.35), controlPoint1: CGPoint(x: 47.93, y: 68.49), controlPoint2: CGPoint(x: 47.18, y: 66.72))
+        warningCirclePath.addCurve(to: CGPoint(x: 40.94, y: 63.39), controlPoint1: CGPoint(x: 44.53, y: 64.18), controlPoint2: CGPoint(x: 42.83, y: 63.39))
+        warningCirclePath.close()
         warningCirclePath.miterLimit = 4;
         
         greyColor.setFill()
@@ -939,18 +961,18 @@ class SCLAlertViewStyleKit : NSObject {
         
         // Warning Shape Drawing
         let warningShapePath = UIBezierPath()
-        warningShapePath.moveToPoint(CGPointMake(46.23, 4.26))
-        warningShapePath.addCurveToPoint(CGPointMake(40.94, 2.5), controlPoint1: CGPointMake(44.91, 3.09), controlPoint2: CGPointMake(43.02, 2.5))
-        warningShapePath.addCurveToPoint(CGPointMake(34.71, 4.26), controlPoint1: CGPointMake(38.68, 2.5), controlPoint2: CGPointMake(36.03, 3.09))
-        warningShapePath.addCurveToPoint(CGPointMake(31.5, 8.77), controlPoint1: CGPointMake(33.01, 5.44), controlPoint2: CGPointMake(31.5, 7.01))
-        warningShapePath.addLineToPoint(CGPointMake(31.5, 19.36))
-        warningShapePath.addLineToPoint(CGPointMake(34.71, 54.44))
-        warningShapePath.addCurveToPoint(CGPointMake(40.38, 58.16), controlPoint1: CGPointMake(34.9, 56.2), controlPoint2: CGPointMake(36.41, 58.16))
-        warningShapePath.addCurveToPoint(CGPointMake(45.67, 54.44), controlPoint1: CGPointMake(44.34, 58.16), controlPoint2: CGPointMake(45.67, 56.01))
-        warningShapePath.addLineToPoint(CGPointMake(48.5, 19.36))
-        warningShapePath.addLineToPoint(CGPointMake(48.5, 8.77))
-        warningShapePath.addCurveToPoint(CGPointMake(46.23, 4.26), controlPoint1: CGPointMake(48.5, 7.01), controlPoint2: CGPointMake(47.74, 5.44))
-        warningShapePath.closePath()
+        warningShapePath.move(to: CGPoint(x: 46.23, y: 4.26))
+        warningShapePath.addCurve(to: CGPoint(x: 40.94, y: 2.5), controlPoint1: CGPoint(x: 44.91, y: 3.09), controlPoint2: CGPoint(x: 43.02, y: 2.5))
+        warningShapePath.addCurve(to: CGPoint(x: 34.71, y: 4.26), controlPoint1: CGPoint(x: 38.68, y: 2.5), controlPoint2: CGPoint(x: 36.03, y: 3.09))
+        warningShapePath.addCurve(to: CGPoint(x: 31.5, y: 8.77), controlPoint1: CGPoint(x: 33.01, y: 5.44), controlPoint2: CGPoint(x: 31.5, y: 7.01))
+        warningShapePath.addLine(to: CGPoint(x: 31.5, y: 19.36))
+        warningShapePath.addLine(to: CGPoint(x: 34.71, y: 54.44))
+        warningShapePath.addCurve(to: CGPoint(x: 40.38, y: 58.16), controlPoint1: CGPoint(x: 34.9, y: 56.2), controlPoint2: CGPoint(x: 36.41, y: 58.16))
+        warningShapePath.addCurve(to: CGPoint(x: 45.67, y: 54.44), controlPoint1: CGPoint(x: 44.34, y: 58.16), controlPoint2: CGPoint(x: 45.67, y: 56.01))
+        warningShapePath.addLine(to: CGPoint(x: 48.5, y: 19.36))
+        warningShapePath.addLine(to: CGPoint(x: 48.5, y: 8.77))
+        warningShapePath.addCurve(to: CGPoint(x: 46.23, y: 4.26), controlPoint1: CGPoint(x: 48.5, y: 7.01), controlPoint2: CGPoint(x: 47.74, y: 5.44))
+        warningShapePath.close()
         warningShapePath.miterLimit = 4;
         
         greyColor.setFill()
@@ -963,22 +985,22 @@ class SCLAlertViewStyleKit : NSObject {
         
         // Info Shape Drawing
         let infoShapePath = UIBezierPath()
-        infoShapePath.moveToPoint(CGPointMake(45.66, 15.96))
-        infoShapePath.addCurveToPoint(CGPointMake(45.66, 5.22), controlPoint1: CGPointMake(48.78, 12.99), controlPoint2: CGPointMake(48.78, 8.19))
-        infoShapePath.addCurveToPoint(CGPointMake(34.34, 5.22), controlPoint1: CGPointMake(42.53, 2.26), controlPoint2: CGPointMake(37.47, 2.26))
-        infoShapePath.addCurveToPoint(CGPointMake(34.34, 15.96), controlPoint1: CGPointMake(31.22, 8.19), controlPoint2: CGPointMake(31.22, 12.99))
-        infoShapePath.addCurveToPoint(CGPointMake(45.66, 15.96), controlPoint1: CGPointMake(37.47, 18.92), controlPoint2: CGPointMake(42.53, 18.92))
-        infoShapePath.closePath()
-        infoShapePath.moveToPoint(CGPointMake(48, 69.41))
-        infoShapePath.addCurveToPoint(CGPointMake(40, 77), controlPoint1: CGPointMake(48, 73.58), controlPoint2: CGPointMake(44.4, 77))
-        infoShapePath.addLineToPoint(CGPointMake(40, 77))
-        infoShapePath.addCurveToPoint(CGPointMake(32, 69.41), controlPoint1: CGPointMake(35.6, 77), controlPoint2: CGPointMake(32, 73.58))
-        infoShapePath.addLineToPoint(CGPointMake(32, 35.26))
-        infoShapePath.addCurveToPoint(CGPointMake(40, 27.67), controlPoint1: CGPointMake(32, 31.08), controlPoint2: CGPointMake(35.6, 27.67))
-        infoShapePath.addLineToPoint(CGPointMake(40, 27.67))
-        infoShapePath.addCurveToPoint(CGPointMake(48, 35.26), controlPoint1: CGPointMake(44.4, 27.67), controlPoint2: CGPointMake(48, 31.08))
-        infoShapePath.addLineToPoint(CGPointMake(48, 69.41))
-        infoShapePath.closePath()
+        infoShapePath.move(to: CGPoint(x: 45.66, y: 15.96))
+        infoShapePath.addCurve(to: CGPoint(x: 45.66, y: 5.22), controlPoint1: CGPoint(x: 48.78, y: 12.99), controlPoint2: CGPoint(x: 48.78, y: 8.19))
+        infoShapePath.addCurve(to: CGPoint(x: 34.34, y: 5.22), controlPoint1: CGPoint(x: 42.53, y: 2.26), controlPoint2: CGPoint(x: 37.47, y: 2.26))
+        infoShapePath.addCurve(to: CGPoint(x: 34.34, y: 15.96), controlPoint1: CGPoint(x: 31.22, y: 8.19), controlPoint2: CGPoint(x: 31.22, y: 12.99))
+        infoShapePath.addCurve(to: CGPoint(x: 45.66, y: 15.96), controlPoint1: CGPoint(x: 37.47, y: 18.92), controlPoint2: CGPoint(x: 42.53, y: 18.92))
+        infoShapePath.close()
+        infoShapePath.move(to: CGPoint(x: 48, y: 69.41))
+        infoShapePath.addCurve(to: CGPoint(x: 40, y: 77), controlPoint1: CGPoint(x: 48, y: 73.58), controlPoint2: CGPoint(x: 44.4, y: 77))
+        infoShapePath.addLine(to: CGPoint(x: 40, y: 77))
+        infoShapePath.addCurve(to: CGPoint(x: 32, y: 69.41), controlPoint1: CGPoint(x: 35.6, y: 77), controlPoint2: CGPoint(x: 32, y: 73.58))
+        infoShapePath.addLine(to: CGPoint(x: 32, y: 35.26))
+        infoShapePath.addCurve(to: CGPoint(x: 40, y: 27.67), controlPoint1: CGPoint(x: 32, y: 31.08), controlPoint2: CGPoint(x: 35.6, y: 27.67))
+        infoShapePath.addLine(to: CGPoint(x: 40, y: 27.67))
+        infoShapePath.addCurve(to: CGPoint(x: 48, y: 35.26), controlPoint1: CGPoint(x: 44.4, y: 27.67), controlPoint2: CGPoint(x: 48, y: 31.08))
+        infoShapePath.addLine(to: CGPoint(x: 48, y: 69.41))
+        infoShapePath.close()
         color0.setFill()
         infoShapePath.fill()
     }
@@ -989,41 +1011,41 @@ class SCLAlertViewStyleKit : NSObject {
         
         // Edit shape Drawing
         let editPathPath = UIBezierPath()
-        editPathPath.moveToPoint(CGPointMake(71, 2.7))
-        editPathPath.addCurveToPoint(CGPointMake(71.9, 15.2), controlPoint1: CGPointMake(74.7, 5.9), controlPoint2: CGPointMake(75.1, 11.6))
-        editPathPath.addLineToPoint(CGPointMake(64.5, 23.7))
-        editPathPath.addLineToPoint(CGPointMake(49.9, 11.1))
-        editPathPath.addLineToPoint(CGPointMake(57.3, 2.6))
-        editPathPath.addCurveToPoint(CGPointMake(69.7, 1.7), controlPoint1: CGPointMake(60.4, -1.1), controlPoint2: CGPointMake(66.1, -1.5))
-        editPathPath.addLineToPoint(CGPointMake(71, 2.7))
-        editPathPath.addLineToPoint(CGPointMake(71, 2.7))
-        editPathPath.closePath()
-        editPathPath.moveToPoint(CGPointMake(47.8, 13.5))
-        editPathPath.addLineToPoint(CGPointMake(13.4, 53.1))
-        editPathPath.addLineToPoint(CGPointMake(15.7, 55.1))
-        editPathPath.addLineToPoint(CGPointMake(50.1, 15.5))
-        editPathPath.addLineToPoint(CGPointMake(47.8, 13.5))
-        editPathPath.addLineToPoint(CGPointMake(47.8, 13.5))
-        editPathPath.closePath()
-        editPathPath.moveToPoint(CGPointMake(17.7, 56.7))
-        editPathPath.addLineToPoint(CGPointMake(23.8, 62.2))
-        editPathPath.addLineToPoint(CGPointMake(58.2, 22.6))
-        editPathPath.addLineToPoint(CGPointMake(52, 17.1))
-        editPathPath.addLineToPoint(CGPointMake(17.7, 56.7))
-        editPathPath.addLineToPoint(CGPointMake(17.7, 56.7))
-        editPathPath.closePath()
-        editPathPath.moveToPoint(CGPointMake(25.8, 63.8))
-        editPathPath.addLineToPoint(CGPointMake(60.1, 24.2))
-        editPathPath.addLineToPoint(CGPointMake(62.3, 26.1))
-        editPathPath.addLineToPoint(CGPointMake(28.1, 65.7))
-        editPathPath.addLineToPoint(CGPointMake(25.8, 63.8))
-        editPathPath.addLineToPoint(CGPointMake(25.8, 63.8))
-        editPathPath.closePath()
-        editPathPath.moveToPoint(CGPointMake(25.9, 68.1))
-        editPathPath.addLineToPoint(CGPointMake(4.2, 79.5))
-        editPathPath.addLineToPoint(CGPointMake(11.3, 55.5))
-        editPathPath.addLineToPoint(CGPointMake(25.9, 68.1))
-        editPathPath.closePath()
+        editPathPath.move(to: CGPoint(x: 71, y: 2.7))
+        editPathPath.addCurve(to: CGPoint(x: 71.9, y: 15.2), controlPoint1: CGPoint(x: 74.7, y: 5.9), controlPoint2: CGPoint(x: 75.1, y: 11.6))
+        editPathPath.addLine(to: CGPoint(x: 64.5, y: 23.7))
+        editPathPath.addLine(to: CGPoint(x: 49.9, y: 11.1))
+        editPathPath.addLine(to: CGPoint(x: 57.3, y: 2.6))
+        editPathPath.addCurve(to: CGPoint(x: 69.7, y: 1.7), controlPoint1: CGPoint(x: 60.4, y: -1.1), controlPoint2: CGPoint(x: 66.1, y: -1.5))
+        editPathPath.addLine(to: CGPoint(x: 71, y: 2.7))
+        editPathPath.addLine(to: CGPoint(x: 71, y: 2.7))
+        editPathPath.close()
+        editPathPath.move(to: CGPoint(x: 47.8, y: 13.5))
+        editPathPath.addLine(to: CGPoint(x: 13.4, y: 53.1))
+        editPathPath.addLine(to: CGPoint(x: 15.7, y: 55.1))
+        editPathPath.addLine(to: CGPoint(x: 50.1, y: 15.5))
+        editPathPath.addLine(to: CGPoint(x: 47.8, y: 13.5))
+        editPathPath.addLine(to: CGPoint(x: 47.8, y: 13.5))
+        editPathPath.close()
+        editPathPath.move(to: CGPoint(x: 17.7, y: 56.7))
+        editPathPath.addLine(to: CGPoint(x: 23.8, y: 62.2))
+        editPathPath.addLine(to: CGPoint(x: 58.2, y: 22.6))
+        editPathPath.addLine(to: CGPoint(x: 52, y: 17.1))
+        editPathPath.addLine(to: CGPoint(x: 17.7, y: 56.7))
+        editPathPath.addLine(to: CGPoint(x: 17.7, y: 56.7))
+        editPathPath.close()
+        editPathPath.move(to: CGPoint(x: 25.8, y: 63.8))
+        editPathPath.addLine(to: CGPoint(x: 60.1, y: 24.2))
+        editPathPath.addLine(to: CGPoint(x: 62.3, y: 26.1))
+        editPathPath.addLine(to: CGPoint(x: 28.1, y: 65.7))
+        editPathPath.addLine(to: CGPoint(x: 25.8, y: 63.8))
+        editPathPath.addLine(to: CGPoint(x: 25.8, y: 63.8))
+        editPathPath.close()
+        editPathPath.move(to: CGPoint(x: 25.9, y: 68.1))
+        editPathPath.addLine(to: CGPoint(x: 4.2, y: 79.5))
+        editPathPath.addLine(to: CGPoint(x: 11.3, y: 55.5))
+        editPathPath.addLine(to: CGPoint(x: 25.9, y: 68.1))
+        editPathPath.close()
         editPathPath.miterLimit = 4;
         editPathPath.usesEvenOddFillRule = true;
         color.setFill()
@@ -1035,7 +1057,7 @@ class SCLAlertViewStyleKit : NSObject {
         if (Cache.imageOfCheckmark != nil) {
             return Cache.imageOfCheckmark!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 80, height: 80), false, 0)
         SCLAlertViewStyleKit.drawCheckmark()
         Cache.imageOfCheckmark = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -1046,7 +1068,7 @@ class SCLAlertViewStyleKit : NSObject {
         if (Cache.imageOfCross != nil) {
             return Cache.imageOfCross!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 80, height: 80), false, 0)
         SCLAlertViewStyleKit.drawCross()
         Cache.imageOfCross = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -1057,7 +1079,7 @@ class SCLAlertViewStyleKit : NSObject {
         if (Cache.imageOfNotice != nil) {
             return Cache.imageOfNotice!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 80, height: 80), false, 0)
         SCLAlertViewStyleKit.drawNotice()
         Cache.imageOfNotice = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -1068,7 +1090,7 @@ class SCLAlertViewStyleKit : NSObject {
         if (Cache.imageOfWarning != nil) {
             return Cache.imageOfWarning!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 80, height: 80), false, 0)
         SCLAlertViewStyleKit.drawWarning()
         Cache.imageOfWarning = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -1079,7 +1101,7 @@ class SCLAlertViewStyleKit : NSObject {
         if (Cache.imageOfInfo != nil) {
             return Cache.imageOfInfo!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 80, height: 80), false, 0)
         SCLAlertViewStyleKit.drawInfo()
         Cache.imageOfInfo = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -1090,7 +1112,7 @@ class SCLAlertViewStyleKit : NSObject {
         if (Cache.imageOfEdit != nil) {
             return Cache.imageOfEdit!
         }
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 80, height: 80), false, 0)
         SCLAlertViewStyleKit.drawEdit()
         Cache.imageOfEdit = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

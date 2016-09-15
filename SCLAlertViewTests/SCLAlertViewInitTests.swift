@@ -23,11 +23,11 @@ class SCLAlertViewInitTests: XCTestCase {
     }
 
     func testViewFrame() {
-        XCTAssertTrue(alert.view.frame == UIScreen.mainScreen().bounds)
+        XCTAssertTrue(alert.view.frame == UIScreen.main.bounds)
     }
     
     func testViewResizingMask() {
-        XCTAssertTrue(alert.view.autoresizingMask == [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth])
+        XCTAssertTrue(alert.view.autoresizingMask == [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth])
     }
     
     func testViewBackgroundColor() {
@@ -37,7 +37,7 @@ class SCLAlertViewInitTests: XCTestCase {
     func testViewSubViews() {
         XCTAssertTrue(alert.view.subviews.count == 1)
         let subview = alert.view.subviews[0]
-        XCTAssertTrue(subview.isKindOfClass(UIView.self))
+        XCTAssertTrue(subview.isKind(of: UIView.self))
     }
 
     func testContentViewCornerRadius() {
@@ -55,11 +55,11 @@ class SCLAlertViewInitTests: XCTestCase {
     func testContentViewLabeltitle() {
         XCTAssertTrue(alert.contentView.subviews.count == 2)
         let subview1 = alert.contentView.subviews[0]
-        XCTAssertTrue(subview1.isKindOfClass(UILabel.self))
+        XCTAssertTrue(subview1.isKind(of: UILabel.self))
         let subview2 = alert.contentView.subviews[1]
-        XCTAssertTrue(subview2.isKindOfClass(UITextView.self))
+        XCTAssertTrue(subview2.isKind(of: UITextView.self))
         alert.addButton("testButtonTitle") {}
         let subview3 = alert.contentView.subviews[2]
-        XCTAssertTrue(subview3.isKindOfClass(SCLButton.self))
+        XCTAssertTrue(subview3.isKind(of: SCLButton.self))
     }
 }
