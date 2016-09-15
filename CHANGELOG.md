@@ -1,5 +1,8 @@
 # Change log
 
+## [v2.12](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.12)
+* Fix infinite loop caused by `stopAnimation()` (#67)
+
 ## [v2.11](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.11)
 * Fix when used with MBProgressHUD
 * Abilitiy to display UI blocker anywher
