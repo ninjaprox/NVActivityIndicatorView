@@ -468,6 +468,6 @@ public class NVActivityIndicatorView: UIView {
      */
     @available(*, deprecated=2.11, renamed="stopAnimating()")
     public func stopAnimation() {
-        self.stopAnimation()
+        self.stopAnimating()()
     }
 }
