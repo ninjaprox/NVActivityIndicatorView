@@ -78,9 +78,9 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     
     // MARK: Helpers
     
-    func createActivityData(displayTimeThreshold displayTimeThreshold: Int,
+    func createActivityData(displayTimeThreshold: Int,
                                                  minimumDisplayTime: Int) -> ActivityData {
-        return ActivityData(size: CGSizeZero,
+        return ActivityData(size: CGSize.zero,
                             message: "",
                             type: nil,
                             color: nil,
@@ -90,7 +90,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     }
     
     func checkActivityViewAppeared() -> Bool {
-        for item in UIApplication.sharedApplication().keyWindow!.subviews
+        for item in UIApplication.shared.keyWindow!.subviews
             where item.restorationIdentifier == "NVActivityIndicatorViewContainer" {
                 return true
         }
@@ -98,14 +98,14 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
         return false
     }
     
-    func doAfter(after: Int64, thing: () -> Void) {
-        let expectation = self.expectationWithDescription("")
+    func doAfter(_ after: Int64, thing: @escaping () -> Void) {
+        let expectation = self.expectation(description: "")
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC) * after), dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_MSEC) * after) / Double(NSEC_PER_SEC)) {
             thing()
             expectation.fulfill()
         }
-        self.waitForExpectationsWithTimeout(Double(after) * 1.5 / 1000) { (error) in
+        self.waitForExpectations(timeout: Double(after) * 1.5 / 1000) { (error) in
             print(error)
         }
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDelegate {
 
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let squareSize = size.width / 5
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - size.height) / 2
@@ -35,11 +35,11 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
         translateAnimation.keyTimes = scaleAnimation.keyTimes
         translateAnimation.timingFunctions = scaleAnimation.timingFunctions
         translateAnimation.values = [
-            NSValue(CGSize: CGSize(width: 0, height: 0)),
-            NSValue(CGSize: CGSize(width: deltaX, height: 0)),
-            NSValue(CGSize: CGSize(width: deltaX, height: deltaY)),
-            NSValue(CGSize: CGSize(width: 0, height: deltaY)),
-            NSValue(CGSize: CGSize(width: 0, height: 0))
+            NSValue(cgSize: CGSize(width: 0, height: 0)),
+            NSValue(cgSize: CGSize(width: deltaX, height: 0)),
+            NSValue(cgSize: CGSize(width: deltaX, height: deltaY)),
+            NSValue(cgSize: CGSize(width: 0, height: deltaY)),
+            NSValue(cgSize: CGSize(width: 0, height: 0))
         ]
         translateAnimation.duration = duration
         
@@ -57,16 +57,16 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
         animation.animations = [scaleAnimation, translateAnimation, rotateAnimation]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw squares
         for i in 0 ..< 2 {
-            let square = NVActivityIndicatorShape.Rectangle.createLayerWith(size: CGSize(width: squareSize, height: squareSize), color: color)
+            let square = NVActivityIndicatorShape.rectangle.createLayerWith(size: CGSize(width: squareSize, height: squareSize), color: color)
             let frame = CGRect(x: x, y: y, width: squareSize, height: squareSize)
             
             animation.beginTime = beginTime + beginTimes[i]
             square.frame = frame
-            square.addAnimation(animation, forKey: "animation")
+            square.add(animation, forKey: "animation")
             layer.addSublayer(square)
         }
     }

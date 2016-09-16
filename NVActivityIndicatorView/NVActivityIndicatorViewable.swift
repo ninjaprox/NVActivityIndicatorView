@@ -31,7 +31,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter minimumDisplayTime:   minimum display time of UI blocker.
      */
     public func startAnimating(
-        size: CGSize? = nil,
+        _ size: CGSize? = nil,
         message: String? = nil,
         type: NVActivityIndicatorType? = nil,
         color: UIColor? = nil,
@@ -69,9 +69,9 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter color:   color of activity indicator view.
      - parameter padding: padding of activity indicator view.
      */
-    @available(*, deprecated=2.11, renamed="startAnimating()")
+    @available(*, deprecated: 2.11, renamed: "startAnimating()")
     public func startActivityAnimating(
-        size: CGSize? = nil,
+        _ size: CGSize? = nil,
         message: String? = nil,
         type: NVActivityIndicatorType? = nil,
         color: UIColor? = nil,
@@ -86,7 +86,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
     /**
      Remove UI blocker.
      */
-    @available(*, deprecated=2.11, renamed="stopAnimating()")
+    @available(*, deprecated: 2.11, renamed: "stopAnimating()")
     public func stopActivityAnimating() {
         self.stopAnimating()
     }

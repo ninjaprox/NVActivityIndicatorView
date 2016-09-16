@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationLineScalePulseOutRapid: NVActivityIndicatorAnimationDelegate {
 
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let lineSize = size.width / 9
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - size.height) / 2
@@ -28,11 +28,11 @@ class NVActivityIndicatorAnimationLineScalePulseOutRapid: NVActivityIndicatorAni
         animation.values = [1, 0.3, 1]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw lines
         for i in 0 ..< 5 {
-            let line = NVActivityIndicatorShape.Line.createLayerWith(size: CGSize(width: lineSize, height: size.height), color: color)
+            let line = NVActivityIndicatorShape.line.createLayerWith(size: CGSize(width: lineSize, height: size.height), color: color)
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i),
                 y: y,
                 width: lineSize,
@@ -40,7 +40,7 @@ class NVActivityIndicatorAnimationLineScalePulseOutRapid: NVActivityIndicatorAni
             
             animation.beginTime = beginTime + beginTimes[i]
             line.frame = frame
-            line.addAnimation(animation, forKey: "animation")
+            line.add(animation, forKey: "animation")
             layer.addSublayer(line)
         }
     }

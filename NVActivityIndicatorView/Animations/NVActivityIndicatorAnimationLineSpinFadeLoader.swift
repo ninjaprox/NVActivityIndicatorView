@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let lineSpacing: CGFloat = 2
         let lineSize = CGSize(width: (size.width - 4 * lineSpacing) / 5, height: (size.height - 2 * lineSpacing) / 3)
         let x = (layer.bounds.size.width - size.width) / 2
@@ -28,7 +28,7 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
         animation.values = [1, 0.3, 1]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw lines
         for i in 0 ..< 8 {
@@ -39,12 +39,12 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
                 color: color)
             
             animation.beginTime = beginTime + beginTimes[i]
-            line.addAnimation(animation, forKey: "animation")
+            line.add(animation, forKey: "animation")
             layer.addSublayer(line)
         }
     }
     
-    func lineAt(angle angle: CGFloat, size: CGSize, origin: CGPoint, containerSize: CGSize, color: UIColor) -> CALayer {
+    func lineAt(angle: CGFloat, size: CGSize, origin: CGPoint, containerSize: CGSize, color: UIColor) -> CALayer {
         let radius = containerSize.width / 2 - max(size.width, size.height) / 2
         let lineContainerSize = CGSize(width: max(size.width, size.height), height: max(size.width, size.height))
         let lineContainer = CALayer()
@@ -53,7 +53,7 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
             y: origin.y + radius * (sin(angle) + 1),
             width: lineContainerSize.width,
             height: lineContainerSize.height)
-        let line = NVActivityIndicatorShape.Line.createLayerWith(size: size, color: color)
+        let line = NVActivityIndicatorShape.line.createLayerWith(size: size, color: color)
         let lineFrame = CGRect(
             x: (lineContainerSize.width - size.width) / 2,
             y: (lineContainerSize.height - size.height) / 2,

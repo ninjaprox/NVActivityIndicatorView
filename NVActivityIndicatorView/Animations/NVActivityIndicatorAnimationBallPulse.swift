@@ -9,7 +9,7 @@
 import UIKit
 
 class NVActivityIndicatorAnimationBallPulse: NVActivityIndicatorAnimationDelegate {
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let circleSpacing: CGFloat = 2
         let circleSize: CGFloat = (size.width - 2 * circleSpacing) / 3
         let x: CGFloat = (layer.bounds.size.width - size.width) / 2
@@ -26,11 +26,11 @@ class NVActivityIndicatorAnimationBallPulse: NVActivityIndicatorAnimationDelegat
         animation.values = [1, 0.3, 1]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw circles
         for i in 0 ..< 3 {
-            let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+            let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
             let frame = CGRect(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
                 y: y,
                 width: circleSize,
@@ -38,7 +38,7 @@ class NVActivityIndicatorAnimationBallPulse: NVActivityIndicatorAnimationDelegat
             
             animation.beginTime = beginTime + beginTimes[i]
             circle.frame = frame
-            circle.addAnimation(animation, forKey: "animation")
+            circle.add(animation, forKey: "animation")
             layer.addSublayer(circle)
         }
     }

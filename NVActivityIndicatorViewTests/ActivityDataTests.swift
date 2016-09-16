@@ -26,8 +26,8 @@ class ActivityDataTests: XCTestCase {
     func testInitWithParams() {
         let size = CGSize(width: 100, height: 100)
         let message = "Loading..."
-        let type = NVActivityIndicatorType.BallBeat
-        let color = UIColor.redColor()
+        let type = NVActivityIndicatorType.ballBeat
+        let color = UIColor.red
         let padding: CGFloat = 10
         let displayTimeThreshold = 100
         let minimumDisplayTime = 150

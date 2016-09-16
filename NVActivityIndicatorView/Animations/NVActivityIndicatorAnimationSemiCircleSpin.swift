@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationSemiCircleSpin: NVActivityIndicatorAnimationDelegate {
 
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 0.6
         
         // Animation
@@ -20,10 +20,10 @@ class NVActivityIndicatorAnimationSemiCircleSpin: NVActivityIndicatorAnimationDe
         animation.values = [0, M_PI, 2 * M_PI]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw circle
-        let circle = NVActivityIndicatorShape.CircleSemi.createLayerWith(size: size, color: color)
+        let circle = NVActivityIndicatorShape.circleSemi.createLayerWith(size: size, color: color)
         let frame = CGRect(
             x: (layer.bounds.width - size.width) / 2,
             y: (layer.bounds.height - size.height) / 2,
@@ -32,7 +32,7 @@ class NVActivityIndicatorAnimationSemiCircleSpin: NVActivityIndicatorAnimationDe
         )
         
         circle.frame = frame
-        circle.addAnimation(animation, forKey: "animation")
+        circle.add(animation, forKey: "animation")
         layer.addSublayer(circle)
     }
 }

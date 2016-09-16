@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 1
         
         // Scale animation
@@ -34,16 +34,16 @@ class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegat
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw circle
-        let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: size, color: color)
+        let circle = NVActivityIndicatorShape.circle.createLayerWith(size: size, color: color)
         
         circle.frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
             y: (layer.bounds.size.height - size.height) / 2,
             width: size.width,
             height: size.height);
-        circle.addAnimation(animation, forKey: "animation")
+        circle.add(animation, forKey: "animation")
         layer.addSublayer(circle)
     }
 }

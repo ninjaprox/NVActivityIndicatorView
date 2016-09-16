@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 1.25
         let beginTime = CACurrentMediaTime()
         let beginTimes = [0.0, 0.2, 0.4]
@@ -38,11 +38,11 @@ class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAn
         animation.animations = [scaleAnimation, opacityAnimation]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw circles
         for i in 0 ..< 3 {
-            let circle = NVActivityIndicatorShape.Ring.createLayerWith(size: size, color: color)
+            let circle = NVActivityIndicatorShape.ring.createLayerWith(size: size, color: color)
             let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
                 y: (layer.bounds.size.height - size.height) / 2,
                 width: size.width,
@@ -50,7 +50,7 @@ class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAn
             
             animation.beginTime = beginTime + beginTimes[i]
             circle.frame = frame
-            circle.addAnimation(animation, forKey: "animation")
+            circle.add(animation, forKey: "animation")
             layer.addSublayer(circle)
         }
     }

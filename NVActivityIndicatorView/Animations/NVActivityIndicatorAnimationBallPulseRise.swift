@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let circleSpacing: CGFloat = 2
         let circleSize = (size.width - 4 * circleSpacing) / 5
         let x = (layer.bounds.size.width - size.width) / 2
@@ -23,7 +23,7 @@ class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDel
         
         // Draw circles
         for i in 0 ..< 5 {
-            let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+            let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
             let frame = CGRect(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
                 y: y,
                 width: circleSize,
@@ -31,15 +31,15 @@ class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDel
             
             circle.frame = frame
             if i % 2 == 0 {
-                circle.addAnimation(evenAnimation, forKey: "animation")
+                circle.add(evenAnimation, forKey: "animation")
             } else {
-                circle.addAnimation(oddAnimation, forKey: "animation")
+                circle.add(oddAnimation, forKey: "animation")
             }
             layer.addSublayer(circle)
         }
     }
     
-    func oddAnimation(duration duration: CFTimeInterval, deltaY: CGFloat, timingFunction: CAMediaTimingFunction) -> CAAnimation {
+    func oddAnimation(duration: CFTimeInterval, deltaY: CGFloat, timingFunction: CAMediaTimingFunction) -> CAAnimation {
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
         
@@ -61,12 +61,12 @@ class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDel
         animation.animations = [scaleAnimation, translateAnimation]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         return animation
     }
     
-    func evenAnimation(duration  duration: CFTimeInterval, deltaY: CGFloat, timingFunction: CAMediaTimingFunction) -> CAAnimation {
+    func evenAnimation(duration: CFTimeInterval, deltaY: CGFloat, timingFunction: CAMediaTimingFunction) -> CAAnimation {
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
         
@@ -88,7 +88,7 @@ class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDel
         animation.animations = [scaleAnimation, translateAnimation]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         return animation
     }
