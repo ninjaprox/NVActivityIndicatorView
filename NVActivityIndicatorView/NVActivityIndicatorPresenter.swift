@@ -119,7 +119,7 @@ open class NVActivityIndicatorPresenter {
         activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         activityContainer.restorationIdentifier = activityRestorationIdentifier
         
-        let actualSize = activityData.size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
+        let actualSize = activityData.size 
         let activityIndicatorView = NVActivityIndicatorView(
             frame: CGRect(x: 0, y: 0, width: actualSize.width, height: actualSize.height),
             type: activityData.type,

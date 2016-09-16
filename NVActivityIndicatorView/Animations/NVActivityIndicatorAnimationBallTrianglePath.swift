@@ -53,7 +53,7 @@ class NVActivityIndicatorAnimationBallTrianglePath: NVActivityIndicatorAnimation
         layer.addSublayer(bottomRightCircle)
     }
     
-    func changeAnimation(_ animation: CAKeyframeAnimation, values rawValues: [String], deltaX: CGFloat, deltaY: CGFloat) -> CAAnimation {
+    func changeAnimation(_ animation: CAKeyframeAnimation, values rawValues: [String], deltaX: CGFloat, deltaY: CGFloat) {
         let values = NSMutableArray(capacity: 5)
         
         for rawValue in rawValues {
@@ -62,8 +62,6 @@ class NVActivityIndicatorAnimationBallTrianglePath: NVActivityIndicatorAnimation
             values.add(NSValue(caTransform3D: CATransform3DMakeTranslation(point.x, point.y, 0)))
         }
         animation.values = values as [AnyObject]
-        
-        return animation
     }
     
     func translateString(_ valueString: String, deltaX: CGFloat, deltaY: CGFloat) -> String {
