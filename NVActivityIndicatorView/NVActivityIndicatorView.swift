@@ -311,27 +311,27 @@ public enum NVActivityIndicatorType: Int {
 }
 
 /// Activity indicator view with nice animations
-open class NVActivityIndicatorView: UIView {
+public class NVActivityIndicatorView: UIView {
     /// Default type. Default value is .BallSpinFadeLoader.
-    open static var DEFAULT_TYPE: NVActivityIndicatorType = .ballSpinFadeLoader
+    public static var DEFAULT_TYPE: NVActivityIndicatorType = .ballSpinFadeLoader
     
     /// Default color. Default value is UIColor.whiteColor().
-    open static var DEFAULT_COLOR = UIColor.white
+    public static var DEFAULT_COLOR = UIColor.white
     
     /// Default padding. Default value is 0.
-    open static var DEFAULT_PADDING: CGFloat = 0
+    public static var DEFAULT_PADDING: CGFloat = 0
     
     /// Default size of activity indicator view in UI blocker. Default value is 60x60.
-    open static var DEFAULT_BLOCKER_SIZE = CGSize(width: 60, height: 60)
+    public static var DEFAULT_BLOCKER_SIZE = CGSize(width: 60, height: 60)
     
     /// Default display time threshold to actually display UI blocker. Default value is 0 ms.
-    open static var DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 0
+    public static var DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 0
     
     /// Default minimum display time of UI blocker. Default value is 0 ms.
-    open static var DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0
+    public static var DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0
 
     /// Animation type.
-    open var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
+    public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
 
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
@@ -344,13 +344,13 @@ open class NVActivityIndicatorView: UIView {
     }
 
     /// Color of activity indicator view.
-    @IBInspectable open var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR
+    @IBInspectable public var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR
 
     /// Padding of activity indicator view.
-    @IBInspectable open var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
+    @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
 
     /// Current status of animation, read-only.
-    open var animating: Bool {
+    public var animating: Bool {
         return _animating
     }
     fileprivate var _animating: Bool = false
@@ -399,14 +399,14 @@ open class NVActivityIndicatorView: UIView {
      
      - returns: A size indicating the natural size for the receiving view based on its intrinsic properties.
      */
-    open override var intrinsicContentSize : CGSize {
+    public override var intrinsicContentSize : CGSize {
         return CGSize(width: self.bounds.width, height: self.bounds.height)
     }
     
     /**
      Start animating.
      */
-    open func startAnimating() {
+    public func startAnimating() {
         self.isHidden = false
         self._animating = true
         self.layer.speed = 1
@@ -416,7 +416,7 @@ open class NVActivityIndicatorView: UIView {
     /**
      Stop animating.
      */
-    open func stopAnimating() {
+    public func stopAnimating() {
         self.isHidden = true
         self._animating = false
         self.layer.sublayers?.removeAll()
@@ -453,13 +453,13 @@ open class NVActivityIndicatorView: UIView {
     
     /// Specify whether activity indicator view should hide once stopped.
     @available(*, deprecated: 2.11)
-    @IBInspectable open var hidesWhenStopped: Bool = true
+    @IBInspectable public var hidesWhenStopped: Bool = true
     
     /**
      Start animating.
      */
     @available(*, deprecated: 2.11, renamed: "startAnimating()")
-    open func startAnimation() {
+    public func startAnimation() {
         self.startAnimating()
     }
     
@@ -467,7 +467,7 @@ open class NVActivityIndicatorView: UIView {
      Stop animating.
      */
     @available(*, deprecated: 2.11, renamed: "stopAnimating()")
-    open func stopAnimation() {
+    public func stopAnimation() {
         self.stopAnimating()
     }
 }

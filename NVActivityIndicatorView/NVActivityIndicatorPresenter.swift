@@ -9,7 +9,7 @@
 import UIKit
 
 /// Class packages information used to display UI blocker.
-open class ActivityData {
+public class ActivityData {
     /// Size of activity indicator view.
     let size: CGSize
     
@@ -64,7 +64,7 @@ open class ActivityData {
 }
 
 /// Presenter that displays NVActivityIndicatorView as UI blocker.
-open class NVActivityIndicatorPresenter {
+public class NVActivityIndicatorPresenter {
     fileprivate var showActivityTimer: Timer?
     fileprivate var hideActivityTimer: Timer?
     fileprivate var userWantsToStopActivity = false
@@ -81,7 +81,7 @@ open class NVActivityIndicatorPresenter {
      
      - parameter data: Information package used to display UI blocker.
      */
-    open func startAnimating(_ data: ActivityData) {
+    public func startAnimating(_ data: ActivityData) {
         guard showActivityTimer == nil else { return }
         userWantsToStopActivity = false
         showActivityTimer = scheduleTimer(data.displayTimeThreshold, selector: #selector(NVActivityIndicatorPresenter.showActivityTimerFired(_:)), data: data)
@@ -90,7 +90,7 @@ open class NVActivityIndicatorPresenter {
     /**
      Remove UI blocker.
      */
-    open func stopAnimating() {
+    public func stopAnimating() {
         userWantsToStopActivity = true
         guard hideActivityTimer == nil else { return }
         hideActivity()
