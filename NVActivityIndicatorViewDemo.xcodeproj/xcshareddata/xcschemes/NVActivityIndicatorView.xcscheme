@@ -34,6 +34,20 @@
                ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "239CAB1F1B5EBB2E0051DC06"
+               BuildableName = "NVActivityIndicatorViewDemo.app"
+               BlueprintName = "NVActivityIndicatorViewDemo"
+               ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

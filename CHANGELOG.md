@@ -1,7 +1,18 @@
 # Change log
 
+## [v2.12](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.12)
+* Fix infinite loop caused by `stopAnimation()` (#67)
+
+## [v2.11](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.11)
+* Fix when used with MBProgressHUD
+* Abilitiy to display UI blocker anywher
+* Time threshold to display UI blocker
+* Minimum display time of UI blocker
+* Deprecate some APIs
+* Add tests
+
 ## [v2.10](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.10)
-* Fix UI block not showing full screen
+* Fix UI blocker not showing full screen
 * Support tvOS
 
 ## [v2.9](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.9)

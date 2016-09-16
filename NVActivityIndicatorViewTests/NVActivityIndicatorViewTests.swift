@@ -29,6 +29,8 @@ class NVActivityIndicatorViewTests: XCTestCase {
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_COLOR, UIColor.whiteColor())
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_PADDING, 0)
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE, CGSize(width: 60, height: 60))
+        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME, 0)
+        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD, 0)
     }
     
     func testSetTypeName() {
@@ -76,15 +78,18 @@ class NVActivityIndicatorViewTests: XCTestCase {
     
     func testStartAnimating() {
         XCTAssertFalse(self.activityIndicatorView.animating)
+        XCTAssertTrue(self.activityIndicatorView.hidden)
         self.activityIndicatorView.startAnimating()
         XCTAssertEqual(self.activityIndicatorView.layer.speed, 1)
         XCTAssertTrue(self.activityIndicatorView.animating)
+        XCTAssertFalse(self.activityIndicatorView.hidden)
     }
     
     func testStopAnimating() {
         self.activityIndicatorView.startAnimating()
         self.activityIndicatorView.stopAnimating()
         XCTAssertFalse(self.activityIndicatorView.animating)
+        XCTAssertTrue(self.activityIndicatorView.hidden)
         XCTAssertTrue(self.activityIndicatorView.layer.sublayers == nil)
     }
 }

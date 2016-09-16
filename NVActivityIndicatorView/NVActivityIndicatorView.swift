@@ -42,6 +42,7 @@ import UIKit
  - SemiCircleSpin:          SemiCircleSpin animation.
  - BallRotateChase:         BallRotateChase animation.
  - Orbit:                   Orbit animation.
+ - AudioEqualizer:          AudioEqualizer animation.
  */
 public enum NVActivityIndicatorType: Int {
     /**
@@ -323,7 +324,13 @@ public class NVActivityIndicatorView: UIView {
     /// Default size of activity indicator view in UI blocker. Default value is 60x60.
     public static var DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
     
-    /// Animation type, value of NVActivityIndicatorType enum.
+    /// Default display time threshold to actually display UI blocker. Default value is 0 ms.
+    public static var DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 0
+    
+    /// Default minimum display time of UI blocker. Default value is 0 ms.
+    public static var DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0
+
+    /// Animation type.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
 
     @available(*, unavailable, message="This property is reserved for Interface Builder. Use 'type' instead.")
@@ -342,36 +349,35 @@ public class NVActivityIndicatorView: UIView {
     /// Padding of activity indicator view.
     @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
 
-    /// Current status of animation, this is not used to start or stop animation.
+    /// Current status of animation, read-only.
     public var animating: Bool {
         return _animating
     }
     private var _animating: Bool = false
     
     /**
-     Create a activity indicator view with default type, color and padding.
-     This is used by storyboard to initiate the view.
+     Returns an object initialized from data in a given unarchiver.
+     self, initialized using the data in decoder.
      
-     - Default type is BallSpinFadeLoader.
-     - Default color is white.
-     - Default padding is 0.
+     - parameter decoder: an unarchiver object.
      
-     - parameter decoder:
-     
-     - returns: The activity indicator view.
+     - returns: self, initialized using the data in decoder.
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clearColor()
+        self.hidden = true
     }
     
     /**
-     Create a activity indicator view with specified frame, type, color and padding.
+     Create a activity indicator view.
      
-     - parameter frame: view's frame.
-     - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is BallSpinFadeLoader.
-     - parameter color: color of activity indicator view. Default color is white.
-     - parameter padding: view's padding. Default padding is 0.
+     Appropriate NVActivityIndicatorView.DEFAULT_* values are used for omitted params.
+     
+     - parameter frame:   view's frame.
+     - parameter type:    animation type.
+     - parameter color:   color of activity indicator view.
+     - parameter padding: padding of activity indicator view.
      
      - returns: The activity indicator view.
      */
@@ -380,12 +386,28 @@ public class NVActivityIndicatorView: UIView {
         self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
         self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
         super.init(frame: frame)
+        self.hidden = true
+    }
+    
+    // Fix issue #62
+    // Intrinsic content size is used in autolayout
+    // that causes mislayout when using with MBProgressHUD.
+    /**
+     Returns the natural size for the receiving view, considering only properties of the view itself.
+     
+     A size indicating the natural size for the receiving view based on its intrinsic properties.
+     
+     - returns: A size indicating the natural size for the receiving view based on its intrinsic properties.
+     */
+    public override func intrinsicContentSize() -> CGSize {
+        return CGSize(width: self.bounds.width, height: self.bounds.height)
     }
     
     /**
      Start animating.
      */
     public func startAnimating() {
+        self.hidden = false
         self._animating = true
         self.layer.speed = 1
         setUpAnimation()
@@ -395,6 +417,7 @@ public class NVActivityIndicatorView: UIView {
      Stop animating.
      */
     public func stopAnimating() {
+        self.hidden = true
         self._animating = false
         self.layer.sublayers?.removeAll()
     }
@@ -433,7 +456,7 @@ public class NVActivityIndicatorView: UIView {
     @IBInspectable public var hidesWhenStopped: Bool = true
     
     /**
-     Start animation.
+     Start animating.
      */
     @available(*, deprecated=2.11, renamed="startAnimating()")
     public func startAnimation() {
@@ -441,10 +464,10 @@ public class NVActivityIndicatorView: UIView {
     }
     
     /**
-     Stop animation.
+     Stop animating.
      */
     @available(*, deprecated=2.11, renamed="stopAnimating()")
     public func stopAnimation() {
-        self.stopAnimation()
+        self.stopAnimating()
     }
 }
