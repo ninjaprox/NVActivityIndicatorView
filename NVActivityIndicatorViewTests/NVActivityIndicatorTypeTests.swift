@@ -48,8 +48,8 @@ class NVActivityIndicatorTypeTests: XCTestCase {
         ]
         
         enumClass.forEach { (enumm, clazz) in
-            let enummClassString = String(enumm.animation())
-            let clazzString = String(clazz)
+            let enummClassString = String(describing: enumm.animation())
+            let clazzString = String(describing: clazz)
             
             XCTAssertTrue(enummClassString.hasSuffix(clazzString))
         }

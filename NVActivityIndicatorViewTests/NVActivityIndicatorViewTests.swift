@@ -46,7 +46,7 @@ class NVActivityIndicatorViewTests: XCTestCase {
     
     func testGetTypeName() {
         self.activityIndicatorView.type = .audioEqualizer
-        XCTAssertEqual(self.activityIndicatorView.getTypeName(), String(NVActivityIndicatorType.audioEqualizer))
+        XCTAssertEqual(self.activityIndicatorView.getTypeName(), String(describing: NVActivityIndicatorType.audioEqualizer))
     }
     
     func testInitWithParams() {
