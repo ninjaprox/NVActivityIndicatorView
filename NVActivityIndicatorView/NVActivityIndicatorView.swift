@@ -353,7 +353,7 @@ public class NVActivityIndicatorView: UIView {
     public var animating: Bool {
         return _animating
     }
-    fileprivate var _animating: Bool = false
+    private var _animating: Bool = false
     
     /**
      Returns an object initialized from data in a given unarchiver.
@@ -439,7 +439,7 @@ public class NVActivityIndicatorView: UIView {
     
     // MARK: Privates
     
-    fileprivate func setUpAnimation() {
+    private func setUpAnimation() {
         let animation: NVActivityIndicatorAnimationDelegate = self.type.animation()
         var animationRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
         let minEdge = min(animationRect.width, animationRect.height)

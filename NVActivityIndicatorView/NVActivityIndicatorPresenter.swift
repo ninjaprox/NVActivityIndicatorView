@@ -65,14 +65,14 @@ public class ActivityData {
 
 /// Presenter that displays NVActivityIndicatorView as UI blocker.
 public class NVActivityIndicatorPresenter {
-    fileprivate var showActivityTimer: Timer?
-    fileprivate var hideActivityTimer: Timer?
-    fileprivate var userWantsToStopActivity = false
-    fileprivate let activityRestorationIdentifier = "NVActivityIndicatorViewContainer"
+    private var showActivityTimer: Timer?
+    private var hideActivityTimer: Timer?
+    private var userWantsToStopActivity = false
+    private let activityRestorationIdentifier = "NVActivityIndicatorViewContainer"
     
     static let sharedInstance = NVActivityIndicatorPresenter()
     
-    fileprivate init() { }
+    private init() { }
     
     // MARK: - Public interface
     
@@ -98,12 +98,12 @@ public class NVActivityIndicatorPresenter {
     
     // MARK: - Timer events
     
-    @objc fileprivate func showActivityTimerFired(_ timer: Timer) {
+    @objc private func showActivityTimerFired(_ timer: Timer) {
         guard let activityData = timer.userInfo as? ActivityData else { return }
         showActivity(activityData)
     }
     
-    @objc fileprivate func hideActivityTimerFired(_ timer: Timer) {
+    @objc private func hideActivityTimerFired(_ timer: Timer) {
         hideActivityTimer?.invalidate()
         hideActivityTimer = nil
         if userWantsToStopActivity {
@@ -113,7 +113,7 @@ public class NVActivityIndicatorPresenter {
     
     // MARK: - Helpers
     
-    fileprivate func showActivity(_ activityData: ActivityData) {
+    private func showActivity(_ activityData: ActivityData) {
         let activityContainer: UIView = UIView(frame: UIScreen.main.bounds)
         
         activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
@@ -147,7 +147,7 @@ public class NVActivityIndicatorPresenter {
         UIApplication.shared.keyWindow!.addSubview(activityContainer)
     }
     
-    fileprivate func hideActivity() {
+    private func hideActivity() {
         for item in UIApplication.shared.keyWindow!.subviews
             where item.restorationIdentifier == activityRestorationIdentifier {
                 item.removeFromSuperview()
@@ -156,7 +156,7 @@ public class NVActivityIndicatorPresenter {
         showActivityTimer = nil
     }
     
-    fileprivate func scheduleTimer(_ timeInterval: Int, selector: Selector, data: ActivityData?) -> Timer {
+    private func scheduleTimer(_ timeInterval: Int, selector: Selector, data: ActivityData?) -> Timer {
         return Timer.scheduledTimer(timeInterval: Double(timeInterval) / 1000,
                                                       target: self,
                                                       selector: selector,
