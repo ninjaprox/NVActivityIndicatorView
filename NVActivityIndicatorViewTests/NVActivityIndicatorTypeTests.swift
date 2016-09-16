@@ -13,38 +13,38 @@ class NVActivityIndicatorTypeTests: XCTestCase {
     
     func testAnimation() {
         let enumClass: [NVActivityIndicatorType: NVActivityIndicatorAnimationDelegate.Type] = [
-            .Blank: NVActivityIndicatorAnimationBlank.self,
-            .BallPulse: NVActivityIndicatorAnimationBallPulse.self,
-            .BallGridPulse: NVActivityIndicatorAnimationBallGridPulse.self,
-            .BallClipRotate: NVActivityIndicatorAnimationBallClipRotate.self,
-            .SquareSpin: NVActivityIndicatorAnimationSquareSpin.self,
-            .BallClipRotatePulse: NVActivityIndicatorAnimationBallClipRotatePulse.self,
-            .BallClipRotateMultiple: NVActivityIndicatorAnimationBallClipRotateMultiple.self,
-            .BallPulseRise: NVActivityIndicatorAnimationBallPulseRise.self,
-            .BallRotate: NVActivityIndicatorAnimationBallRotate.self,
-            .CubeTransition: NVActivityIndicatorAnimationCubeTransition.self,
-            .BallZigZag: NVActivityIndicatorAnimationBallZigZag.self,
-            .BallZigZagDeflect: NVActivityIndicatorAnimationBallZigZagDeflect.self,
-            .BallTrianglePath: NVActivityIndicatorAnimationBallTrianglePath.self,
-            .BallScale: NVActivityIndicatorAnimationBallScale.self,
-            .LineScale: NVActivityIndicatorAnimationLineScale.self,
-            .LineScaleParty: NVActivityIndicatorAnimationLineScaleParty.self,
-            .BallScaleMultiple: NVActivityIndicatorAnimationBallScaleMultiple.self,
-            .BallPulseSync: NVActivityIndicatorAnimationBallPulseSync.self,
-            .BallBeat: NVActivityIndicatorAnimationBallBeat.self,
-            .LineScalePulseOut: NVActivityIndicatorAnimationLineScalePulseOut.self,
-            .LineScalePulseOutRapid: NVActivityIndicatorAnimationLineScalePulseOutRapid.self,
-            .BallScaleRipple: NVActivityIndicatorAnimationBallScaleRipple.self,
-            .BallScaleRippleMultiple: NVActivityIndicatorAnimationBallScaleRippleMultiple.self,
-            .BallSpinFadeLoader: NVActivityIndicatorAnimationBallSpinFadeLoader.self,
-            .LineSpinFadeLoader: NVActivityIndicatorAnimationLineSpinFadeLoader.self,
-            .TriangleSkewSpin: NVActivityIndicatorAnimationTriangleSkewSpin.self,
-            .Pacman: NVActivityIndicatorAnimationPacman.self,
-            .BallGridBeat: NVActivityIndicatorAnimationBallGridBeat.self,
-            .SemiCircleSpin: NVActivityIndicatorAnimationSemiCircleSpin.self,
-            .BallRotateChase: NVActivityIndicatorAnimationBallRotateChase.self,
-            .Orbit: NVActivityIndicatorAnimationOrbit.self,
-            .AudioEqualizer: NVActivityIndicatorAnimationAudioEqualizer.self
+            .blank: NVActivityIndicatorAnimationBlank.self,
+            .ballPulse: NVActivityIndicatorAnimationBallPulse.self,
+            .ballGridPulse: NVActivityIndicatorAnimationBallGridPulse.self,
+            .ballClipRotate: NVActivityIndicatorAnimationBallClipRotate.self,
+            .squareSpin: NVActivityIndicatorAnimationSquareSpin.self,
+            .ballClipRotatePulse: NVActivityIndicatorAnimationBallClipRotatePulse.self,
+            .ballClipRotateMultiple: NVActivityIndicatorAnimationBallClipRotateMultiple.self,
+            .ballPulseRise: NVActivityIndicatorAnimationBallPulseRise.self,
+            .ballRotate: NVActivityIndicatorAnimationBallRotate.self,
+            .cubeTransition: NVActivityIndicatorAnimationCubeTransition.self,
+            .ballZigZag: NVActivityIndicatorAnimationBallZigZag.self,
+            .ballZigZagDeflect: NVActivityIndicatorAnimationBallZigZagDeflect.self,
+            .ballTrianglePath: NVActivityIndicatorAnimationBallTrianglePath.self,
+            .ballScale: NVActivityIndicatorAnimationBallScale.self,
+            .lineScale: NVActivityIndicatorAnimationLineScale.self,
+            .lineScaleParty: NVActivityIndicatorAnimationLineScaleParty.self,
+            .ballScaleMultiple: NVActivityIndicatorAnimationBallScaleMultiple.self,
+            .ballPulseSync: NVActivityIndicatorAnimationBallPulseSync.self,
+            .ballBeat: NVActivityIndicatorAnimationBallBeat.self,
+            .lineScalePulseOut: NVActivityIndicatorAnimationLineScalePulseOut.self,
+            .lineScalePulseOutRapid: NVActivityIndicatorAnimationLineScalePulseOutRapid.self,
+            .ballScaleRipple: NVActivityIndicatorAnimationBallScaleRipple.self,
+            .ballScaleRippleMultiple: NVActivityIndicatorAnimationBallScaleRippleMultiple.self,
+            .ballSpinFadeLoader: NVActivityIndicatorAnimationBallSpinFadeLoader.self,
+            .lineSpinFadeLoader: NVActivityIndicatorAnimationLineSpinFadeLoader.self,
+            .triangleSkewSpin: NVActivityIndicatorAnimationTriangleSkewSpin.self,
+            .pacman: NVActivityIndicatorAnimationPacman.self,
+            .ballGridBeat: NVActivityIndicatorAnimationBallGridBeat.self,
+            .semiCircleSpin: NVActivityIndicatorAnimationSemiCircleSpin.self,
+            .ballRotateChase: NVActivityIndicatorAnimationBallRotateChase.self,
+            .orbit: NVActivityIndicatorAnimationOrbit.self,
+            .audioEqualizer: NVActivityIndicatorAnimationAudioEqualizer.self
         ]
         
         enumClass.forEach { (enumm, clazz) in
@@ -56,6 +56,6 @@ class NVActivityIndicatorTypeTests: XCTestCase {
     }
     
     func testAllTypes() {
-        XCTAssertEqual(NVActivityIndicatorType.allTypes.last, NVActivityIndicatorType.AudioEqualizer)
+        XCTAssertEqual(NVActivityIndicatorType.allTypes.last, NVActivityIndicatorType.audioEqualizer)
     }
 }

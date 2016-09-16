@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 1
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.09, 0.57, 0.49, 0.9)
         
@@ -18,7 +18,7 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         bigCircleWith(duration: duration, timingFunction: timingFunction, layer: layer, size: size, color: color)
     }
     
-    func smallCircleWith(duration duration: CFTimeInterval, timingFunction: CAMediaTimingFunction, layer: CALayer, size: CGSize, color: UIColor) {
+    func smallCircleWith(duration: CFTimeInterval, timingFunction: CAMediaTimingFunction, layer: CALayer, size: CGSize, color: UIColor) {
         // Animation
         let animation = CAKeyframeAnimation(keyPath:"transform.scale")
         
@@ -27,22 +27,22 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         animation.values = [1, 0.3, 1]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw circle
         let circleSize = size.width / 2
-        let circle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+        let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
         let frame = CGRect(x: (layer.bounds.size.width - circleSize) / 2,
             y: (layer.bounds.size.height - circleSize) / 2,
             width: circleSize,
             height: circleSize)
         
         circle.frame = frame
-        circle.addAnimation(animation, forKey: "animation")
+        circle.add(animation, forKey: "animation")
         layer.addSublayer(circle)
     }
     
-    func bigCircleWith(duration duration: CFTimeInterval, timingFunction: CAMediaTimingFunction, layer: CALayer, size: CGSize, color: UIColor) {
+    func bigCircleWith(duration: CFTimeInterval, timingFunction: CAMediaTimingFunction, layer: CALayer, size: CGSize, color: UIColor) {
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath:"transform.scale")
         
@@ -65,16 +65,16 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         animation.animations = [scaleAnimation, rotateAnimation]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw circle
-        let circle = NVActivityIndicatorShape.RingTwoHalfVertical.createLayerWith(size: size, color: color)
+        let circle = NVActivityIndicatorShape.ringTwoHalfVertical.createLayerWith(size: size, color: color)
         let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
             y: (layer.bounds.size.height - size.height) / 2,
             width: size.width,
             height: size.height)
         circle.frame = frame
-        circle.addAnimation(animation, forKey: "animation")
+        circle.add(animation, forKey: "animation")
         layer.addSublayer(circle)
     }
 }

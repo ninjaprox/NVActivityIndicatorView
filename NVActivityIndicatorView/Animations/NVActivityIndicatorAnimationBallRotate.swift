@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallRotate: NVActivityIndicatorAnimationDelegate {
 
-    func setUpAnimationInLayer(layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let circleSize: CGFloat = size.width / 5
         let duration: CFTimeInterval = 1
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.7, -0.13, 0.22, 0.86)
@@ -37,12 +37,12 @@ class NVActivityIndicatorAnimationBallRotate: NVActivityIndicatorAnimationDelega
         animation.animations = [scaleAnimation, rotateAnimation]
         animation.duration = duration
         animation.repeatCount = HUGE
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         
         // Draw circles
-        let leftCircle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
-        let rightCircle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
-        let centerCircle = NVActivityIndicatorShape.Circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+        let leftCircle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+        let rightCircle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+        let centerCircle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
         
         leftCircle.opacity = 0.8
         leftCircle.frame = CGRect(x: 0, y: (size.height - circleSize) / 2, width: circleSize, height: circleSize)
@@ -57,7 +57,7 @@ class NVActivityIndicatorAnimationBallRotate: NVActivityIndicatorAnimationDelega
         circle.addSublayer(leftCircle)
         circle.addSublayer(rightCircle)
         circle.addSublayer(centerCircle)
-        circle.addAnimation(animation, forKey: "animation")
+        circle.add(animation, forKey: "animation")
         layer.addSublayer(circle)
     }
 }
