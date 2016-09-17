@@ -10,7 +10,7 @@ import XCTest
 @testable import NVActivityIndicatorView
 
 class NVActivityIndicatorPresenterTests: XCTestCase {
-    let approximateZero:Int64 = 10
+    let approximateZero:Int64 = 5
     
     func testZeroDisplayTimeThreshold() {
         let activityData = self.createActivityData(displayTimeThreshold: 0,
@@ -101,7 +101,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     func doAfter(_ after: Int64, thing: @escaping () -> Void) {
         let expectation = self.expectation(description: "")
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(NSEC_PER_MSEC) * after) / Double(NSEC_PER_SEC)) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(NSEC_PER_MSEC * UInt64(after)) / Double(NSEC_PER_SEC)) {
             thing()
             expectation.fulfill()
         }
