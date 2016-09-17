@@ -10,7 +10,7 @@ import XCTest
 @testable import NVActivityIndicatorView
 
 class NVActivityIndicatorPresenterTests: XCTestCase {
-    let approximateZero:Int64 = 5
+    let approximateZero:Int64 = 20
     
     func testZeroDisplayTimeThreshold() {
         let activityData = self.createActivityData(displayTimeThreshold: 0,
