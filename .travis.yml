@@ -1,7 +1,6 @@
 language: objective-c
 osx_image: xcode8
-xcode_project: NVActivityIndicatorView.xcodeproj
-xcode_scheme: NVActivityIndicatorView
 xcode_sdk: iphonesimulator10.0
 script:
+  - set -o pipefail
   - xcodebuild -project NVActivityIndicatorViewDemo.xcodeproj -scheme NVActivityIndicatorView -destination "platform=iOS Simulator,name=iPhone 6" clean test | xcpretty -c
