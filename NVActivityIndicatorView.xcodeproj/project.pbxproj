@@ -367,7 +367,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 239CAB1B1B5EBB2E0051DC06 /* Build configuration list for PBXProject "NVActivityIndicatorViewDemo" */;
+			buildConfigurationList = 239CAB1B1B5EBB2E0051DC06 /* Build configuration list for PBXProject "NVActivityIndicatorView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -705,7 +705,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		239CAB1B1B5EBB2E0051DC06 /* Build configuration list for PBXProject "NVActivityIndicatorViewDemo" */ = {
+		239CAB1B1B5EBB2E0051DC06 /* Build configuration list for PBXProject "NVActivityIndicatorView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				239CAB3D1B5EBB2E0051DC06 /* Debug */,

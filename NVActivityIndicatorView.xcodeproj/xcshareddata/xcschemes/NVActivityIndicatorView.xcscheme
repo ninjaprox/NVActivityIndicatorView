@@ -17,7 +17,7 @@
                BlueprintIdentifier = "90A8792E1BA554A0001C8989"
                BuildableName = "NVActivityIndicatorView.framework"
                BlueprintName = "NVActivityIndicatorView"
-               ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
+               ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "23FB134E1D76D5370096EBE3"
                BuildableName = "NVActivityIndicatorViewTests.xctest"
                BlueprintName = "NVActivityIndicatorViewTests"
-               ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
+               ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "239CAB1F1B5EBB2E0051DC06"
                BuildableName = "NVActivityIndicatorViewDemo.app"
                BlueprintName = "NVActivityIndicatorViewDemo"
-               ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
+               ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -63,7 +63,7 @@
                BlueprintIdentifier = "23FB134E1D76D5370096EBE3"
                BuildableName = "NVActivityIndicatorViewTests.xctest"
                BlueprintName = "NVActivityIndicatorViewTests"
-               ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
+               ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -73,7 +73,7 @@
             BlueprintIdentifier = "90A8792E1BA554A0001C8989"
             BuildableName = "NVActivityIndicatorView.framework"
             BlueprintName = "NVActivityIndicatorView"
-            ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
+            ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -95,7 +95,7 @@
             BlueprintIdentifier = "90A8792E1BA554A0001C8989"
             BuildableName = "NVActivityIndicatorView.framework"
             BlueprintName = "NVActivityIndicatorView"
-            ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
+            ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -113,7 +113,7 @@
             BlueprintIdentifier = "90A8792E1BA554A0001C8989"
             BuildableName = "NVActivityIndicatorView.framework"
             BlueprintName = "NVActivityIndicatorView"
-            ReferencedContainer = "container:NVActivityIndicatorViewDemo.xcodeproj">
+            ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
