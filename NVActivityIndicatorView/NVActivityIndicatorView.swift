@@ -445,26 +445,4 @@ public class NVActivityIndicatorView: UIView {
         animationRect.size = CGSize(width: minEdge, height: minEdge)
         animation.setUpAnimationInLayer(self.layer, size: animationRect.size, color: self.color)
     }
-    
-    // MARK: Deprecated
-    
-    /// Specify whether activity indicator view should hide once stopped.
-    @available(*, deprecated: 2.11)
-    @IBInspectable public var hidesWhenStopped: Bool = true
-    
-    /**
-     Start animating.
-     */
-    @available(*, deprecated: 2.11, renamed: "startAnimating()")
-    public func startAnimation() {
-        self.startAnimating()
-    }
-    
-    /**
-     Stop animating.
-     */
-    @available(*, deprecated: 2.11, renamed: "stopAnimating()")
-    public func stopAnimation() {
-        self.stopAnimating()
-    }
 }

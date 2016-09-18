@@ -55,40 +55,4 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
     public func stopAnimating() {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
-    
-    // MARK: Deprecated
-    
-    /**
-     Display UI blocker.
-     
-     Appropriate NVActivityIndicatorView.DEFAULT_* values are used for omitted params.
-     
-     - parameter size:    size of activity indicator view.
-     - parameter message: message displayed under activity indicator view.
-     - parameter type:    animation type.
-     - parameter color:   color of activity indicator view.
-     - parameter padding: padding of activity indicator view.
-     */
-    @available(*, deprecated: 2.11, renamed: "startAnimating()")
-    public func startActivityAnimating(
-        _ size: CGSize? = nil,
-        message: String? = nil,
-        type: NVActivityIndicatorType? = nil,
-        color: UIColor? = nil,
-        padding: CGFloat? = nil) {
-        self.startAnimating(size,
-                            message: message,
-                            type: type,
-                            color: color,
-                            padding: padding)
-    }
-    
-    /**
-     Remove UI blocker.
-     */
-    @available(*, deprecated: 2.11, renamed: "stopAnimating()")
-    public func stopActivityAnimating() {
-        self.stopAnimating()
-    }
-    
 }
