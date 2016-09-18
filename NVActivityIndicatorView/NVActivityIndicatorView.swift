@@ -239,7 +239,7 @@ public enum NVActivityIndicatorType: Int {
     case audioEqualizer
     
     static let allTypes = (blank.rawValue ... audioEqualizer.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
-
+    
     func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
         case .blank:
@@ -329,10 +329,10 @@ public class NVActivityIndicatorView: UIView {
     
     /// Default minimum display time of UI blocker. Default value is 0 ms.
     public static var DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0
-
+    
     /// Animation type.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
-
+    
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
         get {
@@ -342,13 +342,13 @@ public class NVActivityIndicatorView: UIView {
             self._setTypeName(newValue)
         }
     }
-
+    
     /// Color of activity indicator view.
     @IBInspectable public var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR
-
+    
     /// Padding of activity indicator view.
     @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
-
+    
     /// Current status of animation, read-only.
     public private(set) var animating: Bool = false
     

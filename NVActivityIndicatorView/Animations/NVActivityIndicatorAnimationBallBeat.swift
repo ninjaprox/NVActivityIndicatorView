@@ -46,9 +46,9 @@ class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate
         for i in 0 ..< 3 {
             let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
             let frame = CGRect(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
-                y: y,
-                width: circleSize,
-                height: circleSize)
+                               y: y,
+                               width: circleSize,
+                               height: circleSize)
             
             animation.beginTime = beginTime + beginTimes[i]
             circle.frame = frame

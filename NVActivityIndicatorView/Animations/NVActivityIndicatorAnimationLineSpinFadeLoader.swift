@@ -33,10 +33,10 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
         // Draw lines
         for i in 0 ..< 8 {
             let line = lineAt(angle: CGFloat(M_PI_4 * Double(i)),
-                size: lineSize,
-                origin: CGPoint(x: x, y: y),
-                containerSize: size,
-                color: color)
+                              size: lineSize,
+                              origin: CGPoint(x: x, y: y),
+                              containerSize: size,
+                              color: color)
             
             animation.beginTime = beginTime + beginTimes[i]
             line.add(animation, forKey: "animation")

@@ -119,7 +119,7 @@ public class NVActivityIndicatorPresenter {
         activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         activityContainer.restorationIdentifier = activityRestorationIdentifier
         
-        let actualSize = activityData.size 
+        let actualSize = activityData.size
         let activityIndicatorView = NVActivityIndicatorView(
             frame: CGRect(x: 0, y: 0, width: actualSize.width, height: actualSize.height),
             type: activityData.type,
@@ -158,9 +158,9 @@ public class NVActivityIndicatorPresenter {
     
     private func scheduleTimer(_ timeInterval: Int, selector: Selector, data: ActivityData?) -> Timer {
         return Timer.scheduledTimer(timeInterval: Double(timeInterval) / 1000,
-                                                      target: self,
-                                                      selector: selector,
-                                                      userInfo: data,
-                                                      repeats: false)
+                                    target: self,
+                                    selector: selector,
+                                    userInfo: data,
+                                    repeats: false)
     }
 }

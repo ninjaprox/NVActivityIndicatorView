@@ -24,9 +24,9 @@ class NVActivityIndicatorAnimationBallZigZagDeflect: NVActivityIndicatorAnimatio
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         
         animation.values = [NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0)),
-            NSValue(caTransform3D: CATransform3DMakeTranslation(-deltaX, -deltaY, 0)),
-            NSValue(caTransform3D: CATransform3DMakeTranslation(deltaX, -deltaY, 0)),
-            NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0))]
+                            NSValue(caTransform3D: CATransform3DMakeTranslation(-deltaX, -deltaY, 0)),
+                            NSValue(caTransform3D: CATransform3DMakeTranslation(deltaX, -deltaY, 0)),
+                            NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0))]
         animation.duration = duration
         animation.repeatCount = HUGE
         animation.autoreverses = true
@@ -37,9 +37,9 @@ class NVActivityIndicatorAnimationBallZigZagDeflect: NVActivityIndicatorAnimatio
         
         // Circle 2 animation
         animation.values = [NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0)),
-            NSValue(caTransform3D: CATransform3DMakeTranslation(deltaX, deltaY, 0)),
-            NSValue(caTransform3D: CATransform3DMakeTranslation(-deltaX, deltaY, 0)),
-            NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0))]
+                            NSValue(caTransform3D: CATransform3DMakeTranslation(deltaX, deltaY, 0)),
+                            NSValue(caTransform3D: CATransform3DMakeTranslation(-deltaX, deltaY, 0)),
+                            NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0))]
         
         // Draw circle 2
         circleAt(frame: frame, layer: layer, size: CGSize(width: circleSize, height: circleSize), color: color, animation: animation)

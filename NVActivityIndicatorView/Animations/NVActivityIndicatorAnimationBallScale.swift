@@ -40,9 +40,9 @@ class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegat
         let circle = NVActivityIndicatorShape.circle.createLayerWith(size: size, color: color)
         
         circle.frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
-            y: (layer.bounds.size.height - size.height) / 2,
-            width: size.width,
-            height: size.height);
+                              y: (layer.bounds.size.height - size.height) / 2,
+                              width: size.width,
+                              height: size.height);
         circle.add(animation, forKey: "animation")
         layer.addSublayer(circle)
     }

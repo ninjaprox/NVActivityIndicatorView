@@ -9,7 +9,7 @@
 import UIKit
 
 class NVActivityIndicatorAnimationSquareSpin: NVActivityIndicatorAnimationDelegate {
-
+    
     func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 3
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.09, 0.57, 0.49, 0.9)
@@ -32,9 +32,9 @@ class NVActivityIndicatorAnimationSquareSpin: NVActivityIndicatorAnimationDelega
         // Draw square
         let square = NVActivityIndicatorShape.rectangle.createLayerWith(size: size, color: color)
         let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
-            y: (layer.bounds.size.height - size.height) / 2,
-            width: size.width,
-            height: size.height)
+                           y: (layer.bounds.size.height - size.height) / 2,
+                           width: size.width,
+                           height: size.height)
         
         square.frame = frame
         square.add(animation, forKey: "animation")

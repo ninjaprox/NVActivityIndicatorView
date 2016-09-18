@@ -44,9 +44,9 @@ class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAn
         for i in 0 ..< 3 {
             let circle = NVActivityIndicatorShape.ring.createLayerWith(size: size, color: color)
             let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
-                y: (layer.bounds.size.height - size.height) / 2,
-                width: size.width,
-                height: size.height)
+                               y: (layer.bounds.size.height - size.height) / 2,
+                               width: size.width,
+                               height: size.height)
             
             animation.beginTime = beginTime + beginTimes[i]
             circle.frame = frame

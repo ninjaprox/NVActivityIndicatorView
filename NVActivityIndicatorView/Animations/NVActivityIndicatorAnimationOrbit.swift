@@ -51,13 +51,13 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
         animation.duration = duration
         animation.repeatCount = HUGE
         animation.isRemovedOnCompletion = false
-
+        
         // Draw circle
         let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: coreSize, height: coreSize), color: color)
         let frame = CGRect(x: (layer.bounds.size.width - coreSize) / 2,
-                               y: (layer.bounds.size.height - coreSize) / 2,
-                               width: coreSize,
-                               height: coreSize)
+                           y: (layer.bounds.size.height - coreSize) / 2,
+                           width: coreSize,
+                           height: coreSize)
         
         circle.frame = frame
         circle.add(animation, forKey: "animation")
@@ -93,9 +93,9 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
         // Draw circle
         let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: coreSize, height: coreSize), color: color)
         let frame = CGRect(x: (layer.bounds.size.width - coreSize) / 2,
-                               y: (layer.bounds.size.height - coreSize) / 2,
-                               width: coreSize,
-                               height: coreSize)
+                           y: (layer.bounds.size.height - coreSize) / 2,
+                           width: coreSize,
+                           height: coreSize)
         
         circle.frame = frame
         circle.add(animation, forKey: "animation")
@@ -120,9 +120,9 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
         // Draw circle
         let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: coreSize, height: coreSize), color: color)
         let frame = CGRect(x: (layer.bounds.size.width - coreSize) / 2,
-                               y: (layer.bounds.size.height - coreSize) / 2,
-                               width: coreSize,
-                               height: coreSize)
+                           y: (layer.bounds.size.height - coreSize) / 2,
+                           width: coreSize,
+                           height: coreSize)
         
         circle.frame = frame
         circle.add(scaleAnimation, forKey: "animation")

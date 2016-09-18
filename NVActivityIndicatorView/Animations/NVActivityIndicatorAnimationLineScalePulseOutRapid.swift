@@ -9,7 +9,7 @@
 import UIKit
 
 class NVActivityIndicatorAnimationLineScalePulseOutRapid: NVActivityIndicatorAnimationDelegate {
-
+    
     func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let lineSize = size.width / 9
         let x = (layer.bounds.size.width - size.width) / 2
@@ -34,9 +34,9 @@ class NVActivityIndicatorAnimationLineScalePulseOutRapid: NVActivityIndicatorAni
         for i in 0 ..< 5 {
             let line = NVActivityIndicatorShape.line.createLayerWith(size: CGSize(width: lineSize, height: size.height), color: color)
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i),
-                y: y,
-                width: lineSize,
-                height: size.height)
+                               y: y,
+                               width: lineSize,
+                               height: size.height)
             
             animation.beginTime = beginTime + beginTimes[i]
             line.frame = frame

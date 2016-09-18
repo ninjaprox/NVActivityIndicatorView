@@ -33,9 +33,9 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         let circleSize = size.width / 2
         let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
         let frame = CGRect(x: (layer.bounds.size.width - circleSize) / 2,
-            y: (layer.bounds.size.height - circleSize) / 2,
-            width: circleSize,
-            height: circleSize)
+                           y: (layer.bounds.size.height - circleSize) / 2,
+                           width: circleSize,
+                           height: circleSize)
         
         circle.frame = frame
         circle.add(animation, forKey: "animation")
@@ -70,9 +70,9 @@ class NVActivityIndicatorAnimationBallClipRotatePulse: NVActivityIndicatorAnimat
         // Draw circle
         let circle = NVActivityIndicatorShape.ringTwoHalfVertical.createLayerWith(size: size, color: color)
         let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
-            y: (layer.bounds.size.height - size.height) / 2,
-            width: size.width,
-            height: size.height)
+                           y: (layer.bounds.size.height - size.height) / 2,
+                           width: size.width,
+                           height: size.height)
         circle.frame = frame
         circle.add(animation, forKey: "animation")
         layer.addSublayer(circle)

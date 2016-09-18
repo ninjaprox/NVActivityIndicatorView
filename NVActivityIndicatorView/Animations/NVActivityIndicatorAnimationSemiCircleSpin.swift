@@ -9,7 +9,7 @@
 import UIKit
 
 class NVActivityIndicatorAnimationSemiCircleSpin: NVActivityIndicatorAnimationDelegate {
-
+    
     func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 0.6
         

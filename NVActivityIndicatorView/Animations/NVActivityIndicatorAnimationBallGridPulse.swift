@@ -46,9 +46,9 @@ class NVActivityIndicatorAnimationBallGridPulse: NVActivityIndicatorAnimationDel
             for j in 0 ..< 3 {
                 let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
                 let frame = CGRect(x: x + circleSize * CGFloat(j) + circleSpacing * CGFloat(j),
-                    y: y + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
-                    width: circleSize,
-                    height: circleSize)
+                                   y: y + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
+                                   width: circleSize,
+                                   height: circleSize)
                 
                 animation.duration = durations[3 * i + j]
                 animation.beginTime = beginTime + beginTimes[3 * i + j]
