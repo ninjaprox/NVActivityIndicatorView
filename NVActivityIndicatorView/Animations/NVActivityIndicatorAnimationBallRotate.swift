@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallRotate: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let circleSize: CGFloat = size.width / 5
         let duration: CFTimeInterval = 1
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.7, -0.13, 0.22, 0.86)
@@ -40,9 +40,9 @@ class NVActivityIndicatorAnimationBallRotate: NVActivityIndicatorAnimationDelega
         animation.isRemovedOnCompletion = false
         
         // Draw circles
-        let leftCircle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
-        let rightCircle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
-        let centerCircle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+        let leftCircle = NVActivityIndicatorShape.circle.layerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+        let rightCircle = NVActivityIndicatorShape.circle.layerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+        let centerCircle = NVActivityIndicatorShape.circle.layerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
         
         leftCircle.opacity = 0.8
         leftCircle.frame = CGRect(x: 0, y: (size.height - circleSize) / 2, width: circleSize, height: circleSize)

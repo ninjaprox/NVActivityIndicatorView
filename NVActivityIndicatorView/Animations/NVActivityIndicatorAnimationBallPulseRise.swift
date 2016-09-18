@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let circleSpacing: CGFloat = 2
         let circleSize = (size.width - 4 * circleSpacing) / 5
         let x = (layer.bounds.size.width - size.width) / 2
@@ -23,7 +23,7 @@ class NVActivityIndicatorAnimationBallPulseRise: NVActivityIndicatorAnimationDel
         
         // Draw circles
         for i in 0 ..< 5 {
-            let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+            let circle = NVActivityIndicatorShape.circle.layerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
             let frame = CGRect(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
                                y: y,
                                width: circleSize,

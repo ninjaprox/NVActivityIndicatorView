@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 1
         
         // Scale animation
@@ -37,7 +37,7 @@ class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegat
         animation.isRemovedOnCompletion = false
         
         // Draw circle
-        let circle = NVActivityIndicatorShape.circle.createLayerWith(size: size, color: color)
+        let circle = NVActivityIndicatorShape.circle.layerWith(size: size, color: color)
         
         circle.frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
                               y: (layer.bounds.size.height - size.height) / 2,

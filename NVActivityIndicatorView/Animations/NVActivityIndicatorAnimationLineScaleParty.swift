@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let lineSize = size.width / 7
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - size.height) / 2
@@ -29,7 +29,7 @@ class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDe
         animation.isRemovedOnCompletion = false
         
         for i in 0 ..< 4 {
-            let line = NVActivityIndicatorShape.line.createLayerWith(size: CGSize(width: lineSize, height: size.height), color: color)
+            let line = NVActivityIndicatorShape.line.layerWith(size: CGSize(width: lineSize, height: size.height), color: color)
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i), y: y, width: lineSize, height: size.height)
             
             animation.beginTime = beginTime + beginTimes[i]

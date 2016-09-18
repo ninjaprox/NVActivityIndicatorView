@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let squareSize = size.width / 5
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - size.height) / 2
@@ -61,7 +61,7 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
         
         // Draw squares
         for i in 0 ..< 2 {
-            let square = NVActivityIndicatorShape.rectangle.createLayerWith(size: CGSize(width: squareSize, height: squareSize), color: color)
+            let square = NVActivityIndicatorShape.rectangle.layerWith(size: CGSize(width: squareSize, height: squareSize), color: color)
             let frame = CGRect(x: x, y: y, width: squareSize, height: squareSize)
             
             animation.beginTime = beginTime + beginTimes[i]

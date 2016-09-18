@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallGridBeat: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let circleSpacing: CGFloat = 2
         let circleSize = (size.width - circleSpacing * 2) / 3
         let x = (layer.bounds.size.width - size.width) / 2
@@ -32,7 +32,7 @@ class NVActivityIndicatorAnimationBallGridBeat: NVActivityIndicatorAnimationDele
         // Draw circles
         for i in 0 ..< 3 {
             for j in 0 ..< 3 {
-                let circle = NVActivityIndicatorShape.circle.createLayerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
+                let circle = NVActivityIndicatorShape.circle.layerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
                 let frame = CGRect(x: x + circleSize * CGFloat(j) + circleSpacing * CGFloat(j),
                                    y: y + circleSize * CGFloat(i) + circleSpacing * CGFloat(i),
                                    width: circleSize,

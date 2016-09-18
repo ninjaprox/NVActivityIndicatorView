@@ -10,7 +10,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationTriangleSkewSpin: NVActivityIndicatorAnimationDelegate {
     
-    func setUpAnimationInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - size.height) / 2
         let duration: CFTimeInterval = 3
@@ -32,7 +32,7 @@ class NVActivityIndicatorAnimationTriangleSkewSpin: NVActivityIndicatorAnimation
         animation.isRemovedOnCompletion = false
         
         // Draw triangle
-        let triangle = NVActivityIndicatorShape.triangle.createLayerWith(size: size, color: color)
+        let triangle = NVActivityIndicatorShape.triangle.layerWith(size: size, color: color)
         
         triangle.frame = CGRect(x: x, y: y, width: size.width, height: size.height)
         triangle.add(animation, forKey: "animation")

@@ -20,7 +20,7 @@ enum NVActivityIndicatorShape {
     case line
     case pacman
     
-    func createLayerWith(size: CGSize, color: UIColor) -> CALayer {
+    func layerWith(size: CGSize, color: UIColor) -> CALayer {
         let layer: CAShapeLayer = CAShapeLayer()
         var path: UIBezierPath = UIBezierPath()
         let lineWidth: CGFloat = 2
