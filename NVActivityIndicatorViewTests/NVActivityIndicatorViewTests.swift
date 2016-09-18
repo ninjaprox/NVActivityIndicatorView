@@ -34,13 +34,13 @@ class NVActivityIndicatorViewTests: XCTestCase {
     }
     
     func testSetTypeName() {
-        self.activityIndicatorView.setTypeName_("unknown")
+        self.activityIndicatorView._setTypeName("unknown")
         XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
-        self.activityIndicatorView.setTypeName_("Orbit")
+        self.activityIndicatorView._setTypeName("Orbit")
         XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.orbit)
-        self.activityIndicatorView.setTypeName_("orbit")
+        self.activityIndicatorView._setTypeName("orbit")
         XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.orbit)
-        self.activityIndicatorView.setTypeName_("orbiT")
+        self.activityIndicatorView._setTypeName("orbiT")
         XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.orbit)
     }
     

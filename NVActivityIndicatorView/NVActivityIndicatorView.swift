@@ -339,7 +339,7 @@ public class NVActivityIndicatorView: UIView {
             return self.getTypeName()
         }
         set {
-            self.setTypeName_(newValue)
+            self._setTypeName(newValue)
         }
     }
 
@@ -421,7 +421,7 @@ public class NVActivityIndicatorView: UIView {
     
     // MARK: Internal
     
-    func setTypeName_(_ typeName: String) {
+    func _setTypeName(_ typeName: String) {
         for item in NVActivityIndicatorType.allTypes {
             if String(describing: item).caseInsensitiveCompare(typeName) == ComparisonResult.orderedSame {
                 self.type = item
