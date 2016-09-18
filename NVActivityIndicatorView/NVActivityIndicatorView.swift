@@ -350,10 +350,7 @@ public class NVActivityIndicatorView: UIView {
     @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
 
     /// Current status of animation, read-only.
-    public var animating: Bool {
-        return _animating
-    }
-    private var _animating: Bool = false
+    public private(set) var animating: Bool = false
     
     /**
      Returns an object initialized from data in a given unarchiver.
@@ -408,7 +405,7 @@ public class NVActivityIndicatorView: UIView {
      */
     public func startAnimating() {
         self.isHidden = false
-        self._animating = true
+        self.animating = true
         self.layer.speed = 1
         setUpAnimation()
     }
@@ -418,7 +415,7 @@ public class NVActivityIndicatorView: UIView {
      */
     public func stopAnimating() {
         self.isHidden = true
-        self._animating = false
+        self.animating = false
         self.layer.sublayers?.removeAll()
     }
     
