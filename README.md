@@ -42,7 +42,7 @@ $ gem install cocoapods
 
 Add `NVActivityIndicatorView` in your `Podfile`.
 
-```bash
+```ruby
 use_frameworks!
 
 pod 'NVActivityIndicatorView'
@@ -64,7 +64,7 @@ $ brew install carthage
 
 Add `NVActivityIndicatorView` in your `Cartfile`.
 
-```bash
+```ruby
 github "ninjaprox/NVActivityIndicatorView"
 ```
 
@@ -73,6 +73,26 @@ Run `carthage` to build the framework and drag the built `NVActivityIndicatorVie
 ## Manual
 
 Copy `NVActivityIndicatorView` folder to your project. That's it.
+
+_**Note:** Make sure that all files in `NVActivityIndicatorView` included in Compile Sources in Build Phases.
+
+# Migration
+
+## Vesrion 3.0
+
+This version requires Xcode 8.0 and Swift 3.
+
+- `NVActivityIndicatorView.startAnimation()` and `NVActivityIndicatorView.stopAnimation()` are deleted. Use `NVActivityIndicatorView.startAnimating()` and `NVActivityIndicatorView.stopAnimating()` instead.
+- `UIViewController.startActivityAnimating()` and `UIViewController.stopActivityAnimating()` are deleted. Use `UIViewController.startAnimating()` and `UIViewController.stopAnimating()` instead.
+
+## Version 2.0
+
+This version continues to spport Xcode 7.0 and Swift 2.2 and earlier.
+For Swift 2.3 support, use `swift2.3` branch instead.
+
+```ruby
+pod 'NVActivityIndicatorView', :git => 'https://github.com/ninjaprox/NVActivityIndicatorView.git', :branch => 'swift2.3'
+```
 
 # Usage
 
