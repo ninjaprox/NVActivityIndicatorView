@@ -1,5 +1,8 @@
 # Change log
 
+## [v3.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.0)
+* Support Xcode 8 and Swift 3
+
 ## [v2.12](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v2.12)
 * Fix infinite loop caused by `stopAnimation()` (#67)
 
