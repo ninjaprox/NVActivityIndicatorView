@@ -32,44 +32,44 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func showSuccess(sender: AnyObject) {
+    @IBAction func showSuccess(_ sender: AnyObject) {
 		let alert = SCLAlertView()
-		alert.addButton("First Button", target:self, selector:#selector(ViewController.firstButton))
-		alert.addButton("Second Button") {
+		_ = alert.addButton("First Button", target:self, selector:#selector(ViewController.firstButton))
+		_ = alert.addButton("Second Button") {
 			print("Second button tapped")
 		}
-        alert.showSuccess(kSuccessTitle, subTitle: kSubtitle)
+        _ = alert.showSuccess(kSuccessTitle, subTitle: kSubtitle)
     }
     
-    @IBAction func showError(sender: AnyObject) {
-		SCLAlertView().showError("Hold On...", subTitle:"You have not saved your Submission yet. Please save the Submission before accessing the Responses list. Blah de blah de blah, blah. Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.", closeButtonTitle:"OK")
+    @IBAction func showError(_ sender: AnyObject) {
+		_ = SCLAlertView().showError("Hold On...", subTitle:"You have not saved your Submission yet. Please save the Submission before accessing the Responses list. Blah de blah de blah, blah. Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.", closeButtonTitle:"OK")
 //        SCLAlertView().showError(self, title: kErrorTitle, subTitle: kSubtitle)
     }
     
-    @IBAction func showNotice(sender: AnyObject) {
-        SCLAlertView().showNotice(kNoticeTitle, subTitle: kSubtitle)
+    @IBAction func showNotice(_ sender: AnyObject) {
+        _ = SCLAlertView().showNotice(kNoticeTitle, subTitle: kSubtitle)
     }
     
-    @IBAction func showWarning(sender: AnyObject) {
-        SCLAlertView().showWarning(kWarningTitle, subTitle: kSubtitle)
+    @IBAction func showWarning(_ sender: AnyObject) {
+        _ = SCLAlertView().showWarning(kWarningTitle, subTitle: kSubtitle)
     }
     
-    @IBAction func showInfo(sender: AnyObject) {
-        SCLAlertView().showInfo(kInfoTitle, subTitle: kSubtitle)
+    @IBAction func showInfo(_ sender: AnyObject) {
+        _ = SCLAlertView().showInfo(kInfoTitle, subTitle: kSubtitle)
     }
 
-	@IBAction func showEdit(sender: AnyObject) {
+	@IBAction func showEdit(_ sender: AnyObject) {
         let appearance = SCLAlertView.SCLAppearance(showCloseButton: true)
         let alert = SCLAlertView(appearance: appearance)
 		let txt = alert.addTextField("Enter your name")
-        alert.addButton("Show Name") {
+        _ = alert.addButton("Show Name") {
 			print("Text value: \(txt.text)")
 		}
-		alert.showEdit(kInfoTitle, subTitle:kSubtitle)
+		_ = alert.showEdit(kInfoTitle, subTitle:kSubtitle)
 	}
     
     
-    @IBAction func showCustomSubview(sender: AnyObject) {
+    @IBAction func showCustomSubview(_ sender: AnyObject) {
         // Create custom Appearance Configuration
         let appearance = SCLAlertView.SCLAppearance(
             kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
@@ -82,55 +82,55 @@ class ViewController: UIViewController {
         let alert = SCLAlertView(appearance: appearance)
         
         // Creat the subview
-        let subview = UIView(frame: CGRectMake(0,0,216,70))
+        let subview = UIView(frame: CGRect(x: 0,y: 0,width: 216,height: 70))
         let x = (subview.frame.width - 180) / 2
         
         // Add textfield 1
-        let textfield1 = UITextField(frame: CGRectMake(x,10,180,25))
-        textfield1.layer.borderColor = UIColor.greenColor().CGColor
+        let textfield1 = UITextField(frame: CGRect(x: x,y: 10,width: 180,height: 25))
+        textfield1.layer.borderColor = UIColor.green.cgColor
         textfield1.layer.borderWidth = 1.5
         textfield1.layer.cornerRadius = 5
         textfield1.placeholder = "Username"
-        textfield1.textAlignment = NSTextAlignment.Center
+        textfield1.textAlignment = NSTextAlignment.center
         subview.addSubview(textfield1)
         
         // Add textfield 2
-        let textfield2 = UITextField(frame: CGRectMake(x,textfield1.frame.maxY + 10,180,25))
-        textfield2.secureTextEntry = true
-        textfield2.layer.borderColor = UIColor.blueColor().CGColor
+        let textfield2 = UITextField(frame: CGRect(x: x,y: textfield1.frame.maxY + 10,width: 180,height: 25))
+        textfield2.isSecureTextEntry = true
+        textfield2.layer.borderColor = UIColor.blue.cgColor
         textfield2.layer.borderWidth = 1.5
         textfield2.layer.cornerRadius = 5
-        textfield1.layer.borderColor = UIColor.blueColor().CGColor
+        textfield1.layer.borderColor = UIColor.blue.cgColor
         textfield2.placeholder = "Password"
-        textfield2.textAlignment = NSTextAlignment.Center
+        textfield2.textAlignment = NSTextAlignment.center
         subview.addSubview(textfield2)
         
         // Add the subview to the alert's UI property
         alert.customSubview = subview
-        alert.addButton("Login") {
+        _ = alert.addButton("Login") {
             print("Logged in")
         }
         
         // Add Button with Duration Status and custom Colors
-        alert.addButton("Duration Button", backgroundColor: UIColor.brownColor(), textColor: UIColor.yellowColor(), showDurationStatus: true) {
+        _ = alert.addButton("Duration Button", backgroundColor: UIColor.brown, textColor: UIColor.yellow, showDurationStatus: true) {
             print("Duration Button tapped")
         }
 
-        alert.showInfo("Login", subTitle: "", duration: 10)
+        _ = alert.showInfo("Login", subTitle: "", duration: 10)
     }
     
-    @IBAction func showCustomAlert(sender: AnyObject) {
+    @IBAction func showCustomAlert(_ sender: AnyObject) {
     
         let alert = SCLAlertView()
-        alert.addButton("First Button", target:self, selector:#selector(ViewController.firstButton))
-        alert.addButton("Second Button") {
+        _ = alert.addButton("First Button", target:self, selector:#selector(ViewController.firstButton))
+        _ = alert.addButton("Second Button") {
             print("Second button tapped")
         }
         
         let icon = UIImage(named:"custom_icon.png")
-        let color = UIColor.orangeColor()
+        let color = UIColor.orange
         
-        alert.showCustom("Custom Color", subTitle: "Custom color", color: color, icon: icon!)
+        _ = alert.showCustom("Custom Color", subTitle: "Custom color", color: color, icon: icon!)
     }
 	
 	func firstButton() {
