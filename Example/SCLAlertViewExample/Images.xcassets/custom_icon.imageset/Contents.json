@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "custom_icon.png",
       "scale" : "1x"
     },
     {
@@ -11,12 +12,6 @@
     {
       "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "custom_icon.png",
-      "unassigned" : true,
-      "scale" : "1x"
     }
   ],
   "info" : {
