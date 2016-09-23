@@ -322,6 +322,9 @@ public class NVActivityIndicatorView: UIView {
     
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
+    
+    ///Custom activitiy indicator, value conforms NVActivityIndicatorAnimationDelegate.
+    public var customAnimation: NVActivityIndicatorAnimationDelegate?
 
     @available(*, unavailable, message="This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
@@ -412,7 +415,7 @@ public class NVActivityIndicatorView: UIView {
     // MARK: Privates
     
     private func setUpAnimation() {
-        let animation: protocol<NVActivityIndicatorAnimationDelegate> = self.type.animation()
+        let animation: protocol<NVActivityIndicatorAnimationDelegate> = self.customAnimation ?? self.type.animation()
         var animationRect = UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(padding, padding, padding, padding))
         let minEdge = min(animationRect.width, animationRect.height)
         
