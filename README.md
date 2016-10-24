@@ -74,7 +74,7 @@ Run `carthage` to build the framework and drag the built `NVActivityIndicatorVie
 
 Copy `NVActivityIndicatorView` folder to your project. That's it.
 
-_**Note:** Make sure that all files in `NVActivityIndicatorView` included in Compile Sources in Build Phases.
+_**Note:** Make sure that all files in `NVActivityIndicatorView` included in Compile Sources in Build Phases._
 
 # Migration
 
@@ -108,13 +108,15 @@ Then, there are two ways you can create NVActivityIndicatorView:
 
 - By storyboard, changing class of any `UIView` to `NVActivityIndicatorView`.
 
+_**Note:** Set Module to `NVActivityIndicatorView`._
+
 - By code, using initializer. All parameters other than `frame` are optional and `NVActivityIndicatorView.DEFAULT_*` are used as default values.
 
 ```swift
 NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding)
 ```
 
-_**Note:** Check [DEFAULTS](#DEFAULTS) for default values._
+_**Note:** Check [DEFAULTS](#defaults) for default values._
 
 ## Control
 
@@ -236,4 +238,4 @@ Thanks [Connor Atherton](https://github.com/ConnorAtherton) for great loaders an
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Nguyen Vinh [@ninjaprox](http://twitter.com/ninjaprox)
+Copyright (c) 2016 Vinh Nguyen [@ninjaprox](http://twitter.com/ninjaprox)
