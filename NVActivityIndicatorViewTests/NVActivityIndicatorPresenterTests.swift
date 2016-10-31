@@ -13,12 +13,12 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     let approximateZero:Int64 = 20
     
     func testZeroDisplayTimeThreshold() {
-        let activityData = self.createActivityData(displayTimeThreshold: 0,
+        let activityData = createActivityData(displayTimeThreshold: 0,
                                                    minimumDisplayTime: 0)
         
-        XCTAssertFalse(self.checkActivityViewAppeared())
+        XCTAssertFalse(checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        self.doAfter(approximateZero) {
+        doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             XCTAssertFalse(self.checkActivityViewAppeared())
@@ -26,19 +26,19 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     }
     
     func testNonZeroDisplayTimeThreshold() {
-        let activityData = self.createActivityData(displayTimeThreshold: 100,
+        let activityData = createActivityData(displayTimeThreshold: 100,
                                                    minimumDisplayTime: 0)
         
-        XCTAssertFalse(self.checkActivityViewAppeared())
+        XCTAssertFalse(checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        self.doAfter(50) {
+        doAfter(50) {
             XCTAssertFalse(self.checkActivityViewAppeared())
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         }
         
-        XCTAssertFalse(self.checkActivityViewAppeared())
+        XCTAssertFalse(checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        self.doAfter(150) {
+        doAfter(150) {
             XCTAssertTrue(self.checkActivityViewAppeared())
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             XCTAssertFalse(self.checkActivityViewAppeared())
@@ -46,12 +46,12 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     }
     
     func testZeroMinimumDisplayTime() {
-        let activityData = self.createActivityData(displayTimeThreshold: 0,
+        let activityData = createActivityData(displayTimeThreshold: 0,
                                                    minimumDisplayTime: 0)
         
-        XCTAssertFalse(self.checkActivityViewAppeared())
+        XCTAssertFalse(checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        self.doAfter(approximateZero) {
+        doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             XCTAssertFalse(self.checkActivityViewAppeared())
@@ -59,19 +59,19 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     }
     
     func testNonZeroMinimumDisplayTime() {
-        let activityData = self.createActivityData(displayTimeThreshold: 0,
+        let activityData = createActivityData(displayTimeThreshold: 0,
                                                    minimumDisplayTime: 100)
         
-        XCTAssertFalse(self.checkActivityViewAppeared())
+        XCTAssertFalse(checkActivityViewAppeared())
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        self.doAfter(approximateZero) {
+        doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
         }
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-        self.doAfter(50) {
+        doAfter(50) {
             XCTAssertTrue(self.checkActivityViewAppeared())
         }
-        self.doAfter(50) {
+        doAfter(50) {
             XCTAssertFalse(self.checkActivityViewAppeared())
         }
     }
@@ -105,8 +105,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
             thing()
             expectation.fulfill()
         }
-        self.waitForExpectations(timeout: Double(after) * 1.5 / 1000) { (error) in
-            print(error)
+        waitForExpectations(timeout: Double(after) * 1.5 / 1000) { (error) in
+            print(error ?? "Timeout")
         }
     }
 }

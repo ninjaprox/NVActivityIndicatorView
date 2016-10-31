@@ -15,11 +15,11 @@ class NVActivityIndicatorViewTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero)
     }
     
     override func tearDown() {
-        self.activityIndicatorView = nil
+        activityIndicatorView = nil
         
         super.tearDown()
     }
@@ -34,19 +34,19 @@ class NVActivityIndicatorViewTests: XCTestCase {
     }
     
     func testSetTypeName() {
-        self.activityIndicatorView._setTypeName("unknown")
-        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
-        self.activityIndicatorView._setTypeName("Orbit")
-        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.orbit)
-        self.activityIndicatorView._setTypeName("orbit")
-        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.orbit)
-        self.activityIndicatorView._setTypeName("orbiT")
-        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorType.orbit)
+        activityIndicatorView._setTypeName("unknown")
+        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
+        activityIndicatorView._setTypeName("Orbit")
+        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorType.orbit)
+        activityIndicatorView._setTypeName("orbit")
+        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorType.orbit)
+        activityIndicatorView._setTypeName("orbiT")
+        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorType.orbit)
     }
     
     func testGetTypeName() {
-        self.activityIndicatorView.type = .audioEqualizer
-        XCTAssertEqual(self.activityIndicatorView.getTypeName(), String(describing: NVActivityIndicatorType.audioEqualizer))
+        activityIndicatorView.type = .audioEqualizer
+        XCTAssertEqual(activityIndicatorView.getTypeName(), String(describing: NVActivityIndicatorType.audioEqualizer))
     }
     
     func testInitWithParams() {
@@ -54,42 +54,42 @@ class NVActivityIndicatorViewTests: XCTestCase {
         let color = UIColor.red
         let padding: CGFloat = 10
         
-        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, type: type)
-        XCTAssertEqual(self.activityIndicatorView.type, type)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, type: type)
+        XCTAssertEqual(activityIndicatorView.type, type)
         
-        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, color: color)
-        XCTAssertEqual(self.activityIndicatorView.color, color)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, color: color)
+        XCTAssertEqual(activityIndicatorView.color, color)
         
-        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, padding: padding)
-        XCTAssertEqual(self.activityIndicatorView.padding, padding)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, padding: padding)
+        XCTAssertEqual(activityIndicatorView.padding, padding)
         
-        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, type: type, color: color, padding: padding)
-        XCTAssertEqual(self.activityIndicatorView.type, type)
-        XCTAssertEqual(self.activityIndicatorView.color, color)
-        XCTAssertEqual(self.activityIndicatorView.padding, padding)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, type: type, color: color, padding: padding)
+        XCTAssertEqual(activityIndicatorView.type, type)
+        XCTAssertEqual(activityIndicatorView.color, color)
+        XCTAssertEqual(activityIndicatorView.padding, padding)
     }
     
     func testInitWithFrame() {
-        self.activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        XCTAssertEqual(self.activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
-        XCTAssertEqual(self.activityIndicatorView.color, NVActivityIndicatorView.DEFAULT_COLOR)
-        XCTAssertEqual(self.activityIndicatorView.padding, NVActivityIndicatorView.DEFAULT_PADDING)
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
+        XCTAssertEqual(activityIndicatorView.color, NVActivityIndicatorView.DEFAULT_COLOR)
+        XCTAssertEqual(activityIndicatorView.padding, NVActivityIndicatorView.DEFAULT_PADDING)
     }
     
     func testStartAnimating() {
-        XCTAssertFalse(self.activityIndicatorView.animating)
-        XCTAssertTrue(self.activityIndicatorView.isHidden)
-        self.activityIndicatorView.startAnimating()
-        XCTAssertEqual(self.activityIndicatorView.layer.speed, 1)
-        XCTAssertTrue(self.activityIndicatorView.animating)
-        XCTAssertFalse(self.activityIndicatorView.isHidden)
+        XCTAssertFalse(activityIndicatorView.isAnimating)
+        XCTAssertTrue(activityIndicatorView.isHidden)
+        activityIndicatorView.startAnimating()
+        XCTAssertEqual(activityIndicatorView.layer.speed, 1)
+        XCTAssertTrue(activityIndicatorView.isAnimating)
+        XCTAssertFalse(activityIndicatorView.isHidden)
     }
     
     func testStopAnimating() {
-        self.activityIndicatorView.startAnimating()
-        self.activityIndicatorView.stopAnimating()
-        XCTAssertFalse(self.activityIndicatorView.animating)
-        XCTAssertTrue(self.activityIndicatorView.isHidden)
-        XCTAssertTrue(self.activityIndicatorView.layer.sublayers == nil)
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.stopAnimating()
+        XCTAssertFalse(activityIndicatorView.isAnimating)
+        XCTAssertTrue(activityIndicatorView.isHidden)
+        XCTAssertTrue(activityIndicatorView.layer.sublayers == nil)
     }
 }
