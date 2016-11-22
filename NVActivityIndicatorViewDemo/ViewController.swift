@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController, NVActivityIndicatorViewable {
     
@@ -20,7 +21,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
         
-        (NVActivityIndicatorType.BallPulse.rawValue ... NVActivityIndicatorType.Orbit.rawValue).forEach {
+        (NVActivityIndicatorType.BallPulse.rawValue ... NVActivityIndicatorType.AudioEqualizer.rawValue).forEach {
             let x = ($0 - 1) % cols * cellWidth
             let y = ($0 - 1) / cols * cellHeight
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
@@ -52,11 +53,9 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func buttonTapped(sender: UIButton) {
-        startActivityAnimating("Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
-        
-        // Can do custom animations also
-        // startActivityAnimating("Loading...", type: CustomActivityIndicator())
-        
+        let size = CGSize(width: 30, height:30)
+
+        startActivityAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
         performSelector(#selector(delayedStopActivity),
             withObject: nil,
             afterDelay: 2.5)
