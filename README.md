@@ -236,6 +236,12 @@ NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0 // in milliseco
 NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE: String? = nil
 ```
 
+- Default font of message displayed in UI blocker.
+
+```swift
+NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 20)
+```
+
 # Acknowledgment
 
 Thanks [Connor Atherton](https://github.com/ConnorAtherton) for great loaders and [Danil Gontovnik](https://github.com/gontovnik) for kick-start.
