@@ -9,7 +9,7 @@
 import UIKit
 
 /// Class packages information used to display UI blocker.
-public class ActivityData {
+public final class ActivityData {
     /// Size of activity indicator view.
     let size: CGSize
     
@@ -70,7 +70,7 @@ public class ActivityData {
 }
 
 /// Presenter that displays NVActivityIndicatorView as UI blocker.
-public class NVActivityIndicatorPresenter {
+public final class NVActivityIndicatorPresenter {
     private var showTimer: Timer?
     private var hideTimer: Timer?
     private var isStopAnimatingCalled = false
@@ -89,16 +89,16 @@ public class NVActivityIndicatorPresenter {
      
      - parameter data: Information package used to display UI blocker.
      */
-    public func startAnimating(_ data: ActivityData) {
+    public final func startAnimating(_ data: ActivityData) {
         guard showTimer == nil else { return }
         isStopAnimatingCalled = false
-        showTimer = scheduledTimer(data.displayTimeThreshold, selector: #selector(NVActivityIndicatorPresenter.showTimerFired(_:)), data: data)
+        showTimer = scheduledTimer(data.displayTimeThreshold, selector: #selector(showTimerFired(_:)), data: data)
     }
     
     /**
      Remove UI blocker.
      */
-    public func stopAnimating() {
+    public final func stopAnimating() {
         isStopAnimatingCalled = true
         guard hideTimer == nil else { return }
         hide()
@@ -158,12 +158,15 @@ public class NVActivityIndicatorPresenter {
             activityContainer.addSubview(label)
         }
         
-        hideTimer = scheduledTimer(activityData.minimumDisplayTime, selector: #selector(NVActivityIndicatorPresenter.hideTimerFired(_:)), data: nil)
-        UIApplication.shared.keyWindow!.addSubview(activityContainer)
+        hideTimer = scheduledTimer(activityData.minimumDisplayTime, selector: #selector(hideTimerFired(_:)), data: nil)
+        guard let keyWindow = UIApplication.shared.keyWindow else { return }
+        keyWindow.addSubview(activityContainer)
     }
     
     private func hide() {
-        for item in UIApplication.shared.keyWindow!.subviews
+        guard let keyWindow = UIApplication.shared.keyWindow else { return }
+        
+        for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
                 item.removeFromSuperview()
         }
