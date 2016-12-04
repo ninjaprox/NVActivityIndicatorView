@@ -1,5 +1,12 @@
 # Change log
 
+## [v3.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.1)
+* Optimize compile time
+* Update setting to Swift 3.0.1
+* Add default message
+* Custom message font
+* Auto message width
+
 ## [v3.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.0)
 * Support Xcode 8 and Swift 3
 
