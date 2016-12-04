@@ -16,6 +16,9 @@ public class ActivityData {
     /// Message displayed under activity indicator view.
     let message: String?
     
+    /// Font of message displayed under activity indicator view.
+    let messageFont: UIFont
+    
     /// Animation type.
     let type: NVActivityIndicatorType
     
@@ -38,6 +41,7 @@ public class ActivityData {
      
      - parameter size:                 size of activity indicator view.
      - parameter message:              message displayed under activity indicator view.
+     - parameter messageFont:          font of message displayed under activity indicator view.
      - parameter type:                 animation type.
      - parameter color:                color of activity indicator view.
      - parameter padding:              padding of activity indicator view.
@@ -48,6 +52,7 @@ public class ActivityData {
      */
     public init(size: CGSize? = nil,
                 message: String? = nil,
+                messageFont: UIFont? = nil,
                 type: NVActivityIndicatorType? = nil,
                 color: UIColor? = nil,
                 padding: CGFloat? = nil,
@@ -55,6 +60,7 @@ public class ActivityData {
                 minimumDisplayTime: Int? = nil) {
         self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE
+        self.messageFont = messageFont ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT
         self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
         self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
         self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
@@ -132,16 +138,23 @@ public class NVActivityIndicatorPresenter {
         activityIndicatorView.startAnimating()
         activityContainer.addSubview(activityIndicatorView)
         
-        let width = activityContainer.frame.size.width / 3
         if let message = activityData.message , !message.isEmpty {
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 30))
-            label.center = CGPoint(
-                x: activityIndicatorView.center.x,
-                y: activityIndicatorView.center.y + actualSize.height)
+            let label = UILabel()
+            
             label.textAlignment = .center
             label.text = message
-            label.font = UIFont.boldSystemFont(ofSize: 20)
+            label.font = activityData.messageFont
             label.textColor = activityIndicatorView.color
+            label.numberOfLines = 0
+            label.sizeToFit()
+            if label.bounds.size.width > activityContainer.bounds.size.width {
+                let maxWidth = activityContainer.bounds.size.width - 16
+                
+                label.bounds.size = NSString(string: message).boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: label.font], context: nil).size
+            }
+            label.center = CGPoint(
+                x: activityIndicatorView.center.x,
+                y: activityIndicatorView.center.y + actualSize.height + label.bounds.size.height / 2 + 8)
             activityContainer.addSubview(label)
         }
         

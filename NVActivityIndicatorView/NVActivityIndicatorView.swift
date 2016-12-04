@@ -333,6 +333,9 @@ public class NVActivityIndicatorView: UIView {
     // Default message displayed in UI blocker. Default value is nil.
     public static var DEFAULT_BLOCKER_MESSAGE: String? = nil
     
+    // Default font of message displayed in UI blocker. Default value is bold system font, size 20.
+    public static var DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 20)
+    
     /// Animation type.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
     
