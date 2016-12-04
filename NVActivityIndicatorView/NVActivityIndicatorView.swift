@@ -330,10 +330,10 @@ public final class NVActivityIndicatorView: UIView {
     /// Default minimum display time of UI blocker. Default value is 0 ms.
     public static var DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0
     
-    // Default message displayed in UI blocker. Default value is nil.
+    /// Default message displayed in UI blocker. Default value is nil.
     public static var DEFAULT_BLOCKER_MESSAGE: String? = nil
     
-    // Default font of message displayed in UI blocker. Default value is bold system font, size 20.
+    /// Default font of message displayed in UI blocker. Default value is bold system font, size 20.
     public static var DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 20)
     
     /// Animation type.
