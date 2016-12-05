@@ -68,7 +68,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
             XCTAssertTrue(self.checkActivityViewAppeared())
         }
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-        doAfter(50) {
+        doAfter(10) {
             XCTAssertTrue(self.checkActivityViewAppeared())
         }
         doAfter(50) {
