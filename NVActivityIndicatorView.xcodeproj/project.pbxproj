@@ -350,7 +350,7 @@
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Nguyen Vinh";
+				ORGANIZATIONNAME = "Vinh Nguyen";
 				TargetAttributes = {
 					239CAB1F1B5EBB2E0051DC06 = {
 						CreatedOnToolsVersion = 6.4;
