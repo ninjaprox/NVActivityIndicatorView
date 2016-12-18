@@ -53,6 +53,9 @@ public final class ActivityData {
     /// Minimum display time of UI blocker.
     let minimumDisplayTime: Int
     
+    /// Background color of the UI blocker
+    let backgroundColor: UIColor
+    
     /**
      Create information package used to display UI blocker.
      
@@ -76,7 +79,8 @@ public final class ActivityData {
                 color: UIColor? = nil,
                 padding: CGFloat? = nil,
                 displayTimeThreshold: Int? = nil,
-                minimumDisplayTime: Int? = nil) {
+                minimumDisplayTime: Int? = nil,
+                backgroundColor: UIColor? = nil) {
         self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE
         self.messageFont = messageFont ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT
@@ -85,6 +89,7 @@ public final class ActivityData {
         self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
         self.displayTimeThreshold = displayTimeThreshold ?? NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD
         self.minimumDisplayTime = minimumDisplayTime ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME
+        self.backgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR
     }
 }
 
@@ -143,7 +148,7 @@ public final class NVActivityIndicatorPresenter {
     private func show(with activityData: ActivityData) {
         let activityContainer: UIView = UIView(frame: UIScreen.main.bounds)
         
-        activityContainer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        activityContainer.backgroundColor = activityData.backgroundColor
         activityContainer.restorationIdentifier = restorationIdentifier
         
         let actualSize = activityData.size
