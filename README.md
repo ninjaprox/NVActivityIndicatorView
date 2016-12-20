@@ -70,6 +70,8 @@ github "ninjaprox/NVActivityIndicatorView"
 
 Run `carthage` to build the framework and drag the built `NVActivityIndicatorView.framework` into your Xcode project.
 
+_**Note:** You might encounter compile issue, if so please use `carthage` branch instead. Check issue #101 for more information.
+
 ## Manual
 
 Copy `NVActivityIndicatorView` folder to your project. That's it.
