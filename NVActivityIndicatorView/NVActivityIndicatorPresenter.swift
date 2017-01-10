@@ -70,7 +70,8 @@ public class NVActivityIndicatorPresenter {
     private var userWantsToStopActivity = false
     private let activityRestorationIdentifier = "NVActivityIndicatorViewContainer"
     
-    static let sharedInstance = NVActivityIndicatorPresenter()
+    /// Shared instance of `NVActivityIndicatorPresenter`.
+    public static let sharedInstance = NVActivityIndicatorPresenter()
     
     private init() { }
     
