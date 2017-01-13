@@ -76,13 +76,14 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         let size = CGSize(width: 30, height:30)
 
         startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
-        perform(#selector(delayedStopActivity),
-            with: nil,
-            afterDelay: 2.5)
-    }
-    
-    func delayedStopActivity() {
-        stopAnimating()
-    }
+      
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+            NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+            self.stopAnimating()
+        }
+    }    
 }
 
