@@ -188,6 +188,12 @@ Stop animating.
 NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
 ```
 
+Change message.
+
+```swift
+NVActivityIndicatorPresenter.sharedInstance.setMessage("Done")
+```
+
 ## DEFAULTS
 
 There are global defaults for all `NVActivityIndicatorView` instances.
