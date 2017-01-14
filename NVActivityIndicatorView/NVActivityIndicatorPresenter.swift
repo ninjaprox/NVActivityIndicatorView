@@ -109,7 +109,7 @@ public final class NVActivityIndicatorPresenter {
         return activityLabel
     }()
 
-  /// Shared instance of `NVActivityIndicatorPresenter`.
+    /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
     
     private init() { }
@@ -135,10 +135,10 @@ public final class NVActivityIndicatorPresenter {
         guard hideTimer == nil else { return }
         hide()
     }
-  
-    /**
-     Programmatically sets message text.
-     */
+
+    /// Set message displayed under activity indicator view.
+    ///
+    /// - Parameter message: message displayed under activity indicator view.
     public final func setMessage(_ message: String?) {
         activityLabel.text = message
         
