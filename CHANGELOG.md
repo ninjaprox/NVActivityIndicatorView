@@ -1,5 +1,9 @@
 # Change log
 
+## [v3.2](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.2)
+* Able to change UI blocker background color
+* Able to change message in UI blocker during displaying
+
 ## [v3.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.1)
 * Optimize compile time
 * Update setting to Swift 3.0.1

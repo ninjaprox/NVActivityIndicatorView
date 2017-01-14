@@ -40,6 +40,7 @@ class ActivityDataTests: XCTestCase {
         XCTAssertEqual(activityData.padding, NVActivityIndicatorView.DEFAULT_PADDING)
         XCTAssertEqual(activityData.displayTimeThreshold, NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD)
         XCTAssertEqual(activityData.minimumDisplayTime, NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME)
+        XCTAssertEqual(activityData.backgroundColor, NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR)
     }
     
     func testInitWithParams() {
@@ -50,13 +51,15 @@ class ActivityDataTests: XCTestCase {
         let padding: CGFloat = 10
         let displayTimeThreshold = 100
         let minimumDisplayTime = 150
+        let backgroundColor = UIColor.red
         let activityData = ActivityData(size: size,
                                         message: message,
                                         type: type,
                                         color: color,
                                         padding: padding,
                                         displayTimeThreshold: displayTimeThreshold,
-                                        minimumDisplayTime: minimumDisplayTime)
+                                        minimumDisplayTime: minimumDisplayTime,
+                                        backgroundColor: backgroundColor)
         
         XCTAssertEqual(activityData.size, size)
         XCTAssertEqual(activityData.message, message)
@@ -65,5 +68,6 @@ class ActivityDataTests: XCTestCase {
         XCTAssertEqual(activityData.padding, padding)
         XCTAssertEqual(activityData.displayTimeThreshold, displayTimeThreshold)
         XCTAssertEqual(activityData.minimumDisplayTime, minimumDisplayTime)
+        XCTAssertEqual(activityData.backgroundColor, backgroundColor)
     }
 }

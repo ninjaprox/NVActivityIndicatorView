@@ -70,6 +70,8 @@ github "ninjaprox/NVActivityIndicatorView"
 
 Run `carthage` to build the framework and drag the built `NVActivityIndicatorView.framework` into your Xcode project.
 
+_**Note:** You might encounter compile issue, if so please use `carthage` branch instead. Check issue [#101](https://github.com/ninjaprox/NVActivityIndicatorView/issues/101) for more information._
+
 ## Manual
 
 Copy `NVActivityIndicatorView` folder to your project. That's it.
@@ -186,6 +188,12 @@ Stop animating.
 NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
 ```
 
+Change message.
+
+```swift
+NVActivityIndicatorPresenter.sharedInstance.setMessage("Done")
+```
+
 ## DEFAULTS
 
 There are global defaults for all `NVActivityIndicatorView` instances.
@@ -199,7 +207,7 @@ NVActivityIndicatorView.DEFAULT_TYPE = .BallSpinFadeLoader
 - Default color of activity indicator view.
 
 ```swift
-NVActivityIndicatorView.DEFAULT_COLOR = UIColor.whiteColor()
+NVActivityIndicatorView.DEFAULT_COLOR = UIColor.white
 ```
 
 - Default padding of activity indicator view.
@@ -212,6 +220,12 @@ NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(0)
 
 ```swift
 NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
+```
+
+- Default background color of UI blocker.
+
+```swift
+NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 ```
 
 - Default display time threshold.
