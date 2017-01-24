@@ -44,6 +44,9 @@ public final class ActivityData {
     /// Color of activity indicator view.
     let color: UIColor
     
+    /// Color of text.
+    let textColor: UIColor
+    
     /// Padding of activity indicator view.
     let padding: CGFloat
     
@@ -69,6 +72,7 @@ public final class ActivityData {
      - parameter padding:              padding of activity indicator view.
      - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
      - parameter minimumDisplayTime:   minimum display time of UI blocker.
+     - parameter textColor:            color of the text below the activity indicator view. Will match color parameter if not set, otherwise DEFAULT_TEXT_COLOR if color is not set.
      
      - returns: The information package used to display UI blocker.
      */
@@ -80,7 +84,8 @@ public final class ActivityData {
                 padding: CGFloat? = nil,
                 displayTimeThreshold: Int? = nil,
                 minimumDisplayTime: Int? = nil,
-                backgroundColor: UIColor? = nil) {
+                backgroundColor: UIColor? = nil,
+                textColor: UIColor? = nil) {
         self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE
         self.messageFont = messageFont ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT
@@ -90,6 +95,7 @@ public final class ActivityData {
         self.displayTimeThreshold = displayTimeThreshold ?? NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD
         self.minimumDisplayTime = minimumDisplayTime ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME
         self.backgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR
+        self.textColor = textColor ?? color ?? NVActivityIndicatorView.DEFAULT_TEXT_COLOR
     }
 }
 
@@ -195,7 +201,7 @@ public final class NVActivityIndicatorPresenter {
         activityContainer.addSubview(activityIndicatorView)
 
         activityLabel.font = activityData.messageFont
-        activityLabel.textColor = activityIndicatorView.color
+        activityLabel.textColor = activityData.textColor
         setMessage(activityData.message)
         activityContainer.addSubview(activityLabel)
       
