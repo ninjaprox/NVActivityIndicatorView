@@ -105,7 +105,8 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                             color: nil,
                             padding: 0,
                             displayTimeThreshold: displayTimeThreshold,
-                            minimumDisplayTime: minimumDisplayTime)
+                            minimumDisplayTime: minimumDisplayTime,
+                            textColor: nil)
     }
     
     func checkActivityViewAppeared() -> Bool {

@@ -210,6 +210,12 @@ NVActivityIndicatorView.DEFAULT_TYPE = .BallSpinFadeLoader
 NVActivityIndicatorView.DEFAULT_COLOR = UIColor.white
 ```
 
+- Default color of the text below the activity indicator view when using an `NVActivityIndicatorPresenter`. The presentor will use the activity indicator `color` for the text if it is set but a `textColor` is not. `DEFAULT_TEXT_COLOR` is only used when neither are set.
+
+```swift
+NVActivityIndicatorView.DEFAULT_TEXT_COLOR = UIColor.white
+```
+
 - Default padding of activity indicator view.
 
 ```swift
