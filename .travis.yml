@@ -3,4 +3,4 @@ osx_image: xcode8.2
 xcode_sdk: iphonesimulator10.0
 script:
   - set -o pipefail
-  - xcodebuild -project NVActivityIndicatorView.xcodeproj -scheme NVActivityIndicatorView -destination "platform=iOS Simulator,name=iPhone 6" clean test | xcpretty -c
+  - xcodebuild -project NVActivityIndicatorView.xcodeproj -scheme NVActivityIndicatorView -destination "name=iPhone 6" clean test | xcpretty -c
