@@ -189,7 +189,7 @@ public final class NVActivityIndicatorPresenter {
         activityContainer.restorationIdentifier = restorationIdentifier
         
         activitySize = activityData.size
-
+        
         let activityIndicatorView = NVActivityIndicatorView(
             frame: CGRect(x: 0, y: 0, width: activitySize.width, height: activitySize.height),
             type: activityData.type,
@@ -199,15 +199,34 @@ public final class NVActivityIndicatorPresenter {
         activityIndicatorView.center = activityContainer.center
         activityIndicatorView.startAnimating()
         activityContainer.addSubview(activityIndicatorView)
-
+        
+        //Add constraints to activityIndicatorView
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        let indicatorCenterXConstraint = NSLayoutConstraint(item: activityIndicatorView, attribute: .centerX, relatedBy: .equal, toItem: activityContainer, attribute: .centerX, multiplier: 1, constant: 0)
+        let indicatorCenterYConstraint = NSLayoutConstraint(item: activityIndicatorView, attribute: .centerY, relatedBy: .equal, toItem: activityContainer, attribute: .centerY, multiplier: 1, constant: 0)
+        activityContainer.addConstraints([indicatorCenterXConstraint, indicatorCenterYConstraint])
+        
         activityLabel.font = activityData.messageFont
         activityLabel.textColor = activityData.textColor
         setMessage(activityData.message)
         activityContainer.addSubview(activityLabel)
-      
+        
+        //Add constraints to activityLabel
+        let labelCenterXConstraint = NSLayoutConstraint(item: activityLabel, attribute: .centerX, relatedBy: .equal, toItem: activityContainer, attribute: .centerX, multiplier: 1, constant: 0)
+        let labelCenterYConstraint = NSLayoutConstraint(item: activityLabel, attribute: .centerY, relatedBy: .equal, toItem: activityContainer, attribute: .centerY, multiplier: 1, constant: 0)
+        activityContainer.addConstraints([labelCenterXConstraint, labelCenterYConstraint])
+        
         hideTimer = scheduledTimer(activityData.minimumDisplayTime, selector: #selector(hideTimerFired(_:)), data: nil)
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
         keyWindow.addSubview(activityContainer)
+        
+        //Add constraints to activityContainer
+        activityContainer.translatesAutoresizingMaskIntoConstraints = false
+        let containerLeadingConstraint = NSLayoutConstraint(item: activityContainer, attribute: .leading, relatedBy: .equal, toItem: keyWindow, attribute: .leading, multiplier: 1, constant: 0)
+        let containerTrailingConstraint = NSLayoutConstraint(item: activityContainer, attribute: .trailing, relatedBy: .equal, toItem: keyWindow, attribute: .trailing, multiplier: 1, constant: 0)
+        let containerTopConstraint = NSLayoutConstraint(item: activityContainer, attribute: .top, relatedBy: .equal, toItem: keyWindow, attribute: .top, multiplier: 1, constant: 0)
+        let containerBottomConstraint = NSLayoutConstraint(item: activityContainer, attribute: .bottom, relatedBy: .equal, toItem: keyWindow, attribute: .bottom, multiplier: 1, constant: 0)
+        keyWindow.addConstraints([containerLeadingConstraint, containerTrailingConstraint, containerTopConstraint, containerBottomConstraint])
     }
     
     private func hide() {
