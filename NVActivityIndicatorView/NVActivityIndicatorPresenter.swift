@@ -31,39 +31,39 @@ import UIKit
 public final class ActivityData {
     /// Size of activity indicator view.
     let size: CGSize
-    
+
     /// Message displayed under activity indicator view.
     let message: String?
-    
+
     /// Font of message displayed under activity indicator view.
     let messageFont: UIFont
-    
+
     /// Animation type.
     let type: NVActivityIndicatorType
-    
+
     /// Color of activity indicator view.
     let color: UIColor
-    
+
     /// Color of text.
     let textColor: UIColor
-    
+
     /// Padding of activity indicator view.
     let padding: CGFloat
-    
+
     /// Display time threshold to actually display UI blocker.
     let displayTimeThreshold: Int
-    
+
     /// Minimum display time of UI blocker.
     let minimumDisplayTime: Int
-    
+
     /// Background color of the UI blocker
     let backgroundColor: UIColor
-    
+
     /**
      Create information package used to display UI blocker.
-     
+
      Appropriate NVActivityIndicatorView.DEFAULT_* values are used for omitted params.
-     
+
      - parameter size:                 size of activity indicator view.
      - parameter message:              message displayed under activity indicator view.
      - parameter messageFont:          font of message displayed under activity indicator view.
@@ -73,7 +73,7 @@ public final class ActivityData {
      - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
      - parameter minimumDisplayTime:   minimum display time of UI blocker.
      - parameter textColor:            color of the text below the activity indicator view. Will match color parameter if not set, otherwise DEFAULT_TEXT_COLOR if color is not set.
-     
+
      - returns: The information package used to display UI blocker.
      */
     public init(size: CGSize? = nil,
@@ -105,26 +105,29 @@ public final class NVActivityIndicatorPresenter {
     private var hideTimer: Timer?
     private var isStopAnimatingCalled = false
     private let restorationIdentifier = "NVActivityIndicatorViewContainer"
-  
+
     private var activitySize = NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
 
     private let activityLabel: UILabel = {
         let activityLabel = UILabel()
+
         activityLabel.textAlignment = .center
         activityLabel.numberOfLines = 0
+        activityLabel.translatesAutoresizingMaskIntoConstraints = false
+
         return activityLabel
     }()
 
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
-    
+
     private init() { }
-    
+
     // MARK: - Public interface
-    
+
     /**
      Display UI blocker.
-     
+
      - parameter data: Information package used to display UI blocker.
      */
     public final func startAnimating(_ data: ActivityData) {
@@ -132,7 +135,7 @@ public final class NVActivityIndicatorPresenter {
         isStopAnimatingCalled = false
         showTimer = scheduledTimer(data.displayTimeThreshold, selector: #selector(showTimerFired(_:)), data: data)
     }
-    
+
     /**
      Remove UI blocker.
      */
@@ -147,31 +150,15 @@ public final class NVActivityIndicatorPresenter {
     /// - Parameter message: message displayed under activity indicator view.
     public final func setMessage(_ message: String?) {
         activityLabel.text = message
-        
-        guard let message = message, !message.isEmpty else {
-            activityLabel.frame.size = CGSize.zero;
-            return
-        }
-        let screenSize = UIScreen.main.bounds
-        
-        activityLabel.frame.size = NSString(string: message).boundingRect(
-            with: CGSize(width: screenSize.width - 16.0, height: CGFloat.greatestFiniteMagnitude),
-            options: .usesLineFragmentOrigin,
-            attributes: [NSFontAttributeName: activityLabel.font],
-            context: nil).size
-        
-        activityLabel.center = CGPoint(
-            x: screenSize.width / 2.0,
-            y: (screenSize.height / 2.0) + activitySize.height + (activityLabel.frame.height / 2) + 8.0)
     }
-  
+
     // MARK: - Timer events
-  
+
     @objc private func showTimerFired(_ timer: Timer) {
         guard let activityData = timer.userInfo as? ActivityData else { return }
         show(with: activityData)
     }
-    
+
     @objc private func hideTimerFired(_ timer: Timer) {
         hideTimer?.invalidate()
         hideTimer = nil
@@ -181,57 +168,71 @@ public final class NVActivityIndicatorPresenter {
     }
 
     // MARK: - Helpers
-    
+
     private func show(with activityData: ActivityData) {
         let activityContainer: UIView = UIView(frame: UIScreen.main.bounds)
-        
+
         activityContainer.backgroundColor = activityData.backgroundColor
         activityContainer.restorationIdentifier = restorationIdentifier
-        
+        activityContainer.translatesAutoresizingMaskIntoConstraints = false
         activitySize = activityData.size
-        
+
         let activityIndicatorView = NVActivityIndicatorView(
             frame: CGRect(x: 0, y: 0, width: activitySize.width, height: activitySize.height),
             type: activityData.type,
             color: activityData.color,
             padding: activityData.padding)
-        
-        activityIndicatorView.center = activityContainer.center
+
         activityIndicatorView.startAnimating()
-        activityContainer.addSubview(activityIndicatorView)
-        
-        //Add constraints to activityIndicatorView
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-        let indicatorCenterXConstraint = NSLayoutConstraint(item: activityIndicatorView, attribute: .centerX, relatedBy: .equal, toItem: activityContainer, attribute: .centerX, multiplier: 1, constant: 0)
-        let indicatorCenterYConstraint = NSLayoutConstraint(item: activityIndicatorView, attribute: .centerY, relatedBy: .equal, toItem: activityContainer, attribute: .centerY, multiplier: 1, constant: 0)
-        activityContainer.addConstraints([indicatorCenterXConstraint, indicatorCenterYConstraint])
-        
+        activityContainer.addSubview(activityIndicatorView)
+
+        // Add constraints for `activityIndicatorView`.
+        ({
+            let xConstraint = NSLayoutConstraint(item: activityContainer, attribute: .centerX, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerX, multiplier: 1, constant: 0)
+            let yConstraint = NSLayoutConstraint(item: activityContainer, attribute: .centerY, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerY, multiplier: 1, constant: 0)
+
+            activityContainer.addConstraints([xConstraint, yConstraint])
+            }())
+
         activityLabel.font = activityData.messageFont
         activityLabel.textColor = activityData.textColor
         setMessage(activityData.message)
         activityContainer.addSubview(activityLabel)
-        
-        //Add constraints to activityLabel
-        let labelCenterXConstraint = NSLayoutConstraint(item: activityLabel, attribute: .centerX, relatedBy: .equal, toItem: activityContainer, attribute: .centerX, multiplier: 1, constant: 0)
-        let labelCenterYConstraint = NSLayoutConstraint(item: activityLabel, attribute: .centerY, relatedBy: .equal, toItem: activityContainer, attribute: .centerY, multiplier: 1, constant: 0)
-        activityContainer.addConstraints([labelCenterXConstraint, labelCenterYConstraint])
-        
-        hideTimer = scheduledTimer(activityData.minimumDisplayTime, selector: #selector(hideTimerFired(_:)), data: nil)
+
+        // Add constraints for `activityLabel`.
+        ({
+            let leadingConstraint = NSLayoutConstraint(item: activityContainer, attribute: .leading, relatedBy: .equal, toItem: activityLabel, attribute: .leading, multiplier: 1, constant: 8)
+            let trailingConstraint = NSLayoutConstraint(item: activityContainer, attribute: .trailing, relatedBy: .equal, toItem: activityLabel, attribute: .trailing, multiplier: 1, constant: 8)
+
+            activityContainer.addConstraints([leadingConstraint, trailingConstraint])
+            }())
+        ({
+            let spacingConstraint = NSLayoutConstraint(item: activityLabel, attribute: .top, relatedBy: .equal, toItem: activityIndicatorView, attribute: .bottom, multiplier: 1, constant: 8)
+
+            activityContainer.addConstraint(spacingConstraint)
+            }())
+
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
+
         keyWindow.addSubview(activityContainer)
-        
-        //Add constraints to activityContainer
-        activityContainer.translatesAutoresizingMaskIntoConstraints = false
-        let containerLeadingConstraint = NSLayoutConstraint(item: activityContainer, attribute: .leading, relatedBy: .equal, toItem: keyWindow, attribute: .leading, multiplier: 1, constant: 0)
-        let containerTrailingConstraint = NSLayoutConstraint(item: activityContainer, attribute: .trailing, relatedBy: .equal, toItem: keyWindow, attribute: .trailing, multiplier: 1, constant: 0)
-        let containerTopConstraint = NSLayoutConstraint(item: activityContainer, attribute: .top, relatedBy: .equal, toItem: keyWindow, attribute: .top, multiplier: 1, constant: 0)
-        let containerBottomConstraint = NSLayoutConstraint(item: activityContainer, attribute: .bottom, relatedBy: .equal, toItem: keyWindow, attribute: .bottom, multiplier: 1, constant: 0)
-        keyWindow.addConstraints([containerLeadingConstraint, containerTrailingConstraint, containerTopConstraint, containerBottomConstraint])
+
+        // Add constraints for `activityContainer`.
+        ({
+            let leadingConstraint = NSLayoutConstraint(item: keyWindow, attribute: .leading, relatedBy: .equal, toItem: activityContainer, attribute: .leading, multiplier: 1, constant: 0)
+            let trailingConstraint = NSLayoutConstraint(item: keyWindow, attribute: .trailing, relatedBy: .equal, toItem: activityContainer, attribute: .trailing, multiplier: 1, constant: 0)
+            let topConstraint = NSLayoutConstraint(item: keyWindow, attribute: .top, relatedBy: .equal, toItem: activityContainer, attribute: .top, multiplier: 1, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: keyWindow, attribute: .bottom, relatedBy: .equal, toItem: activityContainer, attribute: .bottom, multiplier: 1, constant: 0)
+
+            keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
+            }())
+
+        hideTimer = scheduledTimer(activityData.minimumDisplayTime, selector: #selector(hideTimerFired(_:)), data: nil)
     }
-    
+
     private func hide() {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
-        
+
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
                 item.removeFromSuperview()
@@ -239,7 +240,7 @@ public final class NVActivityIndicatorPresenter {
         showTimer?.invalidate()
         showTimer = nil
     }
-    
+
     private func scheduledTimer(_ timeInterval: Int, selector: Selector, data: ActivityData?) -> Timer {
         return Timer.scheduledTimer(timeInterval: Double(timeInterval) / 1000,
                                     target: self,
