@@ -1,5 +1,8 @@
 # Change log
 
+## [v3.4](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.4)
+* Fix constraint conflict in UI blocker
+
 ## [v3.3](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.3)
 * Able to change text color in UI blocker
 * Fix UI blocker layer on orientation change
