@@ -130,7 +130,11 @@ public final class NVActivityIndicatorPresenter {
     public final func startAnimating(_ data: ActivityData) {
         guard showTimer == nil else { return }
         isStopAnimatingCalled = false
-        showTimer = scheduledTimer(data.displayTimeThreshold, selector: #selector(showTimerFired(_:)), data: data)
+        if data.displayTimeThreshold == 0 {
+            show(with: data)
+        } else {
+            showTimer = scheduledTimer(data.displayTimeThreshold, selector: #selector(showTimerFired(_:)), data: data)
+        }
     }
 
     /**
