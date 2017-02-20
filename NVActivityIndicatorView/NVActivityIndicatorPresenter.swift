@@ -101,9 +101,13 @@ public final class ActivityData {
 
 /// Presenter that displays NVActivityIndicatorView as UI blocker.
 public final class NVActivityIndicatorPresenter {
-    private var showTimer: Timer?
-    private var hideTimer: Timer?
-    private var isStopAnimatingCalled = false
+    private enum State {
+        case waitingToShow
+        case showed
+        case waitingToHide
+        case hidden
+    }
+
     private let restorationIdentifier = "NVActivityIndicatorViewContainer"
     private let messageLabel: UILabel = {
         let label = UILabel()
@@ -114,6 +118,8 @@ public final class NVActivityIndicatorPresenter {
 
         return label
     }()
+    private var state: State = .hidden
+    private let startAnimatingGroup = DispatchGroup()
 
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
@@ -128,12 +134,19 @@ public final class NVActivityIndicatorPresenter {
      - parameter data: Information package used to display UI blocker.
      */
     public final func startAnimating(_ data: ActivityData) {
-        guard showTimer == nil else { return }
-        isStopAnimatingCalled = false
-        if data.displayTimeThreshold == 0 {
-            show(with: data)
-        } else {
-            showTimer = scheduledTimer(data.displayTimeThreshold, selector: #selector(showTimerFired(_:)), data: data)
+        guard state == .hidden else { return }
+
+        state = .waitingToShow
+        startAnimatingGroup.enter()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(data.displayTimeThreshold)) {
+            guard self.state == .waitingToShow else {
+                self.startAnimatingGroup.leave()
+
+                return
+            }
+
+            self.show(with: data)
+            self.startAnimatingGroup.leave()
         }
     }
 
@@ -141,31 +154,22 @@ public final class NVActivityIndicatorPresenter {
      Remove UI blocker.
      */
     public final func stopAnimating() {
-        isStopAnimatingCalled = true
-        guard hideTimer == nil else { return }
-        hide()
+        _hide()
     }
 
     /// Set message displayed under activity indicator view.
     ///
     /// - Parameter message: message displayed under activity indicator view.
     public final func setMessage(_ message: String?) {
-        messageLabel.text = message
-    }
+        guard state == .showed else {
+            startAnimatingGroup.notify(queue: DispatchQueue.main) {
+                self.messageLabel.text = message
+            }
 
-    // MARK: - Timer events
-
-    @objc private func showTimerFired(_ timer: Timer) {
-        guard let activityData = timer.userInfo as? ActivityData else { return }
-        show(with: activityData)
-    }
-
-    @objc private func hideTimerFired(_ timer: Timer) {
-        hideTimer?.invalidate()
-        hideTimer = nil
-        if isStopAnimatingCalled {
-            hide()
+            return
         }
+
+        messageLabel.text = message
     }
 
     // MARK: - Helpers
@@ -197,7 +201,7 @@ public final class NVActivityIndicatorPresenter {
 
         messageLabel.font = activityData.messageFont
         messageLabel.textColor = activityData.textColor
-        setMessage(activityData.message)
+        messageLabel.text = activityData.message
         containerView.addSubview(messageLabel)
 
         // Add constraints for `messageLabel`.
@@ -216,6 +220,7 @@ public final class NVActivityIndicatorPresenter {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
 
         keyWindow.addSubview(containerView)
+        state = .showed
 
         // Add constraints for `containerView`.
         ({
@@ -227,25 +232,26 @@ public final class NVActivityIndicatorPresenter {
             keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
             }())
 
-        hideTimer = scheduledTimer(activityData.minimumDisplayTime, selector: #selector(hideTimerFired(_:)), data: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.minimumDisplayTime)) {
+            self._hide()
+        }
     }
 
+    private func _hide() {
+        if state == .waitingToHide {
+            hide()
+        } else {
+            state = .waitingToHide
+        }
+    }
+    
     private func hide() {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
-
+        
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
                 item.removeFromSuperview()
         }
-        showTimer?.invalidate()
-        showTimer = nil
-    }
-
-    private func scheduledTimer(_ timeInterval: Int, selector: Selector, data: ActivityData?) -> Timer {
-        return Timer.scheduledTimer(timeInterval: Double(timeInterval) / 1000,
-                                    target: self,
-                                    selector: selector,
-                                    userInfo: data,
-                                    repeats: false)
+        state = .hidden
     }
 }
