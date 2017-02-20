@@ -1,5 +1,9 @@
 # Change log
 
+## [v3.5](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.5)
+* Fix #121
+* Fix setting message
+
 ## [v3.4](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.4)
 * Fix constraint conflict in UI blocker
 
