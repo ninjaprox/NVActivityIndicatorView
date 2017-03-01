@@ -240,7 +240,7 @@ public final class NVActivityIndicatorPresenter {
     private func _hide() {
         if state == .waitingToHide {
             hide()
-        } else {
+        } else if state != .hidden {
             state = .waitingToHide
         }
     }
