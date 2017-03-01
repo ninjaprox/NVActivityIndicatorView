@@ -118,13 +118,14 @@ public final class NVActivityIndicatorPresenter {
 
         return label
     }()
+
     private var state: State = .hidden
     private let startAnimatingGroup = DispatchGroup()
 
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
 
-    private init() { }
+    private init() {}
 
     // MARK: - Public interface
 
@@ -197,7 +198,7 @@ public final class NVActivityIndicatorPresenter {
             let yConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerY, multiplier: 1, constant: 0)
 
             containerView.addConstraints([xConstraint, yConstraint])
-            }())
+        }())
 
         messageLabel.font = activityData.messageFont
         messageLabel.textColor = activityData.textColor
@@ -210,12 +211,12 @@ public final class NVActivityIndicatorPresenter {
             let trailingConstraint = NSLayoutConstraint(item: containerView, attribute: .trailing, relatedBy: .equal, toItem: messageLabel, attribute: .trailing, multiplier: 1, constant: 8)
 
             containerView.addConstraints([leadingConstraint, trailingConstraint])
-            }())
+        }())
         ({
             let spacingConstraint = NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: activityIndicatorView, attribute: .bottom, multiplier: 1, constant: 8)
 
             containerView.addConstraint(spacingConstraint)
-            }())
+        }())
 
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
 
@@ -230,7 +231,7 @@ public final class NVActivityIndicatorPresenter {
             let bottomConstraint = NSLayoutConstraint(item: keyWindow, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: 0)
 
             keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
-            }())
+        }())
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.minimumDisplayTime)) {
             self._hide()
@@ -244,13 +245,13 @@ public final class NVActivityIndicatorPresenter {
             state = .waitingToHide
         }
     }
-    
+
     private func hide() {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
-        
+
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
-                item.removeFromSuperview()
+            item.removeFromSuperview()
         }
         state = .hidden
     }

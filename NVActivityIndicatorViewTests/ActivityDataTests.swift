@@ -29,10 +29,10 @@ import XCTest
 @testable import NVActivityIndicatorView
 
 class ActivityDataTests: XCTestCase {
-    
+
     func testInitWithoutParams() {
         let activityData = ActivityData()
-        
+
         XCTAssertEqual(activityData.size, NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE)
         XCTAssertNil(activityData.message)
         XCTAssertEqual(activityData.type, NVActivityIndicatorView.DEFAULT_TYPE)
@@ -42,9 +42,9 @@ class ActivityDataTests: XCTestCase {
         XCTAssertEqual(activityData.minimumDisplayTime, NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME)
         XCTAssertEqual(activityData.backgroundColor, NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR)
     }
-    
+
     func testInitWithParams() {
-        
+
         let size = CGSize(width: 100, height: 100)
         let message = "Loading..."
         let type = NVActivityIndicatorType.ballBeat
@@ -63,7 +63,7 @@ class ActivityDataTests: XCTestCase {
                                         minimumDisplayTime: minimumDisplayTime,
                                         backgroundColor: backgroundColor,
                                         textColor: textColor)
-        
+
         XCTAssertEqual(activityData.size, size)
         XCTAssertEqual(activityData.message, message)
         XCTAssertEqual(activityData.type, type)
@@ -74,20 +74,20 @@ class ActivityDataTests: XCTestCase {
         XCTAssertEqual(activityData.backgroundColor, backgroundColor)
         XCTAssertEqual(activityData.textColor, textColor)
     }
-    
+
     func testTextColorInitWithColor() {
-        
+
         let color = UIColor.red
         let activityData = ActivityData(color: color)
-        
+
         XCTAssertEqual(activityData.color, color)
         XCTAssertEqual(activityData.textColor, color) // textColor matches color
     }
-    
+
     func testNoColorOrTextColorInit() {
-        
+
         let activityData = ActivityData()
-        
+
         XCTAssertEqual(activityData.textColor, NVActivityIndicatorView.DEFAULT_TEXT_COLOR)
     }
 }

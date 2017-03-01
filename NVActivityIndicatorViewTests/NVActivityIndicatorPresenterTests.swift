@@ -29,7 +29,7 @@ import XCTest
 @testable import NVActivityIndicatorView
 
 class NVActivityIndicatorPresenterTests: XCTestCase {
-    let approximateZero:Int = 20
+    let approximateZero: Int = 20
 
     func testZeroDisplayTimeThreshold() {
         let activityData = createActivityData(displayTimeThreshold: 0,
@@ -112,7 +112,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     func checkActivityViewAppeared() -> Bool {
         for item in UIApplication.shared.keyWindow!.subviews
             where item.restorationIdentifier == "NVActivityIndicatorViewContainer" {
-                return true
+            return true
         }
 
         return false
@@ -125,7 +125,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
             thing()
             expectation.fulfill()
         }
-        waitForExpectations(timeout: Double(after) * 1.5 / 1000) { (error) in
+        waitForExpectations(timeout: Double(after) * 1.5 / 1000) { error in
             print(error ?? "Timeout")
         }
     }

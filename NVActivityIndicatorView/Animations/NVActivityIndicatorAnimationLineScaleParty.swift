@@ -28,7 +28,7 @@
 import UIKit
 
 class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDelegate {
-    
+
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let lineSize = size.width / 7
         let x = (layer.bounds.size.width - size.width) / 2
@@ -37,20 +37,20 @@ class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDe
         let beginTime = CACurrentMediaTime()
         let beginTimes: [CFTimeInterval] = [0.77, 0.29, 0.28, 0.74]
         let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
-        
+
         // Animation
-        let animation = CAKeyframeAnimation(keyPath:"transform.scale")
-        
+        let animation = CAKeyframeAnimation(keyPath: "transform.scale")
+
         animation.keyTimes = [0, 0.5, 1]
         animation.timingFunctions = [timingFunction, timingFunction]
         animation.values = [1, 0.5, 1]
         animation.repeatCount = HUGE
         animation.isRemovedOnCompletion = false
-        
+
         for i in 0 ..< 4 {
             let line = NVActivityIndicatorShape.line.layerWith(size: CGSize(width: lineSize, height: size.height), color: color)
             let frame = CGRect(x: x + lineSize * 2 * CGFloat(i), y: y, width: lineSize, height: size.height)
-            
+
             animation.beginTime = beginTime + beginTimes[i]
             animation.duration = durations[i]
             line.frame = frame
