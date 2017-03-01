@@ -1,5 +1,8 @@
 # Change log
 
+## [3.5.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/3.5.1)
+* Fix #123
+
 ## [v3.5](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v3.5)
 * Fix #121
 * Fix setting message
