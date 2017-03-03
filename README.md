@@ -21,14 +21,14 @@ For first-hand experience, just open the project and run it.
 
 | Type | Type | Type | Type |
 |---|---|---|---|
-1. BallPulse | 2. BallGridPulse | 3. BallClipRotate | 4. SquareSpin
-5. BallClipRotatePulse | 6. BallClipRotateMultiple | 7. BallPulseRise | 8. BallRotate
-9. CubeTransition | 10. BallZigZag | 11. BallZigZagDeflect | 12. BallTrianglePath
-13. BallScale | 14. LineScale | 15. LineScaleParty | 16. BallScaleMultiple
-17. BallPulseSync | 18. BallBeat | 19. LineScalePulseOut | 20. LineScalePulseOutRapid
-21. BallScaleRipple | 22. BallScaleRippleMultiple | 23. BallSpinFadeLoader | 24. LineSpinFadeLoader
-25. TriangleSkewSpin | 26. Pacman | 27. BallGridBeat | 28. SemiCircleSpin
-29. BallRotateChase | 30. Orbit | 31. AudioEqualizer
+1. ballPulse | 2. ballGridPulse | 3. ballClipRotate | 4. squareSpin
+5. ballClipRotatePulse | 6. ballClipRotateMultiple | 7. ballPulseRise | 8. ballRotate
+9. cubeTransition | 10. ballZigZag | 11. ballZigZagDeflect | 12. ballTrianglePath
+13. ballScale | 14. lineScale | 15. lineScaleParty | 16. ballScaleMultiple
+17. ballPulseSync | 18. ballBeat | 19. lineScalePulseOut | 20. lineScalePulseOutRapid
+21. ballScaleRipple | 22. ballScaleRippleMultiple | 23. ballSpinFadeLoader | 24. lineSpinFadeLoader
+25. triangleSkewSpin | 26. pacman | 27. ballGridBeat | 28. semiCircleSpin
+29. ballRotateChase | 30. orbit | 31. audioEqualizer
 
 # Installation
 
@@ -201,7 +201,7 @@ There are global defaults for all `NVActivityIndicatorView` instances.
 - Default animation type.
 
 ```swift
-NVActivityIndicatorView.DEFAULT_TYPE = .BallSpinFadeLoader
+NVActivityIndicatorView.DEFAULT_TYPE = .ballSpinFadeLoader
 ```
 
 - Default color of activity indicator view.
