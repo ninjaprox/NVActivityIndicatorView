@@ -80,7 +80,7 @@ _**Note:** Make sure that all files in `NVActivityIndicatorView` included in Com
 
 # Migration
 
-## Vesrion 3.0
+## Version 3.0
 
 This version requires Xcode 8.0 and Swift 3.
 
