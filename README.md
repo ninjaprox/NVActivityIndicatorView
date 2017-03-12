@@ -78,6 +78,8 @@ Copy `NVActivityIndicatorView` folder to your project. That's it.
 
 _**Note:** Make sure that all files in `NVActivityIndicatorView` included in Compile Sources in Build Phases._
 
+_**Note:** If you encounter issues while uploading the app to iTunes Connect, remove the `info.plist` file in `NVActivityIndicatorView`._
+
 # Migration
 
 ## Version 3.0
