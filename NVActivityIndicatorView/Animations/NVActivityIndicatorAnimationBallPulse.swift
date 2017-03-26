@@ -38,7 +38,7 @@ class NVActivityIndicatorAnimationBallPulse: NVActivityIndicatorAnimationDelegat
         let beginTimes: [CFTimeInterval] = [0.12, 0.24, 0.36]
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.68, 0.18, 1.08)
         let animation = CAKeyframeAnimation(keyPath: "transform.scale")
-        
+
         // Animation
         animation.keyTimes = [0, 0.3, 1]
         animation.timingFunctions = [timingFunction, timingFunction]
@@ -46,7 +46,7 @@ class NVActivityIndicatorAnimationBallPulse: NVActivityIndicatorAnimationDelegat
         animation.duration = duration
         animation.repeatCount = HUGE
         animation.isRemovedOnCompletion = false
-        
+
         // Draw circles
         for i in 0 ..< 3 {
             let circle = NVActivityIndicatorShape.circle.layerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
@@ -54,7 +54,7 @@ class NVActivityIndicatorAnimationBallPulse: NVActivityIndicatorAnimationDelegat
                                y: y,
                                width: circleSize,
                                height: circleSize)
-            
+
             animation.beginTime = beginTime + beginTimes[i]
             circle.frame = frame
             circle.add(animation, forKey: "animation")

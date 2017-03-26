@@ -29,7 +29,7 @@ import XCTest
 @testable import NVActivityIndicatorView
 
 class NVActivityIndicatorTypeTests: XCTestCase {
-    
+
     func testAnimation() {
         let enumClass: [NVActivityIndicatorType: NVActivityIndicatorAnimationDelegate.Type] = [
             .blank: NVActivityIndicatorAnimationBlank.self,
@@ -63,17 +63,17 @@ class NVActivityIndicatorTypeTests: XCTestCase {
             .semiCircleSpin: NVActivityIndicatorAnimationSemiCircleSpin.self,
             .ballRotateChase: NVActivityIndicatorAnimationBallRotateChase.self,
             .orbit: NVActivityIndicatorAnimationOrbit.self,
-            .audioEqualizer: NVActivityIndicatorAnimationAudioEqualizer.self
+            .audioEqualizer: NVActivityIndicatorAnimationAudioEqualizer.self,
         ]
-        
-        enumClass.forEach { (enumm, clazz) in
+
+        enumClass.forEach { enumm, clazz in
             let enummClassString = String(describing: enumm.animation())
             let clazzString = String(describing: clazz)
-            
+
             XCTAssertTrue(enummClassString.hasSuffix(clazzString))
         }
     }
-    
+
     func testAllTypes() {
         XCTAssertEqual(NVActivityIndicatorType.allTypes.last, NVActivityIndicatorType.audioEqualizer)
     }

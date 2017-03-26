@@ -1,6 +1,13 @@
 language: objective-c
 osx_image: xcode8.2
-xcode_sdk: iphonesimulator10.0
+env:
+  global:
+  - PROJECT=NVActivityIndicatorView.xcodeproj
+  - SCHEME=NVActivityIndicatorView
+  - SDK=iphonesimulator10.2
+  matrix:
+  - DESTINATION="name=iPhone 6,OS=9.0"
+  - DESTINATION="name=iPhone 6,OS=10.0"
 script:
   - set -o pipefail
-  - xcodebuild -project NVActivityIndicatorView.xcodeproj -scheme NVActivityIndicatorView -destination "platform=iOS Simulator,name=iPhone 6" clean test | xcpretty -c
+  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk="$SDK" -destination "$DESTINATION" clean test | xcpretty -c
