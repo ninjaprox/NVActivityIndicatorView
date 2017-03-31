@@ -82,6 +82,10 @@ _**Note:** If you encounter issues while uploading the app to iTunes Connect, re
 
 # Migration
 
+## Version 3.6.0
+
+This version requires Xcode 8.3 and Swift 3.1.
+
 ## Version 3.0
 
 This version requires Xcode 8.0 and Swift 3.
