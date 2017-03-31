@@ -67,10 +67,10 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
 
         rotateAnimation.keyTimes = scaleAnimation.keyTimes
         rotateAnimation.timingFunctions = scaleAnimation.timingFunctions
-        rotateAnimation.values = [0, -(Float.pi / 2), -CGFloat.pi, CGFloat(-1.5 * Double.pi), CGFloat(-2 * Double.pi)]
+        rotateAnimation.values = [0, -CGFloat.pi / 2, -CGFloat.pi, -1.5 * CGFloat.pi, -2 * CGFloat.pi]
         rotateAnimation.duration = duration
 
-        // Animation
+        // Animation
         let animation = CAAnimationGroup()
 
         animation.animations = [scaleAnimation, translateAnimation, rotateAnimation]
