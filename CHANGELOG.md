@@ -1,5 +1,8 @@
 # Change log
 
+## [3.6.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/3.6.0)
+* Fix #128
+
 ## [3.5.2](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/3.5.2)
 * Fix #132
 
