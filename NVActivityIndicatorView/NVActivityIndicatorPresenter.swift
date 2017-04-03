@@ -242,7 +242,7 @@ public final class NVActivityIndicatorPresenter {
             
             keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
             }())
-
+        
         if hasEnterAnimation {
             containerView.alpha = 0
             
@@ -250,7 +250,7 @@ public final class NVActivityIndicatorPresenter {
                 containerView.alpha = 1.0
             })
         }
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.minimumDisplayTime)) {
             self._hide()
         }
@@ -266,7 +266,7 @@ public final class NVActivityIndicatorPresenter {
     
     private func hide() {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
-
+        
         let hasExitAnimation = self.enterExitAnimationDuration > 0
         
         for item in keyWindow.subviews
