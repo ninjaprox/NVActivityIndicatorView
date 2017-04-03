@@ -31,38 +31,38 @@ import UIKit
 public final class ActivityData {
     /// Size of activity indicator view.
     let size: CGSize
-    
+
     /// Message displayed under activity indicator view.
     let message: String?
-    
+
     /// Font of message displayed under activity indicator view.
     let messageFont: UIFont
-    
+
     /// Animation type.
     let type: NVActivityIndicatorType
-    
+
     /// Color of activity indicator view.
     let color: UIColor
-    
+
     /// Color of text.
     let textColor: UIColor
-    
+
     /// Padding of activity indicator view.
     let padding: CGFloat
-    
+
     /// Display time threshold to actually display UI blocker.
     let displayTimeThreshold: Int
-    
+
     /// Minimum display time of UI blocker.
     let minimumDisplayTime: Int
-    
+
     /// Background color of the UI blocker
     let backgroundColor: UIColor
-    
+
     let enterExitAnimationDuration: TimeInterval
-    
-    
-    
+
+
+
     /**
      Create information package used to display UI blocker.
      
@@ -113,7 +113,7 @@ public final class NVActivityIndicatorPresenter {
         case waitingToHide
         case hidden
     }
-    
+
     private let restorationIdentifier = "NVActivityIndicatorViewContainer"
     private let messageLabel: UILabel = {
         let label = UILabel()
@@ -124,18 +124,18 @@ public final class NVActivityIndicatorPresenter {
         
         return label
     }()
-    
+
     private var enterExitAnimationDuration: TimeInterval = 0
     private var state: State = .hidden
     private let startAnimatingGroup = DispatchGroup()
-    
+
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
-    
+
     private init() {}
-    
+
     // MARK: - Public interface
-    
+
     /**
      Display UI blocker.
      
@@ -157,14 +157,14 @@ public final class NVActivityIndicatorPresenter {
             self.startAnimatingGroup.leave()
         }
     }
-    
+
     /**
      Remove UI blocker.
      */
     public final func stopAnimating() {
         _hide()
     }
-    
+
     /// Set message displayed under activity indicator view.
     ///
     /// - Parameter message: message displayed under activity indicator view.
@@ -179,9 +179,9 @@ public final class NVActivityIndicatorPresenter {
         
         messageLabel.text = message
     }
-    
+
     // MARK: - Helpers
-    
+
     private func show(with activityData: ActivityData) {
         let containerView = UIView(frame: UIScreen.main.bounds)
         let hasEnterAnimation = activityData.enterExitAnimationDuration > 0
@@ -242,7 +242,7 @@ public final class NVActivityIndicatorPresenter {
             
             keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
             }())
-        
+
         if hasEnterAnimation {
             containerView.alpha = 0
             
@@ -250,12 +250,12 @@ public final class NVActivityIndicatorPresenter {
                 containerView.alpha = 1.0
             })
         }
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.minimumDisplayTime)) {
             self._hide()
         }
     }
-    
+
     private func _hide() {
         if state == .waitingToHide {
             hide()
@@ -263,10 +263,10 @@ public final class NVActivityIndicatorPresenter {
             state = .waitingToHide
         }
     }
-    
+
     private func hide() {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
-        
+
         let hasExitAnimation = self.enterExitAnimationDuration > 0
         
         for item in keyWindow.subviews
