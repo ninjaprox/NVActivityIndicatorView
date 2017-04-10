@@ -21,14 +21,14 @@ For first-hand experience, just open the project and run it.
 
 | Type | Type | Type | Type |
 |---|---|---|---|
-1. ballPulse | 2. ballGridPulse | 3. ballClipRotate | 4. squareSpin
-5. ballClipRotatePulse | 6. ballClipRotateMultiple | 7. ballPulseRise | 8. ballRotate
-9. cubeTransition | 10. ballZigZag | 11. ballZigZagDeflect | 12. ballTrianglePath
-13. ballScale | 14. lineScale | 15. lineScaleParty | 16. ballScaleMultiple
-17. ballPulseSync | 18. ballBeat | 19. lineScalePulseOut | 20. lineScalePulseOutRapid
-21. ballScaleRipple | 22. ballScaleRippleMultiple | 23. ballSpinFadeLoader | 24. lineSpinFadeLoader
-25. triangleSkewSpin | 26. pacman | 27. ballGridBeat | 28. semiCircleSpin
-29. ballRotateChase | 30. orbit | 31. audioEqualizer
+|1. ballPulse | 2. ballGridPulse | 3. ballClipRotate | 4. squareSpin|
+|5. ballClipRotatePulse | 6. ballClipRotateMultiple | 7. ballPulseRise | 8. ballRotate|
+|9. cubeTransition | 10. ballZigZag | 11. ballZigZagDeflect | 12. ballTrianglePath|
+|13. ballScale | 14. lineScale | 15. lineScaleParty | 16. ballScaleMultiple|
+|17. ballPulseSync | 18. ballBeat | 19. lineScalePulseOut | 20. lineScalePulseOutRapid|
+|21. ballScaleRipple | 22. ballScaleRippleMultiple | 23. ballSpinFadeLoader | 24. lineSpinFadeLoader|
+|25. triangleSkewSpin | 26. pacman | 27. ballGridBeat | 28. semiCircleSpin|
+|29. ballRotateChase | 30. orbit | 31. audioEqualizer|
 
 # Installation
 
