@@ -85,7 +85,7 @@ enum NVActivityIndicatorShape {
                         endAngle: CGFloat(-7 * Double.pi / 4),
                         clockwise: false)
             layer.fillColor = nil
-            layer.strokeColor = color.cgColors
+            layer.strokeColor = color.cgColor
             layer.lineWidth = lineWidth
         case .ringTwoHalfHorizontal:
             path.addArc(withCenter: CGPoint(x: size.width / 2, y: size.height / 2),
