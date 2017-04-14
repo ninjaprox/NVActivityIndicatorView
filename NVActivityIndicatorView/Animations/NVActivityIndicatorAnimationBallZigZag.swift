@@ -40,7 +40,7 @@ class NVActivityIndicatorAnimationBallZigZag: NVActivityIndicatorAnimationDelega
         // Circle 1 animation
         let animation = CAKeyframeAnimation(keyPath: "transform")
 
-        animation.keyTimes = [0.0, 0.33, 0.66, 1.0]
+        animation.keyTimes = [0, 0.33, 0.66, 1]
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 
         animation.values = [

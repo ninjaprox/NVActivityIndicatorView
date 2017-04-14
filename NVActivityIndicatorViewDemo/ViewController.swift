@@ -81,7 +81,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
         }
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
             self.stopAnimating()
         }
     }
