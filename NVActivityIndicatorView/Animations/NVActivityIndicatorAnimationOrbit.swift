@@ -154,8 +154,8 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
 
         rotateAnimation.path = UIBezierPath(arcCenter: CGPoint(x: layer.bounds.midX, y: layer.bounds.midY),
                                             radius: (size.width - satelliteSize) / 2,
-                                            startAngle: CGFloat.pi * 1.5,
-                                            endAngle: CGFloat.pi * 1.5 + 4 * CGFloat.pi,
+                                            startAngle: CGFloat(Double.pi * 1.5),
+                                            endAngle: CGFloat(Double.pi * 1.5 + 4 * Double.pi),
                                             clockwise: true).cgPath
         rotateAnimation.duration = duration * 2
         rotateAnimation.repeatCount = HUGE

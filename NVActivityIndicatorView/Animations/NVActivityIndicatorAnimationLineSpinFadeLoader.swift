@@ -51,7 +51,7 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
 
         // Draw lines
         for i in 0 ..< 8 {
-            let line = lineAt(angle: CGFloat.pi / 4.0 * CGFloat(i),
+            let line = lineAt(angle: CGFloat(Double.pi / 4 * Double(i)),
                               size: lineSize,
                               origin: CGPoint(x: x, y: y),
                               containerSize: size,
@@ -82,7 +82,7 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
         lineContainer.frame = lineContainerFrame
         line.frame = lineFrame
         lineContainer.addSublayer(line)
-        lineContainer.sublayerTransform = CATransform3DMakeRotation(CGFloat.pi / 2.0 + angle, 0, 0, 1)
+        lineContainer.sublayerTransform = CATransform3DMakeRotation(CGFloat(Double.pi / 2) + angle, 0, 0, 1)
 
         return lineContainer
     }

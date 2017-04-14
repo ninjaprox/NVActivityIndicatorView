@@ -47,7 +47,7 @@ class NVActivityIndicatorAnimationBallRotate: NVActivityIndicatorAnimationDelega
 
         rotateAnimation.keyTimes = [0, 0.5, 1]
         rotateAnimation.timingFunctions = [timingFunction, timingFunction]
-        rotateAnimation.values = [0, CGFloat.pi, 2 * CGFloat.pi]
+        rotateAnimation.values = [0, Double.pi, 2 * Double.pi]
         rotateAnimation.duration = duration
 
         // Animation

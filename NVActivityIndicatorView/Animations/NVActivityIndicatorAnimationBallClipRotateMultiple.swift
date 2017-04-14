@@ -64,9 +64,9 @@ class NVActivityIndicatorAnimationBallClipRotateMultiple: NVActivityIndicatorAni
         rotateAnimation.keyTimes = scaleAnimation.keyTimes
         rotateAnimation.timingFunctions = [timingFunction, timingFunction]
         if !reverse {
-            rotateAnimation.values = [0, CGFloat.pi, 2 * CGFloat.pi]
+            rotateAnimation.values = [0, Double.pi, 2 * Double.pi]
         } else {
-            rotateAnimation.values = [0, -CGFloat.pi, -2 * CGFloat.pi]
+            rotateAnimation.values = [0, -Double.pi, -2 * Double.pi]
         }
         rotateAnimation.duration = duration
 

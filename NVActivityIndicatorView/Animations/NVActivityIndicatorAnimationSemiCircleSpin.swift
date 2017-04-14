@@ -36,7 +36,7 @@ class NVActivityIndicatorAnimationSemiCircleSpin: NVActivityIndicatorAnimationDe
         let animation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 
         animation.keyTimes = [0, 0.5, 1]
-        animation.values = [0, CGFloat.pi, 2 * CGFloat.pi]
+        animation.values = [0, Double.pi, 2 * Double.pi]
         animation.duration = duration
         animation.repeatCount = HUGE
         animation.isRemovedOnCompletion = false
