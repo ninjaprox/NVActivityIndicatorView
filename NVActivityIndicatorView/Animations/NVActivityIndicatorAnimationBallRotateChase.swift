@@ -34,7 +34,7 @@ class NVActivityIndicatorAnimationBallRotateChase: NVActivityIndicatorAnimationD
 
         // Draw circles
         for i in 0 ..< 5 {
-            let factor = Float(i) * 1.0 / 5
+            let factor = Float(i) * 1 / 5
             let circle = NVActivityIndicatorShape.circle.layerWith(size: CGSize(width: circleSize, height: circleSize), color: color)
             let animation = rotateAnimation(factor, x: layer.bounds.size.width / 2, y: layer.bounds.size.height / 2, size: CGSize(width: size.width - circleSize, height: size.height - circleSize))
 
@@ -48,7 +48,7 @@ class NVActivityIndicatorAnimationBallRotateChase: NVActivityIndicatorAnimationD
         let duration: CFTimeInterval = 1.5
         let fromScale = 1 - rate
         let toScale = 0.2 + rate
-        let timeFunc = CAMediaTimingFunction(controlPoints: 0.5, 0.15 + rate, 0.25, 1.0)
+        let timeFunc = CAMediaTimingFunction(controlPoints: 0.5, 0.15 + rate, 0.25, 1)
 
         // Scale animation
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")

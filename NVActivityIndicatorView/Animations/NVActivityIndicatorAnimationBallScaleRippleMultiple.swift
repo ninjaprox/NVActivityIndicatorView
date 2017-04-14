@@ -32,7 +32,7 @@ class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAn
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 1.25
         let beginTime = CACurrentMediaTime()
-        let beginTimes = [0.0, 0.2, 0.4]
+        let beginTimes = [0, 0.2, 0.4]
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.21, 0.53, 0.56, 0.8)
 
         // Scale animation
@@ -40,7 +40,7 @@ class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAn
 
         scaleAnimation.keyTimes = [0, 0.7]
         scaleAnimation.timingFunction = timingFunction
-        scaleAnimation.values = [0, 1.0]
+        scaleAnimation.values = [0, 1]
         scaleAnimation.duration = duration
 
         // Opacity animation
