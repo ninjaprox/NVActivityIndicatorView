@@ -131,13 +131,13 @@ _**Note:** Check [DEFAULTS](#defaults) for default values._
 Start animating.
 
 ```swift
-activityIndicatorView.startAnimating()
+activityIndicatorView.startAnimation()
 ```
 
 Stop animating.
 
 ```swift
-activityIndicatorView.stopAnimating()
+activityIndicatorView.stopAnimation()
 ```
 
 Determine if it is animating.
