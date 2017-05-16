@@ -30,17 +30,17 @@ import Foundation
 import NVActivityIndicatorView
 
 class ViewController: UIViewController, NVActivityIndicatorViewable {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
-        
+
         let cols = 4
         let rows = 8
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
-        
+
         (NVActivityIndicatorType.ballPulse.rawValue ... NVActivityIndicatorType.audioEqualizer.rawValue).forEach {
             let x = ($0 - 1) % cols * cellWidth
             let y = ($0 - 1) / cols * cellHeight
@@ -48,13 +48,13 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             let activityIndicatorView = NVActivityIndicatorView(frame: frame,
                                                                 type: NVActivityIndicatorType(rawValue: $0)!)
             let animationTypeLabel = UILabel(frame: frame)
-            
+
             animationTypeLabel.text = String($0)
             animationTypeLabel.sizeToFit()
             animationTypeLabel.textColor = UIColor.white
             animationTypeLabel.frame.origin.x += 5
             animationTypeLabel.frame.origin.y += CGFloat(cellHeight / 2) - animationTypeLabel.frame.size.height / 2
-            
+
             activityIndicatorView.padding = 20
             if $0 == NVActivityIndicatorType.orbit.rawValue {
                 activityIndicatorView.padding = 0
@@ -62,7 +62,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             self.view.addSubview(activityIndicatorView)
             self.view.addSubview(animationTypeLabel)
             activityIndicatorView.startAnimating()
-            
+
             let button: UIButton = UIButton(frame: frame)
             button.tag = $0
             button.addTarget(self,
@@ -71,21 +71,21 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             self.view.addSubview(button)
         }
     }
-    
+
     func buttonTapped(_ sender: UIButton) {
         let size = CGSize(width: 100, height: 100)
-        
+
         startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
-        
+
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
         }
-        
+
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
             self.stopAnimating()
         }
     }
-    
+
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         context.nextFocusedView?.layer.borderColor = UIColor.white.cgColor
         context.nextFocusedView?.layer.borderWidth = 2
