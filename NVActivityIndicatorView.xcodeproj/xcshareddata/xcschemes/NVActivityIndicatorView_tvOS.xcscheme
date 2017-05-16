@@ -20,6 +20,20 @@
                ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "23FB134E1D76D5370096EBE3"
+               BuildableName = "NVActivityIndicatorViewTests.xctest"
+               BlueprintName = "NVActivityIndicatorViewTests"
+               ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,7 +42,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A449586C1ECB325500ACA56D"
+               BuildableName = "NVActivityIndicatorViewTests_tvOS.xctest"
+               BlueprintName = "NVActivityIndicatorViewTests_tvOS"
+               ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A4B9CA211ECA1FFB00138E7A"
+            BuildableName = "NVActivityIndicatorView_tvOS.framework"
+            BlueprintName = "NVActivityIndicatorView_tvOS"
+            ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

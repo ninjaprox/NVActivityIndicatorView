@@ -55,7 +55,17 @@
 		90A879A61BA55798001C8989 /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A879861BA55798001C8989 /* NVActivityIndicatorAnimationDelegate.swift */; };
 		90A879A71BA55798001C8989 /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A879871BA55798001C8989 /* NVActivityIndicatorShape.swift */; };
 		90A879A81BA55798001C8989 /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A879881BA55798001C8989 /* NVActivityIndicatorView.swift */; };
-		A4B9CA261ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B9CA241ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A44958721ECB325500ACA56D /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B9CA221ECA1FFB00138E7A /* NVActivityIndicatorView.framework */; };
+		A449587B1ECB337F00ACA56D /* NVActivityIndicatorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23688A3F1D81A55500B2A30B /* NVActivityIndicatorPresenterTests.swift */; };
+		A449587C1ECB337F00ACA56D /* NVActivityIndicatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB13511D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift */; };
+		A449587D1ECB337F00ACA56D /* NVActivityIndicatorTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B6C6041D7AD28500C90328 /* NVActivityIndicatorTypeTests.swift */; };
+		A449587E1ECB337F00ACA56D /* ActivityDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23688A3B1D805A1100B2A30B /* ActivityDataTests.swift */; };
+		A44958861ECB382300ACA56D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44958851ECB382300ACA56D /* AppDelegate.swift */; };
+		A44958881ECB382300ACA56D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44958871ECB382300ACA56D /* ViewController.swift */; };
+		A449588B1ECB382300ACA56D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44958891ECB382300ACA56D /* Main.storyboard */; };
+		A449588D1ECB382300ACA56D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A449588C1ECB382300ACA56D /* Assets.xcassets */; };
+		A44958961ECB3E2F00ACA56D /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B9CA221ECA1FFB00138E7A /* NVActivityIndicatorView.framework */; };
+		A4B9CA261ECA1FFB00138E7A /* NVActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B9CA241ECA1FFB00138E7A /* NVActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A4B9CA2A1ECA240400138E7A /* NVActivityIndicatorAnimationBallBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A879691BA55798001C8989 /* NVActivityIndicatorAnimationBallBeat.swift */; };
 		A4B9CA2B1ECA240400138E7A /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8796A1BA55798001C8989 /* NVActivityIndicatorAnimationBallClipRotate.swift */; };
 		A4B9CA2C1ECA240400138E7A /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A8796B1BA55798001C8989 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */; };
@@ -112,6 +122,20 @@
 			remoteGlobalIDString = 90A8792E1BA554A0001C8989;
 			remoteInfo = NVActivityIndicatorView;
 		};
+		A44958731ECB325500ACA56D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 239CAB181B5EBB2E0051DC06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4B9CA211ECA1FFB00138E7A;
+			remoteInfo = NVActivityIndicatorView_tvOS;
+		};
+		A44958921ECB3BB800ACA56D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 239CAB181B5EBB2E0051DC06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A44958821ECB382200ACA56D;
+			remoteInfo = NVActivityIndicatorViewDemo_tvOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -167,8 +191,16 @@
 		90A879861BA55798001C8989 /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
 		90A879871BA55798001C8989 /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		90A879881BA55798001C8989 /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
-		A4B9CA221ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4B9CA241ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorView_tvOS.h; sourceTree = "<group>"; };
+		A449586D1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewTests_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A44958711ECB325500ACA56D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A44958831ECB382200ACA56D /* NVActivityIndicatorViewDemo_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVActivityIndicatorViewDemo_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A44958851ECB382300ACA56D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A44958871ECB382300ACA56D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A449588A1ECB382300ACA56D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A449588C1ECB382300ACA56D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A449588E1ECB382300ACA56D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4B9CA221ECA1FFB00138E7A /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4B9CA241ECA1FFB00138E7A /* NVActivityIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorView.h; sourceTree = "<group>"; };
 		A4B9CA251ECA1FFB00138E7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD1452331C15810200B952C8 /* NVActivityIndicatorAnimationBallRotateChase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallRotateChase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +229,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A449586A1ECB325500ACA56D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A44958721ECB325500ACA56D /* NVActivityIndicatorView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A44958801ECB382200ACA56D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A44958961ECB3E2F00ACA56D /* NVActivityIndicatorView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4B9CA1E1ECA1FFB00138E7A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,6 +262,8 @@
 				90A879301BA554A0001C8989 /* NVActivityIndicatorView */,
 				23FB13501D76D5370096EBE3 /* NVActivityIndicatorViewTests */,
 				A4B9CA231ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS */,
+				A449586E1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS */,
+				A44958841ECB382300ACA56D /* NVActivityIndicatorViewDemo_tvOS */,
 				239CAB211B5EBB2E0051DC06 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -224,7 +274,9 @@
 				239CAB201B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo.app */,
 				90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */,
 				23FB134F1D76D5370096EBE3 /* NVActivityIndicatorViewTests.xctest */,
-				A4B9CA221ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS.framework */,
+				A4B9CA221ECA1FFB00138E7A /* NVActivityIndicatorView.framework */,
+				A449586D1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS.xctest */,
+				A44958831ECB382200ACA56D /* NVActivityIndicatorViewDemo_tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,10 +376,30 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		A449586E1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				A44958711ECB325500ACA56D /* Info.plist */,
+			);
+			path = NVActivityIndicatorViewTests_tvOS;
+			sourceTree = "<group>";
+		};
+		A44958841ECB382300ACA56D /* NVActivityIndicatorViewDemo_tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				A44958851ECB382300ACA56D /* AppDelegate.swift */,
+				A44958871ECB382300ACA56D /* ViewController.swift */,
+				A44958891ECB382300ACA56D /* Main.storyboard */,
+				A449588C1ECB382300ACA56D /* Assets.xcassets */,
+				A449588E1ECB382300ACA56D /* Info.plist */,
+			);
+			path = NVActivityIndicatorViewDemo_tvOS;
+			sourceTree = "<group>";
+		};
 		A4B9CA231ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				A4B9CA241ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS.h */,
+				A4B9CA241ECA1FFB00138E7A /* NVActivityIndicatorView.h */,
 				A4B9CA251ECA1FFB00138E7A /* Info.plist */,
 			);
 			path = NVActivityIndicatorView_tvOS;
@@ -349,7 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B9CA4F1ECA240400138E7A /* NVActivityIndicatorView.h in Headers */,
-				A4B9CA261ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS.h in Headers */,
+				A4B9CA261ECA1FFB00138E7A /* NVActivityIndicatorView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +482,42 @@
 			productReference = 90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A449586C1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A44958751ECB325500ACA56D /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests_tvOS" */;
+			buildPhases = (
+				A44958691ECB325500ACA56D /* Sources */,
+				A449586A1ECB325500ACA56D /* Frameworks */,
+				A449586B1ECB325500ACA56D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A44958741ECB325500ACA56D /* PBXTargetDependency */,
+				A44958931ECB3BB800ACA56D /* PBXTargetDependency */,
+			);
+			name = NVActivityIndicatorViewTests_tvOS;
+			productName = NVActivityIndicatorViewTests_tvOS;
+			productReference = A449586D1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A44958821ECB382200ACA56D /* NVActivityIndicatorViewDemo_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A449588F1ECB382300ACA56D /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewDemo_tvOS" */;
+			buildPhases = (
+				A449587F1ECB382200ACA56D /* Sources */,
+				A44958801ECB382200ACA56D /* Frameworks */,
+				A44958811ECB382200ACA56D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NVActivityIndicatorViewDemo_tvOS;
+			productName = NVActivityIndicatorViewDemo_tvOS;
+			productReference = A44958831ECB382200ACA56D /* NVActivityIndicatorViewDemo_tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A4B9CA211ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4B9CA291ECA1FFB00138E7A /* Build configuration list for PBXNativeTarget "NVActivityIndicatorView_tvOS" */;
@@ -425,7 +533,7 @@
 			);
 			name = NVActivityIndicatorView_tvOS;
 			productName = NVActivityIndicatorView_tvOS;
-			productReference = A4B9CA221ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS.framework */;
+			productReference = A4B9CA221ECA1FFB00138E7A /* NVActivityIndicatorView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -435,7 +543,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Vinh Nguyen";
 				TargetAttributes = {
@@ -451,6 +559,14 @@
 					90A8792E1BA554A0001C8989 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0800;
+					};
+					A449586C1ECB325500ACA56D = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					A44958821ECB382200ACA56D = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Manual;
 					};
 					A4B9CA211ECA1FFB00138E7A = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -475,6 +591,8 @@
 				239CAB1F1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */,
 				23FB134E1D76D5370096EBE3 /* NVActivityIndicatorViewTests */,
 				A4B9CA211ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS */,
+				A449586C1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS */,
+				A44958821ECB382200ACA56D /* NVActivityIndicatorViewDemo_tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -501,6 +619,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A449586B1ECB325500ACA56D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A44958811ECB382200ACA56D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A449588D1ECB382300ACA56D /* Assets.xcassets in Resources */,
+				A449588B1ECB382300ACA56D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +712,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A44958691ECB325500ACA56D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A449587D1ECB337F00ACA56D /* NVActivityIndicatorTypeTests.swift in Sources */,
+				A449587C1ECB337F00ACA56D /* NVActivityIndicatorViewTests.swift in Sources */,
+				A449587B1ECB337F00ACA56D /* NVActivityIndicatorPresenterTests.swift in Sources */,
+				A449587E1ECB337F00ACA56D /* ActivityDataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A449587F1ECB382200ACA56D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A44958881ECB382300ACA56D /* ViewController.swift in Sources */,
+				A44958861ECB382300ACA56D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4B9CA1D1ECA1FFB00138E7A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -635,6 +789,16 @@
 			target = 90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */;
 			targetProxy = 23FB13551D76D5370096EBE3 /* PBXContainerItemProxy */;
 		};
+		A44958741ECB325500ACA56D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4B9CA211ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS */;
+			targetProxy = A44958731ECB325500ACA56D /* PBXContainerItemProxy */;
+		};
+		A44958931ECB3BB800ACA56D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A44958821ECB382200ACA56D /* NVActivityIndicatorViewDemo_tvOS */;
+			targetProxy = A44958921ECB3BB800ACA56D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -652,6 +816,14 @@
 				239CAB2F1B5EBB2E0051DC06 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		A44958891ECB382300ACA56D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A449588A1ECB382300ACA56D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -778,6 +950,7 @@
 				INFOPLIST_FILE = NVActivityIndicatorViewTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhn.NVActivityIndicatorViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -792,6 +965,7 @@
 				INFOPLIST_FILE = NVActivityIndicatorViewTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhn.NVActivityIndicatorViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -847,6 +1021,91 @@
 			};
 			name = Release;
 		};
+		A44958761ECB325500ACA56D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = NVActivityIndicatorViewTests_tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.NVActivityIndicatorViewTests-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVActivityIndicatorViewDemo_tvOS.app/NVActivityIndicatorViewDemo_tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		A44958771ECB325500ACA56D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				INFOPLIST_FILE = NVActivityIndicatorViewTests_tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.NVActivityIndicatorViewTests-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVActivityIndicatorViewDemo_tvOS.app/NVActivityIndicatorViewDemo_tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		A44958901ECB382300ACA56D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NVActivityIndicatorViewDemo_tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.NVActivityIndicatorViewDemo-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		A44958911ECB382300ACA56D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NVActivityIndicatorViewDemo_tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.NVActivityIndicatorViewDemo-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		A4B9CA271ECA1FFB00138E7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -864,8 +1123,9 @@
 				INFOPLIST_FILE = NVActivityIndicatorView_tvOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.NVActivityIndicatorView-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NVActivityIndicatorView;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -894,8 +1154,9 @@
 				INFOPLIST_FILE = NVActivityIndicatorView_tvOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.NVActivityIndicatorView-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NVActivityIndicatorView;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -942,6 +1203,24 @@
 			buildConfigurations = (
 				90A879431BA554A0001C8989 /* Debug */,
 				90A879441BA554A0001C8989 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A44958751ECB325500ACA56D /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A44958761ECB325500ACA56D /* Debug */,
+				A44958771ECB325500ACA56D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A449588F1ECB382300ACA56D /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewDemo_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A44958901ECB382300ACA56D /* Debug */,
+				A44958911ECB382300ACA56D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
