@@ -9,6 +9,8 @@ matrix:
     env: SDK="iphonesimulator10.2" DESTINATION="name=iPhone 6s,OS=10.2"
   - osx_image: xcode8.3
     env: SDK="iphonesimulator10.3" DESTINATION="name=iPhone 6s,OS=10.3"
+  - osx_image: xcode8.3
+    env: SCHEME="NVActivityIndicatorView_tvOS" SDK="appletvsimulator10.2" DESTINATION="name=Apple TV 1080p,OS=10.2"
 script:
   - set -o pipefail
   - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES clean test | xcpretty -c

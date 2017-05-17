@@ -262,8 +262,8 @@
 				90A879301BA554A0001C8989 /* NVActivityIndicatorView */,
 				23FB13501D76D5370096EBE3 /* NVActivityIndicatorViewTests */,
 				A4B9CA231ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS */,
-				A449586E1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS */,
 				A44958841ECB382300ACA56D /* NVActivityIndicatorViewDemo_tvOS */,
+				A449586E1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS */,
 				239CAB211B5EBB2E0051DC06 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -591,8 +591,8 @@
 				239CAB1F1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */,
 				23FB134E1D76D5370096EBE3 /* NVActivityIndicatorViewTests */,
 				A4B9CA211ECA1FFB00138E7A /* NVActivityIndicatorView_tvOS */,
-				A449586C1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS */,
 				A44958821ECB382200ACA56D /* NVActivityIndicatorViewDemo_tvOS */,
+				A449586C1ECB325500ACA56D /* NVActivityIndicatorViewTests_tvOS */,
 			);
 		};
 /* End PBXProject section */
