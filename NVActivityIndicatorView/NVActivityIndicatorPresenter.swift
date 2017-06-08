@@ -270,7 +270,7 @@ public final class NVActivityIndicatorPresenter {
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
                 if hasExitAnimation {
-                    UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
+                    UIView.animate(withDuration: enterExitAnimationDuration, delay: 0, options: [.curveEaseOut], animations: {
                         item.alpha = 0
                     }, completion: {completed in
                         item.removeFromSuperview()
