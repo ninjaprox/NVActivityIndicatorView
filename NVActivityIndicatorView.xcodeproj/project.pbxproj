@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1A52C51EED82BE00350204 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */; };
+		1F1A52C61EED82BE00350204 /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		230C6FA81D0FE9E5007CD4E4 /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230C6FA71D0FE9E5007CD4E4 /* NVActivityIndicatorAnimationAudioEqualizer.swift */; };
 		233236811D0D80C9001F4703 /* NVActivityIndicatorAnimationOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233236801D0D80C9001F4703 /* NVActivityIndicatorAnimationOrbit.swift */; };
 		23688A3C1D805A1100B2A30B /* ActivityDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23688A3B1D805A1100B2A30B /* ActivityDataTests.swift */; };
@@ -16,7 +18,6 @@
 		239CAB301B5EBB2E0051DC06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 239CAB2E1B5EBB2E0051DC06 /* LaunchScreen.xib */; };
 		23B201041D7DADBF00130679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB251B5EBB2E0051DC06 /* AppDelegate.swift */; };
 		23B201051D7DADBF00130679 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CAB271B5EBB2E0051DC06 /* ViewController.swift */; };
-		23B201071D7DADCD00130679 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */; };
 		23B6C6051D7AD28500C90328 /* NVActivityIndicatorTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B6C6041D7AD28500C90328 /* NVActivityIndicatorTypeTests.swift */; };
 		23FB13521D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB13511D76D5370096EBE3 /* NVActivityIndicatorViewTests.swift */; };
 		23FB13541D76D5370096EBE3 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A8792F1BA554A0001C8989 /* NVActivityIndicatorView.framework */; };
@@ -59,6 +60,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1F1A52C71EED82BE00350204 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 239CAB181B5EBB2E0051DC06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90A8792E1BA554A0001C8989;
+			remoteInfo = NVActivityIndicatorView;
+		};
 		23688A3D1D81A52F00B2A30B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 239CAB181B5EBB2E0051DC06 /* Project object */;
@@ -74,6 +82,20 @@
 			remoteInfo = NVActivityIndicatorView;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F1A52C91EED82BE00350204 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F1A52C61EED82BE00350204 /* NVActivityIndicatorView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		230C6FA71D0FE9E5007CD4E4 /* NVActivityIndicatorAnimationAudioEqualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationAudioEqualizer.swift; sourceTree = "<group>"; };
@@ -136,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23B201071D7DADCD00130679 /* NVActivityIndicatorView.framework in Frameworks */,
+				1F1A52C51EED82BE00350204 /* NVActivityIndicatorView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,10 +316,12 @@
 				239CAB1C1B5EBB2E0051DC06 /* Sources */,
 				239CAB1D1B5EBB2E0051DC06 /* Frameworks */,
 				239CAB1E1B5EBB2E0051DC06 /* Resources */,
+				1F1A52C91EED82BE00350204 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1F1A52C81EED82BE00350204 /* PBXTargetDependency */,
 			);
 			name = NVActivityIndicatorViewDemo;
 			productName = NVActivityIndicatorViewDemo;
@@ -355,6 +379,7 @@
 					239CAB1F1B5EBB2E0051DC06 = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					23FB134E1D76D5370096EBE3 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -482,6 +507,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1F1A52C81EED82BE00350204 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90A8792E1BA554A0001C8989 /* NVActivityIndicatorView */;
+			targetProxy = 1F1A52C71EED82BE00350204 /* PBXContainerItemProxy */;
+		};
 		23688A3E1D81A52F00B2A30B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 239CAB1F1B5EBB2E0051DC06 /* NVActivityIndicatorViewDemo */;
@@ -606,24 +636,34 @@
 		239CAB401B5EBB2E0051DC06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NVActivityIndicatorViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		239CAB411B5EBB2E0051DC06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NVActivityIndicatorViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -662,6 +702,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -672,7 +713,7 @@
 				INFOPLIST_FILE = NVActivityIndicatorView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -688,13 +729,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NVActivityIndicatorView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.nvin.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
