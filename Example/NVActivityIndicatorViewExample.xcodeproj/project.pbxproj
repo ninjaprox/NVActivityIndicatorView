@@ -12,8 +12,23 @@
 		1F0327021F0D28CC00BF3358 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0327001F0D28CC00BF3358 /* Main.storyboard */; };
 		1F0327041F0D28CC00BF3358 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F0327031F0D28CC00BF3358 /* Assets.xcassets */; };
 		1F0327071F0D28CC00BF3358 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0327051F0D28CC00BF3358 /* LaunchScreen.storyboard */; };
+		1F0327371F0D39C300BF3358 /* ActivityDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327331F0D39C300BF3358 /* ActivityDataTests.swift */; };
+		1F0327381F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327341F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift */; };
+		1F0327391F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */; };
+		1F03273A1F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */; };
+		BF27BE60A62A545A66A8EE94 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */; };
 		D7C098602AE42E83955F96EA /* Pods_NVActivityIndicatorViewExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F03272E1F0D399F00BF3358 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F0326F11F0D28CC00BF3358 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F0326F81F0D28CC00BF3358;
+			remoteInfo = NVActivityIndicatorViewExample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		06AD8F79CC9AFA25AEDA0F61 /* Pods-NVActivityIndicatorViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -24,6 +39,16 @@
 		1F0327031F0D28CC00BF3358 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F0327061F0D28CC00BF3358 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F0327081F0D28CC00BF3358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F0327291F0D399E00BF3358 /* NVActivityIndicatorViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F03272D1F0D399F00BF3358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F0327331F0D39C300BF3358 /* ActivityDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDataTests.swift; sourceTree = "<group>"; };
+		1F0327341F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenterTests.swift; sourceTree = "<group>"; };
+		1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorTypeTests.swift; sourceTree = "<group>"; };
+		1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewTests.swift; sourceTree = "<group>"; };
+		1F03273B1F0D3A4700BF3358 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = "../../../../Library/Developer/Xcode/DerivedData/NVActivityIndicatorViewExample-hdxlsbdufzcvsycluveyblohjyyk/Build/Products/Debug-iphonesimulator/NVActivityIndicatorView/NVActivityIndicatorView.framework"; sourceTree = "<group>"; };
+		27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.debug.xcconfig"; sourceTree = "<group>"; };
 		F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -37,13 +62,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F0327261F0D399E00BF3358 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF27BE60A62A545A66A8EE94 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		1BECEF2F4F8232BE2E0FE8FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F03273B1F0D3A4700BF3358 /* NVActivityIndicatorView.framework */,
 				F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */,
+				D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -52,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1F0326FB1F0D28CC00BF3358 /* NVActivityIndicatorViewExample */,
+				1F03272A1F0D399F00BF3358 /* NVActivityIndicatorViewTests */,
 				1F0326FA1F0D28CC00BF3358 /* Products */,
 				F2E40C627523ED168D274C66 /* Pods */,
 				1BECEF2F4F8232BE2E0FE8FE /* Frameworks */,
@@ -62,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				1F0326F91F0D28CC00BF3358 /* NVActivityIndicatorViewExample.app */,
+				1F0327291F0D399E00BF3358 /* NVActivityIndicatorViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,11 +116,25 @@
 			path = NVActivityIndicatorViewExample;
 			sourceTree = "<group>";
 		};
+		1F03272A1F0D399F00BF3358 /* NVActivityIndicatorViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F03272D1F0D399F00BF3358 /* Info.plist */,
+				1F0327331F0D39C300BF3358 /* ActivityDataTests.swift */,
+				1F0327341F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift */,
+				1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */,
+				1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */,
+			);
+			path = NVActivityIndicatorViewTests;
+			sourceTree = "<group>";
+		};
 		F2E40C627523ED168D274C66 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */,
 				06AD8F79CC9AFA25AEDA0F61 /* Pods-NVActivityIndicatorViewExample.release.xcconfig */,
+				27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */,
+				D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -111,6 +162,27 @@
 			productReference = 1F0326F91F0D28CC00BF3358 /* NVActivityIndicatorViewExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1F0327281F0D399E00BF3358 /* NVActivityIndicatorViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F0327321F0D399F00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests" */;
+			buildPhases = (
+				9B4B72194E00E10CF472E3E9 /* [CP] Check Pods Manifest.lock */,
+				1F0327251F0D399E00BF3358 /* Sources */,
+				1F0327261F0D399E00BF3358 /* Frameworks */,
+				1F0327271F0D399E00BF3358 /* Resources */,
+				F40FD3845AF34C6530AA8DA8 /* [CP] Embed Pods Frameworks */,
+				C0029094870C36B5EC794102 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F03272F1F0D399F00BF3358 /* PBXTargetDependency */,
+			);
+			name = NVActivityIndicatorViewTests;
+			productName = NVActivityIndicatorViewTests;
+			productReference = 1F0327291F0D399E00BF3358 /* NVActivityIndicatorViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -124,6 +196,12 @@
 					1F0326F81F0D28CC00BF3358 = {
 						CreatedOnToolsVersion = 8.3;
 						ProvisioningStyle = Manual;
+					};
+					1F0327281F0D399E00BF3358 = {
+						CreatedOnToolsVersion = 8.3;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Manual;
+						TestTargetID = 1F0326F81F0D28CC00BF3358;
 					};
 				};
 			};
@@ -141,6 +219,7 @@
 			projectRoot = "";
 			targets = (
 				1F0326F81F0D28CC00BF3358 /* NVActivityIndicatorViewExample */,
+				1F0327281F0D399E00BF3358 /* NVActivityIndicatorViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -153,6 +232,13 @@
 				1F0327071F0D28CC00BF3358 /* LaunchScreen.storyboard in Resources */,
 				1F0327041F0D28CC00BF3358 /* Assets.xcassets in Resources */,
 				1F0327021F0D28CC00BF3358 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F0327271F0D399E00BF3358 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +258,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B4B72194E00E10CF472E3E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C0029094870C36B5EC794102 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DD185C4DF3DF1B66D2FECDB4 /* [CP] Copy Pods Resources */ = {
@@ -204,6 +320,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F40FD3845AF34C6530AA8DA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -216,7 +347,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F0327251F0D399E00BF3358 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0327371F0D39C300BF3358 /* ActivityDataTests.swift in Sources */,
+				1F03273A1F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift in Sources */,
+				1F0327391F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift in Sources */,
+				1F0327381F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F03272F1F0D399F00BF3358 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F0326F81F0D28CC00BF3358 /* NVActivityIndicatorViewExample */;
+			targetProxy = 1F03272E1F0D399F00BF3358 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1F0327001F0D28CC00BF3358 /* Main.storyboard */ = {
@@ -361,6 +511,43 @@
 			};
 			name = Release;
 		};
+		1F0327301F0D399F00BF3358 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NVActivityIndicatorViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVActivityIndicatorViewExample.app/NVActivityIndicatorViewExample";
+			};
+			name = Debug;
+		};
+		1F0327311F0D399F00BF3358 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NVActivityIndicatorViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVActivityIndicatorViewExample.app/NVActivityIndicatorViewExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -378,6 +565,15 @@
 			buildConfigurations = (
 				1F03270C1F0D28CC00BF3358 /* Debug */,
 				1F03270D1F0D28CC00BF3358 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F0327321F0D399F00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F0327301F0D399F00BF3358 /* Debug */,
+				1F0327311F0D399F00BF3358 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
