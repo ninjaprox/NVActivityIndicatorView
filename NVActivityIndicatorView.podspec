@@ -12,7 +12,15 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = "9.0"
 
   s.source       = { :git => "https://github.com/ninjaprox/NVActivityIndicatorView.git", :tag => s.version }
-  s.source_files = "NVActivityIndicatorView/NVActivityIndicatorView/**/*.swift"
+
+  s.subspec "Presenter" do |ps|
+    ps.source_files = "NVActivityIndicatorView/NVActivityIndicatorView/**/*.swift"
+  end
+  s.subspec "AppExtension" do |aes|
+    aes.source_files = "NVActivityIndicatorView/NVActivityIndicatorView/**/*.swift"
+    aes.exclude_files = "NVActivityIndicatorView/NVActivityIndicatorView/Presenter/*.swift"
+  end
+  s.default_subspec = "Presenter"
 
   s.frameworks = "UIKit", "QuartzCore"
 end
