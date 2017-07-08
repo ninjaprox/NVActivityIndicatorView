@@ -668,6 +668,7 @@
 				1F88C9E01F10D0B200869231 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
