@@ -9,7 +9,7 @@ matrix:
     env: SDK="iphonesimulator10.2" DESTINATION="name=iPhone 6s,OS=10.2"
   - osx_image: xcode8.3
     env: SDK="iphonesimulator10.3" DESTINATION="name=iPhone 6s,OS=10.3.1"
-  - osx_image: xcode9.0
+  - osx_image: xcode9
     env: SDK="iphonesimulator11.0" DESTINATION="name=iPhone 6s,OS=11.0"
 script:
   - set -o pipefail
