@@ -1,0 +1,8 @@
+use_frameworks!
+platform :ios, '9.0'
+
+target 'NVActivityIndicatorViewExample' do
+  pod 'NVActivityIndicatorView', :path => '../'
+
+  target 'NVActivityIndicatorViewTests'
+end

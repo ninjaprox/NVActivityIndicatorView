@@ -1,14 +1,15 @@
 language: objective-c
 env:
   global:
-  - PROJECT=NVActivityIndicatorView.xcodeproj
-  - SCHEME=NVActivityIndicatorView
+  - WORKSPACE=Example/NVActivityIndicatorViewExample.xcworkspace
+  - SCHEME=NVActivityIndicatorViewTests
 matrix:
   include:
   - osx_image: xcode8.2
     env: SDK="iphonesimulator10.2" DESTINATION="name=iPhone 6s,OS=10.2"
   - osx_image: xcode8.3
-    env: SDK="iphonesimulator10.3" DESTINATION="name=iPhone 6s,OS=10.3"
+    env: SDK="iphonesimulator10.3" DESTINATION="name=iPhone 6s,OS=10.3.1"
 script:
   - set -o pipefail
-  - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES clean test | xcpretty -c
+  - pod install --project-directory=Example
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES clean test | xcpretty -c
