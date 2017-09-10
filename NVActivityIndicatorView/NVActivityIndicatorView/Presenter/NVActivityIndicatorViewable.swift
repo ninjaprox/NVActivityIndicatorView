@@ -50,7 +50,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
      - parameter minimumDisplayTime:   minimum display time of UI blocker.
      */
-    public final func startAnimating(
+    public func startAnimating(
         _ size: CGSize? = nil,
         message: String? = nil,
         messageFont: UIFont? = nil,
@@ -78,7 +78,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
     /**
      Remove UI blocker.
      */
-    public final func stopAnimating() {
+    public func stopAnimating() {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
 }
