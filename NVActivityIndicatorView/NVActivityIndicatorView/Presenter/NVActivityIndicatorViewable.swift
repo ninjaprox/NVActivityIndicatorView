@@ -60,7 +60,9 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         displayTimeThreshold: Int? = nil,
         minimumDisplayTime: Int? = nil,
         backgroundColor: UIColor? = nil,
-        textColor: UIColor? = nil) {
+        textColor: UIColor? = nil,
+        fadeInTime: Int? = nil,
+        fadeOutTime: Int? = nil) {
         let activityData = ActivityData(size: size,
                                         message: message,
                                         messageFont: messageFont,
@@ -70,7 +72,9 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
                                         displayTimeThreshold: displayTimeThreshold,
                                         minimumDisplayTime: minimumDisplayTime,
                                         backgroundColor: backgroundColor,
-                                        textColor: textColor)
+                                        textColor: textColor,
+                                        fadeInTime: fadeInTime,
+                                        fadeOutTime: fadeOutTime)
 
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
     }

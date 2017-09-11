@@ -361,6 +361,9 @@ public final class NVActivityIndicatorView: UIView {
     /// Default background color of UI blocker. Default value is UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     public static var DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 
+    /// Default fade in/fade out time of UI blocker. Default value is 0 ms.
+    public static var DEFAULT_FADE_TIME = 0
+
     /// Animation type.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
 

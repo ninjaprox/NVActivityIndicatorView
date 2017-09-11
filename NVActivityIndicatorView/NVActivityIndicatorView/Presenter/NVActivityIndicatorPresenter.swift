@@ -53,11 +53,17 @@ public final class ActivityData {
     /// Display time threshold to actually display UI blocker.
     let displayTimeThreshold: Int
 
-    /// Minimum display time of UI blocker.
+    /// Minimum display time of UI blocker (not counting fade time).
     let minimumDisplayTime: Int
 
-    /// Background color of the UI blocker
+    /// Background color of the UI blocker.
     let backgroundColor: UIColor
+
+    /// Fade in time of UI blocker.
+    let fadeInTime: Int
+
+    /// Fade out time of UI blocker.
+    let fadeOutTime: Int
 
     /**
      Create information package used to display UI blocker.
@@ -71,8 +77,10 @@ public final class ActivityData {
      - parameter color:                color of activity indicator view.
      - parameter padding:              padding of activity indicator view.
      - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
-     - parameter minimumDisplayTime:   minimum display time of UI blocker.
+     - parameter minimumDisplayTime:   minimum display time of UI blocker (not counting fade time).
      - parameter textColor:            color of the text below the activity indicator view. Will match color parameter if not set, otherwise DEFAULT_TEXT_COLOR if color is not set.
+     - parameter fadeInTime:           fade in time of UI blocker.
+     - parameter fadeOutTime:          fade out time of UI blocker.
 
      - returns: The information package used to display UI blocker.
      */
@@ -85,7 +93,9 @@ public final class ActivityData {
                 displayTimeThreshold: Int? = nil,
                 minimumDisplayTime: Int? = nil,
                 backgroundColor: UIColor? = nil,
-                textColor: UIColor? = nil) {
+                textColor: UIColor? = nil,
+                fadeInTime: Int? = nil,
+                fadeOutTime: Int? = nil) {
         self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE
         self.messageFont = messageFont ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT
@@ -96,6 +106,8 @@ public final class ActivityData {
         self.minimumDisplayTime = minimumDisplayTime ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME
         self.backgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR
         self.textColor = textColor ?? color ?? NVActivityIndicatorView.DEFAULT_TEXT_COLOR
+        self.fadeInTime = fadeInTime ?? NVActivityIndicatorView.DEFAULT_FADE_TIME
+        self.fadeOutTime = fadeOutTime ?? NVActivityIndicatorView.DEFAULT_FADE_TIME
     }
 }
 
@@ -121,6 +133,9 @@ public final class NVActivityIndicatorPresenter {
 
     private var state: State = .hidden
     private let startAnimatingGroup = DispatchGroup()
+
+    private var fadeInTime: TimeInterval = 0
+    private var fadeOutTime: TimeInterval = 0
 
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
@@ -220,6 +235,9 @@ public final class NVActivityIndicatorPresenter {
 
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
 
+        fadeInTime = TimeInterval(Double(activityData.fadeInTime)/1000.0)
+        fadeOutTime = TimeInterval(Double(activityData.fadeOutTime)/1000.0)
+
         keyWindow.addSubview(containerView)
         state = .showed
 
@@ -233,7 +251,16 @@ public final class NVActivityIndicatorPresenter {
             keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
         }())
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.minimumDisplayTime)) {
+        if fadeInTime > 0 {
+          containerView.alpha = 0
+
+          UIView.animate(withDuration: fadeInTime, delay: 0, options: [.curveLinear], animations: {
+            containerView.alpha = 1.0
+          })
+        }
+
+        let totalMinimumDisplayTime = activityData.minimumDisplayTime + activityData.fadeInTime
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(totalMinimumDisplayTime)) {
             self._hide()
         }
     }
@@ -251,7 +278,15 @@ public final class NVActivityIndicatorPresenter {
 
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
-            item.removeFromSuperview()
+            if fadeOutTime > 0 {
+              UIView.animate(withDuration: fadeOutTime, delay: 0, options: [.curveLinear], animations: {
+                    item.alpha = 0
+                }, completion: { completed in
+                    item.removeFromSuperview()
+                })
+            } else {
+                item.removeFromSuperview()
+            }
         }
         state = .hidden
     }
