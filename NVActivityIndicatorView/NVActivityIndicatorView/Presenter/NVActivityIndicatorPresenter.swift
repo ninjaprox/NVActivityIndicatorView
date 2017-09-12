@@ -281,7 +281,7 @@ public final class NVActivityIndicatorPresenter {
             if fadeOutTime > 0 {
               UIView.animate(withDuration: fadeOutTime, delay: 0, options: [.curveLinear], animations: {
                     item.alpha = 0
-                }, completion: { completed in
+                }, completion: { _ in
                     item.removeFromSuperview()
                 })
             } else {
