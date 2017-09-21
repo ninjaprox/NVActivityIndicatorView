@@ -82,6 +82,10 @@ _**Note:** If you encounter issues while uploading the app to iTunes Connect, re
 
 ## Migration
 
+### Version 4.0.0
+
+This version requires Xcode 9.0 and Swift 4.
+
 ### Version 3.7.0
 
 This version splits `NVActivityIndicatorView` pod to 2 subpods `NVActivityIndicatorView/Presenter` and `NVActivityIndicatorView/AppExtension`. There is no need to change `pod NVActivityIndicatorView` to `pod NVActivityIndicatorView/Presenter` since it will be installed by default if you use the main pod name.
