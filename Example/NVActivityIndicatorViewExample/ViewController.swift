@@ -72,7 +72,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         }
     }
 
-    func buttonTapped(_ sender: UIButton) {
+    @objc func buttonTapped(_ sender: UIButton) {
         let size = CGSize(width: 30, height: 30)
 
         startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
