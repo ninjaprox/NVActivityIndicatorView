@@ -435,6 +435,15 @@ public final class NVActivityIndicatorView: UIView {
         return CGSize(width: bounds.width, height: bounds.height)
     }
 
+    public override var bounds: CGRect {
+        didSet {
+            // setup the animation again for the new bounds
+            if oldValue != bounds && isAnimating {
+                setUpAnimation()
+            }
+        }
+    }
+
     /**
      Start animating.
      */
