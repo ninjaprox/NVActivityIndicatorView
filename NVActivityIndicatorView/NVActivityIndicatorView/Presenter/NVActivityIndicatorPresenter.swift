@@ -38,6 +38,9 @@ public final class ActivityData {
     /// Font of message displayed under activity indicator view.
     let messageFont: UIFont
 
+    /// Message spacing to activity indicator view.
+    let messageSpacing: CGFloat
+
     /// Animation type.
     let type: NVActivityIndicatorType
 
@@ -67,6 +70,7 @@ public final class ActivityData {
      - parameter size:                 size of activity indicator view.
      - parameter message:              message displayed under activity indicator view.
      - parameter messageFont:          font of message displayed under activity indicator view.
+     - parameter messageSpacing:       message spacing to activity indicator view.
      - parameter type:                 animation type.
      - parameter color:                color of activity indicator view.
      - parameter padding:              padding of activity indicator view.
@@ -79,6 +83,7 @@ public final class ActivityData {
     public init(size: CGSize? = nil,
                 message: String? = nil,
                 messageFont: UIFont? = nil,
+                messageSpacing: CGFloat? = nil,
                 type: NVActivityIndicatorType? = nil,
                 color: UIColor? = nil,
                 padding: CGFloat? = nil,
@@ -89,6 +94,7 @@ public final class ActivityData {
         self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE
         self.messageFont = messageFont ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT
+        self.messageSpacing = messageSpacing ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_SPACING
         self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
         self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
         self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
@@ -213,7 +219,7 @@ public final class NVActivityIndicatorPresenter {
             containerView.addConstraints([leadingConstraint, trailingConstraint])
         }())
         ({
-            let spacingConstraint = NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: activityIndicatorView, attribute: .bottom, multiplier: 1, constant: 8)
+            let spacingConstraint = NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: activityIndicatorView, attribute: .bottom, multiplier: 1, constant: activityData.messageSpacing)
 
             containerView.addConstraint(spacingConstraint)
         }())
