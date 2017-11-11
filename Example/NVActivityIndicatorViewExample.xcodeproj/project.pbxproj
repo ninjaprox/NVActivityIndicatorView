@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F0326FD1F0D28CC00BF3358 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326FC1F0D28CC00BF3358 /* AppDelegate.swift */; };
+		1F0326FF1F0D28CC00BF3358 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326FE1F0D28CC00BF3358 /* ViewController.swift */; };
+		1F0327021F0D28CC00BF3358 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0327001F0D28CC00BF3358 /* Main.storyboard */; };
+		1F0327041F0D28CC00BF3358 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F0327031F0D28CC00BF3358 /* Assets.xcassets */; };
+		1F0327071F0D28CC00BF3358 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0327051F0D28CC00BF3358 /* LaunchScreen.storyboard */; };
+		1F0327371F0D39C300BF3358 /* ActivityDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327331F0D39C300BF3358 /* ActivityDataTests.swift */; };
+		1F0327381F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327341F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift */; };
+		1F0327391F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */; };
+		1F03273A1F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */; };
+		BF27BE60A62A545A66A8EE94 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */; };
+		D7C098602AE42E83955F96EA /* Pods_NVActivityIndicatorViewExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F03272E1F0D399F00BF3358 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F0326F11F0D28CC00BF3358 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F0326F81F0D28CC00BF3358;
+			remoteInfo = NVActivityIndicatorViewExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06AD8F79CC9AFA25AEDA0F61 /* Pods-NVActivityIndicatorViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.release.xcconfig"; sourceTree = "<group>"; };
+		1F0326F91F0D28CC00BF3358 /* NVActivityIndicatorViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVActivityIndicatorViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0326FC1F0D28CC00BF3358 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F0326FE1F0D28CC00BF3358 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F0327011F0D28CC00BF3358 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F0327031F0D28CC00BF3358 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F0327061F0D28CC00BF3358 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F0327081F0D28CC00BF3358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F0327291F0D399E00BF3358 /* NVActivityIndicatorViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVActivityIndicatorViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F03272D1F0D399F00BF3358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F0327331F0D39C300BF3358 /* ActivityDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDataTests.swift; sourceTree = "<group>"; };
+		1F0327341F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenterTests.swift; sourceTree = "<group>"; };
+		1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorTypeTests.swift; sourceTree = "<group>"; };
+		1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewTests.swift; sourceTree = "<group>"; };
+		1F03273B1F0D3A4700BF3358 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = "../../../../Library/Developer/Xcode/DerivedData/NVActivityIndicatorViewExample-hdxlsbdufzcvsycluveyblohjyyk/Build/Products/Debug-iphonesimulator/NVActivityIndicatorView/NVActivityIndicatorView.framework"; sourceTree = "<group>"; };
+		27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.debug.xcconfig"; sourceTree = "<group>"; };
+		F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F0326F61F0D28CC00BF3358 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7C098602AE42E83955F96EA /* Pods_NVActivityIndicatorViewExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F0327261F0D399E00BF3358 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF27BE60A62A545A66A8EE94 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BECEF2F4F8232BE2E0FE8FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F03273B1F0D3A4700BF3358 /* NVActivityIndicatorView.framework */,
+				F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */,
+				D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F0326F01F0D28CC00BF3358 = {
+			isa = PBXGroup;
+			children = (
+				1F0326FB1F0D28CC00BF3358 /* NVActivityIndicatorViewExample */,
+				1F03272A1F0D399F00BF3358 /* NVActivityIndicatorViewTests */,
+				1F0326FA1F0D28CC00BF3358 /* Products */,
+				F2E40C627523ED168D274C66 /* Pods */,
+				1BECEF2F4F8232BE2E0FE8FE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1F0326FA1F0D28CC00BF3358 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F0326F91F0D28CC00BF3358 /* NVActivityIndicatorViewExample.app */,
+				1F0327291F0D399E00BF3358 /* NVActivityIndicatorViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F0326FB1F0D28CC00BF3358 /* NVActivityIndicatorViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				1F0327081F0D28CC00BF3358 /* Info.plist */,
+				1F0326FC1F0D28CC00BF3358 /* AppDelegate.swift */,
+				1F0326FE1F0D28CC00BF3358 /* ViewController.swift */,
+				1F0327031F0D28CC00BF3358 /* Assets.xcassets */,
+				1F0327051F0D28CC00BF3358 /* LaunchScreen.storyboard */,
+				1F0327001F0D28CC00BF3358 /* Main.storyboard */,
+			);
+			path = NVActivityIndicatorViewExample;
+			sourceTree = "<group>";
+		};
+		1F03272A1F0D399F00BF3358 /* NVActivityIndicatorViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F03272D1F0D399F00BF3358 /* Info.plist */,
+				1F0327331F0D39C300BF3358 /* ActivityDataTests.swift */,
+				1F0327341F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift */,
+				1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */,
+				1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */,
+			);
+			path = NVActivityIndicatorViewTests;
+			sourceTree = "<group>";
+		};
+		F2E40C627523ED168D274C66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */,
+				06AD8F79CC9AFA25AEDA0F61 /* Pods-NVActivityIndicatorViewExample.release.xcconfig */,
+				27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */,
+				D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F0326F81F0D28CC00BF3358 /* NVActivityIndicatorViewExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F03270B1F0D28CC00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewExample" */;
+			buildPhases = (
+				DEFA0E424E92625E57036A83 /* [CP] Check Pods Manifest.lock */,
+				1F0326F51F0D28CC00BF3358 /* Sources */,
+				1F0326F61F0D28CC00BF3358 /* Frameworks */,
+				1F0326F71F0D28CC00BF3358 /* Resources */,
+				4420B95FF59E9BF6A4CA47A2 /* [CP] Embed Pods Frameworks */,
+				DD185C4DF3DF1B66D2FECDB4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NVActivityIndicatorViewExample;
+			productName = NVActivityIndicatorViewExample;
+			productReference = 1F0326F91F0D28CC00BF3358 /* NVActivityIndicatorViewExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1F0327281F0D399E00BF3358 /* NVActivityIndicatorViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F0327321F0D399F00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests" */;
+			buildPhases = (
+				9B4B72194E00E10CF472E3E9 /* [CP] Check Pods Manifest.lock */,
+				1F0327251F0D399E00BF3358 /* Sources */,
+				1F0327261F0D399E00BF3358 /* Frameworks */,
+				1F0327271F0D399E00BF3358 /* Resources */,
+				F40FD3845AF34C6530AA8DA8 /* [CP] Embed Pods Frameworks */,
+				C0029094870C36B5EC794102 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F03272F1F0D399F00BF3358 /* PBXTargetDependency */,
+			);
+			name = NVActivityIndicatorViewTests;
+			productName = NVActivityIndicatorViewTests;
+			productReference = 1F0327291F0D399E00BF3358 /* NVActivityIndicatorViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F0326F11F0D28CC00BF3358 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Vinh Nguyen";
+				TargetAttributes = {
+					1F0326F81F0D28CC00BF3358 = {
+						CreatedOnToolsVersion = 8.3;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
+					};
+					1F0327281F0D399E00BF3358 = {
+						CreatedOnToolsVersion = 8.3;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
+						TestTargetID = 1F0326F81F0D28CC00BF3358;
+					};
+				};
+			};
+			buildConfigurationList = 1F0326F41F0D28CC00BF3358 /* Build configuration list for PBXProject "NVActivityIndicatorViewExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F0326F01F0D28CC00BF3358;
+			productRefGroup = 1F0326FA1F0D28CC00BF3358 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F0326F81F0D28CC00BF3358 /* NVActivityIndicatorViewExample */,
+				1F0327281F0D399E00BF3358 /* NVActivityIndicatorViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F0326F71F0D28CC00BF3358 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0327071F0D28CC00BF3358 /* LaunchScreen.storyboard in Resources */,
+				1F0327041F0D28CC00BF3358 /* Assets.xcassets in Resources */,
+				1F0327021F0D28CC00BF3358 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F0327271F0D399E00BF3358 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4420B95FF59E9BF6A4CA47A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B4B72194E00E10CF472E3E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0029094870C36B5EC794102 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD185C4DF3DF1B66D2FECDB4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEFA0E424E92625E57036A83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NVActivityIndicatorViewExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F40FD3845AF34C6530AA8DA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F0326F51F0D28CC00BF3358 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0326FF1F0D28CC00BF3358 /* ViewController.swift in Sources */,
+				1F0326FD1F0D28CC00BF3358 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F0327251F0D399E00BF3358 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0327371F0D39C300BF3358 /* ActivityDataTests.swift in Sources */,
+				1F03273A1F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift in Sources */,
+				1F0327391F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift in Sources */,
+				1F0327381F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F03272F1F0D399F00BF3358 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F0326F81F0D28CC00BF3358 /* NVActivityIndicatorViewExample */;
+			targetProxy = 1F03272E1F0D399F00BF3358 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F0327001F0D28CC00BF3358 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F0327011F0D28CC00BF3358 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1F0327051F0D28CC00BF3358 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F0327061F0D28CC00BF3358 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F0327091F0D28CC00BF3358 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1F03270A1F0D28CC00BF3358 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F03270C1F0D28CC00BF3358 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NVActivityIndicatorViewExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		1F03270D1F0D28CC00BF3358 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06AD8F79CC9AFA25AEDA0F61 /* Pods-NVActivityIndicatorViewExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NVActivityIndicatorViewExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorViewExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		1F0327301F0D399F00BF3358 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NVActivityIndicatorViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVActivityIndicatorViewExample.app/NVActivityIndicatorViewExample";
+			};
+			name = Debug;
+		};
+		1F0327311F0D399F00BF3358 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NVActivityIndicatorViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVActivityIndicatorViewExample.app/NVActivityIndicatorViewExample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F0326F41F0D28CC00BF3358 /* Build configuration list for PBXProject "NVActivityIndicatorViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F0327091F0D28CC00BF3358 /* Debug */,
+				1F03270A1F0D28CC00BF3358 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F03270B1F0D28CC00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F03270C1F0D28CC00BF3358 /* Debug */,
+				1F03270D1F0D28CC00BF3358 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F0327321F0D399F00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F0327301F0D399F00BF3358 /* Debug */,
+				1F0327311F0D399F00BF3358 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F0326F11F0D28CC00BF3358 /* Project object */;
+}

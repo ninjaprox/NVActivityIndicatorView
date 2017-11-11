@@ -1,38 +1,38 @@
 NVActivityIndicatorView
-===================
+=======================
 
 [![Build Status](https://travis-ci.org/ninjaprox/NVActivityIndicatorView.svg?branch=master)](https://travis-ci.org/ninjaprox/NVActivityIndicatorView)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-# Introduction
+## Introduction
 `NVActivityIndicatorView` is a collection of awesome loading animations.
 
 This is original a fork from [DGActivityIndicatorView](https://github.com/gontovnik/DGActivityIndicatorView), inspired by [Loaders.css](https://github.com/ConnorAtherton/loaders.css), written in Swift with full implementation of animations, plus more.
 
 You can also find Objective-C version of this [here](https://github.com/ninjaprox/DGActivityIndicatorView).
 
-# Demo
+## Demo
 ![alt tag](https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif)
 
 For first-hand experience, just open the project and run it.
 
-# Animation types
+## Animation types
 
 | Type | Type | Type | Type |
 |---|---|---|---|
-1. ballPulse | 2. ballGridPulse | 3. ballClipRotate | 4. squareSpin
-5. ballClipRotatePulse | 6. ballClipRotateMultiple | 7. ballPulseRise | 8. ballRotate
-9. cubeTransition | 10. ballZigZag | 11. ballZigZagDeflect | 12. ballTrianglePath
-13. ballScale | 14. lineScale | 15. lineScaleParty | 16. ballScaleMultiple
-17. ballPulseSync | 18. ballBeat | 19. lineScalePulseOut | 20. lineScalePulseOutRapid
-21. ballScaleRipple | 22. ballScaleRippleMultiple | 23. ballSpinFadeLoader | 24. lineSpinFadeLoader
-25. triangleSkewSpin | 26. pacman | 27. ballGridBeat | 28. semiCircleSpin
-29. ballRotateChase | 30. orbit | 31. audioEqualizer
+|1. ballPulse | 2. ballGridPulse | 3. ballClipRotate | 4. squareSpin|
+|5. ballClipRotatePulse | 6. ballClipRotateMultiple | 7. ballPulseRise | 8. ballRotate|
+|9. cubeTransition | 10. ballZigZag | 11. ballZigZagDeflect | 12. ballTrianglePath|
+|13. ballScale | 14. lineScale | 15. lineScaleParty | 16. ballScaleMultiple|
+|17. ballPulseSync | 18. ballBeat | 19. lineScalePulseOut | 20. lineScalePulseOutRapid|
+|21. ballScaleRipple | 22. ballScaleRippleMultiple | 23. ballSpinFadeLoader | 24. lineSpinFadeLoader|
+|25. triangleSkewSpin | 26. pacman | 27. ballGridBeat | 28. semiCircleSpin|
+|29. ballRotateChase | 30. orbit | 31. audioEqualizer|
 
-# Installation
+## Installation
 
-## Cocoapods
+### Cocoapods
 
 Install Cocoapods if need be.
 
@@ -53,7 +53,7 @@ Then, run the following command.
 ```bash
 $ pod install
 ```
-## Carthage
+### Carthage
 
 Install Carthage if need be.
 
@@ -72,7 +72,7 @@ Run `carthage` to build the framework and drag the built `NVActivityIndicatorVie
 
 _**Note:** You might encounter compile issue, if so please use `carthage` branch instead. Check issue [#101](https://github.com/ninjaprox/NVActivityIndicatorView/issues/101) for more information._
 
-## Manual
+### Manual
 
 Copy `NVActivityIndicatorView` folder to your project. That's it.
 
@@ -80,20 +80,32 @@ _**Note:** Make sure that all files in `NVActivityIndicatorView` included in Com
 
 _**Note:** If you encounter issues while uploading the app to iTunes Connect, remove the `Info.plist` file in `NVActivityIndicatorView`. Check issue [#129](https://github.com/ninjaprox/NVActivityIndicatorView/issues/129) for more information._
 
-# Migration
+## Migration
 
-## Version 3.6.0
+### Version 4.0.0
+
+This version requires Xcode 9.0 and Swift 4.
+
+### Version 3.7.0
+
+This version splits `NVActivityIndicatorView` pod to 2 subpods `NVActivityIndicatorView/Presenter` and `NVActivityIndicatorView/AppExtension`. There is no need to change `pod NVActivityIndicatorView` to `pod NVActivityIndicatorView/Presenter` since it will be installed by default if you use the main pod name.
+
+However, if you want to use `NVActivityIndicatorView` in app extension, use `pod NVActivityIndicatorView/AppExtension` instead.
+
+_**Note:** Related issue [#119](https://github.com/ninjaprox/NVActivityIndicatorView/issues/119)._
+
+### Version 3.6.0
 
 This version requires Xcode 8.3 and Swift 3.1.
 
-## Version 3.0
+### Version 3.0
 
 This version requires Xcode 8.0 and Swift 3.
 
 - `NVActivityIndicatorView.startAnimation()` and `NVActivityIndicatorView.stopAnimation()` are deleted. Use `NVActivityIndicatorView.startAnimating()` and `NVActivityIndicatorView.stopAnimating()` instead.
 - `UIViewController.startActivityAnimating()` and `UIViewController.stopActivityAnimating()` are deleted. Use `UIViewController.startAnimating()` and `UIViewController.stopAnimating()` instead.
 
-## Version 2.0
+### Version 2.0
 
 This version continues to spport Xcode 7.0 and Swift 2.2 and earlier.
 For Swift 2.3 support, use `swift2.3` branch instead.
@@ -102,7 +114,7 @@ For Swift 2.3 support, use `swift2.3` branch instead.
 pod 'NVActivityIndicatorView', :git => 'https://github.com/ninjaprox/NVActivityIndicatorView.git', :branch => 'swift2.3'
 ```
 
-# Usage
+## Usage
 
 Firstly, import `NVActivityIndicatorView`.
 
@@ -110,7 +122,7 @@ Firstly, import `NVActivityIndicatorView`.
 import NVActivityIndicatorView
 ```
 
-## Initialization
+### Initialization
 
 Then, there are two ways you can create NVActivityIndicatorView:
 
@@ -126,7 +138,7 @@ NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding
 
 _**Note:** Check [DEFAULTS](#defaults) for default values._
 
-## Control
+### Control
 
 Start animating.
 
@@ -146,7 +158,7 @@ Determine if it is animating.
 animating = activityIndicatorView.animating
 ```
 
-## Change properties
+### Change properties
 
 In storyboard, you can change all properties in Attributes inspector tab of Utilities panel.
 
@@ -156,7 +168,7 @@ All properties are public so you can change them all after initiating.
 
 _**Note:** All changes must be made before calling `startAnimating()`._
 
-## UI blocker
+### UI blocker
 
 By conforming `NVActivityIndicatorViewable` protocol, you can use `NVActivityIndicatorView` as UI blocker for `UIViewController`.
 
@@ -200,7 +212,7 @@ Change message.
 NVActivityIndicatorPresenter.sharedInstance.setMessage("Done")
 ```
 
-## DEFAULTS
+### DEFAULTS
 
 There are global defaults for all `NVActivityIndicatorView` instances.
 
@@ -268,11 +280,11 @@ NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE: String? = nil
 NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 20)
 ```
 
-# Acknowledgment
+## Acknowledgment
 
 Thanks [Connor Atherton](https://github.com/ConnorAtherton) for great loaders and [Danil Gontovnik](https://github.com/gontovnik) for kick-start.
 
-# License
+## License
 
 The MIT License (MIT)
 
