@@ -63,7 +63,7 @@ import UIKit
  - Orbit:                   Orbit animation.
  - AudioEqualizer:          AudioEqualizer animation.
  */
-public enum NVActivityIndicatorType: Int {
+public enum NVActivityIndicatorType {
     /**
      Blank.
 
@@ -257,7 +257,9 @@ public enum NVActivityIndicatorType: Int {
      */
     case audioEqualizer
 
-    static let allTypes = (blank.rawValue ... audioEqualizer.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
+    case custom(indicator:NVActivityIndicatorAnimationDelegate)
+
+    static let allTypes:[NVActivityIndicatorType] = [.blank, .ballPulse, .ballGridPulse, .ballClipRotate, .squareSpin, .ballClipRotatePulse, .ballClipRotateMultiple, .ballPulseRise, .ballRotate, .cubeTransition, .ballZigZag, .ballZigZagDeflect, .ballTrianglePath, .ballScale, .lineScale, .lineScaleParty, .ballScaleMultiple, .ballPulseSync, .ballBeat, .lineScalePulseOut, .lineScalePulseOutRapid, .ballScaleRipple, .ballScaleRippleMultiple, .ballSpinFadeLoader, .lineSpinFadeLoader, .triangleSkewSpin, .pacman, .ballGridBeat, .semiCircleSpin, .ballRotateChase, .orbit, .audioEqualizer]
 
     func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
@@ -325,6 +327,8 @@ public enum NVActivityIndicatorType: Int {
             return NVActivityIndicatorAnimationOrbit()
         case .audioEqualizer:
             return NVActivityIndicatorAnimationAudioEqualizer()
+        case .custom(let indicator):
+            return indicator
         }
     }
 }
