@@ -140,7 +140,7 @@ public final class NVActivityIndicatorPresenter {
 
      - parameter data: Information package used to display UI blocker.
      */
-    public final func startAnimating(_ data: ActivityData) {
+    public final func startAnimating(_ data: ActivityData, blockingUI: Bool = true) {
         guard state == .hidden else { return }
 
         state = .waitingToShow
@@ -152,7 +152,7 @@ public final class NVActivityIndicatorPresenter {
                 return
             }
 
-            self.show(with: data)
+            self.show(with: data, blockingUI: blockingUI)
             self.startAnimatingGroup.leave()
         }
     }
@@ -181,9 +181,10 @@ public final class NVActivityIndicatorPresenter {
 
     // MARK: - Helpers
 
-    private func show(with activityData: ActivityData) {
+    private func show(with activityData: ActivityData, blockingUI: Bool) {
         let containerView = UIView(frame: UIScreen.main.bounds)
 
+        containerView.isUserInteractionEnabled = blockingUI
         containerView.backgroundColor = activityData.backgroundColor
         containerView.restorationIdentifier = restorationIdentifier
         containerView.translatesAutoresizingMaskIntoConstraints = false
