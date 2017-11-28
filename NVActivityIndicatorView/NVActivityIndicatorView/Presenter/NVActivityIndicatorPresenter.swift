@@ -62,6 +62,8 @@ public final class ActivityData {
     /// Background color of the UI blocker
     let backgroundColor: UIColor
 
+    let enterExitAnimationDuration: TimeInterval
+
     /**
      Create information package used to display UI blocker.
 
@@ -90,7 +92,8 @@ public final class ActivityData {
                 displayTimeThreshold: Int? = nil,
                 minimumDisplayTime: Int? = nil,
                 backgroundColor: UIColor? = nil,
-                textColor: UIColor? = nil) {
+                textColor: UIColor? = nil,
+                enterExitAnimationDuration: TimeInterval = 0) {
         self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE
         self.messageFont = messageFont ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT
@@ -102,6 +105,7 @@ public final class ActivityData {
         self.minimumDisplayTime = minimumDisplayTime ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME
         self.backgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR
         self.textColor = textColor ?? color ?? NVActivityIndicatorView.DEFAULT_TEXT_COLOR
+        self.enterExitAnimationDuration = enterExitAnimationDuration
     }
 }
 
@@ -125,6 +129,7 @@ public final class NVActivityIndicatorPresenter {
         return label
     }()
 
+    private var enterExitAnimationDuration: TimeInterval = 0
     private var state: State = .hidden
     private let startAnimatingGroup = DispatchGroup()
 
@@ -183,6 +188,8 @@ public final class NVActivityIndicatorPresenter {
 
     private func show(with activityData: ActivityData) {
         let containerView = UIView(frame: UIScreen.main.bounds)
+        let hasEnterAnimation = activityData.enterExitAnimationDuration > 0
+        self.enterExitAnimationDuration = activityData.enterExitAnimationDuration
 
         containerView.backgroundColor = activityData.backgroundColor
         containerView.restorationIdentifier = restorationIdentifier
@@ -204,7 +211,7 @@ public final class NVActivityIndicatorPresenter {
             let yConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerY, multiplier: 1, constant: 0)
 
             containerView.addConstraints([xConstraint, yConstraint])
-        }())
+            }())
 
         messageLabel.font = activityData.messageFont
         messageLabel.textColor = activityData.textColor
@@ -217,16 +224,17 @@ public final class NVActivityIndicatorPresenter {
             let trailingConstraint = NSLayoutConstraint(item: containerView, attribute: .trailing, relatedBy: .equal, toItem: messageLabel, attribute: .trailing, multiplier: 1, constant: 8)
 
             containerView.addConstraints([leadingConstraint, trailingConstraint])
-        }())
+            }())
         ({
             let spacingConstraint = NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: activityIndicatorView, attribute: .bottom, multiplier: 1, constant: activityData.messageSpacing)
 
             containerView.addConstraint(spacingConstraint)
-        }())
+            }())
 
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
 
         keyWindow.addSubview(containerView)
+
         state = .showed
 
         // Add constraints for `containerView`.
@@ -237,7 +245,15 @@ public final class NVActivityIndicatorPresenter {
             let bottomConstraint = NSLayoutConstraint(item: keyWindow, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: 0)
 
             keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
-        }())
+            }())
+
+        if hasEnterAnimation {
+            containerView.alpha = 0
+
+            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseIn], animations: {
+                containerView.alpha = 1.0
+            })
+        }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.minimumDisplayTime)) {
             self._hide()
@@ -257,9 +273,20 @@ public final class NVActivityIndicatorPresenter {
     private func hide() {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
 
+        let hasExitAnimation = self.enterExitAnimationDuration > 0
+
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
-            item.removeFromSuperview()
+                if hasExitAnimation {
+                    UIView.animate(withDuration: enterExitAnimationDuration, delay: 0, options: [.curveEaseOut], animations: {
+                        item.alpha = 0
+                    }, completion: {completed in
+                        item.removeFromSuperview()
+                    })
+                }
+                else {
+                    item.removeFromSuperview()
+                }
         }
         state = .hidden
     }
