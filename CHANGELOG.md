@@ -1,5 +1,9 @@
 # Change log
 
+## [4.0.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.0.1)
+* Fix view in auto layout
+* Fix #173, #180
+
 ## [4.0.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.0.0)
 * Update to Swift 4
 
