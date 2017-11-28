@@ -241,6 +241,8 @@ public final class NVActivityIndicatorPresenter {
     private func _hide() {
         if state == .waitingToHide {
             hide()
+        } else if state == .waitingToShow {
+            state = .hidden
         } else if state != .hidden {
             state = .waitingToHide
         }
