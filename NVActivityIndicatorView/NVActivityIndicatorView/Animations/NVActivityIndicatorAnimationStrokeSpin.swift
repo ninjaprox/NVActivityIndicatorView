@@ -28,38 +28,36 @@
 import Foundation
 
 class NVActivityIndicatorAnimationStrokeSpin: NVActivityIndicatorAnimationDelegate {
-    
+
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
-        struct Constant {
-            static let beginTime: Double = 0.5
-            static let strokeStartDuration: Double = 1.2
-            static let strokeEndDuration: Double = 0.7
-        }
-        
+        let beginTime: Double = 0.5
+        let strokeStartDuration: Double = 1.2
+        let strokeEndDuration: Double = 0.7
+
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotationAnimation.byValue = Float.pi * 2
         rotationAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        
+
         let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        strokeEndAnimation.duration = Constant.strokeEndDuration
+        strokeEndAnimation.duration = strokeEndDuration
         strokeEndAnimation.timingFunction = CAMediaTimingFunction(controlPoints: 0.4, 0.0, 0.2, 1.0)
         strokeEndAnimation.fromValue = 0
         strokeEndAnimation.toValue = 1
-        
+
         let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
-        strokeStartAnimation.duration = Constant.strokeStartDuration
+        strokeStartAnimation.duration = strokeStartDuration
         strokeStartAnimation.timingFunction = CAMediaTimingFunction(controlPoints: 0.4, 0.0, 0.2, 1.0)
         strokeStartAnimation.fromValue = 0
         strokeStartAnimation.toValue = 1
-        strokeStartAnimation.beginTime = Constant.beginTime
-        
+        strokeStartAnimation.beginTime = beginTime
+
         let groupAnimation = CAAnimationGroup()
         groupAnimation.animations = [rotationAnimation, strokeEndAnimation, strokeStartAnimation]
-        groupAnimation.duration = Constant.strokeStartDuration + Constant.beginTime
+        groupAnimation.duration = strokeStartDuration + beginTime
         groupAnimation.repeatCount = .infinity
         groupAnimation.isRemovedOnCompletion = false
         groupAnimation.fillMode = kCAFillModeForwards
-        
+
         let circle = NVActivityIndicatorShape.stroke.layerWith(size: size, color: color)
         let frame = CGRect(
             x: (layer.bounds.width - size.width) / 2,
@@ -67,10 +65,9 @@ class NVActivityIndicatorAnimationStrokeSpin: NVActivityIndicatorAnimationDelega
             width: size.width,
             height: size.height
         )
-        
+
         circle.frame = frame
         circle.add(groupAnimation, forKey: "animation")
         layer.addSublayer(circle)
     }
 }
-
