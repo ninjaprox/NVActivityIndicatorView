@@ -62,6 +62,7 @@ import UIKit
  - BallRotateChase:         BallRotateChase animation.
  - Orbit:                   Orbit animation.
  - AudioEqualizer:          AudioEqualizer animation.
+ - CircleStrokeSpin:        CircleStrokeSpin animation.
  */
 public enum NVActivityIndicatorType: Int {
     /**
@@ -259,11 +260,11 @@ public enum NVActivityIndicatorType: Int {
     /**
      Stroke.
      
-     - returns: Instance of NVActivityIndicatorAnimationStrokeSpin.
+     - returns: Instance of NVActivityIndicatorAnimationCircleStrokeSpin.
      */
-    case stroke
+    case circleStrokeSpin
 
-    static let allTypes = (blank.rawValue ... audioEqualizer.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
+    static let allTypes = (blank.rawValue ... circleStrokeSpin.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
 
     func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
@@ -331,8 +332,8 @@ public enum NVActivityIndicatorType: Int {
             return NVActivityIndicatorAnimationOrbit()
         case .audioEqualizer:
             return NVActivityIndicatorAnimationAudioEqualizer()
-        case .stroke:
-            return NVActivityIndicatorAnimationStrokeSpin()
+        case .circleStrokeSpin:
+            return NVActivityIndicatorAnimationCircleStrokeSpin()
         }
     }
 }

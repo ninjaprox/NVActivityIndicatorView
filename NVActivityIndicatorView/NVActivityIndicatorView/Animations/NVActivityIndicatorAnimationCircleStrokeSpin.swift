@@ -1,5 +1,5 @@
 //
-//  NVActivityIndicatorAnimationStrokeSpin.swift
+//  NVActivityIndicatorAnimationCircleStrokeSpin.swift
 //  NVActivityIndicatorView
 //
 // The MIT License (MIT)
@@ -27,7 +27,7 @@
 
 import Foundation
 
-class NVActivityIndicatorAnimationStrokeSpin: NVActivityIndicatorAnimationDelegate {
+class NVActivityIndicatorAnimationCircleStrokeSpin: NVActivityIndicatorAnimationDelegate {
 
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let beginTime: Double = 0.5
