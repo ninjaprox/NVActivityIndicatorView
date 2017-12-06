@@ -28,7 +28,7 @@ For first-hand experience, just open the project and run it.
 |17. ballPulseSync | 18. ballBeat | 19. lineScalePulseOut | 20. lineScalePulseOutRapid|
 |21. ballScaleRipple | 22. ballScaleRippleMultiple | 23. ballSpinFadeLoader | 24. lineSpinFadeLoader|
 |25. triangleSkewSpin | 26. pacman | 27. ballGridBeat | 28. semiCircleSpin|
-|29. ballRotateChase | 30. orbit | 31. audioEqualizer|
+|29. ballRotateChase | 30. orbit | 31. audioEqualizer | 32. circleStrokeSpin|
 
 ## Installation
 
@@ -136,8 +136,6 @@ _**Note:** Set Module to `NVActivityIndicatorView`._
 NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding)
 ```
 
-_**Note:** Check [DEFAULTS](#defaults) for default values._
-
 ### Control
 
 Start animating.
@@ -164,7 +162,7 @@ In storyboard, you can change all properties in Attributes inspector tab of Util
 
 _**Note:** Use one of values (case-insensitive) in [Animation types](#animation-types) for `Type Name`._
 
-All properties are public so you can change them all after initiating.
+All properties are public so you can change them after initializing.
 
 _**Note:** All changes must be made before calling `startAnimating()`._
 
@@ -212,73 +210,6 @@ Change message.
 NVActivityIndicatorPresenter.sharedInstance.setMessage("Done")
 ```
 
-### DEFAULTS
-
-There are global defaults for all `NVActivityIndicatorView` instances.
-
-- Default animation type.
-
-```swift
-NVActivityIndicatorView.DEFAULT_TYPE = .ballSpinFadeLoader
-```
-
-- Default color of activity indicator view.
-
-```swift
-NVActivityIndicatorView.DEFAULT_COLOR = UIColor.white
-```
-
-- Default color of the text below the activity indicator view when using an `NVActivityIndicatorPresenter`. The presentor will use the activity indicator `color` for the text if it is set but a `textColor` is not. `DEFAULT_TEXT_COLOR` is only used when neither are set.
-
-```swift
-NVActivityIndicatorView.DEFAULT_TEXT_COLOR = UIColor.white
-```
-
-- Default padding of activity indicator view.
-
-```swift
-NVActivityIndicatorView.DEFAULT_PADDING = CGFloat(0)
-```
-
-- Default size of activity indicator view used in UI blocker.
-
-```swift
-NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE = CGSizeMake(60, 60)
-```
-
-- Default background color of UI blocker.
-
-```swift
-NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-```
-
-- Default display time threshold.
-
-> Default time that has to be elapsed (between calls of `startAnimating()` and `stopAnimating()`) in order to actually display UI blocker. It should be set thinking about what the minimum duration of an activity is to be worth showing it to the user. If the activity ends before this time threshold, then it will not be displayed at all.
-
-```swift
-NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 0 // in milliseconds
-```
-
-- Default minimum display time.
-
-> Default minimum display time of UI blocker. Its main purpose is to avoid flashes showing and hiding it so fast. For instance, setting it to 200ms will force UI blocker to be shown for at least this time (regardless of calling `stopAnimating()` ealier).
-
-```swift
-NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0 // in milliseconds
-```
-
-- Default message displayed in UI blocker.
-
-```swift
-NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE: String? = nil
-```
-
-- Default font of message displayed in UI blocker.
-
-```swift
-NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 20)
-```
 
 ## Acknowledgment
 
