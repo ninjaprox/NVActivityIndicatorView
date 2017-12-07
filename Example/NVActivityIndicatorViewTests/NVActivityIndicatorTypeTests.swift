@@ -64,6 +64,7 @@ class NVActivityIndicatorTypeTests: XCTestCase {
             .ballRotateChase: NVActivityIndicatorAnimationBallRotateChase.self,
             .orbit: NVActivityIndicatorAnimationOrbit.self,
             .audioEqualizer: NVActivityIndicatorAnimationAudioEqualizer.self,
+            .circleStrokeSpin: NVActivityIndicatorAnimationCircleStrokeSpin.self
         ]
 
         enumClass.forEach { enumm, clazz in
@@ -75,6 +76,6 @@ class NVActivityIndicatorTypeTests: XCTestCase {
     }
 
     func testAllTypes() {
-        XCTAssertEqual(NVActivityIndicatorType.allTypes.last, NVActivityIndicatorType.audioEqualizer)
+        XCTAssertEqual(NVActivityIndicatorType.allTypes.last, NVActivityIndicatorType.circleStrokeSpin)
     }
 }
