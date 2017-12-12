@@ -82,11 +82,9 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
     
-    
     /**
      Set message displayed under activity indicator view. Default vaule is success!
      */
-    
     public func setMessage(_ msg: String?) {
         NVActivityIndicatorPresenter.sharedInstance.setMessage(msg ?? "Success!")
     }
