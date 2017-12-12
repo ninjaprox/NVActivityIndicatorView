@@ -62,6 +62,7 @@ import UIKit
  - BallRotateChase:         BallRotateChase animation.
  - Orbit:                   Orbit animation.
  - AudioEqualizer:          AudioEqualizer animation.
+ - CircleStrokeSpin:        CircleStrokeSpin animation.
  */
 public enum NVActivityIndicatorType: Int {
     /**
@@ -256,8 +257,14 @@ public enum NVActivityIndicatorType: Int {
      - returns: Instance of NVActivityIndicatorAnimationAudioEqualizer.
      */
     case audioEqualizer
+    /**
+     Stroke.
+     
+     - returns: Instance of NVActivityIndicatorAnimationCircleStrokeSpin.
+     */
+    case circleStrokeSpin
 
-    static let allTypes = (blank.rawValue ... audioEqualizer.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
+    static let allTypes = (blank.rawValue ... circleStrokeSpin.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
 
     func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
@@ -325,6 +332,8 @@ public enum NVActivityIndicatorType: Int {
             return NVActivityIndicatorAnimationOrbit()
         case .audioEqualizer:
             return NVActivityIndicatorAnimationAudioEqualizer()
+        case .circleStrokeSpin:
+            return NVActivityIndicatorAnimationCircleStrokeSpin()
         }
     }
 }
@@ -347,9 +356,15 @@ public final class NVActivityIndicatorView: UIView {
     public static var DEFAULT_BLOCKER_SIZE = CGSize(width: 60, height: 60)
 
     /// Default display time threshold to actually display UI blocker. Default value is 0 ms.
+    ///
+    /// - note:
+    /// Default time that has to be elapsed (between calls of `startAnimating()` and `stopAnimating()`) in order to actually display UI blocker. It should be set thinking about what the minimum duration of an activity is to be worth showing it to the user. If the activity ends before this time threshold, then it will not be displayed at all.
     public static var DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 0
 
     /// Default minimum display time of UI blocker. Default value is 0 ms.
+    ///
+    /// - note:
+    /// Default minimum display time of UI blocker. Its main purpose is to avoid flashes showing and hiding it so fast. For instance, setting it to 200ms will force UI blocker to be shown for at least this time (regardless of calling `stopAnimating()` ealier).
     public static var DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0
 
     /// Default message displayed in UI blocker. Default value is nil.
