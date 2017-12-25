@@ -1,5 +1,8 @@
 # Change log
 
+## [4.1.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.1.0)
+* Fix #186, #189
+
 ## [4.1.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.1.0)
 * Introduce message spacing
 * New circle stroke spin animation
