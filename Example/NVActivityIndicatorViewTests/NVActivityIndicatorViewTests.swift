@@ -44,7 +44,7 @@ class NVActivityIndicatorViewTests: XCTestCase {
     }
 
     func testDefaultValues() {
-        XCTAssertEqual(NVActivityIndicatorView.DEFAULT_TYPE, NVActivityIndicatorType.ballSpinFadeLoader)
+        XCTAssertEqual(String(describing: NVActivityIndicatorView.DEFAULT_TYPE), String(describing: NVActivityIndicatorType.ballSpinFadeLoader))
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_COLOR, UIColor.white)
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_PADDING, 0)
         XCTAssertEqual(NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE, CGSize(width: 60, height: 60))
@@ -55,13 +55,13 @@ class NVActivityIndicatorViewTests: XCTestCase {
 
     func testSetTypeName() {
         activityIndicatorView._setTypeName("unknown")
-        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
+        XCTAssertEqual(String(describing: activityIndicatorView.type), String(describing: NVActivityIndicatorView.DEFAULT_TYPE))
         activityIndicatorView._setTypeName("Orbit")
-        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorType.orbit)
+        XCTAssertEqual(String(describing: activityIndicatorView.type), String(describing: NVActivityIndicatorType.orbit))
         activityIndicatorView._setTypeName("orbit")
-        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorType.orbit)
+        XCTAssertEqual(String(describing: activityIndicatorView.type), String(describing: NVActivityIndicatorType.orbit))
         activityIndicatorView._setTypeName("orbiT")
-        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorType.orbit)
+        XCTAssertEqual(String(describing: activityIndicatorView.type), String(describing: NVActivityIndicatorType.orbit))
     }
 
     func testGetTypeName() {
@@ -75,7 +75,7 @@ class NVActivityIndicatorViewTests: XCTestCase {
         let padding: CGFloat = 10
 
         activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, type: type)
-        XCTAssertEqual(activityIndicatorView.type, type)
+        XCTAssertEqual(String(describing: activityIndicatorView.type), String(describing: type))
 
         activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, color: color)
         XCTAssertEqual(activityIndicatorView.color, color)
@@ -84,14 +84,14 @@ class NVActivityIndicatorViewTests: XCTestCase {
         XCTAssertEqual(activityIndicatorView.padding, padding)
 
         activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, type: type, color: color, padding: padding)
-        XCTAssertEqual(activityIndicatorView.type, type)
+        XCTAssertEqual(String(describing: activityIndicatorView.type), String(describing: type))
         XCTAssertEqual(activityIndicatorView.color, color)
         XCTAssertEqual(activityIndicatorView.padding, padding)
     }
 
     func testInitWithFrame() {
         activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        XCTAssertEqual(activityIndicatorView.type, NVActivityIndicatorView.DEFAULT_TYPE)
+        XCTAssertEqual(String(describing: activityIndicatorView.type), String(describing: NVActivityIndicatorView.DEFAULT_TYPE))
         XCTAssertEqual(activityIndicatorView.color, NVActivityIndicatorView.DEFAULT_COLOR)
         XCTAssertEqual(activityIndicatorView.padding, NVActivityIndicatorView.DEFAULT_PADDING)
     }

@@ -35,7 +35,7 @@ class ActivityDataTests: XCTestCase {
 
         XCTAssertEqual(activityData.size, NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE)
         XCTAssertNil(activityData.message)
-        XCTAssertEqual(activityData.type, NVActivityIndicatorView.DEFAULT_TYPE)
+        XCTAssertEqual(String(describing: activityData.type), String(describing: NVActivityIndicatorView.DEFAULT_TYPE))
         XCTAssertEqual(activityData.color, NVActivityIndicatorView.DEFAULT_COLOR)
         XCTAssertEqual(activityData.padding, NVActivityIndicatorView.DEFAULT_PADDING)
         XCTAssertEqual(activityData.displayTimeThreshold, NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD)
@@ -66,7 +66,7 @@ class ActivityDataTests: XCTestCase {
 
         XCTAssertEqual(activityData.size, size)
         XCTAssertEqual(activityData.message, message)
-        XCTAssertEqual(activityData.type, type)
+        XCTAssertEqual(String(describing: activityData.type), String(describing: type))
         XCTAssertEqual(activityData.color, color)
         XCTAssertEqual(activityData.padding, padding)
         XCTAssertEqual(activityData.displayTimeThreshold, displayTimeThreshold)
