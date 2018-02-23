@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
     aes.exclude_files = "NVActivityIndicatorView/NVActivityIndicatorView/Presenter/*.swift"
   end
   s.default_subspec = "Presenter"
-
+  
   s.frameworks = "UIKit", "QuartzCore"
 end

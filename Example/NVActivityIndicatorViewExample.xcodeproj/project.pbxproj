@@ -16,6 +16,7 @@
 		1F0327381F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327341F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift */; };
 		1F0327391F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */; };
 		1F03273A1F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */; };
+		33C1819320401C0D00D290C5 /* NVActivityIndicatorAnimationChrono.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1819220401C0D00D290C5 /* NVActivityIndicatorAnimationChrono.swift */; };
 		BF27BE60A62A545A66A8EE94 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */; };
 		D7C098602AE42E83955F96EA /* Pods_NVActivityIndicatorViewExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewTests.swift; sourceTree = "<group>"; };
 		1F03273B1F0D3A4700BF3358 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = "../../../../Library/Developer/Xcode/DerivedData/NVActivityIndicatorViewExample-hdxlsbdufzcvsycluveyblohjyyk/Build/Products/Debug-iphonesimulator/NVActivityIndicatorView/NVActivityIndicatorView.framework"; sourceTree = "<group>"; };
 		27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		33C1819220401C0D00D290C5 /* NVActivityIndicatorAnimationChrono.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationChrono.swift; sourceTree = "<group>"; };
 		D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		1F0326FB1F0D28CC00BF3358 /* NVActivityIndicatorViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				33C1819220401C0D00D290C5 /* NVActivityIndicatorAnimationChrono.swift */,
 				1F0327081F0D28CC00BF3358 /* Info.plist */,
 				1F0326FC1F0D28CC00BF3358 /* AppDelegate.swift */,
 				1F0326FE1F0D28CC00BF3358 /* ViewController.swift */,
@@ -357,6 +360,7 @@
 			files = (
 				1F0326FF1F0D28CC00BF3358 /* ViewController.swift in Sources */,
 				1F0326FD1F0D28CC00BF3358 /* AppDelegate.swift in Sources */,
+				33C1819320401C0D00D290C5 /* NVActivityIndicatorAnimationChrono.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

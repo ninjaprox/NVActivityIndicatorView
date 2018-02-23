@@ -37,45 +37,77 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
 
         let cols = 4
-        let rows = 8
+        let rows = 9
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
 
-        (NVActivityIndicatorType.ballPulse.rawValue ... NVActivityIndicatorType.circleStrokeSpin.rawValue).forEach {
-            let x = ($0 - 1) % cols * cellWidth
-            let y = ($0 - 1) / cols * cellHeight
+        for (index, type) in NVActivityIndicatorType.allStandardTypes.enumerated() {
+            let x = (index - 1) % cols * cellWidth
+            let y = (index - 1) / cols * cellHeight
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
             let activityIndicatorView = NVActivityIndicatorView(frame: frame,
-                                                                type: NVActivityIndicatorType(rawValue: $0)!)
+                                                                type: type)
             let animationTypeLabel = UILabel(frame: frame)
-
-            animationTypeLabel.text = String($0)
+            
+            animationTypeLabel.text = String(index)
             animationTypeLabel.sizeToFit()
             animationTypeLabel.textColor = UIColor.white
             animationTypeLabel.frame.origin.x += 5
             animationTypeLabel.frame.origin.y += CGFloat(cellHeight) - animationTypeLabel.frame.size.height
-
+            
             activityIndicatorView.padding = 20
-            if $0 == NVActivityIndicatorType.orbit.rawValue {
+            if case NVActivityIndicatorType.orbit = type {
                 activityIndicatorView.padding = 0
             }
             self.view.addSubview(activityIndicatorView)
             self.view.addSubview(animationTypeLabel)
             activityIndicatorView.startAnimating()
-
+            
             let button: UIButton = UIButton(frame: frame)
-            button.tag = $0
+            button.tag = index
             button.addTarget(self,
                              action: #selector(buttonTapped(_:)),
                              for: UIControlEvents.touchUpInside)
             self.view.addSubview(button)
         }
+        
+        // Add custom animation
+        let x = (NVActivityIndicatorType.allStandardTypes.count - 1) % cols * cellWidth
+        let y = (NVActivityIndicatorType.allStandardTypes.count - 1) / cols * cellHeight
+        let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
+        let activityIndicatorView = NVActivityIndicatorView(frame: frame,
+                                                            type: NVActivityIndicatorType.customType(NVActivityIndicatorAnimationChrono()))
+        let animationTypeLabel = UILabel(frame: frame)
+        
+        animationTypeLabel.text = "Custom"
+        animationTypeLabel.sizeToFit()
+        animationTypeLabel.textColor = UIColor.white
+        animationTypeLabel.frame.origin.x += 5
+        animationTypeLabel.frame.origin.y += CGFloat(cellHeight) - animationTypeLabel.frame.size.height
+        
+        activityIndicatorView.padding = 20
+        self.view.addSubview(activityIndicatorView)
+        self.view.addSubview(animationTypeLabel)
+        activityIndicatorView.startAnimating()
+        
+        let button: UIButton = UIButton(frame: frame)
+        button.tag = NVActivityIndicatorType.allStandardTypes.count
+        button.addTarget(self,
+                         action: #selector(buttonTapped(_:)),
+                         for: UIControlEvents.touchUpInside)
+        self.view.addSubview(button)
     }
 
     @objc func buttonTapped(_ sender: UIButton) {
         let size = CGSize(width: 30, height: 30)
 
-        startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
+        if sender.tag < NVActivityIndicatorType.allStandardTypes.count {
+            // Standard animation
+            startAnimating(size, message: "Loading...", type: NVActivityIndicatorType.allStandardTypes[sender.tag])
+        } else {
+            // Custom animation
+            startAnimating(size, message: "Loading...", type: NVActivityIndicatorType.customType(NVActivityIndicatorAnimationChrono()))
+        }
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
