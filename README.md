@@ -153,7 +153,7 @@ activityIndicatorView.stopAnimating()
 Determine if it is animating.
 
 ```swift
-animating = activityIndicatorView.animating
+animating = activityIndicatorView.isAnimating
 ```
 
 ### Change properties
