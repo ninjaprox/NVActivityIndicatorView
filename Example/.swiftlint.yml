@@ -1,0 +1,7 @@
+disabled_rules:
+- line_length
+
+identifier_name:
+  excluded:
+  - x
+  - y
