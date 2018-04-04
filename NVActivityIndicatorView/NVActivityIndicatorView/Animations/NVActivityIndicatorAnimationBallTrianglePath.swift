@@ -87,7 +87,7 @@ class NVActivityIndicatorAnimationBallTrianglePath: NVActivityIndicatorAnimation
         let valueMutableString = NSMutableString(string: valueString)
         let fullDeltaX = 2 * deltaX
         let fullDeltaY = 2 * deltaY
-        var range = NSMakeRange(0, valueMutableString.length)
+        var range = NSRange(location: 0, length: valueMutableString.length)
 
         valueMutableString.replaceOccurrences(of: "hx", with: "\(deltaX)", options: NSString.CompareOptions.caseInsensitive, range: range)
         range.length = valueMutableString.length

@@ -58,7 +58,7 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
             NSValue(cgSize: CGSize(width: deltaX, height: 0)),
             NSValue(cgSize: CGSize(width: deltaX, height: deltaY)),
             NSValue(cgSize: CGSize(width: 0, height: deltaY)),
-            NSValue(cgSize: CGSize(width: 0, height: 0)),
+            NSValue(cgSize: CGSize(width: 0, height: 0))
         ]
         translateAnimation.duration = duration
 

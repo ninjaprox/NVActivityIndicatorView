@@ -47,7 +47,7 @@ class NVActivityIndicatorAnimationBallZigZag: NVActivityIndicatorAnimationDelega
             NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0)),
             NSValue(caTransform3D: CATransform3DMakeTranslation(-deltaX, -deltaY, 0)),
             NSValue(caTransform3D: CATransform3DMakeTranslation(deltaX, -deltaY, 0)),
-            NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0)),
+            NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0))
         ]
         animation.duration = duration
         animation.repeatCount = HUGE
@@ -61,7 +61,7 @@ class NVActivityIndicatorAnimationBallZigZag: NVActivityIndicatorAnimationDelega
             NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0)),
             NSValue(caTransform3D: CATransform3DMakeTranslation(deltaX, deltaY, 0)),
             NSValue(caTransform3D: CATransform3DMakeTranslation(-deltaX, deltaY, 0)),
-            NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0)),
+            NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0))
         ]
 
         // Draw circle 2
