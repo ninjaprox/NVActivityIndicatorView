@@ -103,6 +103,36 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
         }
     }
 
+    func testIsAnimating() {
+        let activityData = createActivityData(displayTimeThreshold: 100,
+                                              minimumDisplayTime: 100)
+
+        // .stopped
+        XCTAssertFalse(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+
+        // .waitingToStart
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        doAfter(50) {
+            XCTAssertFalse(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+        }
+
+        // .animating
+        doAfter(50) {
+            XCTAssertTrue(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+        }
+
+        // .waitingToStop
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        doAfter(50) {
+            XCTAssertTrue(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+        }
+
+        // .stopped
+        doAfter(50) {
+            XCTAssertFalse(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+        }
+    }
+
     // MARK: Helpers
 
     func createActivityData(displayTimeThreshold: Int,

@@ -213,6 +213,9 @@ public final class NVActivityIndicatorPresenter {
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
 
+    /// Current status of animation, read-only.
+    public var isAnimating: Bool { return state == .animating || state == .waitingToStop }
+
     private init() {}
 
     // MARK: - Public interface
