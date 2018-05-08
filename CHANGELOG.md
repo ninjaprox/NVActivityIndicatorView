@@ -1,5 +1,8 @@
 # Change log
 
+## [4.2.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.2.1)
+* Fix #213
+
 ## [4.2.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.2.0)
 * Refactor `NVActivityIndicatorPresenter` with state pattern
 * Expose `isAnimating` from `NVActivityIndicatorPresenter` and `NVActivityIndicatorViewable` (#204)
