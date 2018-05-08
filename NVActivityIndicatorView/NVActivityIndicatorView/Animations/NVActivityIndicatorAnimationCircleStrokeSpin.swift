@@ -25,7 +25,7 @@
 // SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
 class NVActivityIndicatorAnimationCircleStrokeSpin: NVActivityIndicatorAnimationDelegate {
 
