@@ -42,10 +42,8 @@
 		1F0326E51F0D257700BF3358 /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326C01F0D257700BF3358 /* NVActivityIndicatorAnimationDelegate.swift */; };
 		1F0326E71F0D257700BF3358 /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326C21F0D257700BF3358 /* NVActivityIndicatorShape.swift */; };
 		1F0326E81F0D257700BF3358 /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326C31F0D257700BF3358 /* NVActivityIndicatorView.swift */; };
-		1F0326EF1F0D277900BF3358 /* NVActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0326EC1F0D25BE00BF3358 /* NVActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F88C9D21F10D03E00869231 /* NVActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88C9D01F10D03E00869231 /* NVActivityIndicatorPresenter.swift */; };
 		1F88C9D31F10D03E00869231 /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88C9D11F10D03E00869231 /* NVActivityIndicatorViewable.swift */; };
-		1F88C9DD1F10D0B200869231 /* NVActivityIndicatorViewAppExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F88C9DB1F10D0B200869231 /* NVActivityIndicatorViewAppExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F88C9E11F10D0D300869231 /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326C01F0D257700BF3358 /* NVActivityIndicatorAnimationDelegate.swift */; };
 		1F88C9E21F10D0D300869231 /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326C21F0D257700BF3358 /* NVActivityIndicatorShape.swift */; };
 		1F88C9E31F10D0D300869231 /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326C31F0D257700BF3358 /* NVActivityIndicatorView.swift */; };
@@ -82,6 +80,8 @@
 		1F88CA021F10D0DB00869231 /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326BE1F0D257700BF3358 /* NVActivityIndicatorAnimationSquareSpin.swift */; };
 		1F88CA031F10D0DB00869231 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0326BF1F0D257700BF3358 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */; };
 		4A52F0DF1FCDBB8C009377B1 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A52F0DE1FCDBB8C009377B1 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift */; };
+		A367103020A1EE7500081069 /* NVActivityIndicatorViewAppExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F88C9DB1F10D0B200869231 /* NVActivityIndicatorViewAppExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A367103820A1EF6A00081069 /* NVActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A367103220A1EEEC00081069 /* NVActivityIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE1A6B661FDE9609008059F3 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A52F0DE1FCDBB8C009377B1 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift */; };
 /* End PBXBuildFile section */
 
@@ -122,32 +122,15 @@
 		1F0326C01F0D257700BF3358 /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
 		1F0326C21F0D257700BF3358 /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
 		1F0326C31F0D257700BF3358 /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
-		1F0326EB1F0D25BE00BF3358 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F0326EC1F0D25BE00BF3358 /* NVActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorView.h; sourceTree = "<group>"; };
 		1F88C9D01F10D03E00869231 /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
 		1F88C9D11F10D03E00869231 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
 		1F88C9D91F10D0B200869231 /* NVActivityIndicatorViewAppExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorViewAppExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F88C9DB1F10D0B200869231 /* NVActivityIndicatorViewAppExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorViewAppExtension.h; sourceTree = "<group>"; };
 		1F88C9DC1F10D0B200869231 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A52F0DE1FCDBB8C009377B1 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationCircleStrokeSpin.swift; sourceTree = "<group>"; };
+		A367103220A1EEEC00081069 /* NVActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorView.h; sourceTree = "<group>"; };
+		A367103320A1EEED00081069 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		1F0326901F0D24BE00BF3358 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F88C9D51F10D0B200869231 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		1F03268A1F0D24BE00BF3358 = {
@@ -171,12 +154,12 @@
 		1F0326961F0D24BE00BF3358 /* NVActivityIndicatorView */ = {
 			isa = PBXGroup;
 			children = (
+				1F03269F1F0D257600BF3358 /* Animations */,
 				1F0326C01F0D257700BF3358 /* NVActivityIndicatorAnimationDelegate.swift */,
 				1F0326C21F0D257700BF3358 /* NVActivityIndicatorShape.swift */,
 				1F0326C31F0D257700BF3358 /* NVActivityIndicatorView.swift */,
-				1F03269F1F0D257600BF3358 /* Animations */,
-				1F0326EA1F0D259300BF3358 /* Supporting Files */,
 				1F88C9CB1F10CD7300869231 /* Presenter */,
+				A367103620A1EEF900081069 /* Supporting Files */,
 			);
 			path = NVActivityIndicatorView;
 			sourceTree = "<group>";
@@ -221,15 +204,6 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		1F0326EA1F0D259300BF3358 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F0326EB1F0D25BE00BF3358 /* Info.plist */,
-				1F0326EC1F0D25BE00BF3358 /* NVActivityIndicatorView.h */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		1F88C9CB1F10CD7300869231 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +222,15 @@
 			path = NVActivityIndicatorViewAppExtension;
 			sourceTree = "<group>";
 		};
+		A367103620A1EEF900081069 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A367103320A1EEED00081069 /* Info.plist */,
+				A367103220A1EEEC00081069 /* NVActivityIndicatorView.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -255,7 +238,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F0326EF1F0D277900BF3358 /* NVActivityIndicatorView.h in Headers */,
+				A367103820A1EF6A00081069 /* NVActivityIndicatorView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +246,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F88C9DD1F10D0B200869231 /* NVActivityIndicatorViewAppExtension.h in Headers */,
+				A367103020A1EE7500081069 /* NVActivityIndicatorViewAppExtension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,9 +258,7 @@
 			buildConfigurationList = 1F03269C1F0D24BE00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorView" */;
 			buildPhases = (
 				1F03268F1F0D24BE00BF3358 /* Sources */,
-				1F0326901F0D24BE00BF3358 /* Frameworks */,
 				1F0326911F0D24BE00BF3358 /* Headers */,
-				1F0326921F0D24BE00BF3358 /* Resources */,
 				A3BEA4B12075175400F1AF75 /* ShellScript */,
 			);
 			buildRules = (
@@ -294,9 +275,7 @@
 			buildConfigurationList = 1F88C9DE1F10D0B200869231 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewAppExtension" */;
 			buildPhases = (
 				1F88C9D41F10D0B200869231 /* Sources */,
-				1F88C9D51F10D0B200869231 /* Frameworks */,
 				1F88C9D61F10D0B200869231 /* Headers */,
-				1F88C9D71F10D0B200869231 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -346,23 +325,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		1F0326921F0D24BE00BF3358 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1F88C9D71F10D0B200869231 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		A3BEA4B12075175400F1AF75 /* ShellScript */ = {
@@ -604,7 +566,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/NVActivityIndicatorView/Supporting Files/Info.plist";
+				INFOPLIST_FILE = NVActivityIndicatorView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -629,7 +591,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/NVActivityIndicatorView/Supporting Files/Info.plist";
+				INFOPLIST_FILE = NVActivityIndicatorView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
