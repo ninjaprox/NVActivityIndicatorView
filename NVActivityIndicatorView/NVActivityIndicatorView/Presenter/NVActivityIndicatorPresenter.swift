@@ -156,6 +156,8 @@ private struct NVActivityIndicatorPresenterStateStopped: NVActivityIndicatorPres
         guard let activityData = presenter.data else { return }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.displayTimeThreshold)) {
+            guard presenter.state == .waitingToStart else { return }
+
             presenter.startAnimating(activityData)
         }
         presenter.state = .waitingToStart
