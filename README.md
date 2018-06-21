@@ -197,7 +197,7 @@ Or you can use `NVActivityIndicatorPresenter` to display UI blocker anywhere.
 Start animating.
 
 ```swift
-let activityData = ActivityData()
+let activityData = ActivityData(controller: ViewController())
 
 NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
 ```

@@ -31,7 +31,7 @@ import XCTest
 class ActivityDataTests: XCTestCase {
 
     func testInitWithoutParams() {
-        let activityData = ActivityData()
+        let activityData = ActivityData(controller: UIViewController())
 
         XCTAssertEqual(activityData.size, NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE)
         XCTAssertNil(activityData.message)
@@ -62,7 +62,8 @@ class ActivityDataTests: XCTestCase {
                                         displayTimeThreshold: displayTimeThreshold,
                                         minimumDisplayTime: minimumDisplayTime,
                                         backgroundColor: backgroundColor,
-                                        textColor: textColor)
+                                        textColor: textColor,
+                                        controller: UIViewController())
 
         XCTAssertEqual(activityData.size, size)
         XCTAssertEqual(activityData.message, message)
@@ -78,7 +79,7 @@ class ActivityDataTests: XCTestCase {
     func testTextColorInitWithColor() {
 
         let color = UIColor.red
-        let activityData = ActivityData(color: color)
+        let activityData = ActivityData(color: color, controller: UIViewController())
 
         XCTAssertEqual(activityData.color, color)
         XCTAssertEqual(activityData.textColor, color) // textColor matches color
@@ -86,7 +87,7 @@ class ActivityDataTests: XCTestCase {
 
     func testNoColorOrTextColorInit() {
 
-        let activityData = ActivityData()
+        let activityData = ActivityData(controller: UIViewController())
 
         XCTAssertEqual(activityData.textColor, NVActivityIndicatorView.DEFAULT_TEXT_COLOR)
     }

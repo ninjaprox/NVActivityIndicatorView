@@ -62,6 +62,9 @@ public final class ActivityData {
     /// Background color of the UI blocker
     let backgroundColor: UIColor
 
+    // Controller where UI blocker will be displayed
+    let controller: UIViewController
+
     /**
      Create information package used to display UI blocker.
 
@@ -90,7 +93,8 @@ public final class ActivityData {
                 displayTimeThreshold: Int? = nil,
                 minimumDisplayTime: Int? = nil,
                 backgroundColor: UIColor? = nil,
-                textColor: UIColor? = nil) {
+                textColor: UIColor? = nil,
+                controller: UIViewController) {
         self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
         self.message = message ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE
         self.messageFont = messageFont ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT
@@ -102,6 +106,7 @@ public final class ActivityData {
         self.minimumDisplayTime = minimumDisplayTime ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME
         self.backgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR
         self.textColor = textColor ?? color ?? NVActivityIndicatorView.DEFAULT_TEXT_COLOR
+        self.controller = controller
     }
 }
 
@@ -293,7 +298,7 @@ public final class NVActivityIndicatorPresenter {
             containerView.addConstraint(spacingConstraint)
         }())
 
-        guard let keyWindow = UIApplication.shared.keyWindow else { return }
+        guard let keyWindow = self.data?.controller.view else { return }
 
         keyWindow.addSubview(containerView)
 
@@ -309,7 +314,7 @@ public final class NVActivityIndicatorPresenter {
     }
 
     fileprivate func hide() {
-        guard let keyWindow = UIApplication.shared.keyWindow else { return }
+        guard let keyWindow = self.data?.controller.view else { return }
 
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
