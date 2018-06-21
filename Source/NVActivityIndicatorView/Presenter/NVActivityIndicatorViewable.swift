@@ -73,7 +73,8 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
                                         displayTimeThreshold: displayTimeThreshold,
                                         minimumDisplayTime: minimumDisplayTime,
                                         backgroundColor: backgroundColor,
-                                        textColor: textColor)
+                                        textColor: textColor,
+                                        controller: self)
 
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
     }
