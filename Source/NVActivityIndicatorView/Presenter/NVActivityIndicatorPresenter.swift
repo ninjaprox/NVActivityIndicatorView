@@ -134,6 +134,7 @@ private struct NVActivityIndicatorPresenterStateAnimating: NVActivityIndicatorPr
         guard let activityData = presenter.data else { return }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.minimumDisplayTime)) {
+            guard presenter.state == .waitingToStop else { return }
             presenter.stopAnimating()
         }
         presenter.state = .waitingToStop
@@ -142,7 +143,10 @@ private struct NVActivityIndicatorPresenterStateAnimating: NVActivityIndicatorPr
 
 private struct NVActivityIndicatorPresenterStateWaitingToStop: NVActivityIndicatorPresenterState {
     func startAnimating(presenter: NVActivityIndicatorPresenter) {
-        // Do nothing
+        presenter.stopAnimating()
+
+        guard let activityData = presenter.data else { return }
+        presenter.startAnimating(activityData)
     }
 
     func stopAnimating(presenter: NVActivityIndicatorPresenter) {
