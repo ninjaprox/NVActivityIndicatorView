@@ -339,6 +339,14 @@ public enum NVActivityIndicatorType: Int {
     }
 }
 
+/// Function that performs fade in/out animation.
+public typealias FadeInAnimation = (UIView) -> Void
+
+/// Function that performs fade out animation.
+///
+/// - Note: Must call the second parameter on the animation completion.
+public typealias FadeOutAnimation = (UIView, @escaping () -> Void) -> Void
+
 // swiftlint:disable file_length
 /// Activity indicator view with nice animations
 public final class NVActivityIndicatorView: UIView {

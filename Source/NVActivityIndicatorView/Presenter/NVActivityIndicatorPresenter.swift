@@ -174,14 +174,6 @@ private struct NVActivityIndicatorPresenterStateStopped: NVActivityIndicatorPres
     }
 }
 
-/// Function that performs fade in/out animation.
-public typealias FadeInAnimation = (UIView) -> Void
-
-/// Function that performs fade out animation.
-///
-/// - Note: Must call the second parameter on the animation completion.
-public typealias FadeOutAnimation = (UIView, @escaping () -> Void) -> Void
-
 /// Presenter that displays NVActivityIndicatorView as UI blocker.
 public final class NVActivityIndicatorPresenter {
     fileprivate enum State: NVActivityIndicatorPresenterState {
