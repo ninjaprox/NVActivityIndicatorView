@@ -115,6 +115,30 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
         }
     }
 
+    func testStartStopStart() {
+        let activityData = createActivityData(displayTimeThreshold: 0,
+                                              minimumDisplayTime: 0)
+
+        XCTAssertFalse(checkActivityViewAppeared())
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+
+        doAfter(approximateZero) {
+            XCTAssertTrue(self.checkActivityViewAppeared())
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+            NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+        }
+
+        doAfter(approximateZero * 2) {
+            XCTAssertTrue(self.checkActivityViewAppeared())
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        }
+
+        doAfter(approximateZero * 3) {
+            XCTAssertFalse(self.checkActivityViewAppeared())
+        }
+
+    }
+
     func testIsAnimating() {
         let activityData = createActivityData(displayTimeThreshold: 100,
                                               minimumDisplayTime: 100)
