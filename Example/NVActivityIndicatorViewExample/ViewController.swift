@@ -75,14 +75,14 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     @objc func buttonTapped(_ sender: UIButton) {
         let size = CGSize(width: 30, height: 30)
 
-        startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
+        startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!, fadeInAnimation: nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
         }
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.stopAnimating()
+            self.stopAnimating(nil)
         }
     }
 }
