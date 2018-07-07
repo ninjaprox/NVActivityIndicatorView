@@ -381,6 +381,27 @@ public final class NVActivityIndicatorView: UIView {
 
     /// Default background color of UI blocker. Default value is UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     public static var DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+
+    /// Default fade in animation.
+    public static var DEFAULT_FADE_IN_ANIMATION: FadeInAnimation = { view in
+        view.alpha = 0
+        UIView.animate(withDuration: 0.25) {
+            view.alpha = 1
+        }
+    }
+
+    /// Default fade out animation.
+    public static var DEFAULT_FADE_OUT_ANIMATION: FadeOutAnimation = { (view, complete) in
+        UIView.animate(withDuration: 0.25,
+                       animations: {
+                        view.alpha = 0
+        },
+                       completion: { completed in
+                        if completed {
+                            complete()
+                        }
+        })
+    }
     // swiftlint:enable identifier_name
 
     /// Animation type.

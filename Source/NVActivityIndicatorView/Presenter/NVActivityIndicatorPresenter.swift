@@ -106,72 +106,81 @@ public final class ActivityData {
 }
 
 private protocol NVActivityIndicatorPresenterState {
-    func startAnimating(presenter: NVActivityIndicatorPresenter)
-    func stopAnimating(presenter: NVActivityIndicatorPresenter)
+    func startAnimating(presenter: NVActivityIndicatorPresenter, _ fadeInAnimation: FadeInAnimation?)
+    func stopAnimating(presenter: NVActivityIndicatorPresenter, _ fadeOutAnimation: FadeOutAnimation?)
 }
 
 private struct NVActivityIndicatorPresenterStateWaitingToStart: NVActivityIndicatorPresenterState {
-    func startAnimating(presenter: NVActivityIndicatorPresenter) {
+    func startAnimating(presenter: NVActivityIndicatorPresenter, _ fadeInAnimation: FadeInAnimation?) {
         guard let activityData = presenter.data else { return }
 
-        presenter.show(with: activityData)
+        presenter.show(with: activityData, fadeInAnimation)
         presenter.state = .animating
         presenter.waitingToStartGroup.leave()
     }
 
-    func stopAnimating(presenter: NVActivityIndicatorPresenter) {
+    func stopAnimating(presenter: NVActivityIndicatorPresenter, _ fadeOutAnimation: FadeOutAnimation?) {
         presenter.state = .stopped
         presenter.waitingToStartGroup.leave()
     }
 }
 
 private struct NVActivityIndicatorPresenterStateAnimating: NVActivityIndicatorPresenterState {
-    func startAnimating(presenter: NVActivityIndicatorPresenter) {
+    func startAnimating(presenter: NVActivityIndicatorPresenter, _ fadeInAnimation: FadeInAnimation?) {
         // Do nothing
     }
 
-    func stopAnimating(presenter: NVActivityIndicatorPresenter) {
+    func stopAnimating(presenter: NVActivityIndicatorPresenter, _ fadeOutAnimation: FadeOutAnimation?) {
         guard let activityData = presenter.data else { return }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.minimumDisplayTime)) {
             guard presenter.state == .waitingToStop else { return }
-            presenter.stopAnimating()
+
+            presenter.stopAnimating(fadeOutAnimation)
         }
         presenter.state = .waitingToStop
     }
 }
 
 private struct NVActivityIndicatorPresenterStateWaitingToStop: NVActivityIndicatorPresenterState {
-    func startAnimating(presenter: NVActivityIndicatorPresenter) {
-        presenter.stopAnimating()
+    func startAnimating(presenter: NVActivityIndicatorPresenter, _ fadeInAnimation: FadeInAnimation?) {
+        presenter.stopAnimating(nil)
 
         guard let activityData = presenter.data else { return }
-        presenter.startAnimating(activityData)
+        presenter.startAnimating(activityData, fadeInAnimation)
     }
 
-    func stopAnimating(presenter: NVActivityIndicatorPresenter) {
-        presenter.hide()
+    func stopAnimating(presenter: NVActivityIndicatorPresenter, _ fadeOutAnimation: FadeOutAnimation?) {
+        presenter.hide(fadeOutAnimation)
         presenter.state = .stopped
     }
 }
 
 private struct NVActivityIndicatorPresenterStateStopped: NVActivityIndicatorPresenterState {
-    func startAnimating(presenter: NVActivityIndicatorPresenter) {
+    func startAnimating(presenter: NVActivityIndicatorPresenter, _ fadeInAnimation: FadeInAnimation?) {
         guard let activityData = presenter.data else { return }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(activityData.displayTimeThreshold)) {
             guard presenter.state == .waitingToStart else { return }
 
-            presenter.startAnimating(activityData)
+            presenter.startAnimating(activityData, fadeInAnimation)
         }
         presenter.state = .waitingToStart
         presenter.waitingToStartGroup.enter()
     }
 
-    func stopAnimating(presenter: NVActivityIndicatorPresenter) {
+    func stopAnimating(presenter: NVActivityIndicatorPresenter, _ fadeOutAnimation: FadeOutAnimation?) {
         // Do nothing
     }
 }
+
+/// Function that performs fade in/out animation.
+public typealias FadeInAnimation = (UIView) -> Void
+
+/// Function that performs fade out animation.
+///
+/// - Note: Must call the second parameter on the animation completion.
+public typealias FadeOutAnimation = (UIView, @escaping () -> Void) -> Void
 
 /// Presenter that displays NVActivityIndicatorView as UI blocker.
 public final class NVActivityIndicatorPresenter {
@@ -190,12 +199,12 @@ public final class NVActivityIndicatorPresenter {
             }
         }
 
-        func startAnimating(presenter: NVActivityIndicatorPresenter) {
-            performer.startAnimating(presenter: presenter)
+        func startAnimating(presenter: NVActivityIndicatorPresenter, _ fadeInAnimation: FadeInAnimation?) {
+            performer.startAnimating(presenter: presenter, fadeInAnimation)
         }
 
-        func stopAnimating(presenter: NVActivityIndicatorPresenter) {
-            performer.stopAnimating(presenter: presenter)
+        func stopAnimating(presenter: NVActivityIndicatorPresenter, _ fadeOutAnimation: FadeOutAnimation?) {
+            performer.stopAnimating(presenter: presenter, fadeOutAnimation)
         }
     }
 
@@ -230,17 +239,20 @@ public final class NVActivityIndicatorPresenter {
      Display UI blocker.
 
      - parameter data: Information package used to display UI blocker.
+     - parameter fadeInAnimation: Fade in animation.
      */
-    public final func startAnimating(_ data: ActivityData) {
+    public final func startAnimating(_ data: ActivityData, _ fadeInAnimation: FadeInAnimation?) {
         self.data = data
-        state.startAnimating(presenter: self)
+        state.startAnimating(presenter: self, fadeInAnimation)
     }
 
     /**
      Remove UI blocker.
+
+     - parameter fadeOutAnimation: Fade out animation.
      */
-    public final func stopAnimating() {
-        state.stopAnimating(presenter: self)
+    public final func stopAnimating(_ fadeOutAnimation: FadeOutAnimation?) {
+        state.stopAnimating(presenter: self, fadeOutAnimation)
     }
 
     /// Set message displayed under activity indicator view.
@@ -254,12 +266,13 @@ public final class NVActivityIndicatorPresenter {
 
     // MARK: - Helpers
 
-    fileprivate func show(with activityData: ActivityData) {
+    fileprivate func show(with activityData: ActivityData, _ fadeInAnimation: FadeInAnimation?) {
         let containerView = UIView(frame: UIScreen.main.bounds)
 
         containerView.backgroundColor = activityData.backgroundColor
         containerView.restorationIdentifier = restorationIdentifier
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        fadeInAnimation?(containerView)
 
         let activityIndicatorView = NVActivityIndicatorView(
             frame: CGRect(x: 0, y: 0, width: activityData.size.width, height: activityData.size.height),
@@ -277,7 +290,7 @@ public final class NVActivityIndicatorPresenter {
             let yConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerY, multiplier: 1, constant: 0)
 
             containerView.addConstraints([xConstraint, yConstraint])
-        }())
+            }())
 
         messageLabel.font = activityData.messageFont
         messageLabel.textColor = activityData.textColor
@@ -290,12 +303,12 @@ public final class NVActivityIndicatorPresenter {
             let trailingConstraint = NSLayoutConstraint(item: containerView, attribute: .trailing, relatedBy: .equal, toItem: messageLabel, attribute: .trailing, multiplier: 1, constant: 8)
 
             containerView.addConstraints([leadingConstraint, trailingConstraint])
-        }())
+            }())
         ({
             let spacingConstraint = NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: activityIndicatorView, attribute: .bottom, multiplier: 1, constant: activityData.messageSpacing)
 
             containerView.addConstraint(spacingConstraint)
-        }())
+            }())
 
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
 
@@ -309,15 +322,21 @@ public final class NVActivityIndicatorPresenter {
             let bottomConstraint = NSLayoutConstraint(item: keyWindow, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: 0)
 
             keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
-        }())
+            }())
     }
 
-    fileprivate func hide() {
+    fileprivate func hide(_ fadeOutAnimation: FadeOutAnimation?) {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
 
         for item in keyWindow.subviews
             where item.restorationIdentifier == restorationIdentifier {
-            item.removeFromSuperview()
+                if let fadeOutAnimation = fadeOutAnimation {
+                    fadeOutAnimation(item) {
+                        item.removeFromSuperview()
+                    }
+                } else {
+                    item.removeFromSuperview()
+                }
         }
     }
 }
