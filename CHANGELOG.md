@@ -1,5 +1,9 @@
 # Change log
 
+## [4.3.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.3.0)
+* Handle starting while waiting to stop (#218)
+* UI blocker fade in/out animation (#219)
+
 ## [4.2.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.2.1)
 * Fix #213
 
