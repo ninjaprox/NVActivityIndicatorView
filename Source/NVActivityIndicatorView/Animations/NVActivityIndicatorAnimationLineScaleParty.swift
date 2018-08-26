@@ -36,7 +36,7 @@ class NVActivityIndicatorAnimationLineScaleParty: NVActivityIndicatorAnimationDe
         let durations: [CFTimeInterval] = [1.26, 0.43, 1.01, 0.73]
         let beginTime = CACurrentMediaTime()
         let beginTimes: [CFTimeInterval] = [0.77, 0.29, 0.28, 0.74]
-        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        let timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
 
         // Animation
         let animation = CAKeyframeAnimation(keyPath: "transform.scale")

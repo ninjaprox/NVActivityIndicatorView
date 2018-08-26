@@ -41,7 +41,7 @@ class NVActivityIndicatorAnimationBallZigZag: NVActivityIndicatorAnimationDelega
         let animation = CAKeyframeAnimation(keyPath: "transform")
 
         animation.keyTimes = [0, 0.33, 0.66, 1]
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
 
         animation.values = [
             NSValue(caTransform3D: CATransform3DMakeTranslation(0, 0, 0)),

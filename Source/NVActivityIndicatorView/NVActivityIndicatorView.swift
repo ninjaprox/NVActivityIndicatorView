@@ -534,7 +534,9 @@ public final class NVActivityIndicatorView: UIView {
 
     private final func setUpAnimation() {
         let animation: NVActivityIndicatorAnimationDelegate = type.animation()
-        var animationRect = UIEdgeInsetsInsetRect(frame, UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding))
+        let container = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frame.size.height)
+        let margin = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        var animationRect = container.inset(by: margin)
         let minEdge = min(animationRect.width, animationRect.height)
 
         layer.sublayers = nil

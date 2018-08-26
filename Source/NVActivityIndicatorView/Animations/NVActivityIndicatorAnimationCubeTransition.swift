@@ -38,7 +38,7 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
         let duration: CFTimeInterval = 1.6
         let beginTime = CACurrentMediaTime()
         let beginTimes: [CFTimeInterval] = [0, -0.8]
-        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        let timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
