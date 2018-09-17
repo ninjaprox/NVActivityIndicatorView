@@ -67,7 +67,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             button.tag = $0
             button.addTarget(self,
                              action: #selector(buttonTapped(_:)),
-                             for: UIControlEvents.touchUpInside)
+                             for: .touchUpInside)
             self.view.addSubview(button)
         }
     }
