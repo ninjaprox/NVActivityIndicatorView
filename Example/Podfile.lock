@@ -8,11 +8,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   NVActivityIndicatorView:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  NVActivityIndicatorView: 07df380db699a6ba52c1925a99438e00d2b3cf5b
+  NVActivityIndicatorView: ba1c936b77697f3a847af3677580a0e1a9f5ba64
 
 PODFILE CHECKSUM: e5d164996aa6d71a0eda53503111c16d861ecbc6
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

@@ -52,7 +52,7 @@ class NVActivityIndicatorAnimationBallScaleMultiple: NVActivityIndicatorAnimatio
         let animation = CAAnimationGroup()
 
         animation.animations = [scaleAnimation, opacityAnimation]
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: TimingFunction.linear)
         animation.duration = duration
         animation.repeatCount = HUGE
         animation.isRemovedOnCompletion = false
