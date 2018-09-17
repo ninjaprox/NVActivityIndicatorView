@@ -37,7 +37,11 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
         let duration: CFTimeInterval = 1.2
         let beginTime = CACurrentMediaTime()
         let beginTimes: [CFTimeInterval] = [0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84, 0.96]
+        #if swift(>=4.2)
+        let timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        #else
         let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        #endif
 
         // Animation
         let animation = CAKeyframeAnimation(keyPath: "opacity")

@@ -37,7 +37,11 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
     func pacmanInLayer(_ layer: CALayer, size: CGSize, color: UIColor) {
         let pacmanSize = 2 * size.width / 3
         let pacmanDuration: CFTimeInterval = 0.5
+        #if swift(>=4.2)
+        let timingFunction = CAMediaTimingFunction(name: .default)
+        #else
         let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        #endif
 
         // Stroke start animation
         let strokeStartAnimation = CAKeyframeAnimation(keyPath: "strokeStart")
@@ -99,7 +103,11 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         let animation = CAAnimationGroup()
 
         animation.animations = [translateAnimation, opacityAnimation]
+        #if swift(>=4.2)
+        animation.timingFunction = CAMediaTimingFunction(name: .linear)
+        #else
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        #endif
         animation.duration = circleDuration
         animation.repeatCount = HUGE
         animation.isRemovedOnCompletion = false
