@@ -37,7 +37,7 @@ class NVActivityIndicatorAnimationBallGridPulse: NVActivityIndicatorAnimationDel
         let durations: [CFTimeInterval] = [0.72, 1.02, 1.28, 1.42, 1.45, 1.18, 0.87, 1.45, 1.06]
         let beginTime = CACurrentMediaTime()
         let beginTimes: [CFTimeInterval] = [ -0.06, 0.25, -0.17, 0.48, 0.31, 0.03, 0.46, 0.78, 0.45]
-        let timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        let timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
 
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
