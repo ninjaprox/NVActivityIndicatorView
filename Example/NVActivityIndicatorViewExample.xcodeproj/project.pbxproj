@@ -173,6 +173,7 @@
 				1F0327271F0D399E00BF3358 /* Resources */,
 				F40FD3845AF34C6530AA8DA8 /* [CP] Embed Pods Frameworks */,
 				C0029094870C36B5EC794102 /* [CP] Copy Pods Resources */,
+				751DB245214FFA4B005455B8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -265,6 +266,23 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		751DB245214FFA4B005455B8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		9B4B72194E00E10CF472E3E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,7 +312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		C0029094870C36B5EC794102 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
