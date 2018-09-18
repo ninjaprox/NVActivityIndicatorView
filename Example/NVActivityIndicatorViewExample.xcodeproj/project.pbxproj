@@ -16,8 +16,8 @@
 		1F0327381F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327341F0D39C300BF3358 /* NVActivityIndicatorPresenterTests.swift */; };
 		1F0327391F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */; };
 		1F03273A1F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */; };
-		BF27BE60A62A545A66A8EE94 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */; };
-		D7C098602AE42E83955F96EA /* Pods_NVActivityIndicatorViewExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */; };
+		61557BA10290571F3CC675B7 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90A5C364C1D9C36761F89F4 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */; };
+		75FA6ED02AFF901D9AEA89DC /* Pods_NVActivityIndicatorViewExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D66FD30FA667D1982E7D46 /* Pods_NVActivityIndicatorViewExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06AD8F79CC9AFA25AEDA0F61 /* Pods-NVActivityIndicatorViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.release.xcconfig"; sourceTree = "<group>"; };
+		18520D902AB833DDFF55BC87 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F0326F91F0D28CC00BF3358 /* NVActivityIndicatorViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVActivityIndicatorViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0326FC1F0D28CC00BF3358 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F0326FE1F0D28CC00BF3358 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,11 +46,11 @@
 		1F0327351F0D39C300BF3358 /* NVActivityIndicatorTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorTypeTests.swift; sourceTree = "<group>"; };
 		1F0327361F0D39C300BF3358 /* NVActivityIndicatorViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewTests.swift; sourceTree = "<group>"; };
 		1F03273B1F0D3A4700BF3358 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = "../../../../Library/Developer/Xcode/DerivedData/NVActivityIndicatorViewExample-hdxlsbdufzcvsycluveyblohjyyk/Build/Products/Debug-iphonesimulator/NVActivityIndicatorView/NVActivityIndicatorView.framework"; sourceTree = "<group>"; };
-		27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig"; sourceTree = "<group>"; };
-		E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.debug.xcconfig"; sourceTree = "<group>"; };
-		F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38F46932CB46A4F90581B5EC /* Pods-NVActivityIndicatorViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.release.xcconfig"; sourceTree = "<group>"; };
+		82D66FD30FA667D1982E7D46 /* Pods_NVActivityIndicatorViewExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15A1AC45077E8F3A6BFFE62 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C5F88A8494788313C6680EFE /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NVActivityIndicatorViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample.debug.xcconfig"; sourceTree = "<group>"; };
+		D90A5C364C1D9C36761F89F4 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7C098602AE42E83955F96EA /* Pods_NVActivityIndicatorViewExample.framework in Frameworks */,
+				75FA6ED02AFF901D9AEA89DC /* Pods_NVActivityIndicatorViewExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,19 +66,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF27BE60A62A545A66A8EE94 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */,
+				61557BA10290571F3CC675B7 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		023A786A08FF70CA0BD5C6C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5F88A8494788313C6680EFE /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */,
+				38F46932CB46A4F90581B5EC /* Pods-NVActivityIndicatorViewExample.release.xcconfig */,
+				C15A1AC45077E8F3A6BFFE62 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */,
+				18520D902AB833DDFF55BC87 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1BECEF2F4F8232BE2E0FE8FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1F03273B1F0D3A4700BF3358 /* NVActivityIndicatorView.framework */,
-				F6555B7989B0D9D26C7BC697 /* Pods_NVActivityIndicatorViewExample.framework */,
-				D8076AEA41C99DC65B568723 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */,
+				82D66FD30FA667D1982E7D46 /* Pods_NVActivityIndicatorViewExample.framework */,
+				D90A5C364C1D9C36761F89F4 /* Pods_NVActivityIndicatorViewExample_NVActivityIndicatorViewTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -89,8 +100,8 @@
 				1F0326FB1F0D28CC00BF3358 /* NVActivityIndicatorViewExample */,
 				1F03272A1F0D399F00BF3358 /* NVActivityIndicatorViewTests */,
 				1F0326FA1F0D28CC00BF3358 /* Products */,
-				F2E40C627523ED168D274C66 /* Pods */,
 				1BECEF2F4F8232BE2E0FE8FE /* Frameworks */,
+				023A786A08FF70CA0BD5C6C0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,17 +139,6 @@
 			path = NVActivityIndicatorViewTests;
 			sourceTree = "<group>";
 		};
-		F2E40C627523ED168D274C66 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */,
-				06AD8F79CC9AFA25AEDA0F61 /* Pods-NVActivityIndicatorViewExample.release.xcconfig */,
-				27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */,
-				D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,13 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F03270B1F0D28CC00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewExample" */;
 			buildPhases = (
-				DEFA0E424E92625E57036A83 /* [CP] Check Pods Manifest.lock */,
+				C3A662686B21AB8B414FCDA2 /* [CP] Check Pods Manifest.lock */,
 				1F0326F51F0D28CC00BF3358 /* Sources */,
 				1F0326F61F0D28CC00BF3358 /* Frameworks */,
 				1F0326F71F0D28CC00BF3358 /* Resources */,
-				4420B95FF59E9BF6A4CA47A2 /* [CP] Embed Pods Frameworks */,
-				DD185C4DF3DF1B66D2FECDB4 /* [CP] Copy Pods Resources */,
-				A3BEA4B22075252600F1AF75 /* ShellScript */,
+				3A6E4CD667D008233D6C1F55 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,13 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F0327321F0D399F00BF3358 /* Build configuration list for PBXNativeTarget "NVActivityIndicatorViewTests" */;
 			buildPhases = (
-				9B4B72194E00E10CF472E3E9 /* [CP] Check Pods Manifest.lock */,
+				FC7EC3A272EE15625D0A4145 /* [CP] Check Pods Manifest.lock */,
 				1F0327251F0D399E00BF3358 /* Sources */,
 				1F0327261F0D399E00BF3358 /* Frameworks */,
 				1F0327271F0D399E00BF3358 /* Resources */,
-				F40FD3845AF34C6530AA8DA8 /* [CP] Embed Pods Frameworks */,
-				C0029094870C36B5EC794102 /* [CP] Copy Pods Resources */,
-				751DB245214FFA4B005455B8 /* ShellScript */,
+				CB483A4F30FF611438AAFC62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,7 +244,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4420B95FF59E9BF6A4CA47A2 /* [CP] Embed Pods Frameworks */ = {
+		3A6E4CD667D008233D6C1F55 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,85 +262,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		751DB245214FFA4B005455B8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		9B4B72194E00E10CF472E3E9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A3BEA4B22075252600F1AF75 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		C0029094870C36B5EC794102 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DD185C4DF3DF1B66D2FECDB4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DEFA0E424E92625E57036A83 /* [CP] Check Pods Manifest.lock */ = {
+		C3A662686B21AB8B414FCDA2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,7 +280,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F40FD3845AF34C6530AA8DA8 /* [CP] Embed Pods Frameworks */ = {
+		CB483A4F30FF611438AAFC62 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,6 +296,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC7EC3A272EE15625D0A4145 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -546,7 +482,7 @@
 		};
 		1F03270C1F0D28CC00BF3358 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6DEEC0FE73BABF805BEE043 /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */;
+			baseConfigurationReference = C5F88A8494788313C6680EFE /* Pods-NVActivityIndicatorViewExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -562,7 +498,7 @@
 		};
 		1F03270D1F0D28CC00BF3358 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06AD8F79CC9AFA25AEDA0F61 /* Pods-NVActivityIndicatorViewExample.release.xcconfig */;
+			baseConfigurationReference = 38F46932CB46A4F90581B5EC /* Pods-NVActivityIndicatorViewExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -578,7 +514,7 @@
 		};
 		1F0327301F0D399F00BF3358 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27028164287A006BEC12F670 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */;
+			baseConfigurationReference = C15A1AC45077E8F3A6BFFE62 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -598,7 +534,7 @@
 		};
 		1F0327311F0D399F00BF3358 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D875B1A7100E596221B44E4A /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */;
+			baseConfigurationReference = 18520D902AB833DDFF55BC87 /* Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
