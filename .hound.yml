@@ -1,2 +1,2 @@
 swift:
-  config_file: NVActivityIndicatorView/.swiftlint.yml
+  config_file: Source/.swiftlint.yml
