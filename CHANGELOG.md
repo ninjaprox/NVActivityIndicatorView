@@ -1,5 +1,9 @@
 # Change log
 
+## [4.4.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.4.0)
+* Fix #211
+* Swift 4.2 migration
+
 ## [4.3.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.3.0)
 * Handle starting while waiting to stop (#218)
 * UI blocker fade in/out animation (#219)
