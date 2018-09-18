@@ -5,8 +5,8 @@ env:
   - SCHEME=NVActivityIndicatorViewTests
 matrix:
   include:
-  - osx_image: xcode9
-    env: SDK="iphonesimulator11.0" DESTINATION="name=iPhone 6s,OS=11.0"
+  - osx_image: xcode10
+    env: SDK="iphonesimulator12.0" DESTINATION="name=iPhone 6s,OS=12.0"
 script:
   - set -o pipefail
   - pod install --project-directory=Example

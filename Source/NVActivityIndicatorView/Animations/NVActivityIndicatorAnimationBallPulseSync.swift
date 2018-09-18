@@ -38,7 +38,11 @@ class NVActivityIndicatorAnimationBallPulseSync: NVActivityIndicatorAnimationDel
         let duration: CFTimeInterval = 0.6
         let beginTime = CACurrentMediaTime()
         let beginTimes: [CFTimeInterval] = [0.07, 0.14, 0.21]
+        #if swift(>=4.2)
+        let timingFunciton = CAMediaTimingFunction(name: .easeInEaseOut)
+        #else
         let timingFunciton = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        #endif
 
         // Animation
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.y")

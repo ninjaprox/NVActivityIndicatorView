@@ -65,9 +65,15 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
 
             let button: UIButton = UIButton(frame: frame)
             button.tag = $0
+            #if swift(>=4.2)
+            button.addTarget(self,
+                             action: #selector(buttonTapped(_:)),
+                             for: .touchUpInside)
+            #else
             button.addTarget(self,
                              action: #selector(buttonTapped(_:)),
                              for: UIControlEvents.touchUpInside)
+            #endif
             self.view.addSubview(button)
         }
     }
