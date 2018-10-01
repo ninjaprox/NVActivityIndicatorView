@@ -426,7 +426,11 @@ public final class NVActivityIndicatorView: UIView {
     }
 
     /// Color of activity indicator view.
-    @IBInspectable public var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR
+    @IBInspectable public var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR {
+        didSet {
+            setUpAnimation()
+        }
+    }
 
     /// Padding of activity indicator view.
     @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
