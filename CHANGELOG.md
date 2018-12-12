@@ -1,5 +1,9 @@
 # Change log
 
+## [4.4.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.4.1)
+* Don’t start/stop animating if unnecessary (#239)
+* Specify Swift version in Podspec (#245)
+
 ## [4.4.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.4.0)
 * Fix #211
 * Swift 4.2 migration
