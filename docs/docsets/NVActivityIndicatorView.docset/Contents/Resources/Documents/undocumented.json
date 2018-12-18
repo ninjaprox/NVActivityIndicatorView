@@ -1,0 +1,12 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/vinhnguyen/Workspace/NVActivityIndicatorView/Source/NVActivityIndicatorView/NVActivityIndicatorView.swift",
+      "line": 489,
+      "symbol": "NVActivityIndicatorView.bounds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/vinhnguyen/Workspace/NVActivityIndicatorView/Source"
+}
