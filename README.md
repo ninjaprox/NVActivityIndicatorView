@@ -203,7 +203,7 @@ let activityData = ActivityData()
 NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
 ```
 
-_**Note:** Check [documentation](http://cocoadocs.org/docsets/NVActivityIndicatorView) for detail of `ActivityData`._
+_**Note:** Check [documentation](https://nvactivityindicatorview.vinhis.me) for detail of `ActivityData`._
 
 Stop animating.
 
