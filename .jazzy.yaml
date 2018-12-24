@@ -1,1 +1,15 @@
-podspec: NVActivityIndicatorView.podspec
+readme: README.md
+author: Vinh Nguyen
+author_url: https://github.com/ninjaprox
+github_url: https://github.com/ninjaprox/NVActivityIndicatorView
+
+theme: fullwidth
+disable_search: true
+
+module: NVActivityIndicatorView
+source_directory: Source
+xcodebuild_arguments:
+- -scheme
+- NVActivityIndicatorView
+- -project
+- NVActivityIndicatorView.xcodeproj

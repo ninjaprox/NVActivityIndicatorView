@@ -1,5 +1,42 @@
 # Change log
 
+## [4.5.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.5.0)
+* Add tvOS target (#248)
+
+## [4.4.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.4.1)
+* Don’t start/stop animating if unnecessary (#239)
+* Specify Swift version in Podspec (#245)
+
+## [4.4.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.4.0)
+* Fix #211
+* Swift 4.2 migration
+
+## [4.3.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.3.0)
+* Handle starting while waiting to stop (#218)
+* UI blocker fade in/out animation (#219)
+
+## [4.2.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.2.1)
+* Fix #213
+
+## [4.2.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.2.0)
+* Refactor `NVActivityIndicatorPresenter` with state pattern
+* Expose `isAnimating` from `NVActivityIndicatorPresenter` and `NVActivityIndicatorViewable` (#204)
+* Fix tests
+
+## [4.1.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.1.1)
+* Fix #186, #189
+
+## [4.1.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.1.0)
+* Introduce message spacing
+* New circle stroke spin animation
+
+## [4.0.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.0.1)
+* Fix view in auto layout
+* Fix #173, #180
+
+## [4.0.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.0.0)
+* Update to Swift 4
+
 ## [3.7.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/3.7.0)
 * Support app extension
 
@@ -105,11 +142,9 @@
 * Add documentation
 
 ## [v1.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v1.1)
-
 * Change project structure to work well with CocoaPods
 * Small fix in `podspec`
 
 ## [v1.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/v1.0)
-
 * Initial release
 * Full implementations of 28 loaders from loaders.css

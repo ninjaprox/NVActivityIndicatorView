@@ -1,0 +1,13 @@
+disabled_rules:
+- line_length
+
+type_name:
+  max_length: 60
+identifier_name:
+  excluded:
+  - x
+  - y
+  - i
+  - j
+function_body_length:
+  warning: 50

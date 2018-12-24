@@ -36,30 +36,36 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                               minimumDisplayTime: 0)
 
         XCTAssertFalse(checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
         doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        }
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        doAfter(approximateZero) {
             XCTAssertFalse(self.checkActivityViewAppeared())
         }
     }
 
-    func xtestNonZeroDisplayTimeThreshold() {
+    func testNonZeroDisplayTimeThreshold() {
         let activityData = createActivityData(displayTimeThreshold: 100,
                                               minimumDisplayTime: 0)
 
         XCTAssertFalse(checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
         doAfter(50) {
             XCTAssertFalse(self.checkActivityViewAppeared())
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        }
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        doAfter(approximateZero) {
+            XCTAssertFalse(self.checkActivityViewAppeared())
         }
 
-        XCTAssertFalse(checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        doAfter(150) {
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+        doAfter(100) {
             XCTAssertTrue(self.checkActivityViewAppeared())
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        }
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        doAfter(approximateZero) {
             XCTAssertFalse(self.checkActivityViewAppeared())
         }
     }
@@ -69,29 +75,97 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
                                               minimumDisplayTime: 0)
 
         XCTAssertFalse(checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
         doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        }
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        doAfter(approximateZero) {
             XCTAssertFalse(self.checkActivityViewAppeared())
         }
     }
 
-    func xtestNonZeroMinimumDisplayTime() {
+    func testNonZeroMinimumDisplayTime() {
         let activityData = createActivityData(displayTimeThreshold: 0,
                                               minimumDisplayTime: 100)
 
         XCTAssertFalse(checkActivityViewAppeared())
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
         doAfter(approximateZero) {
             XCTAssertTrue(self.checkActivityViewAppeared())
         }
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-        doAfter(10) {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        doAfter(50) {
             XCTAssertTrue(self.checkActivityViewAppeared())
         }
         doAfter(50) {
             XCTAssertFalse(self.checkActivityViewAppeared())
+        }
+    }
+
+    func testStartStop() {
+        let activityData = createActivityData(displayTimeThreshold: 0,
+                                              minimumDisplayTime: 0)
+
+        XCTAssertFalse(checkActivityViewAppeared())
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        doAfter(approximateZero) {
+            XCTAssertFalse(self.checkActivityViewAppeared())
+        }
+    }
+
+    func testStartStopStart() {
+        let activityData = createActivityData(displayTimeThreshold: 0,
+                                              minimumDisplayTime: 0)
+
+        XCTAssertFalse(checkActivityViewAppeared())
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+
+        doAfter(approximateZero) {
+            XCTAssertTrue(self.checkActivityViewAppeared())
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+            NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+        }
+
+        doAfter(approximateZero * 2) {
+            XCTAssertTrue(self.checkActivityViewAppeared())
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        }
+
+        doAfter(approximateZero * 3) {
+            XCTAssertFalse(self.checkActivityViewAppeared())
+        }
+
+    }
+
+    func testIsAnimating() {
+        let activityData = createActivityData(displayTimeThreshold: 100,
+                                              minimumDisplayTime: 100)
+
+        // .stopped
+        XCTAssertFalse(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+
+        // .waitingToStart
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+        doAfter(50) {
+            XCTAssertFalse(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+        }
+
+        // .animating
+        doAfter(50) {
+            XCTAssertTrue(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+        }
+
+        // .waitingToStop
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+        doAfter(50) {
+            XCTAssertTrue(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
+        }
+
+        // .stopped
+        doAfter(50) {
+            XCTAssertFalse(NVActivityIndicatorPresenter.sharedInstance.isAnimating)
         }
     }
 
@@ -112,7 +186,7 @@ class NVActivityIndicatorPresenterTests: XCTestCase {
     func checkActivityViewAppeared() -> Bool {
         for item in UIApplication.shared.keyWindow!.subviews
             where item.restorationIdentifier == "NVActivityIndicatorViewContainer" {
-            return true
+                return true
         }
 
         return false

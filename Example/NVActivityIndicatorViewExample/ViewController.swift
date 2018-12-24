@@ -41,7 +41,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
 
-        (NVActivityIndicatorType.ballPulse.rawValue ... NVActivityIndicatorType.audioEqualizer.rawValue).forEach {
+        (NVActivityIndicatorType.ballPulse.rawValue ... NVActivityIndicatorType.circleStrokeSpin.rawValue).forEach {
             let x = ($0 - 1) % cols * cellWidth
             let y = ($0 - 1) / cols * cellHeight
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
@@ -65,24 +65,30 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
 
             let button: UIButton = UIButton(frame: frame)
             button.tag = $0
+            #if swift(>=4.2)
+            button.addTarget(self,
+                             action: #selector(buttonTapped(_:)),
+                             for: .touchUpInside)
+            #else
             button.addTarget(self,
                              action: #selector(buttonTapped(_:)),
                              for: UIControlEvents.touchUpInside)
+            #endif
             self.view.addSubview(button)
         }
     }
 
-    func buttonTapped(_ sender: UIButton) {
+    @objc func buttonTapped(_ sender: UIButton) {
         let size = CGSize(width: 30, height: 30)
 
-        startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!)
+        startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!, fadeInAnimation: nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
         }
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.stopAnimating()
+            self.stopAnimating(nil)
         }
     }
 }
