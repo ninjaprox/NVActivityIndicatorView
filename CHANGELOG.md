@@ -1,5 +1,8 @@
 # Change log
 
+## [4.5.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.5.0)
+* Add tvOS target (#248)
+
 ## [4.4.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.4.1)
 * Don’t start/stop animating if unnecessary (#239)
 * Specify Swift version in Podspec (#245)
