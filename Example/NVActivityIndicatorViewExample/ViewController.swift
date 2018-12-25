@@ -31,6 +31,10 @@ import NVActivityIndicatorView
 
 class ViewController: UIViewController, NVActivityIndicatorViewable {
 
+    private let presentingIndicatorTypes = {
+        return NVActivityIndicatorType.allCases.filter { $0 != .blank }
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,8 +44,6 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         let rows = 8
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
-
-        let presentingIndicatorTypes = NVActivityIndicatorType.allCases.filter { $0 != .blank }
 
         for (index, indicatorType) in presentingIndicatorTypes.enumerated() {
             let x = index % cols * cellWidth
@@ -83,10 +85,9 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
     @objc func buttonTapped(_ sender: UIButton) {
         let size = CGSize(width: 30, height: 30)
         let selectedIndicatorIndex = sender.tag
-        let presentingIndicatorTypes = NVActivityIndicatorType.allCases.filter { $0 != .blank }
         let indicatorType = presentingIndicatorTypes[selectedIndicatorIndex]
 
-        startAnimating(size, message: "Loading...", type: indicatorType, fadeInAnimation:nil)
+        startAnimating(size, message: "Loading...", type: indicatorType, fadeInAnimation: nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
