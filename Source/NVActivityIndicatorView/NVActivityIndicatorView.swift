@@ -263,7 +263,6 @@ public enum NVActivityIndicatorType: Int, CaseIterable {
      - returns: Instance of NVActivityIndicatorAnimationCircleStrokeSpin.
      */
     case circleStrokeSpin
-    
 
     // swiftlint:disable:next cyclomatic_complexity function_body_length
     func animation() -> NVActivityIndicatorAnimationDelegate {
