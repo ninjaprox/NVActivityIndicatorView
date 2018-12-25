@@ -42,7 +42,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
 
         let presentingIndicatorTypes = NVActivityIndicatorType.allCases.filter { $0 != .blank }
-        
+
         for (index, indicatorType) in presentingIndicatorTypes.enumerated() {
             let x = index % cols * cellWidth
             let y = index / cols * cellHeight
@@ -85,8 +85,8 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         let selectedIndicatorIndex = sender.tag
         let presentingIndicatorTypes = NVActivityIndicatorType.allCases.filter { $0 != .blank }
         let indicatorType = presentingIndicatorTypes[selectedIndicatorIndex]
-        
-        startAnimating(size, message: "Loading...", type:indicatorType, fadeInAnimation: nil)
+
+        startAnimating(size, message: "Loading...", type: indicatorType, fadeInAnimation:nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
