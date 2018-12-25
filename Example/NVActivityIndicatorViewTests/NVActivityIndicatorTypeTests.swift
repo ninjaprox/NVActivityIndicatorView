@@ -75,7 +75,7 @@ class NVActivityIndicatorTypeTests: XCTestCase {
         }
     }
 
-    func testAllTypes() {
-        XCTAssertEqual(NVActivityIndicatorType.allTypes.last, NVActivityIndicatorType.circleStrokeSpin)
+    func testAllCases() {
+        XCTAssertEqual(NVActivityIndicatorType.allCases.last, NVActivityIndicatorType.circleStrokeSpin)
     }
 }
