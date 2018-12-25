@@ -64,7 +64,7 @@ import UIKit
  - AudioEqualizer:          AudioEqualizer animation.
  - CircleStrokeSpin:        CircleStrokeSpin animation.
  */
-public enum NVActivityIndicatorType: Int, CaseIterable {
+public enum NVActivityIndicatorType: CaseIterable {
     /**
      Blank.
 

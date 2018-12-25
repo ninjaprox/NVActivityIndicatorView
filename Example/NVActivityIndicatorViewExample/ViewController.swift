@@ -41,22 +41,24 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         let cellWidth = Int(self.view.frame.width / CGFloat(cols))
         let cellHeight = Int(self.view.frame.height / CGFloat(rows))
 
-        (NVActivityIndicatorType.ballPulse.rawValue ... NVActivityIndicatorType.circleStrokeSpin.rawValue).forEach {
-            let x = ($0 - 1) % cols * cellWidth
-            let y = ($0 - 1) / cols * cellHeight
+        let presentingIndicatorTypes = NVActivityIndicatorType.allCases.filter { $0 != .blank }
+        
+        for (index, indicatorType) in presentingIndicatorTypes.enumerated() {
+            let x = index % cols * cellWidth
+            let y = index / cols * cellHeight
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
             let activityIndicatorView = NVActivityIndicatorView(frame: frame,
-                                                                type: NVActivityIndicatorType(rawValue: $0)!)
+                                        type: indicatorType)
             let animationTypeLabel = UILabel(frame: frame)
 
-            animationTypeLabel.text = String($0)
+            animationTypeLabel.text = String(index)
             animationTypeLabel.sizeToFit()
             animationTypeLabel.textColor = UIColor.white
             animationTypeLabel.frame.origin.x += 5
             animationTypeLabel.frame.origin.y += CGFloat(cellHeight) - animationTypeLabel.frame.size.height
 
             activityIndicatorView.padding = 20
-            if $0 == NVActivityIndicatorType.orbit.rawValue {
+            if indicatorType == NVActivityIndicatorType.orbit {
                 activityIndicatorView.padding = 0
             }
             self.view.addSubview(activityIndicatorView)
@@ -64,7 +66,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
             activityIndicatorView.startAnimating()
 
             let button: UIButton = UIButton(frame: frame)
-            button.tag = $0
+            button.tag = index
             #if swift(>=4.2)
             button.addTarget(self,
                              action: #selector(buttonTapped(_:)),
@@ -80,8 +82,11 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
 
     @objc func buttonTapped(_ sender: UIButton) {
         let size = CGSize(width: 30, height: 30)
-
-        startAnimating(size, message: "Loading...", type: NVActivityIndicatorType(rawValue: sender.tag)!, fadeInAnimation: nil)
+        let selectedIndicatorIndex = sender.tag
+        let presentingIndicatorTypes = NVActivityIndicatorType.allCases.filter { $0 != .blank }
+        let indicatorType = presentingIndicatorTypes[selectedIndicatorIndex]
+        
+        startAnimating(size, message: "Loading...", type:indicatorType, fadeInAnimation: nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             NVActivityIndicatorPresenter.sharedInstance.setMessage("Authenticating...")
