@@ -35,7 +35,7 @@ For first-hand experience, just open the project and run it.
 
 ### Cocoapods
 
-Install Cocoapods if need be.
+Install [Cocoapods](https://cocoapods.org/#install) if need be.
 
 ```bash
 $ gem install cocoapods
@@ -49,14 +49,25 @@ use_frameworks!
 pod 'NVActivityIndicatorView'
 ```
 
+If you're using `NVActivityIndicatorView` in an app extension, use `NVActivityIndicatorView/AppExtension` instead.
+
+```ruby
+use_frameworks!
+
+pod 'NVActivityIndicatorView/AppExtension'
+```
+
 Then, run the following command.
 
 ```bash
 $ pod install
 ```
+
+_**Note:** Please refer to the migration note for version [`3.7.0`](#version-370) below._
+
 ### Carthage
 
-Install Carthage if need be.
+Install [Carthage](https://github.com/Carthage/Carthage#installing-carthage) if need be.
 
 ```bash
 $ brew update
@@ -69,7 +80,7 @@ Add `NVActivityIndicatorView` in your `Cartfile`.
 github "ninjaprox/NVActivityIndicatorView"
 ```
 
-Run `carthage` to build the framework and drag the built `NVActivityIndicatorView.framework` into your Xcode project.
+Run `carthage` to build the framework and drag the built `NVActivityIndicatorView_iOS.framework`, `NVActivityIndicatorViewAppExtension_iOS.framework` or `NVActivityIndicatorView_tvOS.framework` into your Xcode project.
 
 _**Note:** You might encounter compile issue, if so please use `carthage` branch instead. Check issue [#101](https://github.com/ninjaprox/NVActivityIndicatorView/issues/101) for more information._
 
@@ -83,6 +94,10 @@ _**Note:** If you encounter issues while uploading the app to iTunes Connect, re
 
 ## Migration
 
+### Version 4.4.0
+
+This version requires Xcode 10.1 and Swift 4.2.
+
 ### Version 4.0.0
 
 This version requires Xcode 9.0 and Swift 4.
@@ -91,41 +106,27 @@ This version requires Xcode 9.0 and Swift 4.
 
 This version splits `NVActivityIndicatorView` pod to 2 subpods `NVActivityIndicatorView/Presenter` and `NVActivityIndicatorView/AppExtension`. There is no need to change `pod NVActivityIndicatorView` to `pod NVActivityIndicatorView/Presenter` since it will be installed by default if you use the main pod name.
 
-However, if you want to use `NVActivityIndicatorView` in app extension, use `pod NVActivityIndicatorView/AppExtension` instead.
+However, if you want to use `NVActivityIndicatorView` in an app extension, use `pod NVActivityIndicatorView/AppExtension` instead.
 
 _**Note:** Related issue [#119](https://github.com/ninjaprox/NVActivityIndicatorView/issues/119)._
-
-### Version 3.6.0
-
-This version requires Xcode 8.3 and Swift 3.1.
-
-### Version 3.0
-
-This version requires Xcode 8.0 and Swift 3.
-
-- `NVActivityIndicatorView.startAnimation()` and `NVActivityIndicatorView.stopAnimation()` are deleted. Use `NVActivityIndicatorView.startAnimating()` and `NVActivityIndicatorView.stopAnimating()` instead.
-- `UIViewController.startActivityAnimating()` and `UIViewController.stopActivityAnimating()` are deleted. Use `UIViewController.startAnimating()` and `UIViewController.stopAnimating()` instead.
-
-### Version 2.0
-
-This version continues to spport Xcode 7.0 and Swift 2.2 and earlier.
-For Swift 2.3 support, use `swift2.3` branch instead.
-
-```ruby
-pod 'NVActivityIndicatorView', :git => 'https://github.com/ninjaprox/NVActivityIndicatorView.git', :branch => 'swift2.3'
-```
 
 ## Usage
 
 Firstly, import `NVActivityIndicatorView`.
 
 ```swift
+// If you're using CocoaPods
 import NVActivityIndicatorView
+
+// If you're using Carthage
+import NVActivityIndicatorView_iOS // for NVActivityIndicatorView_iOS.framework
+import NVActivityIndicatorView_tvOS // for NVActivityIndicatorView_tvOS.framework
+import NVActivityIndicatorViewAppExtension_iOS // for NVActivityIndicatorViewAppExtension_iOS.framework
 ```
 
 ### Initialization
 
-Then, there are two ways you can create NVActivityIndicatorView:
+Then, there are two ways you can create `NVActivityIndicatorView`:
 
 - By storyboard, changing class of any `UIView` to `NVActivityIndicatorView`.
 
