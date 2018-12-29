@@ -1,7 +1,7 @@
 PODS:
-  - NVActivityIndicatorView (4.5.0):
-    - NVActivityIndicatorView/Presenter (= 4.5.0)
-  - NVActivityIndicatorView/Presenter (4.5.0)
+  - NVActivityIndicatorView (4.5.1):
+    - NVActivityIndicatorView/Presenter (= 4.5.1)
+  - NVActivityIndicatorView/Presenter (4.5.1)
 
 DEPENDENCIES:
   - NVActivityIndicatorView (from `../`)
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NVActivityIndicatorView: 5a54c8507e71bbb6ce347b9ae0905f61e32dfbcc
+  NVActivityIndicatorView: 7dcf424cdb3050de1e45dd44ddd92f41e57ff1d7
 
 PODFILE CHECKSUM: e5d164996aa6d71a0eda53503111c16d861ecbc6
 
