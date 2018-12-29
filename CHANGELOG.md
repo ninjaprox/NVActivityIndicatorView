@@ -1,5 +1,8 @@
 # Change log
 
+## [4.5.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.5.1)
+* Fix #251
+
 ## [4.5.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.5.0)
 * Add tvOS target (#248)
 
