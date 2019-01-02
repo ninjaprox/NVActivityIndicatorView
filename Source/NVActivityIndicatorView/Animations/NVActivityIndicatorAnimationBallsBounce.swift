@@ -1,5 +1,5 @@
 //
-//  NVActivityIndicatorAnimationBallDoubleBounce.swift
+//  NVActivityIndicatorAnimationBallsBounce.swift
 //  NVActivityIndicatorView
 //
 // The MIT License (MIT)
@@ -27,7 +27,7 @@
 
 import UIKit
 
-class NVActivityIndicatorAnimationBallDoubleBounce: NVActivityIndicatorAnimationDelegate {
+class NVActivityIndicatorAnimationBallsBounce: NVActivityIndicatorAnimationDelegate {
 
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         for index in (0...1) {
