@@ -181,11 +181,11 @@ public enum NVActivityIndicatorType: CaseIterable {
      */
     case ballBeat
     /**
-     BallsBounce.
+     BallDoubleBounce.
 
-     - returns: Instance of NVActivityIndicatorAnimationBallsBounce.
+     - returns: Instance of NVActivityIndicatorAnimationBallDoubleBounce.
      */
-    case ballsBounce
+    case ballDoubleBounce
     /**
      LineScalePulseOut.
 
@@ -312,8 +312,8 @@ public enum NVActivityIndicatorType: CaseIterable {
             return NVActivityIndicatorAnimationBallPulseSync()
         case .ballBeat:
             return NVActivityIndicatorAnimationBallBeat()
-        case .ballsBounce:
-            return NVActivityIndicatorAnimationBallsBounce()
+        case .ballDoubleBounce:
+            return NVActivityIndicatorAnimationBallDoubleBounce()
         case .lineScalePulseOut:
             return NVActivityIndicatorAnimationLineScalePulseOut()
         case .lineScalePulseOutRapid:

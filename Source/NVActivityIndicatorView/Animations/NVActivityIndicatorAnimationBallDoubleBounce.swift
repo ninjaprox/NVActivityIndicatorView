@@ -27,35 +27,28 @@
 
 import UIKit
 
-class NVActivityIndicatorAnimationBallsBounce: NVActivityIndicatorAnimationDelegate {
+class NVActivityIndicatorAnimationBallDoubleBounce: NVActivityIndicatorAnimationDelegate {
 
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         for index in (0...1) {
-            bouncingBall(in: layer, size: size, color: color, startingAt: CACurrentMediaTime() + Double(-1 * index))
+            self.bouncingBall(in: layer, size: size, color: color, startingAt: CACurrentMediaTime() + Double(index))
         }
     }
 
     fileprivate func bouncingBall(in layer: CALayer, size: CGSize, color: UIColor, startingAt: CFTimeInterval) {
-        let duration: CFTimeInterval = 2
-
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
-        scaleAnimation.duration = duration
+        scaleAnimation.duration = 2
         scaleAnimation.keyTimes = [0, 0.5, 1]
-        scaleAnimation.values = [0, 1, 0]
+        scaleAnimation.values = [-1, 0, -1]
 
-        // Animation
-        let animation = CAAnimationGroup()
-
-        animation.animations = [scaleAnimation]
         #if swift(>=4.2)
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         #else
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEasyInEaseOut)
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEasyInEaseOut)
         #endif
-        animation.duration = duration
-        animation.repeatCount = HUGE
-        animation.isRemovedOnCompletion = false
+        scaleAnimation.repeatCount = HUGE
+        scaleAnimation.isRemovedOnCompletion = false
 
         let circle = NVActivityIndicatorShape.circle.layerWith(size: size, color: color)
         let frame = CGRect(x: (layer.bounds.size.width - size.width) / 2,
@@ -63,10 +56,10 @@ class NVActivityIndicatorAnimationBallsBounce: NVActivityIndicatorAnimationDeleg
                            width: size.width,
                            height: size.height)
 
-        animation.beginTime = startingAt
+        scaleAnimation.beginTime = startingAt
         circle.frame = frame
         circle.opacity = 0.6
-        circle.add(animation, forKey: "animation")
+        circle.add(scaleAnimation, forKey: "animation")
         layer.addSublayer(circle)
     }
 }
