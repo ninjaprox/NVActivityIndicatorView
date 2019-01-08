@@ -49,6 +49,7 @@ import UIKit
  - BallScaleMultiple:       BallScaleMultiple animation.
  - BallPulseSync:           BallPulseSync animation.
  - BallBeat:                BallBeat animation.
+ - BallDoubleBounce:        BallDoubleBounce animation.
  - LineScalePulseOut:       LineScalePulseOut animation.
  - LineScalePulseOutRapid:  LineScalePulseOutRapid animation.
  - BallScaleRipple:         BallScaleRipple animation.
@@ -180,6 +181,12 @@ public enum NVActivityIndicatorType: CaseIterable {
      */
     case ballBeat
     /**
+     BallDoubleBounce.
+
+     - returns: Instance of NVActivityIndicatorAnimationBallDoubleBounce.
+     */
+    case ballDoubleBounce
+    /**
      LineScalePulseOut.
 
      - returns: Instance of NVActivityIndicatorAnimationLineScalePulseOut.
@@ -305,6 +312,8 @@ public enum NVActivityIndicatorType: CaseIterable {
             return NVActivityIndicatorAnimationBallPulseSync()
         case .ballBeat:
             return NVActivityIndicatorAnimationBallBeat()
+        case .ballDoubleBounce:
+            return NVActivityIndicatorAnimationBallDoubleBounce()
         case .lineScalePulseOut:
             return NVActivityIndicatorAnimationLineScalePulseOut()
         case .lineScalePulseOutRapid:
