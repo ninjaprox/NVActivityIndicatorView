@@ -31,7 +31,7 @@ class NVActivityIndicatorAnimationBallDoubleBounce: NVActivityIndicatorAnimation
 
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         for index in (0...1) {
-            self.bouncingBall(in: layer, size: size, color: color, startingAt: CACurrentMediaTime() + Double(index))
+            bouncingBall(in: layer, size: size, color: color, startingAt: CACurrentMediaTime() + Double(index))
         }
     }
 
