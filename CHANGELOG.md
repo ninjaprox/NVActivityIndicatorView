@@ -1,5 +1,9 @@
 # Change log
 
+## [4.6.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.6.0)
+* New NVActivityIndicatorAnimationBallDoubleBounce animation (#258)
+* Unify product name (#260)
+
 ## [4.5.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.5.1)
 * Fix #251
 
