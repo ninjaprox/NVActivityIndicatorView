@@ -128,7 +128,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F0326941F0D24BE00BF3358 /* NVActivityIndicatorView_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0326941F0D24BE00BF3358 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0326A01F0D257600BF3358 /* NVActivityIndicatorAnimationAudioEqualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationAudioEqualizer.swift; sourceTree = "<group>"; };
 		1F0326A11F0D257600BF3358 /* NVActivityIndicatorAnimationBallBeat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallBeat.swift; sourceTree = "<group>"; };
 		1F0326A21F0D257600BF3358 /* NVActivityIndicatorAnimationBallClipRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallClipRotate.swift; sourceTree = "<group>"; };
@@ -166,9 +166,9 @@
 		1F0326C31F0D257700BF3358 /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
 		1F88C9D01F10D03E00869231 /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
 		1F88C9D11F10D03E00869231 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
-		1F88C9D91F10D0B200869231 /* NVActivityIndicatorViewAppExtension_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorViewAppExtension_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F88C9D91F10D0B200869231 /* NVActivityIndicatorViewAppExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorViewAppExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8F3CC221ECDBEB004E5B86 /* NVActivityIndicatorAnimationBallDoubleBounce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallDoubleBounce.swift; sourceTree = "<group>"; };
-		1FFEE02321D10063000A3D14 /* NVActivityIndicatorView_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFEE02321D10063000A3D14 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A52F0DE1FCDBB8C009377B1 /* NVActivityIndicatorAnimationCircleStrokeSpin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationCircleStrokeSpin.swift; sourceTree = "<group>"; };
 		A367103220A1EEEC00081069 /* NVActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVActivityIndicatorView.h; sourceTree = "<group>"; };
 		A367103320A1EEED00081069 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,9 +196,9 @@
 		1F0326951F0D24BE00BF3358 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F0326941F0D24BE00BF3358 /* NVActivityIndicatorView_iOS.framework */,
-				1F88C9D91F10D0B200869231 /* NVActivityIndicatorViewAppExtension_iOS.framework */,
-				1FFEE02321D10063000A3D14 /* NVActivityIndicatorView_tvOS.framework */,
+				1F0326941F0D24BE00BF3358 /* NVActivityIndicatorView.framework */,
+				1F88C9D91F10D0B200869231 /* NVActivityIndicatorViewAppExtension.framework */,
+				1FFEE02321D10063000A3D14 /* NVActivityIndicatorView.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 			);
 			name = "NVActivityIndicatorView-iOS";
 			productName = NVActivityIndicatorView;
-			productReference = 1F0326941F0D24BE00BF3358 /* NVActivityIndicatorView_iOS.framework */;
+			productReference = 1F0326941F0D24BE00BF3358 /* NVActivityIndicatorView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1F88C9D81F10D0B200869231 /* NVActivityIndicatorViewAppExtension-iOS */ = {
@@ -335,7 +335,7 @@
 			);
 			name = "NVActivityIndicatorViewAppExtension-iOS";
 			productName = NVActivityIndicatorViewAppExtension;
-			productReference = 1F88C9D91F10D0B200869231 /* NVActivityIndicatorViewAppExtension_iOS.framework */;
+			productReference = 1F88C9D91F10D0B200869231 /* NVActivityIndicatorViewAppExtension.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1FFEE02221D10063000A3D14 /* NVActivityIndicatorView-tvOS */ = {
@@ -353,7 +353,7 @@
 			);
 			name = "NVActivityIndicatorView-tvOS";
 			productName = "NVActivityIndicatorView-tvOS";
-			productReference = 1FFEE02321D10063000A3D14 /* NVActivityIndicatorView_tvOS.framework */;
+			productReference = 1FFEE02321D10063000A3D14 /* NVActivityIndicatorView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -704,7 +704,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorView;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = NVActivityIndicatorView;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -729,7 +729,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorView;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = NVActivityIndicatorView;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -752,7 +752,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorView;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = NVActivityIndicatorViewAppExtension;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -775,7 +775,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorView;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = NVActivityIndicatorViewAppExtension;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -803,7 +803,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorView;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = NVActivityIndicatorView;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -832,7 +832,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhis.NVActivityIndicatorView;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = NVActivityIndicatorView;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
