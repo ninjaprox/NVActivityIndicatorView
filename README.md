@@ -80,7 +80,7 @@ Add `NVActivityIndicatorView` in your `Cartfile`.
 github "ninjaprox/NVActivityIndicatorView"
 ```
 
-Run `carthage` to build the framework and drag the built `NVActivityIndicatorView_iOS.framework`, `NVActivityIndicatorViewAppExtension_iOS.framework` or `NVActivityIndicatorView_tvOS.framework` into your Xcode project.
+Run `carthage` to build the framework and drag the built `NVActivityIndicatorView.framework` in the folder appropriateto the platform, e.g. iOS, tvOS, into your Xcode project.
 
 _**Note:** You might encounter compile issue, if so please use `carthage` branch instead. Check issue [#101](https://github.com/ninjaprox/NVActivityIndicatorView/issues/101) for more information._
 
@@ -115,13 +115,7 @@ _**Note:** Related issue [#119](https://github.com/ninjaprox/NVActivityIndicator
 Firstly, import `NVActivityIndicatorView`.
 
 ```swift
-// If you're using CocoaPods
 import NVActivityIndicatorView
-
-// If you're using Carthage
-import NVActivityIndicatorView_iOS // for NVActivityIndicatorView_iOS.framework
-import NVActivityIndicatorView_tvOS // for NVActivityIndicatorView_tvOS.framework
-import NVActivityIndicatorViewAppExtension_iOS // for NVActivityIndicatorViewAppExtension_iOS.framework
 ```
 
 ### Initialization
