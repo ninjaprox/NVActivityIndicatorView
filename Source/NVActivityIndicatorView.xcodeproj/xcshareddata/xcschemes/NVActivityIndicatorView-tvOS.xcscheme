@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1FFEE02221D10063000A3D14"
-               BuildableName = "NVActivityIndicatorView_tvOS.framework"
+               BuildableName = "NVActivityIndicatorView.framework"
                BlueprintName = "NVActivityIndicatorView-tvOS"
                ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FFEE02221D10063000A3D14"
-            BuildableName = "NVActivityIndicatorView_tvOS.framework"
+            BuildableName = "NVActivityIndicatorView.framework"
             BlueprintName = "NVActivityIndicatorView-tvOS"
             ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FFEE02221D10063000A3D14"
-            BuildableName = "NVActivityIndicatorView_tvOS.framework"
+            BuildableName = "NVActivityIndicatorView.framework"
             BlueprintName = "NVActivityIndicatorView-tvOS"
             ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
          </BuildableReference>

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F88C9D81F10D0B200869231"
-               BuildableName = "NVActivityIndicatorViewAppExtension_iOS.framework"
+               BuildableName = "NVActivityIndicatorViewAppExtension.framework"
                BlueprintName = "NVActivityIndicatorViewAppExtension-iOS"
                ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F88C9D81F10D0B200869231"
-            BuildableName = "NVActivityIndicatorViewAppExtension_iOS.framework"
+            BuildableName = "NVActivityIndicatorViewAppExtension.framework"
             BlueprintName = "NVActivityIndicatorViewAppExtension-iOS"
             ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F88C9D81F10D0B200869231"
-            BuildableName = "NVActivityIndicatorViewAppExtension_iOS.framework"
+            BuildableName = "NVActivityIndicatorViewAppExtension.framework"
             BlueprintName = "NVActivityIndicatorViewAppExtension-iOS"
             ReferencedContainer = "container:NVActivityIndicatorView.xcodeproj">
          </BuildableReference>
