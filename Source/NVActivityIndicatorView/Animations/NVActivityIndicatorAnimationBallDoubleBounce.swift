@@ -45,7 +45,7 @@ class NVActivityIndicatorAnimationBallDoubleBounce: NVActivityIndicatorAnimation
         #if swift(>=4.2)
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         #else
-        scaleAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEasyInEaseOut)
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         #endif
         scaleAnimation.repeatCount = HUGE
         scaleAnimation.isRemovedOnCompletion = false
