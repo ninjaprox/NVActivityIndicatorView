@@ -2,7 +2,7 @@
   "warnings": [
     {
       "file": "/Users/vinhnguyen/Workspace/NVActivityIndicatorView/Source/NVActivityIndicatorView/NVActivityIndicatorView.swift",
-      "line": 489,
+      "line": 496,
       "symbol": "NVActivityIndicatorView.bounds",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"

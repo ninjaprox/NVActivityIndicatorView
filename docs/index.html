@@ -169,7 +169,7 @@
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='cocoapods' class='heading'>Cocoapods</h3>
 
-<p>Install Cocoapods if need be.</p>
+<p>Install <a href="https://cocoapods.org/#install">Cocoapods</a> if need be.</p>
 <pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
 </code></pre>
 
@@ -179,12 +179,20 @@
 <span class="n">pod</span> <span class="s1">'NVActivityIndicatorView'</span>
 </code></pre>
 
+<p>If you&rsquo;re using <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> in an app extension, use <code>NVActivityIndicatorView/AppExtension</code> instead.</p>
+<pre class="highlight ruby"><code><span class="n">use_frameworks!</span>
+
+<span class="n">pod</span> <span class="s1">'NVActivityIndicatorView/AppExtension'</span>
+</code></pre>
+
 <p>Then, run the following command.</p>
 <pre class="highlight shell"><code><span class="gp">$ </span>pod install
 </code></pre>
+
+<p><em><strong>Note:</strong> Please refer to the migration note for version <a href="#version-370"><code>3.7.0</code></a> below.</em></p>
 <h3 id='carthage' class='heading'>Carthage</h3>
 
-<p>Install Carthage if need be.</p>
+<p>Install <a href="https://github.com/Carthage/Carthage#installing-carthage">Carthage</a> if need be.</p>
 <pre class="highlight shell"><code><span class="gp">$ </span>brew update
 <span class="gp">$ </span>brew install carthage
 </code></pre>
@@ -193,7 +201,7 @@
 <pre class="highlight ruby"><code><span class="n">github</span> <span class="s2">"ninjaprox/NVActivityIndicatorView"</span>
 </code></pre>
 
-<p>Run <code>carthage</code> to build the framework and drag the built <code>NVActivityIndicatorView.framework</code> into your Xcode project.</p>
+<p>Run <code>carthage</code> to build the framework and drag the built <code>NVActivityIndicatorView.framework</code> in the folder appropriateto the platform, e.g. iOS, tvOS, into your Xcode project.</p>
 
 <p><em><strong>Note:</strong> You might encounter compile issue, if so please use <code>carthage</code> branch instead. Check issue <a href="https://github.com/ninjaprox/NVActivityIndicatorView/issues/101">#101</a> for more information.</em></p>
 <h3 id='manual' class='heading'>Manual</h3>
@@ -204,6 +212,9 @@
 
 <p><em><strong>Note:</strong> If you encounter issues while uploading the app to iTunes Connect, remove the <code>Info.plist</code> file in <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>. Check issue <a href="https://github.com/ninjaprox/NVActivityIndicatorView/issues/129">#129</a> for more information.</em></p>
 <h2 id='migration' class='heading'>Migration</h2>
+<h3 id='version-4-4-0' class='heading'>Version 4.4.0</h3>
+
+<p>This version requires Xcode 10.1 and Swift 4.2.</p>
 <h3 id='version-4-0-0' class='heading'>Version 4.0.0</h3>
 
 <p>This version requires Xcode 9.0 and Swift 4.</p>
@@ -211,26 +222,9 @@
 
 <p>This version splits <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> pod to 2 subpods <code>NVActivityIndicatorView/Presenter</code> and <code>NVActivityIndicatorView/AppExtension</code>. There is no need to change <code>pod NVActivityIndicatorView</code> to <code>pod NVActivityIndicatorView/Presenter</code> since it will be installed by default if you use the main pod name.</p>
 
-<p>However, if you want to use <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> in app extension, use <code>pod NVActivityIndicatorView/AppExtension</code> instead.</p>
+<p>However, if you want to use <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> in an app extension, use <code>pod NVActivityIndicatorView/AppExtension</code> instead.</p>
 
 <p><em><strong>Note:</strong> Related issue <a href="https://github.com/ninjaprox/NVActivityIndicatorView/issues/119">#119</a>.</em></p>
-<h3 id='version-3-6-0' class='heading'>Version 3.6.0</h3>
-
-<p>This version requires Xcode 8.3 and Swift 3.1.</p>
-<h3 id='version-3-0' class='heading'>Version 3.0</h3>
-
-<p>This version requires Xcode 8.0 and Swift 3.</p>
-
-<ul>
-<li><code>NVActivityIndicatorView.startAnimation()</code> and <code>NVActivityIndicatorView.stopAnimation()</code> are deleted. Use <code><a href="Classes/NVActivityIndicatorView.html#/s:23NVActivityIndicatorViewAAC14startAnimatingyyF">NVActivityIndicatorView.startAnimating()</a></code> and <code><a href="Classes/NVActivityIndicatorView.html#/s:23NVActivityIndicatorViewAAC13stopAnimatingyyF">NVActivityIndicatorView.stopAnimating()</a></code> instead.</li>
-<li><code>UIViewController.startActivityAnimating()</code> and <code>UIViewController.stopActivityAnimating()</code> are deleted. Use <code>UIViewController.startAnimating()</code> and <code>UIViewController.stopAnimating()</code> instead.</li>
-</ul>
-<h3 id='version-2-0' class='heading'>Version 2.0</h3>
-
-<p>This version continues to spport Xcode 7.0 and Swift 2.2 and earlier.
-For Swift 2.3 support, use <code>swift2.3</code> branch instead.</p>
-<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'NVActivityIndicatorView'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/ninjaprox/NVActivityIndicatorView.git'</span><span class="p">,</span> <span class="ss">:branch</span> <span class="o">=&gt;</span> <span class="s1">'swift2.3'</span>
-</code></pre>
 <h2 id='usage' class='heading'>Usage</h2>
 
 <p>Firstly, import <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>.</p>
@@ -238,7 +232,7 @@ For Swift 2.3 support, use <code>swift2.3</code> branch instead.</p>
 </code></pre>
 <h3 id='initialization' class='heading'>Initialization</h3>
 
-<p>Then, there are two ways you can create NVActivityIndicatorView:</p>
+<p>Then, there are two ways you can create <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>:</p>
 
 <ul>
 <li>By storyboard, changing class of any <code>UIView</code> to <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>.</li>
@@ -299,7 +293,7 @@ For Swift 2.3 support, use <code>swift2.3</code> branch instead.</p>
 <span class="kt">NVActivityIndicatorPresenter</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">startAnimating</span><span class="p">(</span><span class="n">activityData</span><span class="p">)</span>
 </code></pre>
 
-<p><em><strong>Note:</strong> Check <a href="http://cocoadocs.org/docsets/NVActivityIndicatorView">documentation</a> for detail of <code><a href="Classes/ActivityData.html">ActivityData</a></code>.</em></p>
+<p><em><strong>Note:</strong> Check <a href="https://nvactivityindicatorview.vinhis.me">documentation</a> for detail of <code><a href="Classes/ActivityData.html">ActivityData</a></code>.</em></p>
 
 <p>Stop animating.</p>
 <pre class="highlight swift"><code><span class="kt">NVActivityIndicatorPresenter</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">stopAnimating</span><span class="p">()</span>
@@ -336,7 +330,7 @@ For Swift 2.3 support, use <code>swift2.3</code> branch instead.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/ninjaprox" target="_blank" rel="external">Vinh Nguyen</a>. All rights reserved. (Last updated: 2018-12-18)</p>
+      <p>&copy; 2019 <a class="link" href="https://github.com/ninjaprox" target="_blank" rel="external">Vinh Nguyen</a>. All rights reserved. (Last updated: 2019-01-23)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
