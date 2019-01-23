@@ -10,6 +10,6 @@ module: NVActivityIndicatorView
 source_directory: Source
 xcodebuild_arguments:
 - -scheme
-- NVActivityIndicatorView
+- NVActivityIndicatorView-iOS
 - -project
 - NVActivityIndicatorView.xcodeproj
