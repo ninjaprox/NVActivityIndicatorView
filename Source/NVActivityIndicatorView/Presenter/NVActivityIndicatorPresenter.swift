@@ -233,7 +233,7 @@ public final class NVActivityIndicatorPresenter {
      - parameter data: Information package used to display UI blocker.
      - parameter fadeInAnimation: Fade in animation.
      */
-    public final func startAnimating(_ data: ActivityData, _ fadeInAnimation: FadeInAnimation?) {
+    public final func startAnimating(_ data: ActivityData, _ fadeInAnimation: FadeInAnimation? = nil) {
         self.data = data
         state.startAnimating(presenter: self, fadeInAnimation)
     }
@@ -243,7 +243,7 @@ public final class NVActivityIndicatorPresenter {
 
      - parameter fadeOutAnimation: Fade out animation.
      */
-    public final func stopAnimating(_ fadeOutAnimation: FadeOutAnimation?) {
+    public final func stopAnimating(_ fadeOutAnimation: FadeOutAnimation? = nil) {
         state.stopAnimating(presenter: self, fadeOutAnimation)
     }
 
