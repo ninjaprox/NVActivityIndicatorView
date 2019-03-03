@@ -65,7 +65,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         minimumDisplayTime: Int? = nil,
         backgroundColor: UIColor? = nil,
         textColor: UIColor? = nil,
-        fadeInAnimation: FadeInAnimation? = NVActivityIndicatorView.DEFAULT_FADE_IN_ANIMATION) {
+        fadeInAnimation: FadeInAnimation? = NVActivityIndicatorPresenter.defaultFadeInAnimation) {
         let activityData = ActivityData(size: size,
                                         message: message,
                                         messageFont: messageFont,
@@ -85,7 +85,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
 
      - parameter fadeOutAnimation: fade out animation.
      */
-    public func stopAnimating(_ fadeOutAnimation: FadeOutAnimation? = NVActivityIndicatorView.DEFAULT_FADE_OUT_ANIMATION) {
+    public func stopAnimating(_ fadeOutAnimation: FadeOutAnimation? = NVActivityIndicatorPresenter.defaultFadeOutAnimation) {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating(fadeOutAnimation)
     }
 }

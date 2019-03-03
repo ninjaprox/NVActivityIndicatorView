@@ -115,7 +115,7 @@ enum NVActivityIndicatorShape {
                         clockwise: false)
             layer.fillColor = nil
             layer.strokeColor = color.cgColor
-            layer.lineWidth = 2
+            layer.lineWidth = lineWidth
         case .rectangle:
             path.move(to: CGPoint(x: 0, y: 0))
             path.addLine(to: CGPoint(x: size.width, y: 0))
@@ -151,7 +151,7 @@ enum NVActivityIndicatorShape {
                         clockwise: true)
             layer.fillColor = nil
             layer.strokeColor = color.cgColor
-            layer.lineWidth = 2
+            layer.lineWidth = lineWidth
         }
 
         layer.backgroundColor = nil

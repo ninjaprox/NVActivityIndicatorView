@@ -346,81 +346,22 @@ public enum NVActivityIndicatorType: CaseIterable {
     }
 }
 
-/// Function that performs fade in/out animation.
-public typealias FadeInAnimation = (UIView) -> Void
-
-/// Function that performs fade out animation.
-///
-/// - Note: Must call the second parameter on the animation completion.
-public typealias FadeOutAnimation = (UIView, @escaping () -> Void) -> Void
-
 // swiftlint:disable file_length
 /// Activity indicator view with nice animations
 public final class NVActivityIndicatorView: UIView {
     // swiftlint:disable identifier_name
     /// Default type. Default value is .BallSpinFadeLoader.
-    public static var DEFAULT_TYPE: NVActivityIndicatorType = .ballSpinFadeLoader
+    public static var defaultType: NVActivityIndicatorType = .ballSpinFadeLoader
 
     /// Default color of activity indicator. Default value is UIColor.white.
-    public static var DEFAULT_COLOR = UIColor.white
-
-    /// Default color of text. Default value is UIColor.white.
-    public static var DEFAULT_TEXT_COLOR = UIColor.white
+    public static var defaultColor = UIColor.white
 
     /// Default padding. Default value is 0.
-    public static var DEFAULT_PADDING: CGFloat = 0
-
-    /// Default size of activity indicator view in UI blocker. Default value is 60x60.
-    public static var DEFAULT_BLOCKER_SIZE = CGSize(width: 60, height: 60)
-
-    /// Default display time threshold to actually display UI blocker. Default value is 0 ms.
-    ///
-    /// - note:
-    /// Default time that has to be elapsed (between calls of `startAnimating()` and `stopAnimating()`) in order to actually display UI blocker. It should be set thinking about what the minimum duration of an activity is to be worth showing it to the user. If the activity ends before this time threshold, then it will not be displayed at all.
-    public static var DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 0
-
-    /// Default minimum display time of UI blocker. Default value is 0 ms.
-    ///
-    /// - note:
-    /// Default minimum display time of UI blocker. Its main purpose is to avoid flashes showing and hiding it so fast. For instance, setting it to 200ms will force UI blocker to be shown for at least this time (regardless of calling `stopAnimating()` ealier).
-    public static var DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0
-
-    /// Default message displayed in UI blocker. Default value is nil.
-    public static var DEFAULT_BLOCKER_MESSAGE: String?
-
-    /// Default message spacing to activity indicator view in UI blocker. Default value is 8.
-    public static var DEFAULT_BLOCKER_MESSAGE_SPACING = CGFloat(8.0)
-
-    /// Default font of message displayed in UI blocker. Default value is bold system font, size 20.
-    public static var DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 20)
-
-    /// Default background color of UI blocker. Default value is UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-    public static var DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-
-    /// Default fade in animation.
-    public static var DEFAULT_FADE_IN_ANIMATION: FadeInAnimation = { view in
-        view.alpha = 0
-        UIView.animate(withDuration: 0.25) {
-            view.alpha = 1
-        }
-    }
-
-    /// Default fade out animation.
-    public static var DEFAULT_FADE_OUT_ANIMATION: FadeOutAnimation = { (view, complete) in
-        UIView.animate(withDuration: 0.25,
-                       animations: {
-                        view.alpha = 0
-        },
-                       completion: { completed in
-                        if completed {
-                            complete()
-                        }
-        })
-    }
+    public static var defaultPadding: CGFloat = 0
     // swiftlint:enable identifier_name
 
     /// Animation type.
-    public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
+    public var type: NVActivityIndicatorType = NVActivityIndicatorView.defaultType
 
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
@@ -433,10 +374,10 @@ public final class NVActivityIndicatorView: UIView {
     }
 
     /// Color of activity indicator view.
-    @IBInspectable public var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR
+    @IBInspectable public var color: UIColor = NVActivityIndicatorView.defaultColor
 
     /// Padding of activity indicator view.
-    @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
+    @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.defaultPadding
 
     /// Current status of animation, read-only.
     @available(*, deprecated: 3.1)
@@ -472,9 +413,9 @@ public final class NVActivityIndicatorView: UIView {
      - returns: The activity indicator view.
      */
     public init(frame: CGRect, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
-        self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
-        self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
-        self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
+        self.type = type ?? NVActivityIndicatorView.defaultType
+        self.color = color ?? NVActivityIndicatorView.defaultColor
+        self.padding = padding ?? NVActivityIndicatorView.defaultPadding
         super.init(frame: frame)
         isHidden = true
     }

@@ -27,6 +27,17 @@
 
 import UIKit
 
+
+/// Function that performs fade in/out animation.
+public typealias FadeInAnimation = (UIView) -> Void
+
+/// Function that performs fade out animation.
+///
+/// - Note: Must call the second parameter on the animation completion.
+public typealias FadeOutAnimation = (UIView, @escaping () -> Void) -> Void
+
+
+
 /// Class packages information used to display UI blocker.
 public final class ActivityData {
     /// Size of activity indicator view.
@@ -91,17 +102,17 @@ public final class ActivityData {
                 minimumDisplayTime: Int? = nil,
                 backgroundColor: UIColor? = nil,
                 textColor: UIColor? = nil) {
-        self.size = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
-        self.message = message ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE
-        self.messageFont = messageFont ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT
-        self.messageSpacing = messageSpacing ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_SPACING
-        self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
-        self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
-        self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
-        self.displayTimeThreshold = displayTimeThreshold ?? NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD
-        self.minimumDisplayTime = minimumDisplayTime ?? NVActivityIndicatorView.DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME
-        self.backgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR
-        self.textColor = textColor ?? color ?? NVActivityIndicatorView.DEFAULT_TEXT_COLOR
+        self.size = size ?? NVActivityIndicatorPresenter.defaultBlockerSize
+        self.message = message ?? NVActivityIndicatorPresenter.defaultBlockerMessage
+        self.messageFont = messageFont ?? NVActivityIndicatorPresenter.defaultBlockerMessageFont
+        self.messageSpacing = messageSpacing ?? NVActivityIndicatorPresenter.defaultBlockerMessageSpacing
+        self.type = type ?? NVActivityIndicatorView.defaultType
+        self.color = color ?? NVActivityIndicatorView.defaultColor
+        self.padding = padding ?? NVActivityIndicatorView.defaultPadding
+        self.displayTimeThreshold = displayTimeThreshold ?? NVActivityIndicatorPresenter.defaultBlockerDisplayTimeThreshold
+        self.minimumDisplayTime = minimumDisplayTime ?? NVActivityIndicatorPresenter.defaultBlockerMinimumDisplayTime
+        self.backgroundColor = backgroundColor ?? NVActivityIndicatorPresenter.defaultBlockerBackgroundColor
+        self.textColor = textColor ?? color ?? NVActivityIndicatorPresenter.defaultTextColor
     }
 }
 
@@ -219,6 +230,57 @@ public final class NVActivityIndicatorPresenter {
 
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
+    
+    /// Default color of text. Default value is UIColor.white.
+    public static var defaultTextColor = UIColor.white
+    
+    /// Default size of activity indicator view in UI blocker. Default value is 60x60.
+    public static var defaultBlockerSize = CGSize(width: 60, height: 60)
+    
+    /// Default display time threshold to actually display UI blocker. Default value is 0 ms.
+    ///
+    /// - note:
+    /// Default time that has to be elapsed (between calls of `startAnimating()` and `stopAnimating()`) in order to actually display UI blocker. It should be set thinking about what the minimum duration of an activity is to be worth showing it to the user. If the activity ends before this time threshold, then it will not be displayed at all.
+    public static var defaultBlockerDisplayTimeThreshold = 0
+    
+    /// Default minimum display time of UI blocker. Default value is 0 ms.
+    ///
+    /// - note:
+    /// Default minimum display time of UI blocker. Its main purpose is to avoid flashes showing and hiding it so fast. For instance, setting it to 200ms will force UI blocker to be shown for at least this time (regardless of calling `stopAnimating()` ealier).
+    public static var defaultBlockerMinimumDisplayTime = 0
+    
+    /// Default message displayed in UI blocker. Default value is nil.
+    public static var defaultBlockerMessage: String?
+    
+    /// Default message spacing to activity indicator view in UI blocker. Default value is 8.
+    public static var defaultBlockerMessageSpacing = CGFloat(8.0)
+    
+    /// Default font of message displayed in UI blocker. Default value is bold system font, size 20.
+    public static var defaultBlockerMessageFont = UIFont.boldSystemFont(ofSize: 20)
+    
+    /// Default background color of UI blocker. Default value is UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+    public static var defaultBlockerBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+    
+    /// Default fade in animation.
+    public static var defaultFadeInAnimation: FadeInAnimation = { view in
+        view.alpha = 0
+        UIView.animate(withDuration: 0.25) {
+            view.alpha = 1
+        }
+    }
+    
+    /// Default fade out animation.
+    public static var defaultFadeOutAnimation: FadeOutAnimation = { (view, complete) in
+        UIView.animate(withDuration: 0.25,
+                       animations: {
+                        view.alpha = 0
+        },
+                       completion: { completed in
+                        if completed {
+                            complete()
+                        }
+        })
+    }
 
     /// Current status of animation, read-only.
     public var isAnimating: Bool { return state == .animating || state == .waitingToStop }

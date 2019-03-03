@@ -126,7 +126,7 @@ Then, there are two ways you can create `NVActivityIndicatorView`:
 
 _**Note:** Set Module to `NVActivityIndicatorView`._
 
-- By code, using initializer. All parameters other than `frame` are optional and `NVActivityIndicatorView.DEFAULT_*` are used as default values.
+- By code, using initializer. All parameters other than `frame` are optional and `NVActivityIndicatorView.default*` are used as default values.
 
 ```swift
 NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding)
