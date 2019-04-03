@@ -94,6 +94,10 @@ _**Note:** If you encounter issues while uploading the app to iTunes Connect, re
 
 ## Migration
 
+### Version 4.7.0
+
+This version requires Xcode 10.2 and Swift 5.0.
+
 ### Version 4.4.0
 
 This version requires Xcode 10.1 and Swift 4.2.
@@ -237,4 +241,4 @@ Thanks [Connor Atherton](https://github.com/ConnorAtherton) for great loaders an
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Vinh Nguyen [@ninjaprox](http://twitter.com/ninjaprox)
+Copyright (c) 2019 Vinh Nguyen [@ninjaprox](http://twitter.com/ninjaprox)
