@@ -6,7 +6,7 @@ env:
 matrix:
   include:
   - osx_image: xcode10.2
-    env: SDK="iphonesimulator12.0" DESTINATION="name=iPhone 6s,OS=12.0"
+    env: SDK="iphonesimulator12.2" DESTINATION="name=iPhone 6s,OS=12.2"
 script:
   - set -o pipefail
   - pod install --project-directory=Example
