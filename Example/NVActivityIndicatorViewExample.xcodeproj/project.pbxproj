@@ -251,7 +251,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -260,7 +260,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NVActivityIndicatorViewExample/Pods-NVActivityIndicatorViewExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C3A662686B21AB8B414FCDA2 /* [CP] Check Pods Manifest.lock */ = {
@@ -287,7 +287,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -296,7 +296,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests/Pods-NVActivityIndicatorViewExample-NVActivityIndicatorViewTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FC7EC3A272EE15625D0A4145 /* [CP] Check Pods Manifest.lock */ = {
