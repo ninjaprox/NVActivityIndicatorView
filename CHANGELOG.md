@@ -1,5 +1,8 @@
 # Change log
 
+## [4.7.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.7.0)
+* Swift 5 migration
+
 ## [4.6.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.6.1)
 * Fix #261
 
