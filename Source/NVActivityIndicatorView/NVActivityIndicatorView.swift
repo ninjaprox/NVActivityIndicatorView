@@ -65,7 +65,7 @@ import UIKit
  - AudioEqualizer:          AudioEqualizer animation.
  - CircleStrokeSpin:        CircleStrokeSpin animation.
  */
-public enum NVActivityIndicatorType: CaseIterable, Equatable, RawRepresentable {
+public enum NVActivityIndicatorType: CaseIterable, Equatable, RawRepresentable, Hashable {
 
     public static var allCases: [NVActivityIndicatorType] = [.blank, ballPulse, .ballGridPulse, .ballClipRotate, .squareSpin, .ballClipRotatePulse, .ballClipRotateMultiple, .ballPulseRise, .ballRotate, .cubeTransition, .ballZigZag, .ballZigZagDeflect, .ballTrianglePath, .ballScale, .lineScale, .lineScaleParty, .ballScaleMultiple, .ballPulseSync, .ballBeat, .ballDoubleBounce, .lineScalePulseOut, .lineScalePulseOutRapid, .ballScaleRipple, .ballScaleRippleMultiple, .ballSpinFadeLoader, .lineSpinFadeLoader, .triangleSkewSpin, .pacman, .ballGridBeat, .semiCircleSpin, .ballRotateChase, .orbit, .audioEqualizer, .circleStrokeSpin]
 
