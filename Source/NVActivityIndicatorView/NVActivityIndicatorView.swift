@@ -65,7 +65,39 @@ import UIKit
  - AudioEqualizer:          AudioEqualizer animation.
  - CircleStrokeSpin:        CircleStrokeSpin animation.
  */
-public enum NVActivityIndicatorType: CaseIterable {
+public enum NVActivityIndicatorType: CaseIterable, Equatable, RawRepresentable {
+    
+    public static var allCases: [NVActivityIndicatorType] = [.blank, ballPulse, .ballGridPulse, .ballClipRotate, .squareSpin, .ballClipRotatePulse, .ballClipRotateMultiple, .ballPulseRise, .ballRotate, .cubeTransition, .ballZigZag, .ballZigZagDeflect, .ballTrianglePath, .ballScale, .lineScale, .lineScaleParty, .ballScaleMultiple, .ballPulseSync, .ballBeat, .ballDoubleBounce, .lineScalePulseOut, .lineScalePulseOutRapid, .ballScaleRipple, .ballScaleRippleMultiple, .ballSpinFadeLoader, .lineSpinFadeLoader, .triangleSkewSpin, .pacman, .ballGridBeat, .semiCircleSpin, .ballRotateChase, .orbit, .audioEqualizer, .circleStrokeSpin]
+
+    public static func == (lhs: NVActivityIndicatorType, rhs: NVActivityIndicatorType) -> Bool {
+        return lhs.rawValue == rhs.rawValue
+    }
+    
+    public typealias RawValue = String
+    public var rawValue: String {
+        switch self {
+        case .custom(let delegate):
+            return "custom(\(delegate != nil ? "\(type(of: delegate!))" : "nil"))"
+        default:
+            return "\(self)"
+        }
+    }
+    
+    public init?(rawValue: String) {
+        guard let match = NVActivityIndicatorType.allCases.first(where: { activityIndicatorType -> Bool in
+            return "\(activityIndicatorType)" == rawValue
+        }) else { return nil }
+        
+        self = match
+    }
+    
+    /**
+     Custom.
+     
+     - returns: Instance of NVActivityIndicatorAnimationBlank.
+     */
+    case custom(NVActivityIndicatorAnimationDelegate?)
+    
     /**
      Blank.
 
@@ -274,6 +306,8 @@ public enum NVActivityIndicatorType: CaseIterable {
     // swiftlint:disable:next cyclomatic_complexity function_body_length
     func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
+        case .custom(let activityIndicatorAnimationCustom):
+            return activityIndicatorAnimationCustom ?? NVActivityIndicatorAnimationBlank()
         case .blank:
             return NVActivityIndicatorAnimationBlank()
         case .ballPulse:

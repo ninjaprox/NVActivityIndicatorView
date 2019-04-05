@@ -28,6 +28,6 @@
 import UIKit
 
 // swiftlint:disable:next class_delegate_protocol
-protocol NVActivityIndicatorAnimationDelegate {
+public protocol NVActivityIndicatorAnimationDelegate: class {
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor)
 }
