@@ -66,13 +66,13 @@ import UIKit
  - CircleStrokeSpin:        CircleStrokeSpin animation.
  */
 public enum NVActivityIndicatorType: CaseIterable, Equatable, RawRepresentable {
-    
+
     public static var allCases: [NVActivityIndicatorType] = [.blank, ballPulse, .ballGridPulse, .ballClipRotate, .squareSpin, .ballClipRotatePulse, .ballClipRotateMultiple, .ballPulseRise, .ballRotate, .cubeTransition, .ballZigZag, .ballZigZagDeflect, .ballTrianglePath, .ballScale, .lineScale, .lineScaleParty, .ballScaleMultiple, .ballPulseSync, .ballBeat, .ballDoubleBounce, .lineScalePulseOut, .lineScalePulseOutRapid, .ballScaleRipple, .ballScaleRippleMultiple, .ballSpinFadeLoader, .lineSpinFadeLoader, .triangleSkewSpin, .pacman, .ballGridBeat, .semiCircleSpin, .ballRotateChase, .orbit, .audioEqualizer, .circleStrokeSpin]
 
     public static func == (lhs: NVActivityIndicatorType, rhs: NVActivityIndicatorType) -> Bool {
         return lhs.rawValue == rhs.rawValue
     }
-    
+
     public typealias RawValue = String
     public var rawValue: String {
         switch self {
@@ -82,22 +82,22 @@ public enum NVActivityIndicatorType: CaseIterable, Equatable, RawRepresentable {
             return "\(self)"
         }
     }
-    
+
     public init?(rawValue: String) {
         guard let match = NVActivityIndicatorType.allCases.first(where: { activityIndicatorType -> Bool in
             return "\(activityIndicatorType)" == rawValue
         }) else { return nil }
-        
+
         self = match
     }
-    
+
     /**
      Custom.
      
      - returns: Instance of NVActivityIndicatorAnimationBlank.
      */
     case custom(NVActivityIndicatorAnimationDelegate?)
-    
+
     /**
      Blank.
 
