@@ -4,6 +4,7 @@ NVActivityIndicatorView
 [![Build Status](https://travis-ci.org/ninjaprox/NVActivityIndicatorView.svg?branch=master)](https://travis-ci.org/ninjaprox/NVActivityIndicatorView)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 ## Introduction
@@ -83,6 +84,29 @@ github "ninjaprox/NVActivityIndicatorView"
 Run `carthage` to build the framework and drag the built `NVActivityIndicatorView.framework` in the folder appropriateto the platform, e.g. iOS, tvOS, into your Xcode project.
 
 _**Note:** You might encounter compile issue, if so please use `carthage` branch instead. Check issue [#101](https://github.com/ninjaprox/NVActivityIndicatorView/issues/101) for more information._
+
+### Accio
+
+Install [Accio](https://github.com/JamitLabs/Accio#installation) if need be.
+
+Add the following to your Package.swift:
+
+```swift
+.package(url: "https://github.com/ninjaprox/NVActivityIndicatorView.git", .upToNextMajor(from: "4.7.0")),
+```
+
+Next, add `PromiseKit` to your App targets dependencies like so:
+
+```swift
+.target(
+    name: "App",
+    dependencies: [
+        "NVActivityIndicatorView",
+    ]
+),
+```
+
+Then run `accio update`.
 
 ### Manual
 
