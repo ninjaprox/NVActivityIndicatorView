@@ -278,7 +278,7 @@ public final class NVActivityIndicatorPresenter {
 
         // Add constraints for `activityIndicatorView`.
         ({
-            let xConstraint = NSLayoutConstraint(item: containerView, attribute: .centerX, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerX, multiplier: 1, constant: 0)
+            let xConstraint = NSLayoutConstraint(item: containerView, attribute: .centerX, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerX, multiplier: 1.5, constant: 0)
             let yConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerY, multiplier: 1, constant: 0)
 
             containerView.addConstraints([xConstraint, yConstraint])
@@ -291,8 +291,8 @@ public final class NVActivityIndicatorPresenter {
 
         // Add constraints for `messageLabel`.
         ({
-            let leadingConstraint = NSLayoutConstraint(item: containerView, attribute: .leading, relatedBy: .equal, toItem: messageLabel, attribute: .leading, multiplier: 1, constant: -8)
-            let trailingConstraint = NSLayoutConstraint(item: containerView, attribute: .trailing, relatedBy: .equal, toItem: messageLabel, attribute: .trailing, multiplier: 1, constant: 8)
+            let leadingConstraint = NSLayoutConstraint(item: containerView, attribute: .centerX, relatedBy: .equal, toItem: messageLabel, attribute: .centerX, multiplier: 0.2, constant: 0)
+            let trailingConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: messageLabel, attribute: .centerY, multiplier: 1, constant: 0)
 
             containerView.addConstraints([leadingConstraint, trailingConstraint])
             }())
