@@ -1,5 +1,8 @@
 # Change log
 
+## [4.8.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.8.0)
+* Add Swift Package Manager support (#290)
+
 ## [4.7.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/4.7.0)
 * Default nil fadeInAnimation and fadeOutAnimation (#264)
 * Swift 5 migration (#274)
