@@ -6,11 +6,10 @@ import PackageDescription
 let package = Package(
     name: "NVActivityIndicatorView",
     products: [
-        .library(name: "NVActivityIndicatorView",  targets: ["NVActivityIndicatorView"])
+        .library(name: "NVActivityIndicatorView", targets: ["NVActivityIndicatorView"])
     ],
     dependencies: [],
     targets: [
         .target(name: "NVActivityIndicatorView", path: "Source/NVActivityIndicatorView")
     ]
 )
-
