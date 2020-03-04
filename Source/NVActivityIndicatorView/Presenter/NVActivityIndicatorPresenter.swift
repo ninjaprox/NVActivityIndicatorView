@@ -266,8 +266,6 @@ public final class NVActivityIndicatorPresenter {
         let containerViewFrame = self.presentingView?.bounds ?? UIScreen.main.bounds
         let containerView = UIView(frame: containerViewFrame)
         
-        print("containerViewFrame: \(containerViewFrame)")
-        
         containerView.backgroundColor = activityData.backgroundColor
         containerView.restorationIdentifier = restorationIdentifier
         containerView.translatesAutoresizingMaskIntoConstraints = false
