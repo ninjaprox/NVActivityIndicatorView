@@ -223,8 +223,11 @@ public final class NVActivityIndicatorPresenter {
     /// Current status of animation, read-only.
     public var isAnimating: Bool { return state == .animating || state == .waitingToStop }
 
-    private init() {}
-
+    private(set) weak var presentingView: UIView?
+    private(set) weak var presentedView: UIView?
+    public required init(presentingView: UIView? = nil) {
+        self.presentingView = presentingView
+    }
     // MARK: - Public interface
 
     /**
@@ -259,7 +262,9 @@ public final class NVActivityIndicatorPresenter {
     // MARK: - Helpers
 
     fileprivate func show(with activityData: ActivityData, _ fadeInAnimation: FadeInAnimation?) {
-        let containerView = UIView(frame: UIScreen.main.bounds)
+        guard let presentingView = self.presentingView ?? UIApplication.shared.keyWindow else { return }
+        let containerViewFrame = self.presentingView?.bounds ?? UIScreen.main.bounds
+        let containerView = UIView(frame: containerViewFrame)
 
         containerView.backgroundColor = activityData.backgroundColor
         containerView.restorationIdentifier = restorationIdentifier
@@ -282,7 +287,7 @@ public final class NVActivityIndicatorPresenter {
             let yConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: activityIndicatorView, attribute: .centerY, multiplier: 1, constant: 0)
 
             containerView.addConstraints([xConstraint, yConstraint])
-            }())
+        }())
 
         messageLabel.font = activityData.messageFont
         messageLabel.textColor = activityData.textColor
@@ -295,40 +300,36 @@ public final class NVActivityIndicatorPresenter {
             let trailingConstraint = NSLayoutConstraint(item: containerView, attribute: .trailing, relatedBy: .equal, toItem: messageLabel, attribute: .trailing, multiplier: 1, constant: 8)
 
             containerView.addConstraints([leadingConstraint, trailingConstraint])
-            }())
+        }())
         ({
             let spacingConstraint = NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: activityIndicatorView, attribute: .bottom, multiplier: 1, constant: activityData.messageSpacing)
 
             containerView.addConstraint(spacingConstraint)
-            }())
+        }())
 
-        guard let keyWindow = UIApplication.shared.keyWindow else { return }
-
-        keyWindow.addSubview(containerView)
+        presentingView.addSubview(containerView)
 
         // Add constraints for `containerView`.
         ({
-            let leadingConstraint = NSLayoutConstraint(item: keyWindow, attribute: .leading, relatedBy: .equal, toItem: containerView, attribute: .leading, multiplier: 1, constant: 0)
-            let trailingConstraint = NSLayoutConstraint(item: keyWindow, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: 0)
-            let topConstraint = NSLayoutConstraint(item: keyWindow, attribute: .top, relatedBy: .equal, toItem: containerView, attribute: .top, multiplier: 1, constant: 0)
-            let bottomConstraint = NSLayoutConstraint(item: keyWindow, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: 0)
+            let leadingConstraint = NSLayoutConstraint(item: presentingView, attribute: .leading, relatedBy: .equal, toItem: containerView, attribute: .leading, multiplier: 1, constant: 0)
+            let trailingConstraint = NSLayoutConstraint(item: presentingView, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: 0)
+            let topConstraint = NSLayoutConstraint(item: presentingView, attribute: .top, relatedBy: .equal, toItem: containerView, attribute: .top, multiplier: 1, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: presentingView, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: 0)
 
-            keyWindow.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
-            }())
+            presentingView.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
+        }())
+        self.presentedView = containerView
     }
 
     fileprivate func hide(_ fadeOutAnimation: FadeOutAnimation?) {
-        for window in UIApplication.shared.windows {
-            for item in window.subviews
-                where item.restorationIdentifier == restorationIdentifier {
-                    if let fadeOutAnimation = fadeOutAnimation {
-                        fadeOutAnimation(item) {
-                            item.removeFromSuperview()
-                        }
-                    } else {
-                        item.removeFromSuperview()
-                    }
+        guard let presentedView = self.presentedView else { return }
+        self.presentedView = nil
+        if let fadeOutAnimation = fadeOutAnimation {
+            fadeOutAnimation(presentedView) {
+                presentedView.removeFromSuperview()
             }
+        } else {
+            presentedView.removeFromSuperview()
         }
     }
 }

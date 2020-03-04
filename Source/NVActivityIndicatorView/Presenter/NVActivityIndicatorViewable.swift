@@ -32,12 +32,14 @@ import UIKit
  *
  *  This extends abilities of UIViewController to display and remove UI blocker.
  */
-public protocol NVActivityIndicatorViewable {}
+public protocol NVActivityIndicatorViewable {
+    var activityIndicatorPresenter: NVActivityIndicatorPresenter { get set }
+}
 
-public extension NVActivityIndicatorViewable where Self: UIViewController {
+public extension NVActivityIndicatorViewable {
 
     /// Current status of animation, read-only.
-    var isAnimating: Bool { return NVActivityIndicatorPresenter.sharedInstance.isAnimating }
+    var isActivityIndicatorAnimating: Bool { return self.activityIndicatorPresenter.isAnimating }
 
     /**
      Display UI blocker.
@@ -54,7 +56,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter minimumDisplayTime:   minimum display time of UI blocker.
      - parameter fadeInAnimation:      fade in animation.
      */
-    func startAnimating(
+    func showActivityIndicator(
         _ size: CGSize? = nil,
         message: String? = nil,
         messageFont: UIFont? = nil,
@@ -77,7 +79,18 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
                                         backgroundColor: backgroundColor,
                                         textColor: textColor)
 
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, fadeInAnimation)
+        self.showActivityIndicator(activityData: activityData, fadeInAnimation: fadeInAnimation)
+    }
+    /**
+    Display UI blocker.
+
+    Appropriate NVActivityIndicatorView.DEFAULT_* values are used for omitted params.
+
+    - parameter size:                 Information used to display UIBlocker
+    - parameter fadeInAnimation:      fade in animation.
+    */
+    func showActivityIndicator(activityData: ActivityData, fadeInAnimation: FadeInAnimation? = NVActivityIndicatorView.DEFAULT_FADE_IN_ANIMATION) {
+        self.activityIndicatorPresenter.startAnimating(activityData, fadeInAnimation)
     }
 
     /**
@@ -85,7 +98,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
 
      - parameter fadeOutAnimation: fade out animation.
      */
-    func stopAnimating(_ fadeOutAnimation: FadeOutAnimation? = NVActivityIndicatorView.DEFAULT_FADE_OUT_ANIMATION) {
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(fadeOutAnimation)
+    func hideActivityIndicator(_ fadeOutAnimation: FadeOutAnimation? = NVActivityIndicatorView.DEFAULT_FADE_OUT_ANIMATION) {
+        self.activityIndicatorPresenter.stopAnimating(fadeOutAnimation)
     }
 }
