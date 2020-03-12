@@ -322,14 +322,18 @@ public final class NVActivityIndicatorPresenter {
     }
 
     fileprivate func hide(_ fadeOutAnimation: FadeOutAnimation?) {
-        guard let presentedView = self.presentedView else { return }
-        self.presentedView = nil
-        if let fadeOutAnimation = fadeOutAnimation {
+        
+        if  let fadeOutAnimation = fadeOutAnimation,
+            let presentedView = self.presentedView {
             fadeOutAnimation(presentedView) {
-                presentedView.removeFromSuperview()
+                self.presentedView?.removeFromSuperview()
+                self.presentedView = nil
             }
         } else {
-            presentedView.removeFromSuperview()
+            self.presentedView?.removeFromSuperview()
+            self.presentedView = nil
         }
+        
+        
     }
 }
