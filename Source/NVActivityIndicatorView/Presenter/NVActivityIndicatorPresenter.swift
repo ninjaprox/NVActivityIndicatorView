@@ -223,8 +223,8 @@ public final class NVActivityIndicatorPresenter {
     /// Current status of animation, read-only.
     public var isAnimating: Bool { return state == .animating || state == .waitingToStop }
 
-    private(set) weak var presentingView: UIView?
-    private(set) weak var presentedView: UIView?
+    public private(set) weak var presentingView: UIView?
+    public private(set) weak var presentedView: UIView?
     public required init(presentingView: UIView? = nil) {
         self.presentingView = presentingView
     }
