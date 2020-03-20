@@ -66,7 +66,7 @@ import UIKit
  - AudioEqualizer:          AudioEqualizer animation.
  - CircleStrokeSpin:        CircleStrokeSpin animation.
  */
-public enum NVActivityIndicatorType: CaseIterable {
+@objc public enum NVActivityIndicatorType: Int, CaseIterable {
     /**
      Blank.
 
@@ -421,7 +421,7 @@ public final class NVActivityIndicatorView: UIView {
     // swiftlint:enable identifier_name
 
     /// Animation type.
-    public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
+    @objc public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
 
     @available(*, unavailable, message: "This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
