@@ -506,7 +506,7 @@ public final class NVActivityIndicatorView: UIView {
     /**
      Start animating.
      */
-    public final func startAnimating() {
+    @objc public final func startAnimating() {
         guard !isAnimating else {
             return
         }
@@ -519,7 +519,7 @@ public final class NVActivityIndicatorView: UIView {
     /**
      Stop animating.
      */
-    public final func stopAnimating() {
+    @objc public final func stopAnimating() {
         guard isAnimating else {
             return
         }
