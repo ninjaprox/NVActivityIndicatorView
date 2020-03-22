@@ -449,7 +449,7 @@ public final class NVActivityIndicatorView: UIView {
      Returns an object initialized from data in a given unarchiver.
      self, initialized using the data in decoder.
 
-     - parameter decoder: an unarchiver object.
+     - parameter aDecoder: an unarchiver object.
 
      - returns: self, initialized using the data in decoder.
      */
