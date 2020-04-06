@@ -34,7 +34,7 @@ class NVActivityIndicatorAnimationLineScale: NVActivityIndicatorAnimationDelegat
         let x = (layer.bounds.size.width - size.width) / 2
         let y = (layer.bounds.size.height - size.height) / 2
         let duration: CFTimeInterval = 1
-        let beginTime = CACurrentMediaTime()
+        let beginTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         let beginTimes = [0.1, 0.2, 0.3, 0.4, 0.5]
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.68, 0.18, 1.08)
 
