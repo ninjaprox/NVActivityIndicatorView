@@ -367,6 +367,12 @@ public final class NVActivityIndicatorView: UIView {
     /// Default color of text. Default value is UIColor.white.
     public static var DEFAULT_TEXT_COLOR = UIColor.white
 
+    /// Default bool for blur background
+    public static var DEFAULT_BLUR = false
+
+    /// Default bool for blurEffect
+    public static var DEFAULT_BLUR_STYLE = UIBlurEffect.Style.light
+
     /// Default padding. Default value is 0.
     public static var DEFAULT_PADDING: CGFloat = 0
 

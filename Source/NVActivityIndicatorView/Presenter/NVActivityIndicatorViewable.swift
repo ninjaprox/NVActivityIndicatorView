@@ -53,6 +53,8 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter displayTimeThreshold: display time threshold to actually display UI blocker.
      - parameter minimumDisplayTime:   minimum display time of UI blocker.
      - parameter fadeInAnimation:      fade in animation.
+     - parameter blur:                 blur background enabled or disabled
+     - parameter blurStyle:            blurStyle if not default  UIBlurEffect.Style.light ...
      */
     func startAnimating(
         _ size: CGSize? = nil,
@@ -65,6 +67,8 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         minimumDisplayTime: Int? = nil,
         backgroundColor: UIColor? = nil,
         textColor: UIColor? = nil,
+        blur: Bool? = nil,
+        blurStyle: UIBlurEffect.Style? = nil,
         fadeInAnimation: FadeInAnimation? = NVActivityIndicatorView.DEFAULT_FADE_IN_ANIMATION) {
         let activityData = ActivityData(size: size,
                                         message: message,
@@ -75,7 +79,9 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
                                         displayTimeThreshold: displayTimeThreshold,
                                         minimumDisplayTime: minimumDisplayTime,
                                         backgroundColor: backgroundColor,
-                                        textColor: textColor)
+                                        textColor: textColor,
+                                        blur: blur,
+                                        blurStyle: blurStyle)
 
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, fadeInAnimation)
     }
