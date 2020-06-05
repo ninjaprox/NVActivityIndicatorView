@@ -31,7 +31,7 @@ class NVActivityIndicatorAnimationBallScaleMultiple: NVActivityIndicatorAnimatio
 
     func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
         let duration: CFTimeInterval = 1
-        let beginTime = CACurrentMediaTime()
+        let beginTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         let beginTimes = [0, 0.2, 0.4]
 
         // Scale animation

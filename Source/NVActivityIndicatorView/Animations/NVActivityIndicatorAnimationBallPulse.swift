@@ -34,7 +34,7 @@ class NVActivityIndicatorAnimationBallPulse: NVActivityIndicatorAnimationDelegat
         let x: CGFloat = (layer.bounds.size.width - size.width) / 2
         let y: CGFloat = (layer.bounds.size.height - circleSize) / 2
         let duration: CFTimeInterval = 0.75
-        let beginTime = CACurrentMediaTime()
+        let beginTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         let beginTimes: [CFTimeInterval] = [0.12, 0.24, 0.36]
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.68, 0.18, 1.08)
         let animation = CAKeyframeAnimation(keyPath: "transform.scale")

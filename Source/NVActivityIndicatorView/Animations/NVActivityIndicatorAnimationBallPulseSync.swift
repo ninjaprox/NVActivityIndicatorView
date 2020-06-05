@@ -36,7 +36,7 @@ class NVActivityIndicatorAnimationBallPulseSync: NVActivityIndicatorAnimationDel
         let y = (layer.bounds.size.height - circleSize) / 2
         let deltaY = (size.height / 2 - circleSize / 2) / 2
         let duration: CFTimeInterval = 0.6
-        let beginTime = CACurrentMediaTime()
+        let beginTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         let beginTimes: [CFTimeInterval] = [0.07, 0.14, 0.21]
         #if swift(>=4.2)
         let timingFunciton = CAMediaTimingFunction(name: .easeInEaseOut)

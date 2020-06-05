@@ -36,7 +36,7 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
         let deltaX = size.width - squareSize
         let deltaY = size.height - squareSize
         let duration: CFTimeInterval = 1.6
-        let beginTime = CACurrentMediaTime()
+        let beginTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         let beginTimes: [CFTimeInterval] = [0, -0.8]
         #if swift(>=4.2)
         let timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
