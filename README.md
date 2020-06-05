@@ -6,6 +6,8 @@ NVActivityIndicatorView
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
+⚠️ Check out [LoaderUI](https://github.com/ninjaprox/LoaderUI) (ready to use with Swift Package Mananger supported) for SwiftUI implementation of this.
+
 ## Introduction
 `NVActivityIndicatorView` is a collection of awesome loading animations.
 
