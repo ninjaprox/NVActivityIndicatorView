@@ -2,7 +2,7 @@ language: objective-c
 env:
   global:
   - PROJECT=NVActivityIndicatorView.xcodeproj
-  - SCHEME=TESTS
+  - SCHEME=Tests
 matrix:
   include:
   - osx_image: xcode10.2
