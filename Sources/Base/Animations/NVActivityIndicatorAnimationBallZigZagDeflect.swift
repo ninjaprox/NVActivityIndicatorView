@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallZigZagDeflect: NVActivityIndicatorAnimationDelegate {
@@ -80,3 +81,4 @@ class NVActivityIndicatorAnimationBallZigZagDeflect: NVActivityIndicatorAnimatio
         layer.addSublayer(circle)
     }
 }
+#endif

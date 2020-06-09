@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimationDelegate {
@@ -91,3 +92,4 @@ class NVActivityIndicatorAnimationLineSpinFadeLoader: NVActivityIndicatorAnimati
         return lineContainer
     }
 }
+#endif

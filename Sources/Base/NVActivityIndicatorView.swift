@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 /**
@@ -559,3 +560,4 @@ public final class NVActivityIndicatorView: UIView {
         animation.setUpAnimation(in: layer, size: animationRect.size, color: color)
     }
 }
+#endif

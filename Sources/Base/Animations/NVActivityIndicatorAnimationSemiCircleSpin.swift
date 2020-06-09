@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationSemiCircleSpin: NVActivityIndicatorAnimationDelegate {
@@ -55,3 +56,4 @@ class NVActivityIndicatorAnimationSemiCircleSpin: NVActivityIndicatorAnimationDe
         layer.addSublayer(circle)
     }
 }
+#endif

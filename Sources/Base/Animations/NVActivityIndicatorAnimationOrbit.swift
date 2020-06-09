@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
@@ -190,3 +191,4 @@ class NVActivityIndicatorAnimationOrbit: NVActivityIndicatorAnimationDelegate {
         layer.addSublayer(circle)
     }
 }
+#endif

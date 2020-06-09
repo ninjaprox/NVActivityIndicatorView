@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate {
@@ -80,3 +81,4 @@ class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate
         }
     }
 }
+#endif

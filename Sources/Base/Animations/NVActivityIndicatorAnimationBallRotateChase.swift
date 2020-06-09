@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallRotateChase: NVActivityIndicatorAnimationDelegate {
@@ -74,3 +75,4 @@ class NVActivityIndicatorAnimationBallRotateChase: NVActivityIndicatorAnimationD
         return animation
     }
 }
+#endif

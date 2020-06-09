@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBlank: NVActivityIndicatorAnimationDelegate {
@@ -33,3 +34,4 @@ class NVActivityIndicatorAnimationBlank: NVActivityIndicatorAnimationDelegate {
         // Do nothing
     }
 }
+#endif

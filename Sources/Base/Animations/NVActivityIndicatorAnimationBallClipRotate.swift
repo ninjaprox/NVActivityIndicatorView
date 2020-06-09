@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallClipRotate: NVActivityIndicatorAnimationDelegate {
@@ -69,3 +70,4 @@ class NVActivityIndicatorAnimationBallClipRotate: NVActivityIndicatorAnimationDe
         layer.addSublayer(circle)
     }
 }
+#endif

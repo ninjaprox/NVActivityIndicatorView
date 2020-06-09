@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationSquareSpin: NVActivityIndicatorAnimationDelegate {
@@ -77,3 +78,4 @@ class NVActivityIndicatorAnimationSquareSpin: NVActivityIndicatorAnimationDelega
         return transform
     }
 }
+#endif

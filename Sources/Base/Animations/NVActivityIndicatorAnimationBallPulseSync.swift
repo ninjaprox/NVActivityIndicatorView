@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallPulseSync: NVActivityIndicatorAnimationDelegate {
@@ -69,3 +70,4 @@ class NVActivityIndicatorAnimationBallPulseSync: NVActivityIndicatorAnimationDel
         }
     }
 }
+#endif

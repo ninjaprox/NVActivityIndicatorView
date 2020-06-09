@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
@@ -126,3 +127,4 @@ class NVActivityIndicatorAnimationPacman: NVActivityIndicatorAnimationDelegate {
         layer.addSublayer(circle)
     }
 }
+#endif

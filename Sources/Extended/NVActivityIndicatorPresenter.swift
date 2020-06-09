@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 import NVActivityIndicatorView
 
@@ -333,3 +334,4 @@ public final class NVActivityIndicatorPresenter {
         }
     }
 }
+#endif

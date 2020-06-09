@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallGridPulse: NVActivityIndicatorAnimationDelegate {
@@ -82,3 +83,4 @@ class NVActivityIndicatorAnimationBallGridPulse: NVActivityIndicatorAnimationDel
         }
     }
 }
+#endif

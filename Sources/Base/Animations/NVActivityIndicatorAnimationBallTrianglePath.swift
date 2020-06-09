@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallTrianglePath: NVActivityIndicatorAnimationDelegate {
@@ -108,3 +109,4 @@ class NVActivityIndicatorAnimationBallTrianglePath: NVActivityIndicatorAnimation
         return valueMutableString as String
     }
 }
+#endif

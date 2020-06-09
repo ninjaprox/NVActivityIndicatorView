@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDelegate {
@@ -94,3 +95,4 @@ class NVActivityIndicatorAnimationCubeTransition: NVActivityIndicatorAnimationDe
         }
     }
 }
+#endif

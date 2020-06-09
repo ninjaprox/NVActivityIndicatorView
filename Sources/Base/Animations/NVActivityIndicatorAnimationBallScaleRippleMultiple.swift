@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAnimationDelegate {
@@ -74,3 +75,4 @@ class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAn
         }
     }
 }
+#endif

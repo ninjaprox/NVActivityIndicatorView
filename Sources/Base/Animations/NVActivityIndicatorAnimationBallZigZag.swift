@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 import QuartzCore
 
@@ -80,3 +81,4 @@ class NVActivityIndicatorAnimationBallZigZag: NVActivityIndicatorAnimationDelega
         layer.addSublayer(circle)
     }
 }
+#endif

@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallDoubleBounce: NVActivityIndicatorAnimationDelegate {
@@ -63,3 +64,4 @@ class NVActivityIndicatorAnimationBallDoubleBounce: NVActivityIndicatorAnimation
         layer.addSublayer(circle)
     }
 }
+#endif

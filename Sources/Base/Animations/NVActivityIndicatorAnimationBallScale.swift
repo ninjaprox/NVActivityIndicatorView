@@ -25,6 +25,7 @@
 // SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegate {
@@ -70,3 +71,4 @@ class NVActivityIndicatorAnimationBallScale: NVActivityIndicatorAnimationDelegat
         layer.addSublayer(circle)
     }
 }
+#endif
