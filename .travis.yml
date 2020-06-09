@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: NVActivityIndicatorView.xcodeproj
 xcode_scheme: Tests
-xcode_destination: platform=iOS Simulator,OS=8.1,name=iPhone 8
+xcode_destination: platform=iOS Simulator,OS=8.1,name=iPhone 6
