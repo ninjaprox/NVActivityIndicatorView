@@ -1,12 +1,4 @@
 language: objective-c
-env:
-  global:
-  - PROJECT=NVActivityIndicatorView.xcodeproj
-  - SCHEME=Tests
-matrix:
-  include:
-  - osx_image: xcode10.2
-    env: SDK="iphonesimulator12.2" DESTINATION="name=iPhone 6s,OS=12.2"
-script:
-  - set -o pipefail
-  - xcodebuild -project	"$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES clean test | xcpretty -c
+xcode_project: NVActivityIndicatorView.xcodeproj
+xcode_scheme: Tests
+xcode_destination: platform=iOS Simulator,OS=8.1,name=iPhone 8
