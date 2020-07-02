@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name              = 'NVActivityIndicatorView'
-  s.version           = '4.8.0'
+  s.version           = '5.0.0'
   s.summary           = 'A collection of awesome loading animations'
   s.homepage          = 'https://github.com/ninjaprox/NVActivityIndicatorView'
   s.screenshot        = 'https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif'
@@ -16,14 +16,14 @@ Pod::Spec.new do |s|
   s.source = { git: 'https://github.com/ninjaprox/NVActivityIndicatorView.git',
                tag: s.version }
 
-  s.subspec 'Presenter' do |ps|
-    ps.source_files = 'Source/NVActivityIndicatorView/**/*.swift'
+  s.subspec 'Base' do |ss|
+    ss.source_files = 'Sources/Base/**/*.swift'
   end
-  s.subspec 'AppExtension' do |aes|
-    aes.source_files = 'Source/NVActivityIndicatorView/**/*.swift'
-    aes.exclude_files = 'Source/NVActivityIndicatorView/Presenter/*.swift'
+  s.subspec 'Extended' do |ss|
+    ss.dependency 'NVActivityIndicatorView/Base'
+    ss.source_files = 'Sources/Extended/**/*.swift'
   end
-  s.default_subspec = 'Presenter'
+  s.default_subspec = 'Base'
 
   s.frameworks = 'UIKit', 'QuartzCore'
 end

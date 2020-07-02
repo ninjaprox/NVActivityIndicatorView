@@ -17,9 +17,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          NVActivityIndicatorView Docs
+          NVActivityIndicatorView 5.0.0 Docs
         </a>
-         (98% documented)
+        
       </p>
     
     
@@ -45,12 +45,6 @@
             <a class="nav-group-name-link" href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/ActivityData.html">ActivityData</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/NVActivityIndicatorPresenter.html">NVActivityIndicatorPresenter</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a>
               </li>
             </ul>
@@ -60,14 +54,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/NVActivityIndicatorType.html">NVActivityIndicatorType</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/NVActivityIndicatorViewable.html">NVActivityIndicatorViewable</a>
               </li>
             </ul>
           </li>
@@ -87,26 +73,20 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             
             <h1 id='nvactivityindicatorview' class='heading'>NVActivityIndicatorView</h1>
 
-<p><a href="https://travis-ci.org/ninjaprox/NVActivityIndicatorView"><img src="https://travis-ci.org/ninjaprox/NVActivityIndicatorView.svg?branch=master" alt="Build Status"></a>
+<p><a href="https://travis-ci.com/ninjaprox/NVActivityIndicatorView"><img src="https://travis-ci.com/ninjaprox/NVActivityIndicatorView.svg?branch=master" alt="Build Status"></a>
 <a href="https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg"><img src="https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg" alt="Cocoapods Compatible"></a>
-<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible"></a>
-<a href="https://houndci.com"><img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg" alt="Reviewed by Hound"></a></p>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible"></a></p>
+
+<p>⚠️ Check out <a href="https://github.com/ninjaprox/LoaderUI">LoaderUI</a> (ready to use with Swift Package Mananger supported) for SwiftUI implementation of this. 🎉</p>
 <h2 id='introduction' class='heading'>Introduction</h2>
 
 <p><code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> is a collection of awesome loading animations.</p>
 
-<p>This is original a fork from <a href="https://github.com/gontovnik/DGActivityIndicatorView">DGActivityIndicatorView</a>, inspired by <a href="https://github.com/ConnorAtherton/loaders.css">Loaders.css</a>, written in Swift with full implementation of animations, plus more.</p>
-
-<p>You can also find Objective-C version of this <a href="https://github.com/ninjaprox/DGActivityIndicatorView">here</a>.</p>
-<h2 id='demo' class='heading'>Demo</h2>
-
-<p><img src="https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif" alt="alt tag"></p>
-
-<p>For first-hand experience, just open the project and run it.</p>
+<p><img src="https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif" alt="Demo"></p>
 <h2 id='animation-types' class='heading'>Animation types</h2>
 
 <table><thead>
@@ -169,62 +149,22 @@
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='cocoapods' class='heading'>Cocoapods</h3>
 
-<p>Install <a href="https://cocoapods.org/#install">Cocoapods</a> if need be.</p>
-<pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
+<p><a href="https://cocoapods.org/#install">Cocoapods</a> is a dependency manager for Swift and Objective-C Cocoa projects. To use NVActivityIndicatorView with CocoaPods, add it in your <code>Podfile</code>.</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'NVActivityIndicatorView'</span>
 </code></pre>
-
-<p>Add <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> in your <code>Podfile</code>.</p>
-<pre class="highlight ruby"><code><span class="n">use_frameworks!</span>
-
-<span class="n">pod</span> <span class="s1">'NVActivityIndicatorView'</span>
-</code></pre>
-
-<p>If you&rsquo;re using <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> in an app extension, use <code>NVActivityIndicatorView/AppExtension</code> instead.</p>
-<pre class="highlight ruby"><code><span class="n">use_frameworks!</span>
-
-<span class="n">pod</span> <span class="s1">'NVActivityIndicatorView/AppExtension'</span>
-</code></pre>
-
-<p>Then, run the following command.</p>
-<pre class="highlight shell"><code><span class="gp">$ </span>pod install
-</code></pre>
-
-<p><em><strong>Note:</strong> Please refer to the migration note for version <a href="#version-370"><code>3.7.0</code></a> below.</em></p>
 <h3 id='carthage' class='heading'>Carthage</h3>
 
-<p>Install <a href="https://github.com/Carthage/Carthage#installing-carthage">Carthage</a> if need be.</p>
-<pre class="highlight shell"><code><span class="gp">$ </span>brew update
-<span class="gp">$ </span>brew install carthage
-</code></pre>
-
-<p>Add <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> in your <code>Cartfile</code>.</p>
+<p><a href="https://github.com/Carthage/Carthage#installing-carthage">Carthage</a> is intended to be the simplest way to add frameworks to your Cocoa application. To use NVActivityIndicatorView with Carthage, add it in your <code>Cartfile</code>.</p>
 <pre class="highlight ruby"><code><span class="n">github</span> <span class="s2">"ninjaprox/NVActivityIndicatorView"</span>
 </code></pre>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
 
-<p>Run <code>carthage</code> to build the framework and drag the built <code>NVActivityIndicatorView.framework</code> in the folder appropriateto the platform, e.g. iOS, tvOS, into your Xcode project.</p>
-
-<p><em><strong>Note:</strong> You might encounter compile issue, if so please use <code>carthage</code> branch instead. Check issue <a href="https://github.com/ninjaprox/NVActivityIndicatorView/issues/101">#101</a> for more information.</em></p>
-<h3 id='manual' class='heading'>Manual</h3>
-
-<p>Copy <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> folder to your project. That&rsquo;s it.</p>
-
-<p><em><strong>Note:</strong> Make sure that all files in <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> included in Compile Sources in Build Phases.</em></p>
-
-<p><em><strong>Note:</strong> If you encounter issues while uploading the app to iTunes Connect, remove the <code>Info.plist</code> file in <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>. Check issue <a href="https://github.com/ninjaprox/NVActivityIndicatorView/issues/129">#129</a> for more information.</em></p>
+<p>The <a href="https://swift.org/package-manager/">Swift Package Manager</a> is a tool for managing the distribution of Swift code. To use NVActivityIndicatorView with Swift Package Manger, add it to <code>dependencies</code> in your <code>Package.swift</code></p>
+<pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/ninjaprox/NVActivityIndicatorView.git"</span><span class="p">)</span>
+<span class="p">]</span>
+</code></pre>
 <h2 id='migration' class='heading'>Migration</h2>
-<h3 id='version-4-4-0' class='heading'>Version 4.4.0</h3>
-
-<p>This version requires Xcode 10.1 and Swift 4.2.</p>
-<h3 id='version-4-0-0' class='heading'>Version 4.0.0</h3>
-
-<p>This version requires Xcode 9.0 and Swift 4.</p>
-<h3 id='version-3-7-0' class='heading'>Version 3.7.0</h3>
-
-<p>This version splits <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> pod to 2 subpods <code>NVActivityIndicatorView/Presenter</code> and <code>NVActivityIndicatorView/AppExtension</code>. There is no need to change <code>pod NVActivityIndicatorView</code> to <code>pod NVActivityIndicatorView/Presenter</code> since it will be installed by default if you use the main pod name.</p>
-
-<p>However, if you want to use <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> in an app extension, use <code>pod NVActivityIndicatorView/AppExtension</code> instead.</p>
-
-<p><em><strong>Note:</strong> Related issue <a href="https://github.com/ninjaprox/NVActivityIndicatorView/issues/119">#119</a>.</em></p>
 <h2 id='usage' class='heading'>Usage</h2>
 
 <p>Firstly, import <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>.</p>
@@ -238,10 +178,10 @@
 <li>By storyboard, changing class of any <code>UIView</code> to <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>.</li>
 </ul>
 
-<p><em><strong>Note:</strong> Set Module to <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>.</em></p>
+<p><em><strong>Note:</strong> Set <code>Module</code> to <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code>.</em></p>
 
 <ul>
-<li>By code, using initializer. All parameters other than <code>frame</code> are optional and <code>NVActivityIndicatorView.DEFAULT_*</code> are used as default values.</li>
+<li>By code, using initializer. All parameters other than <code>frame</code> are optional and <a href="https://nvactivityindicatorview.vinhis.me/Classes/NVActivityIndicatorView.html"><code>NVActivityIndicatorView.DEFAULT_*</code></a> are used as default values.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">NVActivityIndicatorView</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="n">frame</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="n">type</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span> <span class="nv">padding</span><span class="p">:</span> <span class="n">padding</span><span class="p">)</span>
 </code></pre>
@@ -267,56 +207,12 @@
 <p>All properties are public so you can change them after initializing.</p>
 
 <p><em><strong>Note:</strong> All changes must be made before calling <code>startAnimating()</code>.</em></p>
-<h3 id='ui-blocker' class='heading'>UI blocker</h3>
+<h2 id='documentation' class='heading'>Documentation</h2>
 
-<p>By conforming <code><a href="Protocols/NVActivityIndicatorViewable.html">NVActivityIndicatorViewable</a></code> protocol, you can use <code><a href="Classes/NVActivityIndicatorView.html">NVActivityIndicatorView</a></code> as UI blocker for <code>UIViewController</code>.</p>
-<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">NVActivityIndicatorViewable</span> <span class="p">{</span> <span class="p">}</span>
-</code></pre>
-
-<p>Start animating.</p>
-<pre class="highlight swift"><code><span class="nf">startAnimating</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span> <span class="c1">// plus other parameters as in initializer.</span>
-</code></pre>
-
-<p>Stop animating.</p>
-<pre class="highlight swift"><code><span class="nf">stopAnimating</span><span class="p">()</span>
-</code></pre>
-
-<p>Check if it is animating.</p>
-<pre class="highlight swift"><code><span class="n">animating</span> <span class="o">=</span> <span class="n">isAnimating</span>
-</code></pre>
-
-<p>Or you can use <code><a href="Classes/NVActivityIndicatorPresenter.html">NVActivityIndicatorPresenter</a></code> to display UI blocker anywhere.</p>
-
-<p>Start animating.</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">activityData</span> <span class="o">=</span> <span class="kt">ActivityData</span><span class="p">()</span>
-
-<span class="kt">NVActivityIndicatorPresenter</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">startAnimating</span><span class="p">(</span><span class="n">activityData</span><span class="p">)</span>
-</code></pre>
-
-<p><em><strong>Note:</strong> Check <a href="https://nvactivityindicatorview.vinhis.me">documentation</a> for detail of <code><a href="Classes/ActivityData.html">ActivityData</a></code>.</em></p>
-
-<p>Stop animating.</p>
-<pre class="highlight swift"><code><span class="kt">NVActivityIndicatorPresenter</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">stopAnimating</span><span class="p">()</span>
-</code></pre>
-
-<p>Change message.</p>
-<pre class="highlight swift"><code><span class="kt">NVActivityIndicatorPresenter</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">setMessage</span><span class="p">(</span><span class="s">"Done"</span><span class="p">)</span>
-</code></pre>
-
-<p>Check if it is animating.</p>
-<pre class="highlight swift"><code><span class="n">animating</span> <span class="o">=</span> <span class="kt">NVActivityIndicatorPresenter</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">isAnimating</span>
-</code></pre>
-<h4 id='fade-in-out-animation' class='heading'>Fade in/out animation</h4>
-
-<p>You have control over showing and hiding UI blocker animation.</p>
-<pre class="highlight swift"><code><span class="nf">startAnimating</span><span class="p">(</span><span class="nv">fadeInAnimation</span><span class="p">:</span> <span class="n">fadeInAnimation</span><span class="p">)</span>
-<span class="nf">stopAnimating</span><span class="p">(</span><span class="n">fadeOutAnimation</span><span class="p">)</span>
-</code></pre>
-
-<p>Check <code>DEFAULT_FADE_IN_ANIMATION</code> and <code>DEFAULT_FADE_OUT_ANIMATION</code> for examples of how to implement animation.</p>
+<p><a href="https://nvactivityindicatorview.vinhis.me/">https://nvactivityindicatorview.vinhis.me/</a></p>
 <h2 id='acknowledgment' class='heading'>Acknowledgment</h2>
 
-<p>Thanks <a href="https://github.com/ConnorAtherton">Connor Atherton</a> for great loaders and <a href="https://github.com/gontovnik">Danil Gontovnik</a> for kick-start.</p>
+<p>Thanks <a href="https://github.com/ConnorAtherton">Connor Atherton</a> for inspired <a href="https://github.com/ConnorAtherton/loaders.css">Loaders.css</a> and <a href="https://github.com/gontovnik">Danil Gontovnik</a> for <a href="https://github.com/gontovnik/DGActivityIndicatorView">DGActivityIndicatorView</a>.</p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>The MIT License (MIT)</p>
@@ -330,8 +226,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://github.com/ninjaprox" target="_blank" rel="external">Vinh Nguyen</a>. All rights reserved. (Last updated: 2019-01-23)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://github.com/ninjaprox" target="_blank" rel="external">Vinh Nguyen</a>. All rights reserved. (Last updated: 2020-07-02)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
