@@ -1,24 +1,16 @@
 # NVActivityIndicatorView
 
-[![Build Status](https://travis-ci.org/ninjaprox/NVActivityIndicatorView.svg?branch=master)](https://travis-ci.org/ninjaprox/NVActivityIndicatorView)
+[![Build Status](https://travis-ci.com/ninjaprox/NVActivityIndicatorView.svg?branch=master)](https://travis-ci.com/ninjaprox/NVActivityIndicatorView)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-⚠️ Check out [LoaderUI](https://github.com/ninjaprox/LoaderUI) (ready to use with Swift Package Mananger supported) for SwiftUI implementation of this.
+⚠️ Check out [LoaderUI](https://github.com/ninjaprox/LoaderUI) (ready to use with Swift Package Mananger supported) for SwiftUI implementation of this. 🎉
 
 ## Introduction
 
 `NVActivityIndicatorView` is a collection of awesome loading animations.
 
-This is original a fork from [DGActivityIndicatorView](https://github.com/gontovnik/DGActivityIndicatorView), inspired by [Loaders.css](https://github.com/ConnorAtherton/loaders.css), written in Swift with full implementation of animations, plus more.
-
-You can also find Objective-C version of this [here](https://github.com/ninjaprox/DGActivityIndicatorView).
-
-## Demo
-
-![alt tag](https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif)
-
-For first-hand experience, just open the project and run it.
+![Demo](https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif)
 
 ## Animation types
 
@@ -79,7 +71,7 @@ Then, there are two ways you can create `NVActivityIndicatorView`:
 
 _**Note:** Set `Module` to `NVActivityIndicatorView`._
 
--   By code, using initializer. All parameters other than `frame` are optional and `NVActivityIndicatorView.DEFAULT_*` are used as default values.
+-   By code, using initializer. All parameters other than `frame` are optional and [`NVActivityIndicatorView.DEFAULT_*`](https://nvactivityindicatorview.vinhis.me/Classes/NVActivityIndicatorView.html) are used as default values.
 
 ```swift
 NVActivityIndicatorView(frame: frame, type: type, color: color, padding: padding)
@@ -115,13 +107,13 @@ All properties are public so you can change them after initializing.
 
 _**Note:** All changes must be made before calling `startAnimating()`._
 
-### Documentation
+## Documentation
 
 https://nvactivityindicatorview.vinhis.me/
 
 ## Acknowledgment
 
-Thanks [Connor Atherton](https://github.com/ConnorAtherton) for great loaders and [Danil Gontovnik](https://github.com/gontovnik) for kick-start.
+Thanks [Connor Atherton](https://github.com/ConnorAtherton) for inspired [Loaders.css](https://github.com/ConnorAtherton/loaders.css) and [Danil Gontovnik](https://github.com/gontovnik) for [DGActivityIndicatorView](https://github.com/gontovnik/DGActivityIndicatorView).
 
 ## License
 
