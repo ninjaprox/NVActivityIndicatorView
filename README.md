@@ -59,6 +59,8 @@ dependencies: [
 
 ## Migration
 
+Version [5.0.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/5.0.0) comes with breaking changes. Please refer to the release note for details.
+
 ## Usage
 
 Firstly, import `NVActivityIndicatorView`.
