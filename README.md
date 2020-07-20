@@ -12,6 +12,10 @@
 
 ![Demo](https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif)
 
+`NVActivityIndicatorView` is being sponsored by the following tool; please help to support us by taking a look and signing up to a free trial
+
+[![GitAds](https://images.gitads.io/NVActivityIndicatorView)](https://tracking.gitads.io/?repo=NVActivityIndicatorView)
+
 ## Animation types
 
 | Type                   | Type                        | Type                   | Type                       |
@@ -114,10 +118,6 @@ https://nvactivityindicatorview.vinhis.me/
 ## Acknowledgment
 
 Thanks [Connor Atherton](https://github.com/ConnorAtherton) for inspired [Loaders.css](https://github.com/ConnorAtherton/loaders.css) and [Danil Gontovnik](https://github.com/gontovnik) for [DGActivityIndicatorView](https://github.com/gontovnik/DGActivityIndicatorView).
-
-## Sponsor
-
-[![GitAds](https://images.gitads.io/NVActivityIndicatorView)](https://tracking.gitads.io/?repo=NVActivityIndicatorView)
 
 ## License
 
