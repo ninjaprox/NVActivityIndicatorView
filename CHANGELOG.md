@@ -1,5 +1,9 @@
 # Change log
 
+## [5.0.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/5.0.1)
+
+-   Fix #314
+
 ## [5.0.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/5.0.0)
 
 -   Deprecate `NVActivityIndicatorViewable` and `NVActivityIndicatorPresenter`
