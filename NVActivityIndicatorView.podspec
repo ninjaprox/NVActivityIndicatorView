@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name              = 'NVActivityIndicatorView'
-  s.version           = '5.0.1'
+  s.version           = '5.1.0'
   s.summary           = 'A collection of awesome loading animations'
   s.homepage          = 'https://github.com/ninjaprox/NVActivityIndicatorView'
   s.screenshot        = 'https://raw.githubusercontent.com/ninjaprox/NVActivityIndicatorView/master/Demo.gif'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.social_media_url  = 'http://twitter.com/ninjaprox'
   s.documentation_url = 'https://nvactivityindicatorview.vinhis.me'
 
-  s.ios.deployment_target  = '8.0'
+  s.ios.deployment_target  = '9.0'
   s.tvos.deployment_target = '9.0'
   s.swift_version          = '5.0'
 
