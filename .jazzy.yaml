@@ -5,11 +5,13 @@ github_url: https://github.com/ninjaprox/NVActivityIndicatorView
 
 theme: fullwidth
 disable_search: true
+hide_documentation_coverage: true
+clean: true
 
 module: NVActivityIndicatorView
-source_directory: Source
-xcodebuild_arguments:
+module_version: 5.0.0
+build_tool_arguments:
 - -scheme
-- NVActivityIndicatorView-iOS
+- NVActivityIndicatorView-Package
 - -project
 - NVActivityIndicatorView.xcodeproj
