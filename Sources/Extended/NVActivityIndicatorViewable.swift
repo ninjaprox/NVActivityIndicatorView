@@ -26,6 +26,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 /**
  *  UIViewController conforms this protocol to be able to display NVActivityIndicatorView as UI blocker.
