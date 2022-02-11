@@ -39,17 +39,14 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
     }
-    
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let safeArea = view.safeAreaLayoutGuide.layoutFrame
-        
-        
-        
+
         var cols = 4
         var rows = Int(ceil(Double(presentingIndicatorTypes.count) / 4.0))
-        if (safeArea.width > safeArea.height) {
+        if safeArea.width > safeArea.height {
             //Landscape
             cols = Int(ceil(Double(presentingIndicatorTypes.count) / 4.0))
             rows = 4
@@ -60,7 +57,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
         self.view.subviews.forEach {
             $0.removeFromSuperview()
         }
-        
+
         for (index, indicatorType) in presentingIndicatorTypes.enumerated() {
             let x = index % cols * cellWidth + Int(safeArea.origin.x)
             let y = index / cols * cellHeight + Int(safeArea.origin.y)
