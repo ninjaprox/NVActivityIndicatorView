@@ -117,12 +117,14 @@ private struct NVActivityIndicatorPresenterStateWaitingToStart: NVActivityIndica
     func startAnimating(presenter: NVActivityIndicatorPresenter, _ fadeInAnimation: FadeInAnimation?) {
         guard let activityData = presenter.data else { return }
 
+        NotificationCenter.default.post(name: .NVActivityIndicatorPresenterAnimatingNotification, object: true)
         presenter.show(with: activityData, fadeInAnimation)
         presenter.state = .animating
         presenter.waitingToStartGroup.leave()
     }
 
     func stopAnimating(presenter: NVActivityIndicatorPresenter, _ fadeOutAnimation: FadeOutAnimation?) {
+        NotificationCenter.default.post(name: .NVActivityIndicatorPresenterAnimatingNotification, object: false)
         presenter.state = .stopped
         presenter.waitingToStartGroup.leave()
     }
@@ -337,3 +339,7 @@ public final class NVActivityIndicatorPresenter {
     }
 }
 #endif
+
+public extension Notification.Name {
+    static let NVActivityIndicatorPresenterAnimatingNotification = Notification.Name("NVActivityIndicatorPresenterAnimatingNotification")
+}
