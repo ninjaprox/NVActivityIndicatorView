@@ -1,6 +1,6 @@
 # NVActivityIndicatorView
 
-[![Build Status](https://travis-ci.com/ninjaprox/NVActivityIndicatorView.svg?branch=master)](https://travis-ci.com/ninjaprox/NVActivityIndicatorView)
+[![Build Status](https://github.com/ninjaprox/NVActivityIndicatorView/actions/workflows/ios.yml/badge.svg?event=push)](https://github.com/ninjaprox/NVActivityIndicatorView/actions/workflows/ios.yml)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)](https://img.shields.io/cocoapods/v/NVActivityIndicatorView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
