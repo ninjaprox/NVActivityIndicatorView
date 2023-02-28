@@ -37,17 +37,30 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.view.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
+    }
 
-        let cols = 4
-        let rows = 8
-        let cellWidth = Int(self.view.frame.width / CGFloat(cols))
-        let cellHeight = Int(self.view.frame.height / CGFloat(rows))
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let safeArea = view.safeAreaLayoutGuide.layoutFrame
+
+        var cols = 4
+        var rows = Int(ceil(Double(presentingIndicatorTypes.count) / 4.0))
+        if safeArea.width > safeArea.height {
+            //Landscape
+            cols = Int(ceil(Double(presentingIndicatorTypes.count) / 4.0))
+            rows = 4
+        }
+        let cellWidth = Int(safeArea.width / CGFloat(cols))
+        let cellHeight = Int(safeArea.height / CGFloat(rows))
+
+        self.view.subviews.forEach {
+            $0.removeFromSuperview()
+        }
 
         for (index, indicatorType) in presentingIndicatorTypes.enumerated() {
-            let x = index % cols * cellWidth
-            let y = index / cols * cellHeight
+            let x = index % cols * cellWidth + Int(safeArea.origin.x)
+            let y = index / cols * cellHeight + Int(safeArea.origin.y)
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
             let activityIndicatorView = NVActivityIndicatorView(frame: frame,
                                                                 type: indicatorType)
@@ -55,6 +68,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable {
 
             animationTypeLabel.text = String(index)
             animationTypeLabel.sizeToFit()
+            animationTypeLabel.allowsDefaultTighteningForTruncation = true
             animationTypeLabel.textColor = UIColor.white
             animationTypeLabel.frame.origin.x += 5
             animationTypeLabel.frame.origin.y += CGFloat(cellHeight) - animationTypeLabel.frame.size.height
