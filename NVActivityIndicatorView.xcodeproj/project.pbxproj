@@ -116,6 +116,7 @@
 		1F183708248CF31500583430 /* NVActivityIndicatorPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenterTests.swift; sourceTree = "<group>"; };
 		1F183709248CF31500583430 /* NVActivityIndicatorViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewTests.swift; sourceTree = "<group>"; };
 		1F18370A248CF31500583430 /* NVActivityIndicatorTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorTypeTests.swift; sourceTree = "<group>"; };
+		1F73073E2BCFFEC700FBF25A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		"NVActivityIndicatorView::NVActivityIndicatorView::Product" /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"NVActivityIndicatorView::NVActivityIndicatorViewExtended::Product" /* NVActivityIndicatorViewExtended.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NVActivityIndicatorViewExtended.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* NVActivityIndicatorAnimationAudioEqualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationAudioEqualizer.swift; sourceTree = "<group>"; };
@@ -241,22 +242,15 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				1F73073E2BCFFEC700FBF25A /* PrivacyInfo.xcprivacy */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_50 /* Tests */,
 				1F1836DE248CEFC200583430 /* Example */,
 				1F1836FC248CF25600583430 /* Tests */,
 				OBJ_51 /* Products */,
 				1F1836F1248CF08B00583430 /* Frameworks */,
 			);
 			sourceTree = "<group>";
-		};
-		OBJ_50 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Tests;
-			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_51 /* Products */ = {
 			isa = PBXGroup;
