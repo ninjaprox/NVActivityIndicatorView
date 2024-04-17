@@ -9,7 +9,7 @@ hide_documentation_coverage: true
 clean: true
 
 module: NVActivityIndicatorView
-module_version: 5.0.0
+module_version: 5.2.0
 build_tool_arguments:
 - -scheme
 - NVActivityIndicatorView-Package
