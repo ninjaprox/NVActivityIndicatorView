@@ -1,5 +1,9 @@
 # Change log
 
+## [5.2.0](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/5.2.0)
+
+-   Add privacy manifest (#349)
+
 ## [5.1.1](https://github.com/ninjaprox/NVActivityIndicatorView/releases/tag/5.1.1)
 
 -   Fix #319 (amendment)
