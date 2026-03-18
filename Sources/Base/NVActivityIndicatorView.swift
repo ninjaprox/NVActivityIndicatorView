@@ -532,11 +532,9 @@ public final class NVActivityIndicatorView: UIView {
 
     // swiftlint:disable:next identifier_name
     func _setTypeName(_ typeName: String) {
-        for item in NVActivityIndicatorType.allCases {
-            if String(describing: item).caseInsensitiveCompare(typeName) == ComparisonResult.orderedSame {
-                type = item
-                break
-            }
+        for item in NVActivityIndicatorType.allCases where String(describing: item).caseInsensitiveCompare(typeName) == .orderedSame {
+            type = item
+            break
         }
     }
 
